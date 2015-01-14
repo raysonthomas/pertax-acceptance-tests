@@ -51,7 +51,7 @@ object RemoteWebDriverFactory {
     new RemoteWebDriver(new URL(browserStackURL), dc)
   }
 
-// for Windows
+  // for Windows
   lazy val buildWinXPie6Driver = buildRemoteWebDriver(winXPie6Caps)
   lazy val buildWinXPie7Driver = buildRemoteWebDriver(winXPie7Caps)
   lazy val buildWin7ie8Driver = buildRemoteWebDriver(win7ie8Caps)

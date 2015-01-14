@@ -2,7 +2,9 @@ package uk.gov.hmrc.integration.stepdefs
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.scalatest.Matchers
+import uk.gov.hmrc.integration.page.PageHelper
 import uk.gov.hmrc.integration.selenium.DriverContainer._
+import org.openqa.selenium._
 
 
 class GoogleWorks extends ScalaDsl with EN with Matchers {
@@ -15,8 +17,8 @@ class GoogleWorks extends ScalaDsl with EN with Matchers {
 
   When( """^I search for 'The Godfather'$""") {
     () => {
-      webDriver.findElementByCssSelector("input[name='q']").sendKeys("The Godfather")
-      webDriver.findElementByCssSelector("input[type='submit']").click()
+      webDriver.findElement(By.cssSelector("input[name='q']")).sendKeys("The Godfather")
+      webDriver.findElement(By.cssSelector("input[type='submit']")).click()
     }
 
   }

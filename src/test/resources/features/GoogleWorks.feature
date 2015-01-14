@@ -1,4 +1,3 @@
-@suite
 Feature: Google Search
   As a google user
   I want to google a film
