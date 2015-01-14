@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.{RemoteWebDriver, DesiredCapabilities}
 
 object RemoteWebDriverFactory {
 
-  private val browserStackCaps    = List("browserstack.debug" -> "true", "browserstack.local" -> "false")
+  private val browserStackCaps    = List("browserstack.debug" -> "true", "browserstack.local" -> "true")
 
   // OS for Windows
   private val windowsXPCaps       = List("os" -> "Windows", "os_version" -> "XP") ++ browserStackCaps

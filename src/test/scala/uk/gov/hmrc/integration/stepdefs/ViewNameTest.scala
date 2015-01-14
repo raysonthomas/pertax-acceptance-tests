@@ -5,6 +5,7 @@ import org.openqa.selenium.By
 import org.scalatest._
 import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
 import uk.gov.hmrc.integration.selenium.DriverContainer._
+import scala.collection.JavaConversions._
 
 
 class ViewNameTest extends ScalaDsl with EN with Matchers {
@@ -27,7 +28,7 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
 
   }
 
-  Then( """^"Personal Details page should be displayed$""") {
+  Then( """^Personal Details page should be displayed$""") {
     () => {
       webDriver.getTitle shouldBe "Personal Details"
     }
@@ -35,8 +36,9 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
 
   Then( """^"Mr Ryan Little" should be displayed$""") {
     () => {
-      webDriver.findElement(By.cssSelector(".pertax-personal-details>dl>dd:nth-of-type(1)")).getText shouldBe "John"
-      webDriver.findElement(By.cssSelector(".pertax-personal-details>dl>dd:nth-of-type(2)")).getText shouldBe "Densmore"
+      val dds = webDriver.findElements(By.cssSelector(".pertax-personal-details>dl>dd"))
+      dds.filter( _.getText == "John" ) should not be 'empty
+      dds.filter( _.getText == "Densmore" ) should not be 'empty
     }
   }
 }
