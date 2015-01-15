@@ -8,4 +8,4 @@ Feature: MTA-8_View Address
     Given Ryan Little has logged in to his account
     When Ryan Little navigates to Personal Details Page
     Then Personal Details page should be displayed
-    And "???Address???" should be displayed
+    And 'Address' should be displayed
