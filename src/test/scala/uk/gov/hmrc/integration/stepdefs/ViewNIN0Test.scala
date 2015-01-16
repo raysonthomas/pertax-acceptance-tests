@@ -5,7 +5,7 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
 import org.scalatest._
 import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
-import uk.gov.hmrc.integration.selenium.DriverFactory
+import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
 import scala.collection.JavaConversions._
 
 

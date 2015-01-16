@@ -2,9 +2,8 @@ package uk.gov.hmrc.integration.stepdefs
 
 import cucumber.api.java.{Before, After}
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.WebDriver
 import org.scalatest.Matchers
-import uk.gov.hmrc.integration.selenium.DriverFactory
+import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
 
 
 
