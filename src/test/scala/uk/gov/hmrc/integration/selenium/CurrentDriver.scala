@@ -16,4 +16,8 @@ object CurrentDriver {
       webDriver = DriverFactory.buildWebDriver
     webDriver
   }
+
+  def withCurrentDriver[T](block: WebDriver => T) = {
+    val r = block(getWebDriver)
+  }
 }
