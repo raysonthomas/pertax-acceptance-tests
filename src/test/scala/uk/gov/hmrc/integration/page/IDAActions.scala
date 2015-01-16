@@ -12,4 +12,8 @@ class IDAActions(val webDriver: WebDriver)  {
    def clickLoginStub = {
      webDriver.findElement(By.cssSelector("input[value='John Densmore']")).click()
    }
+  
+  def logout = {
+    webDriver.findElement(By.cssSelector("#proposition-links>a")).click()
+  }
 }

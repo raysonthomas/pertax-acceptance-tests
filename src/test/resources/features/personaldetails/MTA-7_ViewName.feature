@@ -1,4 +1,4 @@
-#@suite
+@suite
 Feature: MTA-7_View Name
   As a HMRC Customer
   I need to view my personal details,

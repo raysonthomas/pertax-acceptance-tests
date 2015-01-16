@@ -1,4 +1,4 @@
-#@suite
+@suite
 Feature: MTA-8_View Address
   As a HMRC Customer
   I need to view my personal details,

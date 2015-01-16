@@ -1,18 +1,22 @@
 package uk.gov.hmrc.integration.stepdefs
 
+import cucumber.api.Scenario
+import cucumber.api.java.{After, Before}
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.By
+import org.openqa.selenium.{WebDriver, By}
 import org.scalatest._
 import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
-import uk.gov.hmrc.integration.selenium.DriverContainer._
+import uk.gov.hmrc.integration.selenium.DriverContainer
 import scala.collection.JavaConversions._
 
 
 class ViewNameTest extends ScalaDsl with EN with Matchers {
 
+  lazy val webDriver = CurrentDriver.instance.webDriver
   
   val idaActions = new IDAActions(webDriver)
   val lpActions = new LandingPageActions(webDriver)
+  
   
   Given( """^Ryan Little has logged in to his account$""") {
     () => {
@@ -37,8 +41,12 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
   Then( """^"Mr Ryan Little" should be displayed$""") {
     () => {
       val dds = webDriver.findElements(By.cssSelector(".pertax-personal-details>dl>dd"))
-      dds.filter( _.getText == "John" ) should not be 'empty
-      dds.filter( _.getText == "Densmore" ) should not be 'empty
+      dds.filter(_.getText == "John") should not be 'empty
+      dds.filter(_.getText == "Densmore") should not be 'empty
+      
+      idaActions.logout
+      
+
     }
   }
 }

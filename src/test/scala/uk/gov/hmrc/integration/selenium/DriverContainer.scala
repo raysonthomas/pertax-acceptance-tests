@@ -1,5 +1,7 @@
 package uk.gov.hmrc.integration.selenium
 
+import java.util.concurrent.TimeUnit
+
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
@@ -9,21 +11,25 @@ object DriverContainer {
 
   System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/src/test/resources/chromedriver")
 
-  lazy implicit val webDriver: WebDriver = System.getProperty("browser", "firefox-local") match {
-    case "firefox-local"      => createLocalFirefoxDriver
-    case "chrome-local"       => createLocalChromeDriver
-    case "winxp-ie7-remote"   => createRemoteWinXPie7Driver
-    case "win7-ie8-remote"    => createRemoteWin7ie8Driver
-    case "win7-ie9-remote"    => createRemoteWin7ie9Driver
-    case "win7-ie10-remote"   => createRemoteWin7ie10Driver
-    case "win7-ie11-remote"   => createRemoteWin7ie11Driver
-    case "win8-ie11-remote"   => createRemoteWin8ie10Driver
-    case "win8.1-ie11-remote" => createRemoteWin81ie11Driver
-    case "safari-remotei7"    => createRemoteSafari7Driver
-    case "safari-remotei8"    => createRemoteSafari8Driver
-    case "safari-remotec"     => createRemoteChrome38river
-    case "safari-remotef"     => createRemoteFirefox33Driver
-    case _ => throw new IllegalArgumentException(s"Browser type not recognised")
+  def buildWebDriver = {
+    val webDriver = System.getProperty("browser", "firefox-local") match {
+      case "firefox-local" => createLocalFirefoxDriver
+      case "chrome-local" => createLocalChromeDriver
+      case "winxp-ie7-remote" => createRemoteWinXPie7Driver
+      case "win7-ie8-remote" => createRemoteWin7ie8Driver
+      case "win7-ie9-remote" => createRemoteWin7ie9Driver
+      case "win7-ie10-remote" => createRemoteWin7ie10Driver
+      case "win7-ie11-remote" => createRemoteWin7ie11Driver
+      case "win8-ie11-remote" => createRemoteWin8ie10Driver
+      case "win8.1-ie11-remote" => createRemoteWin81ie11Driver
+      case "MacOS-remotei7" => createRemoteSafari7Driver
+      case "MacOS-remotei8" => createRemoteSafari8Driver
+      case "MacOS-remotec" => createRemoteChrome38river
+      case "MacOS-remotef" => createRemoteFirefox33Driver
+      case _ => throw new IllegalArgumentException(s"Browser type not recognised")
+    }
+    webDriver.manage.timeouts.implicitlyWait(3, TimeUnit.SECONDS)
+    webDriver
   }
 
   //Local Drivers
