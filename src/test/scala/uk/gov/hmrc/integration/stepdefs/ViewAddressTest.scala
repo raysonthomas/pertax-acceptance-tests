@@ -6,15 +6,15 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
 import org.scalatest._
 import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
-import uk.gov.hmrc.integration.selenium.DriverContainer
+import uk.gov.hmrc.integration.selenium.DriverFactory
 import scala.collection.JavaConversions._
 
 
 class ViewAddressTest extends ScalaDsl with EN with Matchers {
 
-  lazy val webDriver = CurrentDriver.instance.webDriver
+  implicit def webDriver = CurrentDriver.getWebDriver
   
-  val idaActions = new IDAActions(webDriver)
+  val idaActions = new IDAActions
   
   Then( """^'Address' should be displayed$""") {
 
@@ -33,7 +33,6 @@ class ViewAddressTest extends ScalaDsl with EN with Matchers {
     dts.filter(_.getText == "Address from unknown date") should not be 'empty
     dds.filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
 
-    idaActions.logout
   }
 
 }

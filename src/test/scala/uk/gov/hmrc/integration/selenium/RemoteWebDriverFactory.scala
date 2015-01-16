@@ -52,22 +52,22 @@ object RemoteWebDriverFactory {
   }
 
   // for Windows
-  lazy val buildWinXPie6Driver = buildRemoteWebDriver(winXPie6Caps)
-  lazy val buildWinXPie7Driver = buildRemoteWebDriver(winXPie7Caps)
-  lazy val buildWin7ie8Driver = buildRemoteWebDriver(win7ie8Caps)
-  lazy val buildWin7ie9Driver = buildRemoteWebDriver(win7ie9Caps)
-  lazy val buildWin7ie10Driver = buildRemoteWebDriver(win7ie10Caps)
-  lazy val buildWin7ie11Driver = buildRemoteWebDriver(win7ie11Caps)
-  lazy val buildWin8ie10Driver = buildRemoteWebDriver(win8ie10Caps)
-  lazy val buildWin81ie11Driver = buildRemoteWebDriver(win81ie11Caps)
-  lazy val buildWin8chrome38Driver = buildRemoteWebDriver(win8chrome38Caps)
-  lazy val buildWin81chrome38CapDriver = buildRemoteWebDriver(win81chrome38Caps)
-  lazy val buildWin8firefox33CapDriver = buildRemoteWebDriver(win8firefox33Caps)
-  lazy val buildWin81firefox33Driver = buildRemoteWebDriver(win81firefox33Caps)
+  def buildWinXPie6Driver = buildRemoteWebDriver(winXPie6Caps)
+  def buildWinXPie7Driver = buildRemoteWebDriver(winXPie7Caps)
+  def buildWin7ie8Driver = buildRemoteWebDriver(win7ie8Caps)
+  def buildWin7ie9Driver = buildRemoteWebDriver(win7ie9Caps)
+  def buildWin7ie10Driver = buildRemoteWebDriver(win7ie10Caps)
+  def buildWin7ie11Driver = buildRemoteWebDriver(win7ie11Caps)
+  def buildWin8ie10Driver = buildRemoteWebDriver(win8ie10Caps)
+  def buildWin81ie11Driver = buildRemoteWebDriver(win81ie11Caps)
+  def buildWin8chrome38Driver = buildRemoteWebDriver(win8chrome38Caps)
+  def buildWin81chrome38CapDriver = buildRemoteWebDriver(win81chrome38Caps)
+  def buildWin8firefox33CapDriver = buildRemoteWebDriver(win8firefox33Caps)
+  def buildWin81firefox33Driver = buildRemoteWebDriver(win81firefox33Caps)
 
   //for MAC OS-X
-  lazy val buildMacosxMavericksSafari7Driver = buildRemoteWebDriver(macosxMavericksSafari7Caps)
-  lazy val buildMacosxYosemitesSafari8Driver = buildRemoteWebDriver(macosxYosemiteSafari8Caps)
-  lazy val buildMacosxYosemitechrome38Driver = buildRemoteWebDriver(macosxYosemitechrome38Caps)
-  lazy val buildMacosxYosemitefirefox33Driver = buildRemoteWebDriver(macosxYosemitefirefox33Caps)
+  def buildMacosxMavericksSafari7Driver = buildRemoteWebDriver(macosxMavericksSafari7Caps)
+  def buildMacosxYosemitesSafari8Driver = buildRemoteWebDriver(macosxYosemiteSafari8Caps)
+  def buildMacosxYosemitechrome38Driver = buildRemoteWebDriver(macosxYosemitechrome38Caps)
+  def buildMacosxYosemitefirefox33Driver = buildRemoteWebDriver(macosxYosemitefirefox33Caps)
 }

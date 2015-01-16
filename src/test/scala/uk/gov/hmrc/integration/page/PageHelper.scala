@@ -3,7 +3,7 @@ package uk.gov.hmrc.integration.page
 import org.openqa.selenium.{WebDriver, By, NoSuchElementException}
 import org.scalatest.selenium.WebBrowser
 import uk.gov.hmrc.integration.framework.{Server500ResponseException, Server502ResponseException}
-import uk.gov.hmrc.integration.selenium.DriverContainer
+import uk.gov.hmrc.integration.selenium.DriverFactory
 import uk.gov.hmrc.integration.utils.{Configuration, FixedDelay}
 
 object PageHelper extends WebBrowser {

@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
 import uk.gov.hmrc.integration.selenium.RemoteWebDriverFactory._
 
-object DriverContainer {
+object DriverFactory {
 
   System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/src/test/resources/chromedriver")
 
@@ -28,7 +28,8 @@ object DriverContainer {
       case "MacOS-remotef" => createRemoteFirefox33Driver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
-    webDriver.manage.timeouts.implicitlyWait(3, TimeUnit.SECONDS)
+    webDriver.manage.timeouts.implicitlyWait(6, TimeUnit.SECONDS)
+    webDriver.manage.window.maximize()
     webDriver
   }
 

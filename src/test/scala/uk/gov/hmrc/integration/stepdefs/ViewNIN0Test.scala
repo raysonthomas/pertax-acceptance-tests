@@ -5,21 +5,19 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
 import org.scalatest._
 import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
-import uk.gov.hmrc.integration.selenium.DriverContainer
+import uk.gov.hmrc.integration.selenium.DriverFactory
 import scala.collection.JavaConversions._
 
 
 class ViewNIN0Test extends ScalaDsl with EN with Matchers {
 
-  lazy val webDriver = CurrentDriver.instance.webDriver
+  implicit def webDriver = CurrentDriver.getWebDriver
   
-  val idaActions = new IDAActions(webDriver)
+  val idaActions = new IDAActions
   
   Then( """^"CS700100A" should be displayed$""") {
     val dds = webDriver.findElements(By.cssSelector(".pertax-personal-details>dl>dd"))
     dds.filter(_.getText == "CS700100A") should not be 'empty
-    
-    idaActions.logout
   }
 
 }
