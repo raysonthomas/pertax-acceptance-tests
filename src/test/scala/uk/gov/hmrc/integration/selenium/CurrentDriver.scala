@@ -18,6 +18,6 @@ object CurrentDriver {
   }
 
   def withCurrentDriver[T](block: WebDriver => T) = {
-    val r = block(getWebDriver)
+    block(getWebDriver)
   }
 }
