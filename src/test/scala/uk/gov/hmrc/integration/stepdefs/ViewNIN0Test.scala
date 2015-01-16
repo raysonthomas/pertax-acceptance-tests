@@ -12,11 +12,11 @@ import scala.collection.JavaConversions._
 class ViewNIN0Test extends ScalaDsl with EN with Matchers {
 
   implicit def webDriver = CurrentDriver.getWebDriver
-  
+
   val idaActions = new IDAActions
-  
-  Then( """^"CS700100A" should be displayed$""") {
-    val dds = webDriver.findElements(By.cssSelector(".pertax-personal-details>dl>dd"))
+
+  Then( """^'QQ123456A' should be displayed$""") {
+    val dds = webDriver.findElements(By.cssSelector(".content__body>p"))
     dds.filter(_.getText == "CS700100A") should not be 'empty
   }
 

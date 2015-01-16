@@ -12,29 +12,18 @@ import scala.collection.JavaConversions._
 
 class ViewAddressTest extends ScalaDsl with EN with Matchers {
 
-  throw new RuntimeException
+ // throw new RuntimeException
 
   implicit def webDriver = CurrentDriver.getWebDriver
-  
+
   val idaActions = new IDAActions
-  
-  Then( """^'Address' should be displayed$""") {
 
-    val dts = webDriver.findElements(By.cssSelector(".pertax-address-from>dt"))
-    val dds = webDriver.findElements(By.cssSelector(".pertax-address-from>dd"))
-    val hdl = webDriver.findElements(By.cssSelector(".heading-large"))
+  Then( """^'60 Edinburgh Drive, Bedlington, Northumberland, NE22 6NY' should be displayed as a current address$""") {
 
-    hdl.filter(_.getText == "Address") should not be 'empty
+    val cta = webDriver.findElements(By.cssSelector(".content__body>address>address"))
+    val hs = webDriver.findElements(By.cssSelector(".heading-small"))
 
-    dts.filter(_.getText == "Address from 23/04/2013") should not be 'empty
-    dds.filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
-
-    dts.filter(_.getText == "Address from 23/04/2012") should not be 'empty
-    dds.filter(_.getText == "MATHESON HOUSE COP TESTING\nGRANGE CENTRAL\nTELFORD\nSHROPSHIRE\nTF3 4HQ") should not be 'empty
-
-    dts.filter(_.getText == "Address from unknown date") should not be 'empty
-    dds.filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
-
+    cta.filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
+    hs.filter(_.getText == "Your address") should not be 'empty
   }
-
 }

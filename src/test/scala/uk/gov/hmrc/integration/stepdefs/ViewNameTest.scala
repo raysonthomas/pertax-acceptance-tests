@@ -16,8 +16,8 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
 
   val idaActions = new IDAActions
   val lpActions = new LandingPageActions
-  
-  
+
+
   Given( """^Ryan Little has logged in to his account$""") {
     () => {
       idaActions.enterURL
@@ -25,24 +25,38 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
     }
   }
 
-  When( """^Ryan Little navigates to Personal Details Page$""") {
+  Given( """^should be on 'Personal tax account' page$""") {
     () => {
-      lpActions.clickViewPersonalDetailsLink
+      webDriver.getTitle shouldBe "global.label.hello"
+    }
+  }
+
+  Given( """^should see the 'Personal details' link$""") {
+    () => {
+      val ctp = webDriver.findElements(By.cssSelector("#proposition-links>li>a"))
+      ctp.filter(_.getText == "Personal details") should not be 'empty
+    }
+  }
+  
+
+  When( """^Ryan Little click on 'Personal details' link$""") {
+    () => {
+      lpActions.clickPersonalDetailsLink
     }
 
   }
 
-  Then( """^Personal Details page should be displayed$""") {
+  Then( """^Ryan little should be see 'Persnal Details' page$""") {
     () => {
-      webDriver.getTitle shouldBe "Personal Details"
+      webDriver.getTitle shouldBe "global.title.personal_details"
     }
   }
 
-  Then( """^"Mr Ryan Little" should be displayed$""") {
+  Then( """^Mr Ryan Little" should be displayed$""") {
     () => {
-      val dds = webDriver.findElements(By.cssSelector(".pertax-personal-details>dl>dd"))
-      dds.filter(_.getText == "John") should not be 'empty
-      dds.filter(_.getText == "Densmore") should not be 'empty
+      val ctp = webDriver.findElements(By.cssSelector(".content__body>p"))
+      ctp.filter(_.getText == "John Densmore") should not be 'empty
+
     }
   }
 }
