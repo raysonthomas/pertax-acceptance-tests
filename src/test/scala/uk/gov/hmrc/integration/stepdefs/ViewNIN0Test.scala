@@ -8,8 +8,7 @@ import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
 import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
 import scala.collection.JavaConversions._
 
-
-class ViewNIN0Test extends ScalaDsl with EN with Matchers {
+class git ViewNIN0Test extends ScalaDsl with EN with Matchers {
 
   implicit def webDriver = CurrentDriver.getWebDriver
 
@@ -19,5 +18,4 @@ class ViewNIN0Test extends ScalaDsl with EN with Matchers {
     val dds = webDriver.findElements(By.cssSelector(".content__body>p"))
     dds.filter(_.getText == "CS700100A") should not be 'empty
   }
-
 }

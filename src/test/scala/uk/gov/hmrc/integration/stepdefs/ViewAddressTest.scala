@@ -9,10 +9,8 @@ import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
 import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
 import scala.collection.JavaConversions._
 
-
 class ViewAddressTest extends ScalaDsl with EN with Matchers {
 
- // throw new RuntimeException
 
   implicit def webDriver = CurrentDriver.getWebDriver
 

@@ -37,11 +37,12 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
       ctp.filter(_.getText == "Personal details") should not be 'empty
     }
   }
-  
+
 
   When( """^Ryan Little click on 'Personal details' link$""") {
     () => {
       lpActions.clickPersonalDetailsLink
+
     }
 
   }

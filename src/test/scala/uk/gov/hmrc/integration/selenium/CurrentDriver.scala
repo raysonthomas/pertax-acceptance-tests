@@ -12,8 +12,12 @@ object CurrentDriver {
   }
 
   def getWebDriver = {
-    if (webDriver==null)
+    if (webDriver == null)
       webDriver = DriverFactory.buildWebDriver
     webDriver
+  }
+
+  def withCurrentDriver[T](block: WebDriver => T) = {
+    block(getWebDriver)
   }
 }
