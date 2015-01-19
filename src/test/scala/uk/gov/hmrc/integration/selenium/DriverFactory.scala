@@ -15,6 +15,7 @@ object DriverFactory {
     val webDriver = System.getProperty("browser", "firefox-local") match {
       case "firefox-local"        => createLocalFirefoxDriver
       case "chrome-local"         => createLocalChromeDriver
+      case "winxp-ie6-remote"     => createRemoteWinXPie6Driver
       case "winxp-ie7-remote"     => createRemoteWinXPie7Driver
       case "win7-ie8-remote"      => createRemoteWin7ie8Driver
       case "win7-ie9-remote"      => createRemoteWin7ie9Driver
@@ -30,7 +31,7 @@ object DriverFactory {
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
 
-    webDriver.manage.timeouts.implicitlyWait(25, TimeUnit.SECONDS)
+    webDriver.manage.timeouts.implicitlyWait(30, TimeUnit.SECONDS)
     
     try {
       webDriver.manage.window.maximize()
@@ -49,6 +50,7 @@ object DriverFactory {
   //Aliases for the cross browser testing  
   //Aliases-WIN-XP for the cross browser testing
   def createRemoteWinXPie7Driver  = buildWinXPie7Driver
+  def createRemoteWinXPie6Driver  = buildWinXPie6Driver
 
   //Aliases-WIN-7 for the cross browser testing
   def createRemoteWin7ie8Driver = buildWin7ie8Driver
