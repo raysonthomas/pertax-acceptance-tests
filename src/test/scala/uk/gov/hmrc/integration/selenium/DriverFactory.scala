@@ -26,6 +26,7 @@ object DriverFactory {
       case "MacOS-remotei8" => createRemoteSafari8Driver
       case "MacOS-remotec" => createRemoteChrome38river
       case "MacOS-remotef" => createRemoteFirefox33Driver
+      case "Iphone5S-remote"  =>createRemoteBuildIosIphone5SCapsDriver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
     webDriver.manage.timeouts.implicitlyWait(6, TimeUnit.SECONDS)
@@ -58,5 +59,8 @@ object DriverFactory {
   def createRemoteSafari8Driver    = buildMacosxYosemitesSafari8Driver
   def createRemoteChrome38river    = buildMacosxYosemitechrome38Driver
   def createRemoteFirefox33Driver  = buildMacosxYosemitefirefox33Driver
+  
+  //Aliases-IOS Device for the cross browser testing
+  def createRemoteBuildIosIphone5SCapsDriver  = buildIosIphone5SCapsDriver 
 }
 

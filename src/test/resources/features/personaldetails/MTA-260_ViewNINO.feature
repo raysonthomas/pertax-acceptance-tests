@@ -5,7 +5,7 @@ Feature: MTA-260_View NINO
   So that I can verify that HMRC holds the correct NINO.
 
   Scenario: View NINO in Personal Details Page
-    
+
     Given Ryan Little has logged in to his account
     And should be on 'Personal tax account' page
     And should see the 'Personal details' link

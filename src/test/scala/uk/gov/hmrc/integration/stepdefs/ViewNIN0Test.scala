@@ -8,7 +8,7 @@ import uk.gov.hmrc.integration.page.{LandingPageActions, IDAActions}
 import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
 import scala.collection.JavaConversions._
 
-class git ViewNIN0Test extends ScalaDsl with EN with Matchers {
+class ViewNIN0Test extends ScalaDsl with EN with Matchers {
 
   implicit def webDriver = CurrentDriver.getWebDriver
 

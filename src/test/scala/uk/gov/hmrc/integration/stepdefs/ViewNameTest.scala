@@ -58,6 +58,7 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
       val ctp = webDriver.findElements(By.cssSelector(".content__body>p"))
       ctp.filter(_.getText == "John Densmore") should not be 'empty
 
+
     }
   }
 }

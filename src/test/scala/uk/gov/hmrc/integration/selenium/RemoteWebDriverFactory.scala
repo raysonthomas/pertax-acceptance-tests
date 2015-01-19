@@ -17,6 +17,10 @@ object RemoteWebDriverFactory {
   // OS for MAC OS-X
   private val macosxMavericksCaps = List("os" -> "OS X", "os_version" -> "Mavericks") ++ browserStackCaps
   private val macosxYosemiteCaps  = List("os" -> "OS X", "os_version" -> "Yosemite") ++ browserStackCaps
+  
+  //platform for browsername device
+  private val iosIphoneCaps = List("browserName" -> "iPhone", "platform" -> "MAC") ++ browserStackCaps
+  
 
   //Browsers and OS for windows and IE
   private val winXPie6Caps = List("browser" -> "IE", "browser_version" -> "6.0") ++ windowsXPCaps
@@ -41,6 +45,9 @@ object RemoteWebDriverFactory {
   private val macosxYosemiteSafari8Caps = List("browser" -> "Safari", "browser_version" -> "8.0") ++ macosxYosemiteCaps
   private val macosxYosemitechrome38Caps = List("browser" -> "Chrome", "browser_version" -> "38.0") ++ macosxYosemiteCaps
   private val macosxYosemitefirefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ macosxYosemiteCaps
+  
+  //Browsername,platform for IOS Devices
+  private val iosIphone5SCaps = List("device" -> "iPhone 5S") ++ iosIphoneCaps
 
   private val browserStackURL = s"http://srimanmittapally1:Sauyv85GKXmkxFwAxbmY@hub.browserstack.com/wd/hub"
 
@@ -70,4 +77,8 @@ object RemoteWebDriverFactory {
   def buildMacosxYosemitesSafari8Driver = buildRemoteWebDriver(macosxYosemiteSafari8Caps)
   def buildMacosxYosemitechrome38Driver = buildRemoteWebDriver(macosxYosemitechrome38Caps)
   def buildMacosxYosemitefirefox33Driver = buildRemoteWebDriver(macosxYosemitefirefox33Caps)
+  
+  //for IOS devices
+  def buildIosIphone5SCapsDriver = buildRemoteWebDriver(iosIphone5SCaps)
+  
 }
