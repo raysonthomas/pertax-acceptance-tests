@@ -31,7 +31,7 @@ object DriverFactory {
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
 
-    webDriver.manage.timeouts.implicitlyWait(30, TimeUnit.SECONDS)
+    webDriver.manage.timeouts.implicitlyWait(25, TimeUnit.SECONDS)
     
     try {
       webDriver.manage.window.maximize()
