@@ -9,6 +9,6 @@ class LandingPageActions {
 
   def clickPersonalDetailsLink(implicit webDriver: WebDriver): Unit = {
     webDriver.findElement(By.linkText("Personal details")).click()
-    (new WebDriverWait(webDriver, 5)).until(CustomExpectedConditions.urlEndsWith("/pertax/personalDetails"))
+    (new WebDriverWait(webDriver, 15)).until(CustomExpectedConditions.urlEndsWith("/pertax/personalDetails"))
   }
 }
