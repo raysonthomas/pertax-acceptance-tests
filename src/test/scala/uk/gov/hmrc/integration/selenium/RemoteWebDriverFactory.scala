@@ -41,8 +41,8 @@ object RemoteWebDriverFactory {
   private val win81firefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ windows81Caps
 
   //Browsers and OS for MAC OS-X, chrome, firefox and safari
-  private val macosxMavericksSafari7Caps = List("browser" -> "Safari", "browser_version" -> "7.0") ++ macosxMavericksCaps
-  private val macosxYosemiteSafari8Caps = List("browser" -> "Safari", "browser_version" -> "8.0") ++ macosxYosemiteCaps
+  private val macosxMavericksSafar7Caps = List("browser" -> "Safari", "browser_version" -> "7.0") ++ macosxMavericksCaps
+  private val macosxYosemiteSafar8Caps = List("browser" -> "Safari", "browser_version" -> "8.0") ++ macosxYosemiteCaps
   private val macosxYosemitechrome38Caps = List("browser" -> "Chrome", "browser_version" -> "38.0") ++ macosxYosemiteCaps
   private val macosxYosemitefirefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ macosxYosemiteCaps
   
@@ -73,8 +73,8 @@ object RemoteWebDriverFactory {
   def buildWin81firefox33Driver = buildRemoteWebDriver(win81firefox33Caps)
 
   //for MAC OS-X
-  def buildMacosxMavericksSafari7Driver = buildRemoteWebDriver(macosxMavericksSafari7Caps)
-  def buildMacosxYosemitesSafari8Driver = buildRemoteWebDriver(macosxYosemiteSafari8Caps)
+  def buildMacosxMavericksSafari7Driver = buildRemoteWebDriver(macosxMavericksSafar7Caps)
+  def buildMacosxYosemitesSafari8Driver = buildRemoteWebDriver(macosxYosemiteSafar8Caps)
   def buildMacosxYosemitechrome38Driver = buildRemoteWebDriver(macosxYosemitechrome38Caps)
   def buildMacosxYosemitefirefox33Driver = buildRemoteWebDriver(macosxYosemitefirefox33Caps)
   

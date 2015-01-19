@@ -13,20 +13,20 @@ object DriverFactory {
 
   def buildWebDriver = {
     val webDriver = System.getProperty("browser", "firefox-local") match {
-      case "firefox-local" => createLocalFirefoxDriver
-      case "chrome-local" => createLocalChromeDriver
-      case "winxp-ie7-remote" => createRemoteWinXPie7Driver
-      case "win7-ie8-remote" => createRemoteWin7ie8Driver
-      case "win7-ie9-remote" => createRemoteWin7ie9Driver
-      case "win7-ie10-remote" => createRemoteWin7ie10Driver
-      case "win7-ie11-remote" => createRemoteWin7ie11Driver
-      case "win8-ie11-remote" => createRemoteWin8ie10Driver
-      case "win8.1-ie11-remote" => createRemoteWin81ie11Driver
-      case "MacOS-remotei7" => createRemoteSafari7Driver
-      case "MacOS-remotei8" => createRemoteSafari8Driver
-      case "MacOS-remotec" => createRemoteChrome38river
-      case "MacOS-remotef" => createRemoteFirefox33Driver
-      case "Iphone5S-remote"  =>createRemoteBuildIosIphone5SDriver
+      case "firefox-local"        => createLocalFirefoxDriver
+      case "chrome-local"         => createLocalChromeDriver
+      case "winxp-ie7-remote"     => createRemoteWinXPie7Driver
+      case "win7-ie8-remote"      => createRemoteWin7ie8Driver
+      case "win7-ie9-remote"      => createRemoteWin7ie9Driver
+      case "win7-ie10-remote"     => createRemoteWin7ie10Driver
+      case "win7-ie11-remote"     => createRemoteWin7ie11Driver
+      case "win8-ie11-remote"     => createRemoteWin8ie10Driver
+      case "win8.1-ie11-remote"   => createRemoteWin81ie11Driver
+      case "macos-safari7-remote" => createRemoteSafar7Driver
+      case "macos-safari8-remote" => createRemoteSafar8Driver
+      case "macos-chrome-remote"  => createRemoteChrome38river
+      case "macos-firefox-remote" => createRemoteFirefox33Driver
+      case "iphone5s-remote"      => createRemoteBuildIphone5SDriver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
 
@@ -63,12 +63,12 @@ object DriverFactory {
   def createRemoteWin81ie11Driver = buildWin81ie11Driver
    
   //Aliases-MAC for the cross browser testing
-  def createRemoteSafari7Driver    = buildMacosxMavericksSafari7Driver
-  def createRemoteSafari8Driver    = buildMacosxYosemitesSafari8Driver
+  def createRemoteSafar7Driver    = buildMacosxMavericksSafari7Driver
+  def createRemoteSafar8Driver    = buildMacosxYosemitesSafari8Driver
   def createRemoteChrome38river    = buildMacosxYosemitechrome38Driver
   def createRemoteFirefox33Driver  = buildMacosxYosemitefirefox33Driver
   
   //Aliases-IOS Device for the cross browser testing
-  def createRemoteBuildIosIphone5SDriver  = buildIosIphone5SDriver
+  def createRemoteBuildIphone5SDriver  = buildIosIphone5SDriver
 }
 
