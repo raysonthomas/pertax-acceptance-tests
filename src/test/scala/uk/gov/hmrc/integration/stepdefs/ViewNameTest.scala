@@ -23,14 +23,14 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
 
   Given("""^should be on 'Personal tax account' page$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.getTitle shouldBe "global.label.hello"
+      webDriver.getTitle shouldBe "Hello John Densmore"
     }
   }
 
   Given("""^should see the 'Personal details' link$""") {
     withCurrentDriver { implicit webDriver =>
-      val ctp = webDriver.findElements(By.cssSelector("#proposition-links>li>a"))
-      ctp.filter(_.getText == "Personal details") should not be 'empty
+      webDriver.findElements(By.linkText("Menu")).map(_.click()) //Click Menu if present
+      webDriver.findElements(By.linkText("Personal details")) should not be 'empty
     }
   }
 
@@ -41,15 +41,15 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
     }
   }
 
-  Then("""^Ryan little should be see 'Persnal Details' page$""") {
+  Then("""^Ryan little should be see 'Personal Details' page$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.getTitle shouldBe "global.title.personal_details"
+      webDriver.getTitle shouldBe "Personal Details"
     }
   }
 
   Then("""^Mr Ryan Little" should be displayed$""") {
     withCurrentDriver { implicit webDriver =>
-      val ctp = webDriver.findElements(By.cssSelector(".content__body>p"))
+      val ctp = webDriver.findElements(By.cssSelector(".content__body > p"))
       ctp.filter(_.getText == "John Densmore") should not be 'empty
     }
   }

@@ -14,8 +14,8 @@ class ViewNIN0Test extends ScalaDsl with EN with Matchers {
 
   Then("""^'QQ123456A' should be displayed$""") {
     withCurrentDriver { implicit webDriver =>
-      val dds = webDriver.findElements(By.cssSelector(".content__body>p"))
-      dds.filter(_.getText == "CS700100A") should not be 'empty
+      webDriver.findElements(By.cssSelector(".content__body > p"))
+        .filter(_.getText == "CS700100A") should not be 'empty
     }
   }
 }

@@ -10,5 +10,5 @@ Feature: MTA-8_View Address
     And should be on 'Personal tax account' page
     And should see the 'Personal details' link
     When Ryan Little click on 'Personal details' link
-    Then Ryan little should be see 'Persnal Details' page
+    Then Ryan little should be see 'Personal Details' page
     And '60 Edinburgh Drive, Bedlington, Northumberland, NE22 6NY' should be displayed as a current address

@@ -15,11 +15,10 @@ class ViewAddressTest extends ScalaDsl with EN with Matchers {
 
   Then("""^'60 Edinburgh Drive, Bedlington, Northumberland, NE22 6NY' should be displayed as a current address$""") {
     withCurrentDriver { implicit webDriver =>
-      val cta = webDriver.findElements(By.cssSelector(".content__body>address>address"))
-      val hs = webDriver.findElements(By.cssSelector(".heading-small"))
-
-      cta.filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
-      hs.filter(_.getText == "Your address") should not be 'empty
+      webDriver.findElements(By.cssSelector(".content__body > address > address"))
+        .filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
+      webDriver.findElements(By.cssSelector(".heading-small"))
+        .filter(_.getText == "Your address") should not be 'empty
     }
   }
 }

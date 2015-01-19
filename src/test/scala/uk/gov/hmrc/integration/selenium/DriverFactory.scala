@@ -29,13 +29,14 @@ object DriverFactory {
       case "Iphone5S-remote"  =>createRemoteBuildIosIphone5SDriver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
-    webDriver.manage.timeouts.implicitlyWait(6, TimeUnit.SECONDS)
+
+    webDriver.manage.timeouts.implicitlyWait(25, TimeUnit.SECONDS)
     
     try {
       webDriver.manage.window.maximize()
     }
     catch {
-      case e: WebDriverException => println("window.maximize unimplemented")
+      case e: WebDriverException => //Swallow exception
     }
     
     webDriver
