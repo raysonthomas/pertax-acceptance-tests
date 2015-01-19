@@ -7,5 +7,5 @@ if pidof BrowserStackLocal; then
 else
   wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
   unzip BrowserStackLocal-linux-x64.zip
-  ./BrowserStackLocal Sauyv85GKXmkxFwAxbmY
+  ./BrowserStackLocal Sauyv85GKXmkxFwAxbmY &
 fi
