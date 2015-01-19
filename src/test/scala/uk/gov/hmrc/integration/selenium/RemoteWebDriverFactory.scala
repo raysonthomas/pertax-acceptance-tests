@@ -79,6 +79,6 @@ object RemoteWebDriverFactory {
   def buildMacosxYosemitefirefox33Driver = buildRemoteWebDriver(macosxYosemitefirefox33Caps)
   
   //for IOS devices
-  def buildIosIphone5SCapsDriver = buildRemoteWebDriver(iosIphone5SCaps)
+  def buildIosIphone5SDriver = buildRemoteWebDriver(iosIphone5SCaps)
   
 }

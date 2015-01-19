@@ -2,7 +2,7 @@ package uk.gov.hmrc.integration.selenium
 
 import java.util.concurrent.TimeUnit
 
-import org.openqa.selenium.WebDriver
+import org.openqa.selenium.{WebDriverException, WebDriver}
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
 import uk.gov.hmrc.integration.selenium.RemoteWebDriverFactory._
@@ -26,11 +26,18 @@ object DriverFactory {
       case "MacOS-remotei8" => createRemoteSafari8Driver
       case "MacOS-remotec" => createRemoteChrome38river
       case "MacOS-remotef" => createRemoteFirefox33Driver
-      case "Iphone5S-remote"  =>createRemoteBuildIosIphone5SCapsDriver
+      case "Iphone5S-remote"  =>createRemoteBuildIosIphone5SDriver
       case _ => throw new IllegalArgumentException(s"Browser type not recognised")
     }
     webDriver.manage.timeouts.implicitlyWait(6, TimeUnit.SECONDS)
-    webDriver.manage.window.maximize()
+    
+    try {
+      webDriver.manage.window.maximize()
+    }
+    catch {
+      case e: WebDriverException => println("window.maximize unimplemented")
+    }
+    
     webDriver
   }
 
@@ -61,6 +68,6 @@ object DriverFactory {
   def createRemoteFirefox33Driver  = buildMacosxYosemitefirefox33Driver
   
   //Aliases-IOS Device for the cross browser testing
-  def createRemoteBuildIosIphone5SCapsDriver  = buildIosIphone5SCapsDriver 
+  def createRemoteBuildIosIphone5SDriver  = buildIosIphone5SDriver
 }
 
