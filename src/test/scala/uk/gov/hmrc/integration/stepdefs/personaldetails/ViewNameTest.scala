@@ -12,45 +12,43 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 class ViewNameTest extends ScalaDsl with EN with Matchers {
 
-  Given("""^Ryan Little has logged in to his account$""") {
+  Given("""^John Densmore has logged in to PTA$""") {
     withCurrentDriver { implicit webDriver =>
       IDAActions.enterURL
       IDAActions.clickLoginStub
     }
   }
 
-  Given("""^should be on 'Personal tax account' page$""") {
+  Given("""^PTA landing page is displayed$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.getTitle shouldBe "Hello John Densmore"
     }
   }
 
-  Given("""^should see the 'Personal details' link$""") {
+  Given("""^sees the Personal Details link$""") {
     withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
       webDriver.findElements(By.linkText("Personal details")) should not be 'empty
     }
   }
 
-
-  When("""^Ryan Little click on 'Personal details' link$""") {
+  When("""^John Densmore clicks on Personal Details link$""") {
     withCurrentDriver { implicit webDriver =>
       LandingPageActions.clickPersonalDetailsLink
     }
   }
 
-  Then("""^Ryan little should be see 'Personal Details' page$""") {
+  Then("""^John Densmore sees Personal Details page$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.getTitle shouldBe "Personal Details"
     }
   }
 
-  Then("""^Mr Ryan Little should be displayed$""") {
+  Then("""^Mr John Densmore is displayed$""") {
     withCurrentDriver { implicit webDriver =>
       val pd = getTestPersonDetailsByName("John Densmore")
-
       webDriver.findElements(By.cssSelector(".content__body > p"))
-        .filter(_.getText == pd.person.shortName) should not be 'empty
+        .filter(_.getText == pd.person.titledName) should not be 'empty
     }
   }
 }
