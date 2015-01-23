@@ -1,6 +1,6 @@
 @suite
-Feature: MTA-8_View Address
-  As a HMRC Customer
+Feature: PTA:View Address
+  As an HMRC Customer
   I need to be able to view my current address details
   So that I know HMRC has my correct current address
 
@@ -12,3 +12,6 @@ Feature: MTA-8_View Address
     When Ryan Little click on 'Personal details' link
     Then Ryan little should be see 'Personal Details' page
     And '60 Edinburgh Drive, Bedlington, Northumberland, NE22 6NY' should be displayed as a current address
+
+
+# JIRA story history: MTA-8
