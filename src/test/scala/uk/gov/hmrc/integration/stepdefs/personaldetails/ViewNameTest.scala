@@ -1,12 +1,16 @@
-package uk.gov.hmrc.integration.stepdefs.personaldetails
+package uk.gov.hmrc.integration.stepdefs
+
+import org.openqa.selenium.support.ui.WebDriverWait
+import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
+import uk.gov.hmrc.integration.utils.TestDataSource
+
+import scala.collection.JavaConversions._
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import org.scalatest._
 import uk.gov.hmrc.integration.page.{IDAActions, LandingPageActions}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-
-import scala.collection.JavaConversions._
 
 class ViewNameTest extends ScalaDsl with EN with Matchers {
 
@@ -51,6 +55,8 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
     withCurrentDriver { implicit webDriver =>
       val ctp = webDriver.findElements(By.cssSelector(".content__body > p"))
       ctp.filter(_.getText == "John Densmore") should not be 'empty
+
+      val person = TestDataSource.getTestPersonDetails("CS700100A.json")
     }
   }
 }

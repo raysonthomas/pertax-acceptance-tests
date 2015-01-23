@@ -18,10 +18,12 @@ object RemoteWebDriverFactory {
   private val macosxMavericksCaps = List("os" -> "OS X", "os_version" -> "Mavericks") ++ browserStackCaps
   private val macosxYosemiteCaps  = List("os" -> "OS X", "os_version" -> "Yosemite") ++ browserStackCaps
   
-  //platform for browsername device
+  //platform for browsername ios mobile devices
   private val iosIphoneCaps = List("browserName" -> "iPhone", "platform" -> "MAC") ++ browserStackCaps
-  
 
+  //platform for browsername ios ipad devices
+  private val iosIpadRetinaCaps = List("browserName" -> "iPad", "platform" -> "MAC") ++ browserStackCaps
+  
   //Browsers and OS for windows and IE
   private val winXPie6Caps = List("browser" -> "IE", "browser_version" -> "6.0") ++ windowsXPCaps
   private val winXPie7Caps = List("browser" -> "IE", "browser_version" -> "7.0") ++ windowsXPCaps
@@ -46,8 +48,15 @@ object RemoteWebDriverFactory {
   private val macosxYosemitechrome38Caps = List("browser" -> "Chrome", "browser_version" -> "38.0") ++ macosxYosemiteCaps
   private val macosxYosemitefirefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ macosxYosemiteCaps
   
-  //Browsername,platform for IOS Devices
+  //Browsername,platform for IOS mobile Devices
   private val iosIphone5SCaps = List("device" -> "iPhone 5S") ++ iosIphoneCaps
+
+  //Browsername,platform for IOS ipad Devices
+  private val iosIpadMiniRetinaCaps = List("device" -> "iPad mini Retina") ++ iosIpadRetinaCaps
+  private val iosIpad4thGenCaps = List("device" -> "iPad 4th Gen") ++ iosIpadRetinaCaps
+  private val iosIpadAirCaps = List("device" -> "iPad Air") ++ iosIpadRetinaCaps
+  
+  
 
   private val browserStackURL = s"http://srimanmittapally1:Sauyv85GKXmkxFwAxbmY@hub.browserstack.com/wd/hub"
 
@@ -55,6 +64,8 @@ object RemoteWebDriverFactory {
     val dc = new DesiredCapabilities
     for( (k,v) <- caps )
       dc.setCapability(k, v)
+    dc.setCapability("project","PERTAX")
+    dc.setCapability("build", "LOCAL")
     new RemoteWebDriver(new URL(browserStackURL), dc)
   }
 
@@ -80,5 +91,6 @@ object RemoteWebDriverFactory {
   
   //for IOS devices
   def buildIosIphone5SDriver = buildRemoteWebDriver(iosIphone5SCaps)
+  def buildIosIpadMiniRetinaDriver = buildRemoteWebDriver(iosIpadMiniRetinaCaps)
   
 }
