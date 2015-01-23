@@ -1,7 +1,10 @@
 package uk.gov.hmrc.integration.utils
 
 object Configuration {
-  final lazy val PageTimeOut = 60
+
+  val PageTimeOut = 60
+
+  val DeviceViewBreakpoint = 768
 
   lazy val environment = System.getProperty("environment", "local").toLowerCase match {
     case "local" => Map("url" -> "http://localhost:9232/pertax")

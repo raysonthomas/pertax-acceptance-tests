@@ -11,7 +11,7 @@ Feature: PTA:View Name
     And should see the 'Personal details' link
     When Ryan Little click on 'Personal details' link
     Then Ryan little should be see 'Personal Details' page
-    And Mr Ryan Little" should be displayed
+    And Mr Ryan Little should be displayed
 
 
 # JIRA story history: MTA-7

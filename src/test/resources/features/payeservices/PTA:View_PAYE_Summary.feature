@@ -1,4 +1,4 @@
-@suite
+@suite1
 Feature: PTA:View PAYE Summary
   As an HMRC Customer
   I must be able to view Tax Details on my PAYE records

@@ -8,9 +8,7 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 import scala.collection.JavaConversions._
 
-class ViewNIN0Test extends ScalaDsl with EN with Matchers {
-
-  val idaActions = new IDAActions
+class ViewNINOTest extends ScalaDsl with EN with Matchers {
 
   Then("""^'QQ123456A' should be displayed$""") {
     withCurrentDriver { implicit webDriver =>

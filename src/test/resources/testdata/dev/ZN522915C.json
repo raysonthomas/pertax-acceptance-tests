@@ -25,16 +25,16 @@
       }
    ],
    "person" : {
-      "initials" : "JD",
-      "firstName" : "John",
-      "nino" : "CS700100A",
-      "dateOfBirth" : -26096400000,
-      "title" : "Mr",
-      "lastName" : "Densmore",
-      "sex" : "M"
+      "initials" : "RJ",
+      "firstName" : "Robert",
+      "nino" : "ZN522915C",
+      "dateOfBirth" : -1091926800000,
+      "title" : "Mrs",
+      "lastName" : "Jeffries",
+      "sex" : "F"
    },
    "contact" : {
-      "primaryEmail" : "jdensmore@example.com",
+      "primaryEmail" : "rjeffries@example.com",
       "daytimeTelephone" : "020 1234 5678",
       "eveningTelephone" : "0191 234 7890"
    }

@@ -1,27 +1,21 @@
 package uk.gov.hmrc.integration.stepdefs
 
-import org.openqa.selenium.support.ui.WebDriverWait
-import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
-import uk.gov.hmrc.integration.utils.TestDataSource
+import uk.gov.hmrc.integration.utils.TestDataSource._
 
 import scala.collection.JavaConversions._
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import org.scalatest._
-import uk.gov.hmrc.integration.page.{IDAActions, LandingPageActions}
+import uk.gov.hmrc.integration.page.{GlobalActions, IDAActions, LandingPageActions}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 class ViewNameTest extends ScalaDsl with EN with Matchers {
 
-  val idaActions = new IDAActions
-  val lpActions = new LandingPageActions
-
-
   Given("""^Ryan Little has logged in to his account$""") {
     withCurrentDriver { implicit webDriver =>
-      idaActions.enterURL
-      idaActions.clickLoginStub
+      IDAActions.enterURL
+      IDAActions.clickLoginStub
     }
   }
 
@@ -33,7 +27,7 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
 
   Given("""^should see the 'Personal details' link$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElements(By.linkText("Menu")).map(_.click()) //Click Menu if present
+      GlobalActions.maybeClickMenu
       webDriver.findElements(By.linkText("Personal details")) should not be 'empty
     }
   }
@@ -41,7 +35,7 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
 
   When("""^Ryan Little click on 'Personal details' link$""") {
     withCurrentDriver { implicit webDriver =>
-      lpActions.clickPersonalDetailsLink
+      LandingPageActions.clickPersonalDetailsLink
     }
   }
 
@@ -51,12 +45,12 @@ class ViewNameTest extends ScalaDsl with EN with Matchers {
     }
   }
 
-  Then("""^Mr Ryan Little" should be displayed$""") {
+  Then("""^Mr Ryan Little should be displayed$""") {
     withCurrentDriver { implicit webDriver =>
-      val ctp = webDriver.findElements(By.cssSelector(".content__body > p"))
-      ctp.filter(_.getText == "John Densmore") should not be 'empty
+      val pd = getTestPersonDetailsByName("John Densmore")
 
-      val person = TestDataSource.getTestPersonDetails("CS700100A.json")
+      webDriver.findElements(By.cssSelector(".content__body > p"))
+        .filter(_.getText == pd.person.shortName) should not be 'empty
     }
   }
 }

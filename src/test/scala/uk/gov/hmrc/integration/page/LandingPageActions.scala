@@ -5,7 +5,7 @@ import org.openqa.selenium.{By, WebDriver}
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 
 
-class LandingPageActions {
+object LandingPageActions {
 
   def clickPersonalDetailsLink(implicit webDriver: WebDriver): Unit = {
     webDriver.findElement(By.linkText("Personal details")).click()

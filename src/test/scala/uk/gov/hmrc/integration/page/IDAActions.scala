@@ -5,7 +5,7 @@ import org.openqa.selenium.{By, WebDriver}
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils._
 
-class IDAActions  {
+object IDAActions  {
 
    def enterURL(implicit webDriver: WebDriver) = {
      webDriver.get(Configuration("url"))
