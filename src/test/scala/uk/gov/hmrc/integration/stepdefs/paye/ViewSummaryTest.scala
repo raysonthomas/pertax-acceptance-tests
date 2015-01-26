@@ -8,7 +8,7 @@ import scala.collection.JavaConversions._
 
 class ViewSummaryTest extends ScalaDsl with EN with Matchers {
 
-  Given( """^PAYE summary displays Estimated Tax Income amount$""") {
+  Given( """^PAYE summary displays 5,445 as Estimated Tax Income amount$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.findElements(By.cssSelector(""))
         .filter(_.getText == "£5,445") should not be 'empty
