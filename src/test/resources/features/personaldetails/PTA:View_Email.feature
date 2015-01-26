@@ -11,4 +11,4 @@ Feature: PTA:View Email
     And sees the Personal Details link
     When John Densmore clicks on Personal Details link
     Then John Densmore sees Personal Details page
-    And 'john.densmore@gmail.com' is displayed as his email address
+    And john.densmore@gmail.com is displayed as his email address

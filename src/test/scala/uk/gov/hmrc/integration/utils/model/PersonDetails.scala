@@ -16,7 +16,8 @@ case class Person(
   sex: Option[String],
   dateOfBirth: Option[DateTime],
   nino: Option[String]
-) {
+)
+{
   lazy val shortName = List(firstName, lastName).flatten.mkString(" ")
   lazy val titledName = List(title, firstName, lastName).flatten.mkString(" ")
   lazy val fullName = List(title, firstName, middleName, lastName, honours).flatten.mkString(" ")
@@ -49,7 +50,10 @@ case class Contact(
   eveningTelephone: Option[String],
   primaryEmail: Option[String]
 )
-
+{
+  lazy val email = List(primaryEmail).flatten.mkString(" ")
+  
+ }
 object PersonDetails {
   implicit val formats = Json.format[PersonDetails]
 }
