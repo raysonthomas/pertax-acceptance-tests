@@ -20,6 +20,7 @@ case class Person(
   lazy val shortName = List(firstName, lastName).flatten.mkString(" ")
   lazy val titledName = List(title, firstName, lastName).flatten.mkString(" ")
   lazy val fullName = List(title, firstName, middleName, lastName, honours).flatten.mkString(" ")
+  lazy val niNumber = List(nino).flatten.mkString(" ")
 }
 
 
