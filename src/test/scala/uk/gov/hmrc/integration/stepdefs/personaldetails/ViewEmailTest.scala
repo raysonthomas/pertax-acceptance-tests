@@ -7,6 +7,7 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
 
 class ViewEmailTest extends ScalaDsl with EN with Matchers {
+
   Then("""^'john.densmore@gmail.com' is displayed as his email address$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.findElements(By.cssSelector(".content__body > address > address"))

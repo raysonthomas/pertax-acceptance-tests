@@ -1,4 +1,4 @@
-@workinprogress
+@wip
 Feature: PTA:View PAYE Summary
   As an HMRC Customer
   I must be able to view Tax Details on my PAYE records
@@ -12,7 +12,7 @@ Feature: PTA:View PAYE Summary
   Scenario: PAYE summary is displayed on PTA landing page
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    Then PAYE summary displays Estimated Tax Income amount
+    Then sees the Income Tax Estimate link
 
 
 # JIRA story history: MTA-269
