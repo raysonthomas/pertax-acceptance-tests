@@ -12,8 +12,8 @@ class ViewEmailTest extends ScalaDsl with EN with Matchers {
     withCurrentDriver { implicit webDriver =>
   val pd = getTestPersonDetailsByName("John Densmore")
       webDriver.findElements(By.cssSelector(""))
-        .filter(_.getText == "pd.contact.e") should not be 'empty
-      webDriver.findElements(By.cssSelector(".heading-small"))
+        .filter(_.getText == pd.contact.email) should not be 'empty
+      webDriver.findElements(By.cssSelector("XX"))
         .filter(_.getText == "Your email") should not be 'empty
     }
   }
