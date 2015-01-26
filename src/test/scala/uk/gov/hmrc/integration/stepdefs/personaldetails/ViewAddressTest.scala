@@ -16,4 +16,5 @@ class ViewAddressTest extends ScalaDsl with EN with Matchers {
         .filter(_.getText == "Your address") should not be 'empty
     }
   }
+
 }
