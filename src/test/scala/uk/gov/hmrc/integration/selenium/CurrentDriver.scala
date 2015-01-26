@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver
 object CurrentDriver {
 
   private var webDriver: WebDriver = null
-  
-  
+
 
   def invalidate = {
     webDriver.quit()
