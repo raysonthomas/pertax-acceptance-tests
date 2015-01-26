@@ -11,7 +11,7 @@ Feature: PTA:View Address
     And sees the Personal Details link
     When John Densmore clicks on Personal Details link
     Then John Densmore sees Personal Details page
-    And '60 Edinburgh Drive, Bedlington, Northumberland, NE22 6NY' should be displayed as a current address
+    And 'Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA' should be displayed as a current address
 
 
 # JIRA story history: MTA-8
