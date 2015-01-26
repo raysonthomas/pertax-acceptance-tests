@@ -6,9 +6,8 @@ import org.scalatest._
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
 
-class ViewAddressTest extends ScalaDsl with EN with Matchers {
-
-  Then("""^Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA should be displayed as a current address$""") {
+class ViewEmailTest extends ScalaDsl with EN with Matchers {
+  Then("""^'john.densmore@gmail.com' is displayed as his email address$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.findElements(By.cssSelector(".content__body > address > address"))
         .filter(_.getText == "Benton Park View\nLongbenton\nTyne and Wear\nNorth Tyneside\nNE1 1AA") should not be 'empty
@@ -16,4 +15,5 @@ class ViewAddressTest extends ScalaDsl with EN with Matchers {
         .filter(_.getText == "Your address") should not be 'empty
     }
   }
+
 }

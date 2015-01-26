@@ -14,4 +14,5 @@ Feature: PTA:View Address
     And Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA should be displayed as a current address
 
 
+
 # JIRA story history: MTA-8
