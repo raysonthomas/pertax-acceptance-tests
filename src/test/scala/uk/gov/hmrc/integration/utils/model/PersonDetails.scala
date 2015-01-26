@@ -37,7 +37,10 @@ case class Address(
   homeCountry: Option[String],
   foreignCountry: Option[String],
   startDatetime: Option[DateTime]
-)
+) {
+  lazy val postCode = List (postcode).flatten.mkString(" ")
+  lazy val fullAddress = List(addressLine1, addressLine2, addressLine3, addressLine4, postcode).flatten.mkString("\n")
+}
 
 object Contact {
   implicit val formats = Json.format[Contact]
