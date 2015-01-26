@@ -8,14 +8,12 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 import scala.collection.JavaConversions._
 
 class ViewEmailTest extends ScalaDsl with EN with Matchers {
-  
+
   Then( """^john.densmore@gmail.com is displayed as his email address$""") {
     withCurrentDriver { implicit webDriver =>
       val pd = getTestPersonDetailsByName("John Densmore")
       webDriver.findElements(By.cssSelector(""))
         .filter(_.getText == pd.contact.email) should not be 'empty
-      webDriver.findElements(By.cssSelector("XX"))
-        .filter(_.getText == "Your email") should not be 'empty
     }
   }
 
