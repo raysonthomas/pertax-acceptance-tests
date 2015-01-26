@@ -9,7 +9,7 @@ Feature: PTA:View PAYE Summary
     And PTA landing page is displayed
     Then PAYE summary displays Estimated Tax Income amount
 
-  Scenario: PAYE summary is displayed on PTA landing page
+  Scenario: Navigation link to PAYE
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
     Then sees the Income Tax Estimate link

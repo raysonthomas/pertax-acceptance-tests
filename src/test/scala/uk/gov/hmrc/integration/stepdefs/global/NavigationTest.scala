@@ -33,4 +33,10 @@ class NavigationTest extends ScalaDsl with EN with Matchers {
     }
   }
 
+  Then( """^sees the Income Tax Estimate link$""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElements(By.linkText("Tax estimate")) should not be 'empty
+    }
+  }
+
 }
