@@ -1,4 +1,4 @@
-package uk.gov.hmrc.integration.stepdefs
+package uk.gov.hmrc.integration.stepdefs.personaldetails
 
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
