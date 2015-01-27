@@ -1,6 +1,6 @@
 export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51
 
-sm --config /etc/smserver/conf --start PERTAX_ALL -f --wait 90 --noprogress
+sm --config /etc/smserver/conf --start PERTAX_ALL TAI TAI_STUBS -f --wait 90 --noprogress
 
 echo "BrowserStackLocal instances:"
 pidof BrowserStackLocal
