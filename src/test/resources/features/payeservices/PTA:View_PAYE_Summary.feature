@@ -12,7 +12,7 @@ Feature: PTA:View PAYE Summary
   Scenario: Navigation link to PAYE
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    Then sees the Income Tax Estimate link
+    Then he sees the 'Check your income tax' link that points to http://paye-employees.herokuapp.com/beta10/beta10-index
 
 
 # JIRA story history: MTA-269
