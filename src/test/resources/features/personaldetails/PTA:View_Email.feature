@@ -4,7 +4,7 @@ Feature: PTA:View Email
   I need to view my email address,
   So that I can verify that HMRC holds my correct e-mail address
 
-  Scenario: View Name in Personal Details Page
+  Scenario: View Email in Personal Details Page
 
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
@@ -12,3 +12,12 @@ Feature: PTA:View Email
     When John Densmore clicks on Personal Details link
     Then John Densmore sees Personal Details page
     And john.densmore@gmail.com is displayed as his email address
+    
+  Scenario: No Email is held on record
+  
+    Given John Densmore has logged in to PTA
+    And PTA landing page is displayed
+    And sees the Personal Details link
+    When John Densmore clicks on Personal Details link
+    Then John Densmore sees Personal Details page
+    And No email held is displayed as his email address
