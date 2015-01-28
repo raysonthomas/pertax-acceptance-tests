@@ -15,4 +15,10 @@ object IDAActions {
     webDriver.findElement(By.cssSelector("input[value='John Densmore']")).click()
     (new WebDriverWait(webDriver, 15)).until(CustomExpectedConditions.urlEndsWith("/pertax"))
   }
+
+  def clickSubmit(implicit webDriver: WebDriver): Unit = {
+    webDriver.findElement(By.cssSelector("#submit")).click()
+    (new WebDriverWait(webDriver, 15)).until(CustomExpectedConditions.urlEndsWith("/pertax"))
+  }
+
 }
