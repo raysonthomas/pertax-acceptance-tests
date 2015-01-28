@@ -17,4 +17,11 @@ class ViewAddressTest extends ScalaDsl with EN with Matchers {
     }
   }
 
+  Then( """^27 January 2004 is displayed as the Address's Valid From date$""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElements(By.cssSelector(".content__body > validFromDate")) //TODO: verify me
+        .filter(_.getText == "27 January 2004") should not be 'empty
+    }
+  }
+
 }
