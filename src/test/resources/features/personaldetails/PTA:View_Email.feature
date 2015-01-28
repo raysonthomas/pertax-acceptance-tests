@@ -8,16 +8,16 @@ Feature: PTA:View Email
 
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    And sees the Personal Details link
+    And Personal Details link is visible
     When John Densmore clicks on Personal Details link
-    Then John Densmore sees Personal Details page
+    Then Personal Details page is displayed
     And john.densmore@gmail.com is displayed as his email address
     
   Scenario: No Email is held on record
   
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    And sees the Personal Details link
+    And Personal Details link is visible
     When John Densmore clicks on Personal Details link
-    Then John Densmore sees Personal Details page
+    Then Personal Details page is displayed
     And No email held is displayed as his email address

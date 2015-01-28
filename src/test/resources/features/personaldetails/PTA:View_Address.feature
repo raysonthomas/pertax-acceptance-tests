@@ -8,9 +8,9 @@ Feature: PTA:View Address
 
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    And sees the Personal Details link
+    And Personal Details link is visible
     When John Densmore clicks on Personal Details link
-    Then John Densmore sees Personal Details page
+    Then Personal Details page is displayed
     And Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA should be displayed as a current address
 
 
