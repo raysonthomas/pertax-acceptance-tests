@@ -11,11 +11,11 @@ class LogInTest extends ScalaDsl with EN with Matchers {
 
   Given( """^(.*) has logged in to PTA$""") {
     (user: String) =>
-      val props = personProperties(user)
+      val personProperty = personProperties(user)
       withCurrentDriver { implicit webDriver =>
         IDAActions.enterURL
-        webDriver.findElement(By.id("username")).sendKeys(props.username)
-        webDriver.findElement(By.id("password")).sendKeys(props.password)
+        webDriver.findElement(By.id("username")).sendKeys(personProperty.username)
+        webDriver.findElement(By.id("password")).sendKeys(personProperty.password)
         IDAActions.clickSubmit
       }
   }

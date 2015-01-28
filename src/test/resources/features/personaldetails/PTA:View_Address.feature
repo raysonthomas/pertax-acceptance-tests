@@ -5,13 +5,12 @@ Feature: PTA:View Address
   So that I can verify that HMRC holds my correct address
 
   Scenario: View Address in Personal Details Page
-
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
     And Personal Details link is visible
     When John Densmore clicks on Personal Details link
     Then Personal Details page is displayed
-    And Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA should be displayed as a current address
+    And Current Address Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA should be visible
 
 
 

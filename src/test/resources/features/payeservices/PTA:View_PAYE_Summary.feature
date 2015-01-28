@@ -12,7 +12,7 @@ Feature: PTA:View PAYE Summary
   Scenario: Navigation link to PAYE
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    Then Check your income tax link is visible that points to protocol://host:port/beta10/beta10-index
+    Then Check your income tax link is visible that points to PAYE protocol://host:port/beta10/beta10-index
 
 
 # JIRA story history: MTA-269

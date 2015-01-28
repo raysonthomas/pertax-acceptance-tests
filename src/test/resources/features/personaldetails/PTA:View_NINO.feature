@@ -11,7 +11,7 @@ Feature: PTA:View NINO
     And Personal Details link is visible
     When John Densmore clicks on Personal Details link
     Then Personal Details page is displayed
-    And CS700100A should be displayed
+    And NINO CS700100A is visible
 
 
 # JIRA story history: MTA-260

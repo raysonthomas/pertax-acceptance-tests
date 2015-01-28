@@ -11,7 +11,7 @@ Feature: PTA:View Name
     And Personal Details link is visible
     When John Densmore clicks on Personal Details link
     Then Personal Details page is displayed
-    And Mr John Densmore is displayed
+    And Name Mr John Densmore is visible
 
 
 # JIRA story history: MTA-7

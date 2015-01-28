@@ -37,7 +37,7 @@ class NavigationTest extends ScalaDsl with EN with Matchers {
     }
   }
 
-  Then( """^Check your income tax link is visible that points to protocol://host:port/beta10/beta10-index$""") {
+  Then( """^Check your income tax link is visible that points to PAYE protocol://host:port/beta10/beta10-index$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.findElements(By.linkText("Tax estimate")) should not be 'empty
     }
