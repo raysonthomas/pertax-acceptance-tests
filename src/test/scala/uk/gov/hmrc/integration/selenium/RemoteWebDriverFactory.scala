@@ -35,12 +35,12 @@ object RemoteWebDriverFactory {
   private val win81ie11Caps = List("browser" -> "IE", "browser_version" -> "11.0") ++ windows81Caps
 
   //Browsers and OS for windows and chrome
-  private val win7chrome39Caps = List("browser" -> "Chrome", "browser_version" -> "39.0") ++ windows7Caps
+  private val win7chrome38Caps = List("browser" -> "Chrome", "browser_version" -> "38.0") ++ windows7Caps
   private val win8chrome38Caps = List("browser" -> "Chrome", "browser_version" -> "38.0") ++ windows8Caps
   private val win81chrome38Caps = List("browser" -> "Chrome", "browser_version" -> "38.0") ++ windows81Caps
 
   //Browsers and OS for windows and firefox
-  private val win7firefox35Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ windows7Caps
+  private val win7firefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ windows7Caps
   private val win8firefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ windows8Caps
   private val win81firefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ windows81Caps
 
@@ -80,10 +80,10 @@ object RemoteWebDriverFactory {
   def buildWin7ie11Driver = buildRemoteWebDriver(win7ie11Caps)
   def buildWin8ie10Driver = buildRemoteWebDriver(win8ie10Caps)
   def buildWin81ie11Driver = buildRemoteWebDriver(win81ie11Caps)
-  def buildWin7chrome39Driver = buildRemoteWebDriver(win7chrome39Caps)
+  def buildWin7chrome38Driver = buildRemoteWebDriver(win7chrome38Caps)
   def buildWin8chrome38Driver = buildRemoteWebDriver(win8chrome38Caps)
   def buildWin81chrome38CapDriver = buildRemoteWebDriver(win81chrome38Caps)
-  def buildWin7firefox35CapDriver = buildRemoteWebDriver(win7firefox35Caps)
+  def buildWin7firefox33CapDriver = buildRemoteWebDriver(win7firefox33Caps)
   def buildWin8firefox33CapDriver = buildRemoteWebDriver(win8firefox33Caps)
   def buildWin81firefox33Driver = buildRemoteWebDriver(win81firefox33Caps)
 

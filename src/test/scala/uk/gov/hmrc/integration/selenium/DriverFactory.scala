@@ -23,8 +23,8 @@ object DriverFactory {
       case "win7-ie11-remote"           => buildWin7ie11Driver
       case "win8.1-ie11-remote"         => buildWin81ie11Driver
       case "win8-ie10-remote"           => buildWin8ie10Driver
-      case "win7-firefox-remote"        => buildWin7firefox35CapDriver
-      case "win7-chrome-remote"         => buildWin7chrome39Driver
+      case "win7-firefox-remote"        => buildWin7firefox33CapDriver
+      case "win7-chrome-remote"         => buildWin7chrome38Driver
       case "macos-safari7-remote"       => buildMacosxMavericksSafari7Driver
       case "macos-safari8-remote"       => buildMacosxYosemitesSafari8Driver
       case "macos-chrome-remote"        => buildMacosxYosemitechrome38Driver
@@ -34,7 +34,8 @@ object DriverFactory {
       case _                            => throw new IllegalArgumentException(s"Browser type not recognised")
     }
 
-    webDriver.manage.timeouts.implicitlyWait(25, TimeUnit.SECONDS)
+    val TimeOutInSeconds = 25
+    webDriver.manage.timeouts.implicitlyWait(TimeOutInSeconds, TimeUnit.SECONDS)
     
     try {
       webDriver.manage.window.maximize()
@@ -46,4 +47,3 @@ object DriverFactory {
     webDriver
   }
 }
-

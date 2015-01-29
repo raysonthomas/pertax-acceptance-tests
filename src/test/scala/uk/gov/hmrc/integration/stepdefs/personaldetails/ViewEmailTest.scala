@@ -17,4 +17,11 @@ class ViewEmailTest extends ScalaDsl with EN with Matchers {
     }
   }
 
+  Then( """^No email held is displayed as his email address$""") {
+    withCurrentDriver { implicit webDriver =>
+      val pd = getTestPersonDetailsByName("John Densmore")
+      webDriver.findElements(By.cssSelector(""))
+        .filter(_.getText == pd.contact.email) should not be 'empty
+    }
+  }
 }
