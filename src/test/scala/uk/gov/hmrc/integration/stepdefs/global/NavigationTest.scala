@@ -12,7 +12,7 @@ class NavigationTest extends ScalaDsl with EN with Matchers {
   Given( """^PTA landing page is displayed$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.findElements(By.cssSelector(".heading-xlarge"))
-        .filter(_.getText == "Personal tax account") should not be 'empty
+        .filter(_.getText == "Your account") should not be 'empty
     }
   }
 
