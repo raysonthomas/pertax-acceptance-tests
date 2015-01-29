@@ -9,11 +9,11 @@ import scala.collection.JavaConversions._
 
 class ViewEmailTest extends ScalaDsl with EN with Matchers {
 
-  Then( """^john.densmore@gmail.com is displayed as his email address$""") {
+  Then( """^(.*) is displayed as email address$""") {
+    (email: String) =>
     withCurrentDriver { implicit webDriver =>
-      val pd = getTestPersonDetailsByName("John Densmore")
       webDriver.findElements(By.cssSelector(""))
-        .filter(_.getText == pd.contact.email) should not be 'empty
+        .filter(_.getText == s"$email") should not be 'empty
     }
   }
 

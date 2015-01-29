@@ -12,10 +12,10 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 class ViewNameTest extends ScalaDsl with EN with Matchers {
 
-  Then( """^Mr John Densmore is displayed$""") {
+  Then( """^Name Mr John Densmore is visible$""") {
     withCurrentDriver { implicit webDriver =>
       val pd = getTestPersonDetailsByName("John Densmore")
-      webDriver.findElements(By.cssSelector(".content__body > p"))
+      webDriver.findElements(By.cssSelector(".content__body>p:nth-of-type(1)"))
         .filter(_.getText == pd.person.titledName) should not be 'empty
     }
   }

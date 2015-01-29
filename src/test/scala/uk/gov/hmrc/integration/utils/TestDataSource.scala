@@ -4,18 +4,20 @@ import play.api.libs.json.Json
 import scala.io.Source
 import uk.gov.hmrc.integration.utils.model._
 
+case class TestPersonProperties(nino: String, username: String, password: String)
+
 object TestDataSource {
   private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
 
-  val nameMap = Map(
-    "Graham Salmon"   -> "AA026813B",
-    "John Densmore"   -> "CS700100A",
-    "Robert Jeffries" -> "ZN522915C"
+  val personProperties = Map(
+    "Graham Salmon"   -> TestPersonProperties("AA026813B", "gsalmon", "password"),
+    "John Densmore"   -> TestPersonProperties("CS700100A", "jdensmore", "password"),
+    "Robert Jeffries" -> TestPersonProperties("ZN522915C", "rjeffries", "password")
   )
 
 
-  def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(nameMap(name))
+  def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
 
   def getTestPersonDetailsByNino(nino: String): PersonDetails = {
 

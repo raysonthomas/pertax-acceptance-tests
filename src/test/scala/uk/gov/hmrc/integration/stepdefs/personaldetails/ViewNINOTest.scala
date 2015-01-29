@@ -11,10 +11,10 @@ import scala.collection.JavaConversions._
 
 class ViewNINOTest extends ScalaDsl with EN with Matchers {
 
-  Then( """^CS700100A should be displayed$""") {
+  Then( """^NINO CS700100A is visible$""") {
     withCurrentDriver { implicit webDriver =>
       val pd = getTestPersonDetailsByName("John Densmore")
-      webDriver.findElements(By.cssSelector(".content__body > p"))
+      webDriver.findElements(By.cssSelector(".content__body>p:nth-of-type(2)"))
         .filter(_.getText == pd.person.niNumber) should not be 'empty
     }
   }

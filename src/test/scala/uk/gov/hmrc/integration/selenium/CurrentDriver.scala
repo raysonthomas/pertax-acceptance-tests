@@ -8,7 +8,8 @@ object CurrentDriver {
 
 
   def invalidate = {
-    webDriver.quit()
+    if (webDriver != null)
+      webDriver.quit()
     webDriver = null
   }
 

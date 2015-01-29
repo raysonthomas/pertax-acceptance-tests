@@ -8,10 +8,10 @@ Feature: PTA:View NINO
 
     Given John Densmore has logged in to PTA
     And PTA landing page is displayed
-    And sees the Personal Details link
+    And Personal Details link is visible
     When John Densmore clicks on Personal Details link
-    Then John Densmore sees Personal Details page
-    And CS700100A should be displayed
+    Then Personal Details page is displayed
+    And NINO CS700100A is visible
 
 
 # JIRA story history: MTA-260
