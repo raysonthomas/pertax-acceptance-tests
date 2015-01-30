@@ -11,7 +11,7 @@ class ViewEmailTest extends ScalaDsl with EN with Matchers {
 
   Then( """^rjeffries@example.com is displayed as email address$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElements(By.cssSelector(".content__body>p:nth-of-type(3)"))
+      webDriver.findElements(By.cssSelector(".content__body > p:nth-of-type(4)"))
         .filter(_.getText == "rjeffries@example.com") should not be 'empty
     }
   }

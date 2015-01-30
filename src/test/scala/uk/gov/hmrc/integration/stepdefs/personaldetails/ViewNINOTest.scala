@@ -14,7 +14,7 @@ class ViewNINOTest extends ScalaDsl with EN with Matchers {
   Then( """^NINO CS700100A is visible$""") {
     withCurrentDriver { implicit webDriver =>
       val pd = getTestPersonDetailsByName("John Densmore")
-      webDriver.findElements(By.cssSelector(".content__body>p:nth-of-type(2)"))
+      webDriver.findElements(By.cssSelector(".content__body>p:nth-of-type(3)"))
         .filter(_.getText == pd.person.niNumber) should not be 'empty
     }
   }
