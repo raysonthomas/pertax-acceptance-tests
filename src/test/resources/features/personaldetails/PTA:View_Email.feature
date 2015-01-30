@@ -13,9 +13,9 @@ Feature: PTA:View Email
     Then Personal Details page is displayed
     And rjeffries@example.com is displayed as email address
     
-    @solo
+    @wip
   Scenario: No Email is held on record
-    Given John Densmore has logged in to PTA
+    Given John Densmore is logged in to PTA
     And PTA landing page is displayed
     And Personal Details link is visible
     When John Densmore clicks on Personal Details link

@@ -13,12 +13,12 @@ Feature: PTA:View Income Tax Estimate Summary
     Given Robert Jeffries is logged in to PTA
     And PTA landing page is displayed
     Then Income Tax Estimate is displayed as £1361.40
-    
+
   Scenario: Link to PAYE service is displayed on Income Tax Estimate Summary
     Given Robert Jeffries is logged in to PTA
     And PTA landing page is displayed
     Then Link to PAYE service is displayed as View your Income Tax estimate
 
 
-  
+
 # JIRA story history: MTA-269
