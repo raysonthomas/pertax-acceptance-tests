@@ -37,9 +37,16 @@ class NavigationTest extends ScalaDsl with EN with Matchers {
     }
   }
 
-  Then( """^Check your income tax link is visible that points to PAYE protocol://host:port/beta10/beta10-index$""") {
+  Then( """^Income Tax Estimate Summary is displayed on PTA Landing page$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElements(By.linkText("Tax estimate")) should not be 'empty
+      webDriver.findElements(By.cssSelector(".heading-medium"))
+        .filter(_.getText == "Your Income Tax estimate for 2014 to 2015") should not be 'empty
+    }
+  }
+
+  Then( """^Link to PAYE service is displayed as View your Income Tax estimate$""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElements(By.linkText("View your Income Tax estimate")) should not be 'empty
     }
   }
 

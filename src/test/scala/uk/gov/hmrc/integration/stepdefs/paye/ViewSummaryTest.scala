@@ -8,10 +8,10 @@ import scala.collection.JavaConversions._
 
 class ViewSummaryTest extends ScalaDsl with EN with Matchers {
 
-  Given( """^Income Tax Estimate is displayed as 5,445$""") {
+  Given( """^Income Tax Estimate is displayed as £1361.40$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElements(By.cssSelector(""))
-        .filter(_.getText == "£5,445") should not be 'empty
+      webDriver.findElements(By.cssSelector(".bold-large"))
+        .filter(_.getText == "£1361.40") should not be 'empty
     }
   }
 

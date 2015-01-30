@@ -9,19 +9,18 @@ import scala.collection.JavaConversions._
 
 class ViewEmailTest extends ScalaDsl with EN with Matchers {
 
-  Then( """^(.*) is displayed as email address$""") {
-    (email: String) =>
+  Then( """^rjeffries@example.com is displayed as email address$""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElements(By.cssSelector(""))
-        .filter(_.getText == s"$email") should not be 'empty
+      webDriver.findElements(By.cssSelector(".content__body>p:nth-of-type(3)"))
+        .filter(_.getText == "rjeffries@example.com") should not be 'empty
     }
   }
 
-  Then( """^No email held is displayed as his email address$""") {
+  Then( """^Your email header field is not displayed$""") {
     withCurrentDriver { implicit webDriver =>
-      val pd = getTestPersonDetailsByName("John Densmore")
-      webDriver.findElements(By.cssSelector(""))
-        .filter(_.getText == pd.contact.email) should not be 'empty
+      webDriver.findElements(By.cssSelector(".heading-small:nth-of-type(4)"))
+        .filter(_.getText == "") should not be 'empty
     }
   }
+  
 }

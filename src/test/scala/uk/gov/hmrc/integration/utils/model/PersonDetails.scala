@@ -55,8 +55,7 @@ case class Contact(
 )
 {
   lazy val email = List(primaryEmail).flatten.mkString(" ")
-  lazy val noEmail = List().flatten.mkString(" ")
-  
+
  }
 object PersonDetails {
   implicit val formats = Json.format[PersonDetails]
