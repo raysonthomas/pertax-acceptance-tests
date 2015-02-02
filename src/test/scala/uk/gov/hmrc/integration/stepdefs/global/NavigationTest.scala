@@ -36,8 +36,8 @@ class NavigationTest extends ScalaDsl with EN {
   Then( """^Personal Details page is displayed$""") {
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == "Your Profile").isEmpty == false,
-        "Your Profile was not found"
+        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == "Your personal details").isEmpty == false,
+        "Your personal details was not found"
       )
     }
   }
