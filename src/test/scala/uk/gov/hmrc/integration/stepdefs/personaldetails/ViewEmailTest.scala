@@ -3,7 +3,7 @@ package uk.gov.hmrc.integration.stepdefs.personaldetails
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.utils.TestDataSource._
+
 import scala.collection.JavaConversions._
 
 class ViewEmailTest extends ScalaDsl with EN {
@@ -17,9 +17,9 @@ class ViewEmailTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Your email header field is not displayed$""") {
+  Then( """^(.*) field is not displayed$""") { (emailField:String)  =>
     withCurrentDriver { implicit webDriver =>
-
+      assert( !webDriver.findElement(By.cssSelector("#content")).getText.contains("Your email"), s"'$emailField' was found" )
     }
   }
   

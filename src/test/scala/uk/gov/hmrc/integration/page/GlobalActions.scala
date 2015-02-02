@@ -2,7 +2,6 @@ package uk.gov.hmrc.integration.page
 
 import org.openqa.selenium.{By, WebDriver}
 
-
 object GlobalActions {
 
   def maybeClickMenu(implicit webDriver: WebDriver): Unit = {
