@@ -8,7 +8,7 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 import scala.collection.JavaConversions._
 
-class ViewNINOTest extends ScalaDsl with EN {
+class ViewNinoTest extends ScalaDsl with EN {
 
   Then( """^NINO (.*) is visible$""") { (nino: String) =>
     withCurrentDriver { implicit webDriver =>
