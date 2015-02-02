@@ -1,25 +1,24 @@
 {
-   "contact" : {
-      "eveningTelephone" : "9999 99999",
-      "daytimeTelephone" : "9999 99999"
-   },
    "person" : {
-      "nino" : "GC306515D",
-      "sex" : "M",
-      "firstName" : "Timothy",
-      "title" : "MR",
-      "dateOfBirth" : -107053200000,
-      "initials" : "T B",
       "middleName" : "",
-      "lastName" : "Bull"
+      "lastName" : "Bull",
+      "initials" : "T B",
+      "nino" : "GC306515D",
+      "dateOfBirth" : -107053200000,
+      "title" : "MR",
+      "sex" : "M",
+      "firstName" : "Timothy"
+   },
+   "contact" : {
+      "daytimeTelephone" : "9999 99999",
+      "eveningTelephone" : "9999 99999"
    },
    "addressHistory" : [
       {
+         "addressLine3" : "XXXXXX",
          "postcode" : "TF3 4ER",
-         "addressLine1" : "246 WOOLWICH ROAD",
          "addressLine2" : "XXXXXXXX",
-         "startDatetime" : 1169683200000,
-         "addressLine3" : "XXXXXX"
+         "addressLine1" : "246 WOOLWICH ROAD"
       }
    ]
 }
