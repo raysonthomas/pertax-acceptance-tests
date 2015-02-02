@@ -6,16 +6,17 @@ Feature: PTA:View Email
 
   Scenario: View Email in Personal Details Page
     Given Robert Jeffries is logged in to PTA
-    And PTA landing page is displayed
+    And Your account page is displayed
     When Robert Jeffries clicks on Personal Details link
-    Then Personal Details page is displayed
+    Then Your personal details page is displayed
     And rjeffries@example.com is displayed as email address
 
   Scenario: No Email is held on record
     Given Timothy Bull is logged in to PTA
-    And PTA landing page is displayed
+    And Your account page is displayed
     When Timothy Bull clicks on Personal Details link
-    Then Your email label is not displayed
+    Then Your personal details page is displayed
+    And Your email label is not displayed
 
 
 

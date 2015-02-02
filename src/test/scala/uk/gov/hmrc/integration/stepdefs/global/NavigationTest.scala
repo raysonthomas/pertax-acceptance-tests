@@ -8,15 +8,6 @@ import scala.collection.JavaConversions._
 
 class NavigationTest extends ScalaDsl with EN {
 
-  Given( """^PTA landing page is displayed$""") {
-    withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == "Your account").isEmpty == false,
-        "'Your account' was not found"
-      )
-    }
-  }
-
   When( """^(.*) clicks on Personal Details link$""") {
     (user: String) =>
     withCurrentDriver { implicit webDriver =>
@@ -25,11 +16,11 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Personal Details page is displayed$""") {
+  Then( """^(.*) page is displayed$""") { (heading: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == "Your personal details").isEmpty == false,
-        "Your personal details was not found"
+        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == s"$heading").isEmpty == false,
+        s"'$heading' was not found as '.heading-xlarge'"
       )
     }
   }
