@@ -12,16 +12,7 @@ class NavigationTest extends ScalaDsl with EN {
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == "Your account").isEmpty == false,
-        "Your account was not found"
-      )
-    }
-  }
-
-  Given( """^Personal Details link is visible$""") {
-    withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.linkText("Personal details")).isEmpty == false,
-        "Personal details was not found"
+        "'Your account' was not found"
       )
     }
   }
@@ -29,6 +20,7 @@ class NavigationTest extends ScalaDsl with EN {
   When( """^(.*) clicks on Personal Details link$""") {
     (user: String) =>
     withCurrentDriver { implicit webDriver =>
+      GlobalActions.maybeClickMenu
       LandingPageActions.clickPersonalDetailsLink
     }
   }

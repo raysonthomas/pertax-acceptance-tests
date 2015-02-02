@@ -1,0 +1,25 @@
+{
+   "contact" : {
+      "eveningTelephone" : "9999 99999",
+      "daytimeTelephone" : "9999 99999"
+   },
+   "person" : {
+      "nino" : "GC306515D",
+      "sex" : "M",
+      "firstName" : "Timothy",
+      "title" : "MR",
+      "dateOfBirth" : -107053200000,
+      "initials" : "T B",
+      "middleName" : "",
+      "lastName" : "Bull"
+   },
+   "addressHistory" : [
+      {
+         "postcode" : "TF3 4ER",
+         "addressLine1" : "246 WOOLWICH ROAD",
+         "addressLine2" : "XXXXXXXX",
+         "startDatetime" : 1169683200000,
+         "addressLine3" : "XXXXXX"
+      }
+   ]
+}
