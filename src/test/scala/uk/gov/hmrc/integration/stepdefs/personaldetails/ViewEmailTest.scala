@@ -19,7 +19,7 @@ class ViewEmailTest extends ScalaDsl with EN {
 
   Then( """^(.*) label is not displayed$""") { (emailField:String)  =>
     withCurrentDriver { implicit webDriver =>
-      assert( !webDriver.findElement(By.cssSelector("#content")).getText.contains("Your email"), s"'$emailField' was found" )
+      assert(!webDriver.findElement(By.cssSelector("#content")).getText.contains("Your email"), s"'$emailField' was found")
     }
   }
   }

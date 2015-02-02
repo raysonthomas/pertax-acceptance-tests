@@ -16,7 +16,7 @@ class ViewAddressTest extends ScalaDsl with EN {
   }
 
 
-  Then( """^(.*) is displayed as the Address's Valid From date$""") { (x:String) =>
+  Then( """^(.*) is displayed as the Date moved to this address$""") { (dateMoved:String) =>
     withCurrentDriver { implicit webDriver =>
 
 
