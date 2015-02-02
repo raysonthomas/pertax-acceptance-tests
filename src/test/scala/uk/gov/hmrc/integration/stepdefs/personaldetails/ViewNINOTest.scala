@@ -2,9 +2,7 @@ package uk.gov.hmrc.integration.stepdefs.personaldetails
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
-import uk.gov.hmrc.integration.page.IDAActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.utils.TestDataSource._
 
 import scala.collection.JavaConversions._
 

@@ -13,13 +13,13 @@ Feature: PTA:View Email
     Then Personal Details page is displayed
     And rjeffries@example.com is displayed as email address
     
-    @wip
+  @wip
   Scenario: No Email is held on record
     Given John Densmore is logged in to PTA
     And PTA landing page is displayed
     And Personal Details link is visible
     When John Densmore clicks on Personal Details link
-    Then Your email header field is not displayed
+    Then Your email field is not displayed
 
 
 
