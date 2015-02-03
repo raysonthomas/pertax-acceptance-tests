@@ -11,7 +11,7 @@ class ViewNinoTest extends ScalaDsl with EN {
   Then( """^NINO (.*) is visible$""") { (nino: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".content__body > p")).filter(_.getText == nino).isEmpty == false,
+        webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == nino).isEmpty == false,
         s"$nino was not found"
       )
     }

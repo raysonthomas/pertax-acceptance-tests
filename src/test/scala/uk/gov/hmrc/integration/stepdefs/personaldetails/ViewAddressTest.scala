@@ -18,7 +18,7 @@ class ViewAddressTest extends ScalaDsl with EN {
   Then( """^(.*) is displayed as the Date moved to this address$""") { (dateMoved: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".content__body > p")).filter(_.getText == dateMoved).isEmpty == false,
+        webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == dateMoved).isEmpty == false,
         s"$dateMoved was not found"
       )
     }
