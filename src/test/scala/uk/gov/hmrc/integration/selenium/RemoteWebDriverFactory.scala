@@ -68,6 +68,7 @@ object RemoteWebDriverFactory {
       dc.setCapability(k, v)
     dc.setCapability("project","PERTAX")
     dc.setCapability("build", "LOCAL")
+    dc.setCapability("emulator", "true")
     new RemoteWebDriver(new URL(browserStackURL), dc)
   }
 

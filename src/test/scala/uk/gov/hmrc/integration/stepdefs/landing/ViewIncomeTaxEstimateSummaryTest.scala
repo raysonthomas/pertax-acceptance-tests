@@ -5,7 +5,7 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
 
-class ViewSummaryTest extends ScalaDsl with EN {
+class ViewIncomeTaxEstimateSummaryTest extends ScalaDsl with EN {
 
   Given( """^Income Tax Estimate is displayed as (.+)""") { (value: String) =>
     withCurrentDriver { implicit webDriver =>
