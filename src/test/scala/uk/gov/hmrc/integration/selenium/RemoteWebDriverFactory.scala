@@ -51,7 +51,7 @@ object RemoteWebDriverFactory {
   private val macosxYosemitefirefox33Caps = List("browser" -> "Firefox", "browser_version" -> "33.0") ++ macosxYosemiteCaps
   
   //Browsername,platform for IOS mobile Devices
-  private val iosIphone5SCaps = List("device" -> "iPhone 5S") ++ iosIphoneCaps
+  private val iosIphone5SCaps = List("device" -> "iPhone 5S", "emulator" -> "true") ++ iosIphoneCaps
 
   //Browsername,platform for IOS ipad Devices
   private val iosIpadMiniRetinaCaps = List("device" -> "iPad mini Retina") ++ iosIpadRetinaCaps
@@ -68,7 +68,6 @@ object RemoteWebDriverFactory {
       dc.setCapability(k, v)
     dc.setCapability("project","PERTAX")
     dc.setCapability("build", "LOCAL")
-    dc.setCapability("emulator", "false")
     new RemoteWebDriver(new URL(browserStackURL), dc)
   }
 
