@@ -29,7 +29,7 @@ object DriverFactory {
       case "macos-safari8-remote"       => buildMacosxYosemitesSafari8Driver
       case "macos-chrome-remote"        => buildMacosxYosemitechrome38Driver
       case "macos-firefox-remote"       => buildMacosxYosemitefirefox33Driver
-      case "iphone5s-remote"            => buildIosIphone5SDriver
+      case "iphone5s-emu-remote"            => buildIosIphone5SDriver
       case "ipad-mini-retina-remote"    => buildIosIpadMiniRetinaDriver
       case _                            => throw new IllegalArgumentException(s"Browser type not recognised")
     }
