@@ -60,7 +60,7 @@ object RemoteWebDriverFactory {
   private val iosIpadMiniRetinaCaps = List("device" -> "iPad mini Retina") ++ iosIpadRetinaCaps
   private val iosIpad4thGenCaps = List("device" -> "iPad 4th Gen") ++ iosIpadRetinaCaps
   private val iosIpadAirCaps = List("device" -> "iPad Air") ++ iosIpadRetinaCaps
-  private val androidSamsungGalaxyS5Caps = List("device" -> "Samsung Galaxy S5", "emulator" -> "true") ++ androidPhoneCaps
+  private val androidSamsungGalaxyS5Caps = List("device" -> "Samsung Galaxy S5") ++ androidPhoneCaps
   
   
 
