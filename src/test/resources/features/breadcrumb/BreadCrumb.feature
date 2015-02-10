@@ -12,12 +12,12 @@ So that I don't get lost
     Then Account home breadcrumb link is displayed
          
   Scenario: View breadcrumb on Your personal details page
-    When Robert Jeffires click on personal details link
+    When Robert Jeffries clicks on Personal Details link
     Then Account home breadcrumb link is displayed
     And Personal details breadcrumb link is displayed
           
   Scenario: Navigate to Your account page using breadcrumb
-    And Robert Jeffires click on personal details link
+    And Robert Jeffries clicks on Personal Details link
     And Your personal details page is displayed
     When Robert Jeffries click on Account home breadcrumb link
     Then Your account page is displayed
