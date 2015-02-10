@@ -13,14 +13,10 @@ class LogInTest extends ScalaDsl with EN {
     (user: String) =>
       val personProperty = personProperties(user)
       withCurrentDriver { implicit webDriver =>
-        
         if (Configuration.environment("id") == "local")
           IDAActions.logInLocalEnv(personProperty.username, personProperty.password)
         else
           IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
-        
-        
       }
   }
-
 }

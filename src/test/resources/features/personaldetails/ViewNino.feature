@@ -12,4 +12,5 @@ Feature: PTA:View NINO
     And NINO CS700100A is visible
 
 
+
 # JIRA story history: MTA-260

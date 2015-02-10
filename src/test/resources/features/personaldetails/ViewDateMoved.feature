@@ -19,6 +19,5 @@ Feature: PTA:View Valid From
     And Date moved to this address label is not displayed
 
 
-  
 
 # JIRA story history: MTA-272

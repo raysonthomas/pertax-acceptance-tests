@@ -24,7 +24,6 @@ object IDAActions {
     webDriver.findElement(By.id("login")).click()
     webDriver.findElement(By.id("agree")).click()
     (new WebDriverWait(webDriver, 15)).until(CustomExpectedConditions.urlEndsWith("/pertax"))
-
   }
 
 }
