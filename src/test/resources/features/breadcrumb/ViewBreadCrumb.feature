@@ -2,23 +2,26 @@
 Feature: Breadcrumb for Personal Tax Account
 As a user of PTA
 I need to be able to navigate easily back to parent pages and to see where I am at any time
-So that I dont get lost
+So that I don't get lost
   
-  Scenario: View breadcrumb for personal tax account
+  Background:
     Given Robert Jeffries is logged in to PTA
     And Your account page is displayed
-    And Account home breadcrumb is displayed
-    When Robert Jeffries clicks on Personal Details link
-    Then Your personal details page is displayed
-    And Account home and Personal details breadcrumb is displayed
     
-  Scenario: Navigate back to parent page using breadcrunb
-    Given Robert Jeffires is in personal details page
-    And personal details page is displayed
-    And Account home and Perosonal details breadcrumb is displayed
-    When Robert Jeffries click on Account home breadcrumb
-    Then Robert Jeffries is navigate to Account home page
-    And Account home page is displayed
-
-
+  Scenario: View breadcrumb on Your account page
+    Then Account home breadcrumb link is displayed
+         
+  Scenario: View breadcrumb on Your personal details page
+    When Robert Jeffires click on personal details link
+    Then Account home breadcrumb link is displayed
+    And Personal details breadcrumb link is displayed
+          
+  Scenario: Navigate to Your account page using breadcrumb
+    And Robert Jeffires click on personal details link
+    And Your personal details page is displayed
+    When Robert Jeffries click on Account home breadcrumb link
+    Then Your account page is displayed
+    
+    
+    
     # JIRA story history: MTA-292
