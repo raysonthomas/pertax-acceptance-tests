@@ -16,4 +16,13 @@ class BreadCrumbTest extends ScalaDsl with EN {
     }
   }
 
+  Then( """^(.*) clicks on (.*) breadcrumb link$""") { (user: String, linkName: String) =>
+    withCurrentDriver { implicit webDriver =>
+      assert(
+        webDriver.findElements(By.cssSelector(".group>li>a")).filter(_.getText == linkName).isEmpty == false,
+        s"$linkName was not found"
+      )
+    }
+  }
+
 }

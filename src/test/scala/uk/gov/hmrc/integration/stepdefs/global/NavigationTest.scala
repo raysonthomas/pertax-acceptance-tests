@@ -8,11 +8,11 @@ import scala.collection.JavaConversions._
 
 class NavigationTest extends ScalaDsl with EN {
 
-  When( """^(.*) clicks on Personal Details link$""") {
-    (user: String) =>
+  When( """^(.*) clicks on (.*) link$""") {
+    (user: String, linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
-      LandingPageActions.clickPersonalDetailsLink
+      LandingPageActions.clickLinkByName(linkName)
     }
   }
 
@@ -25,7 +25,8 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Income Tax Estimate Summary is displayed on PTA Landing page$""") {
+  Then( """^Income Tax Estimate Summary is displayed on (.*) page$""") {
+    (pageName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".heading-medium")).filter(_.getText == "Your Income Tax estimate for 2014 to 2015").isEmpty == false,
