@@ -24,8 +24,7 @@
          "addressLine4" : "North Tyneside"
       }
    ],
-   "person" : {
-      "initials" : "RJ",
+   "person" : {      "initials" : "RJ",
       "firstName" : "Robert",
       "nino" : "ZN522915C",
       "dateOfBirth" : -1091926800000,

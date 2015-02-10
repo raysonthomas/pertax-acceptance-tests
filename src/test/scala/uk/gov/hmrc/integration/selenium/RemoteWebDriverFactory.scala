@@ -20,9 +20,12 @@ object RemoteWebDriverFactory {
   
   //platform for browsername ios mobile devices
   private val iosIphoneCaps = List("browserName" -> "iPhone", "platform" -> "MAC") ++ browserStackCaps
+  private val androidPhoneCaps = List("browserName" -> "android", "platform" -> "ANDROID") ++ browserStackCaps
 
   //platform for browsername ios ipad devices
   private val iosIpadRetinaCaps = List("browserName" -> "iPad", "platform" -> "MAC") ++ browserStackCaps
+  
+  
   
   //Browsers and OS for windows and IE
   private val winXPie6Caps = List("browser" -> "IE", "browser_version" -> "6.0") ++ windowsXPCaps
@@ -57,6 +60,7 @@ object RemoteWebDriverFactory {
   private val iosIpadMiniRetinaCaps = List("device" -> "iPad mini Retina") ++ iosIpadRetinaCaps
   private val iosIpad4thGenCaps = List("device" -> "iPad 4th Gen") ++ iosIpadRetinaCaps
   private val iosIpadAirCaps = List("device" -> "iPad Air") ++ iosIpadRetinaCaps
+  private val androidSamsungGalaxyS5Caps = List("device" -> "Samsung Galaxy S5", "emulator" -> "true") ++ androidPhoneCaps
   
   
 
@@ -96,5 +100,6 @@ object RemoteWebDriverFactory {
   //for IOS devices
   def buildIosIphone5SDriver = buildRemoteWebDriver(iosIphone5SCaps)
   def buildIosIpadMiniRetinaDriver = buildRemoteWebDriver(iosIpadMiniRetinaCaps)
+  def buildAndroidSamsungGalaxyS5Driver = buildRemoteWebDriver(androidSamsungGalaxyS5Caps)
   
 }

@@ -16,5 +16,4 @@ class ViewNinoTest extends ScalaDsl with EN {
       )
     }
   }
-
 }
