@@ -1,4 +1,4 @@
-@wip
+@suite
 Feature: View Income Tax Estimate Summary
   As an HMRC Customer
   I must be able to view Income Tax Estimate Summary on PTA landing page
