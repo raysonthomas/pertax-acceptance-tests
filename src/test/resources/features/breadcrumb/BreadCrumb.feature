@@ -12,7 +12,7 @@ So that I don't get lost
     Then Account home breadcrumb link is displayed
          
   Scenario: View breadcrumb on Your personal details page
-    When Robert Jeffries clicks on Personal details link
+    When Robert Jeffries clicks on Personal tails link
     Then Account home breadcrumb link is displayed
     And Personal details breadcrumb link is displayed
           
