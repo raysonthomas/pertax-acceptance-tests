@@ -34,7 +34,7 @@ object DriverFactory {
       case _                          => throw new IllegalArgumentException(s"Browser type not recognised")
     }
 
-    val TimeOutInSeconds = 35
+    val TimeOutInSeconds = 50
     webDriver.manage.timeouts.implicitlyWait(TimeOutInSeconds, TimeUnit.SECONDS)
     
     try {
