@@ -12,7 +12,7 @@ object LandingPageActions {
   def clickLinkByName(linkName: String)(implicit webDriver: WebDriver): Unit = {
     val urlPath = new URL(webDriver.findElement(By.linkText(linkName)).getAttribute("href")).getPath
     webDriver.findElement(By.linkText(linkName)).click()
-    (new WebDriverWait(webDriver, 15)).until(CustomExpectedConditions.urlEndsWith(s"$urlPath"))
+    (new WebDriverWait(webDriver, 35)).until(CustomExpectedConditions.urlEndsWith(s"$urlPath"))
   }
 
 }

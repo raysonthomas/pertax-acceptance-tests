@@ -12,5 +12,5 @@ Feature: View Update your address link
     And Current Address Benton Park View, Longbenton, Tyne and Wear, North Tyneside, NE1 1AA should be visible
     And Update your address link should be visible
 
-    
-    
+
+   # JIRA story history: MTA-120
