@@ -4,7 +4,7 @@ import org.openqa.selenium.{WebDriver, By}
 
 object Configuration {
 
-  val PageTimeOut = 60
+  val PageTimeOut = 80
 
   val DeviceViewBreakpoint = 768
 
