@@ -2,9 +2,7 @@ package uk.gov.hmrc.integration.stepdefs.global
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
-import uk.gov.hmrc.integration.page.{LandingPageActions, GlobalActions}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import scala.collection.JavaConversions._
 
 class VisibilityTest extends ScalaDsl with EN {
 
