@@ -12,7 +12,7 @@ object CurrentDriver {
   
   def clearSession(): Unit = {
     if (webDriver != null) {
-      webDriver.findElement(By.linkText("Sign out")).click()
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/ida/startlogin")
     }
   }
 
