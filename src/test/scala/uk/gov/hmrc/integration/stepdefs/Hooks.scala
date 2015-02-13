@@ -7,8 +7,6 @@ import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
 
 
 class Hooks extends ScalaDsl with EN with Matchers {
-
-
   @Before
   def initialize = {
 
@@ -16,7 +14,7 @@ class Hooks extends ScalaDsl with EN with Matchers {
 
   @After
   def tearDown = {
-    CurrentDriver.invalidate
+    CurrentDriver.invalidate()
   }
 }
 

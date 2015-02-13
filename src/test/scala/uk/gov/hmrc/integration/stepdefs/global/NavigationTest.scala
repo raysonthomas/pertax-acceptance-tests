@@ -2,8 +2,9 @@ package uk.gov.hmrc.integration.stepdefs.global
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
-import uk.gov.hmrc.integration.page.{LandingPageActions, GlobalActions}
+import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+
 import scala.collection.JavaConversions._
 
 class NavigationTest extends ScalaDsl with EN {
@@ -12,7 +13,7 @@ class NavigationTest extends ScalaDsl with EN {
     (user: String, linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
-      LandingPageActions.clickLinkByName(linkName)
+      GlobalActions.clickLinkByName(linkName)
     }
   }
 
