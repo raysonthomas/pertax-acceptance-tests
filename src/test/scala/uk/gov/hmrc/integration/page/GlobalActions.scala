@@ -16,8 +16,8 @@ object GlobalActions {
     }
   }
 
-  def clickLinkThenExplicitWait(selector: By)(implicit webDriver: WebDriver): Unit = {
-    val urlPath = new URL(webDriver.findElement(selector).getAttribute("href")).getPath
+  def clickLinkThenExplicitWaitForPath(selector: By, path: String = "")(implicit webDriver: WebDriver): Unit = {
+    val urlPath = if(path.isEmpty) webDriver.findElement(selector).getAttribute("href") else path
     webDriver.findElement(selector).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith(urlPath))
   }

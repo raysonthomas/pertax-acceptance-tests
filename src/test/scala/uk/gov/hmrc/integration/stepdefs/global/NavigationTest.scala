@@ -14,7 +14,7 @@ class NavigationTest extends ScalaDsl with EN {
     (user: String, linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
-      GlobalActions.clickLinkThenExplicitWait(By.linkText(linkName))
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText(linkName))
     }
   }
 

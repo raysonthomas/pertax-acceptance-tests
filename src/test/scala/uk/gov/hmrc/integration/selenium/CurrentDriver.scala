@@ -7,22 +7,16 @@ import scala.collection.JavaConversions._
 
 object CurrentDriver {
 
-  private var webDriver: WebDriver = null
+  private implicit var webDriver: WebDriver = null
 
   
   def clearSession(): Unit = {
-
-    println("CurrentDriver.clearSession webDriver!=null = " + (webDriver != null))
-
     if (webDriver != null) {
-      webDriver.findElement(By.linkText("Sign out")).click()
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/ida/startlogin")
     }
   }
 
   def quitAndDestroy(): Unit = {
-
-    println("CurrentDriver.quitAndDestroy webDriver!=null = " + (webDriver != null))
-
     if (webDriver != null)
       webDriver.quit()
     webDriver = null
