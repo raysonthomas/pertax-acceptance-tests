@@ -10,7 +10,7 @@ object PageHelper extends WebBrowser {
 
   def elementDisplayed(by: By)(implicit webDriver: WebDriver) = !webDriver.findElements(by).isEmpty
 
-  def waitForPageToBeLoaded(condition: => Boolean, exceptionMessage: String, timeoutInSeconds: Int = Configuration.PageTimeOut)(implicit webDriver: WebDriver) {
+  def waitForPageToBeLoaded(condition: => Boolean, exceptionMessage: String, timeoutInSeconds: Int = Configuration("defaultWait").toInt)(implicit webDriver: WebDriver) {
     val endTime = System.currentTimeMillis + timeoutInSeconds * 1000
     while (System.currentTimeMillis < endTime) {
       try {

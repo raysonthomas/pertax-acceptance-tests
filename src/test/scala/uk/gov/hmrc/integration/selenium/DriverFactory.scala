@@ -6,6 +6,7 @@ import org.openqa.selenium.{Dimension, WebDriverException, WebDriver}
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
 import uk.gov.hmrc.integration.selenium.RemoteWebDriverFactory._
+import uk.gov.hmrc.integration.utils.Configuration
 
 object DriverFactory {
 
@@ -30,12 +31,11 @@ object DriverFactory {
       case "macos-chrome-remote"      => buildMacosxYosemitechrome38Driver
       case "macos-firefox-remote"     => buildMacosxYosemitefirefox33Driver
       case "iphone5s-emu-remote"      => buildIosIphone5SDriver
-      case "samsungGalaxyS5-remote"   => buildAndroidSamsungGalaxyS5Driver
+      case "galaxys5-remote"          => buildAndroidSamsungGalaxyS5Driver
       case _                          => throw new IllegalArgumentException(s"Browser type not recognised")
     }
 
-    val TimeOutInSeconds = 50
-    webDriver.manage.timeouts.implicitlyWait(TimeOutInSeconds, TimeUnit.SECONDS)
+    webDriver.manage.timeouts.implicitlyWait(Configuration("defaultWait").toInt, TimeUnit.SECONDS)
     
     try {
       webDriver.manage.window.maximize()
