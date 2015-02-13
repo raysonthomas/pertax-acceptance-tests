@@ -8,6 +8,9 @@ import uk.gov.hmrc.integration.utils._
 object IDAActions {
 
   def logInLocalEnv(user: String, pass: String)(implicit webDriver: WebDriver) = {
+
+    println("IDAActions.logInLocalEnv")
+
     webDriver.get(Configuration("url"))
     webDriver.findElement(By.id("username")).sendKeys(user)
     webDriver.findElement(By.id("password")).sendKeys(pass)

@@ -1,5 +1,5 @@
 @suite
-Feature: PTA:View Valid From
+Feature: View Date Moved
   As an HMRC Customer
   I need to view my current Address's Valid From date,
   So I can verify HMRC holds the correct details

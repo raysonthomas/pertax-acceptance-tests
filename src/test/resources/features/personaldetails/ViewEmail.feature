@@ -1,5 +1,5 @@
 @suite
-Feature: PTA:View Email
+Feature: View Email
   As an HMRC Customer
   I need to view my email address,
   So that I can verify that HMRC holds my correct e-mail address

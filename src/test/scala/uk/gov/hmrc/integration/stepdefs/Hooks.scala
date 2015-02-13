@@ -12,9 +12,10 @@ class Hooks extends ScalaDsl with EN with Matchers {
 
   }
 
+  //Executes after each scenario in a feature
   @After
   def tearDown = {
-    CurrentDriver.invalidate()
+    CurrentDriver.clearSession()
   }
 }
 

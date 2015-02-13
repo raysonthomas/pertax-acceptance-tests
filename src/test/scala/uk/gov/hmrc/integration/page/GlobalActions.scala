@@ -16,9 +16,9 @@ object GlobalActions {
     }
   }
 
-  def clickLinkByName(linkName: String)(implicit webDriver: WebDriver): Unit = {
-    val urlPath = new URL(webDriver.findElement(By.linkText(linkName)).getAttribute("href")).getPath
-    webDriver.findElement(By.linkText(linkName)).click()
-    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith(s"$urlPath"))
+  def clickLinkThenExplicitWait(selector: By)(implicit webDriver: WebDriver): Unit = {
+    val urlPath = new URL(webDriver.findElement(selector).getAttribute("href")).getPath
+    webDriver.findElement(selector).click()
+    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith(urlPath))
   }
 }

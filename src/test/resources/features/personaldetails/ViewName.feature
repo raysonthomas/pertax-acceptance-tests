@@ -1,5 +1,5 @@
 @suite
-Feature: PTA:View Name
+Feature: View Name
   As an HMRC Customer
   I need to view my personal details,
   So that I can verify that HMRC holds my correct name

@@ -1,5 +1,5 @@
 @suite
-Feature: PTA:View NINO
+Feature: View NINO
   As an HMRC Customer
   I need to view my personal details,
   So that I can verify that HMRC holds my correct NINO

@@ -5,11 +5,9 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
+class zzzCleanup extends ScalaDsl with EN {
 
-
-class zzzShutdown extends ScalaDsl with EN {
-
-  Then( """^Shut down the WebDriver$""") {
-    CurrentDriver.invalidate
+  Then( """^Clean up$""") {
+    CurrentDriver.quitAndDestroy()
   }
 }
