@@ -2,8 +2,6 @@ package uk.gov.hmrc.integration.selenium
 
 import org.openqa.selenium.{By, WebDriver}
 import uk.gov.hmrc.integration.page.GlobalActions
-import uk.gov.hmrc.integration.utils.Configuration
-import scala.collection.JavaConversions._
 
 object CurrentDriver {
 
@@ -12,6 +10,7 @@ object CurrentDriver {
   
   def clearSession(): Unit = {
     if (webDriver != null) {
+      GlobalActions.maybeClickMenu
       GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/ida/startlogin")
     }
   }
