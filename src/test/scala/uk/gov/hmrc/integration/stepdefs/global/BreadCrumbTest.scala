@@ -7,7 +7,7 @@ import scala.collection.JavaConversions._
 
 class BreadCrumbTest extends ScalaDsl with EN {
 
-  Then( """^(.*) breadcrumb link is displayed$""") { (linkName: String) =>
+  Then( """^'(.*)' breadcrumb link is displayed$""") { (linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".column-two-thirds>a")).filter(_.getText == linkName).isEmpty == false,
@@ -16,7 +16,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^(.*) clicks on (.*) breadcrumb link$""") { (user: String, linkName: String) =>
+  Then( """^'(.*)' clicks on '(.*)' breadcrumb link$""") { (user: String, linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".group>li>a")).filter(_.getText == linkName).isEmpty == false,

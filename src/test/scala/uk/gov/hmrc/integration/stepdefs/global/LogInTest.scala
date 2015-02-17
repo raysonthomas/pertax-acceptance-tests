@@ -9,7 +9,7 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class LogInTest extends ScalaDsl with EN {
 
-  Given( """^(.*) is logged in to PTA$""") {
+  Given( """^'(.*)' is logged in to PTA$""") {
     (user: String) =>
       val personProperty = personProperties(user)
       withCurrentDriver { implicit webDriver =>

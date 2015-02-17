@@ -8,7 +8,7 @@ import scala.collection.JavaConversions._
 
 class ViewNinoTest extends ScalaDsl with EN {
 
-  Then( """^NINO (.*) is visible$""") { (nino: String) =>
+  Then( """^NINO '(.*)' is visible$""") { (nino: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == nino).isEmpty == false,

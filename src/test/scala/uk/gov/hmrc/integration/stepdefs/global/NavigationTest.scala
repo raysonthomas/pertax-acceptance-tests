@@ -10,7 +10,7 @@ import scala.collection.JavaConversions._
 
 class NavigationTest extends ScalaDsl with EN {
 
-  When( """^(.*) clicks on (.*) link$""") {
+  When( """^'(.*)' clicks on '(.*)' link$""") {
     (user: String, linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
@@ -18,7 +18,7 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^(.*) page is displayed$""") { (heading: String) =>
+  Then( """^'(.*)' page is displayed$""") { (heading: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == s"$heading").isEmpty == false,
@@ -27,7 +27,7 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Income Tax Estimate Summary is displayed on (.*) page$""") {
+  Then( """^Income Tax Estimate Summary is displayed on '(.*)' page$""") {
     (pageName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
@@ -37,7 +37,7 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Link to PAYE service is displayed as (.*)$""") { (linkName: String) =>
+  Then( """^Link to PAYE service is displayed as '(.*)'$""") { (linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".column-two-thirds>a")).filter(_.getText == linkName).isEmpty == false,

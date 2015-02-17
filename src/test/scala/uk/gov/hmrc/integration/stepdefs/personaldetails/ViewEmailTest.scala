@@ -8,7 +8,7 @@ import scala.collection.JavaConversions._
 
 class ViewEmailTest extends ScalaDsl with EN {
 
-  Then( """^(.*) is displayed as email address$""") { (email: String) =>
+  Then( """^'(.*)' is displayed as email address$""") { (email: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == email).isEmpty == false,

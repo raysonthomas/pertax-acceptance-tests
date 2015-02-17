@@ -7,7 +7,7 @@ import scala.collection.JavaConversions._
 
 class ViewIncomeTaxEstimateSummaryTest extends ScalaDsl with EN {
 
-  Given( """^Income Tax Estimate is displayed as (.+)""") { (value: String) =>
+  Given( """^Income Tax Estimate is displayed as '(.+)'""") { (value: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".bold-large")).filter(_.getText == value).isEmpty == false,

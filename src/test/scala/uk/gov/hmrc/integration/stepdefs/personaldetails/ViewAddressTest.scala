@@ -7,7 +7,7 @@ import scala.collection.JavaConversions._
 
 class ViewAddressTest extends ScalaDsl with EN {
 
-  Then( """^Current Address (.*), (.*), (.*), (.*), (.*) should be visible$""") {
+  Then( """^Current Address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
       withCurrentDriver { implicit webDriver =>
         val fullAddress = s"$addressLine1\n$addressLine2\n$addressLine3\n$addressLine4\n$postCode"
@@ -15,7 +15,7 @@ class ViewAddressTest extends ScalaDsl with EN {
       }
   }
 
-  Then( """^(.*) is displayed as the Date moved to this address$""") { (dateMoved: String) =>
+  Then( """^'(.*)' is displayed as the Date moved to this address$""") { (dateMoved: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == dateMoved).isEmpty == false,

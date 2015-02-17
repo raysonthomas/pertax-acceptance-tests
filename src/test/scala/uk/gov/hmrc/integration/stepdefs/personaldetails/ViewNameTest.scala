@@ -8,7 +8,7 @@ import scala.collection.JavaConversions._
 
 class ViewNameTest extends ScalaDsl with EN {
 
-  Then( """^Name (.*) is visible$""") { (name: String) =>
+  Then( """^Name '(.*)' is visible$""") { (name: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == name).isEmpty == false,

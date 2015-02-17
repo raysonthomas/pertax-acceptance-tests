@@ -5,18 +5,18 @@ Feature: View Date Moved
   So I can verify HMRC holds the correct details
   
   Scenario: Date moved is displayed on Your personal details page
-    Given John Densmore is logged in to PTA
-    And Your account page is displayed
-    When John Densmore clicks on Personal details link
-    Then Your personal details page is displayed
-    And 23 April 2013 is displayed as the Date moved to this address
+    Given 'John Densmore' is logged in to PTA
+    And 'Your account' page is displayed
+    When 'John Densmore' clicks on 'Personal details' link
+    Then 'Your personal details' page is displayed
+    And '23 April 2013' is displayed as the Date moved to this address
 
   Scenario: Date moved is not displayed on Your personal details page if there is no value for it
-    Given Timothy Bull is logged in to PTA
-    And Your account page is displayed
-    When Timothy Bull clicks on Personal details link
-    Then Your personal details page is displayed
-    And Date moved to this address label is not displayed
+    Given 'Timothy Bull' is logged in to PTA
+    And 'Your account' page is displayed
+    When 'Timothy Bull' clicks on 'Personal details' link
+    Then 'Your personal details' page is displayed
+    And 'Date moved to this address' label is not displayed
 
 
 
