@@ -47,3 +47,4 @@ BrowserStackLocal*
 
 #Crossbrowser specific
 run_integration_crossbrowser.sh*
+RunCrossBrowserTestSuite*

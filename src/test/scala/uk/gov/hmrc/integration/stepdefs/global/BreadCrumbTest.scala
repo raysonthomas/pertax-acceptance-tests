@@ -2,6 +2,7 @@ package uk.gov.hmrc.integration.stepdefs.global
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
+import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
 
@@ -10,7 +11,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
   Then( """^'(.*)' breadcrumb link is displayed$""") { (linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".column-two-thirds>a")).filter(_.getText == linkName).isEmpty == false,
+        webDriver.findElements(By.cssSelector(".group>li")).filter(_.getText == linkName).isEmpty == false,
         s"$linkName was not found"
       )
     }
@@ -18,10 +19,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
 
   Then( """^'(.*)' clicks on '(.*)' breadcrumb link$""") { (user: String, linkName: String) =>
     withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".group>li>a")).filter(_.getText == linkName).isEmpty == false,
-        s"$linkName was not found"
-      )
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText(linkName))
     }
   }
 

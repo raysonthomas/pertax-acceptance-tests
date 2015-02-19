@@ -1,4 +1,4 @@
-@suite
+@suite @wip @crossbrowser
 Feature: Clean up
 
   Scenario: Clean up

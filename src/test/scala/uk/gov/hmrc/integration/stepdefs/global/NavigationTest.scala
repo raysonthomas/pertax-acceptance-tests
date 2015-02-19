@@ -4,7 +4,6 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 
 import scala.collection.JavaConversions._
 
