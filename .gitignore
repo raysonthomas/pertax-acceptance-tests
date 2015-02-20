@@ -45,6 +45,3 @@ project/plugins/project/
 .scala_dependencies
 BrowserStackLocal*
 
-#Crossbrowser specific
-run_integration_crossbrowser.sh*
-RunCrossBrowserTestSuite*

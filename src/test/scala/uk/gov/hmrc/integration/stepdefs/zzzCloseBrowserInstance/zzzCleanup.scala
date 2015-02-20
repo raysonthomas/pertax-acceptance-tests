@@ -1,4 +1,4 @@
-package uk.gov.hmrc.integration.stepdefs.zzz
+package uk.gov.hmrc.integration.stepdefs.zzzCloseBrowserInstance
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
