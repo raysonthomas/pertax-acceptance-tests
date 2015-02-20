@@ -1,4 +1,4 @@
-package uk.gov.hmrc.integration.stepdefs.landing
+package uk.gov.hmrc.integration.stepdefs.home
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
