@@ -5,12 +5,12 @@ Feature: View Update your address link
   So that my details in the records are up-to-date
 
   Scenario: Update your address link is visible in Your personal details Page
-    Given 'John Densmore' is logged in to PTA
+    Given 'Robert Jeffries' is logged in to PTA
     And 'Your account' page is displayed
-    When 'John Densmore' clicks on 'Personal details' link
+    When 'Robert Jeffries' clicks on 'Personal details' link
     Then 'Your personal details' page is displayed
     And Current Address 'Benton Park View', 'Longbenton', 'Tyne and Wear', 'North Tyneside', 'NE1 1AA' should be visible
-    And 'Update your address' link should be visible
+    And 'Update your address (opens in new window)' link should be visible
 
 
   
