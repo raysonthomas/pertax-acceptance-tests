@@ -18,8 +18,8 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 libraryDependencies ++= Seq(
   "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.1.0",
   "org.reactivemongo" %% "reactivemongo" % "0.10.5.0.akka23",
-  "org.seleniumhq.selenium" % "selenium-java" % "2.43.1",
-  "org.seleniumhq.selenium" % "selenium-firefox-driver" % "2.43.1",
+  "org.seleniumhq.selenium" % "selenium-java" % "2.45.0",
+  "org.seleniumhq.selenium" % "selenium-firefox-driver" % "2.45.0",
   "com.typesafe.play" %% "play-json" % "2.3.0",
   "org.scalatest" %% "scalatest" % "2.2.1",
   "org.pegdown" % "pegdown" % "1.1.0" % "test",
