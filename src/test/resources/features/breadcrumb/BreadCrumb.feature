@@ -1,4 +1,4 @@
-@wip
+@suite @smoke
 Feature: Breadcrumb for Personal Tax Account
 As a PTA user
 I must be able to see navigation links to the current and all parent pages
@@ -23,5 +23,5 @@ So that I don't get lost
     Then 'Your account' page is displayed
 
 
-
+  
 # JIRA story history: MTA-292

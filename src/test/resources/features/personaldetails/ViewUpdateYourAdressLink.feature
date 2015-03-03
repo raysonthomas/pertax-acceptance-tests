@@ -10,7 +10,7 @@ Feature: View Update your address link
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then 'Your personal details' page is displayed
     And Current Address 'Benton Park View', 'Longbenton', 'Tyne and Wear', 'North Tyneside', 'NE1 1AA' should be visible
-    And 'Update your address (opens in new window)' link should be visible
+    And 'Update your address (Opens in new window)' link should be visible
 
 
   

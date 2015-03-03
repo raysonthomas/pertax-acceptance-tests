@@ -1,4 +1,4 @@
-@suite @wip
+@suite @wip @smoke
 Feature: Clean up
 
   Scenario: Clean up
