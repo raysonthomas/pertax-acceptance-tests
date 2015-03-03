@@ -23,5 +23,5 @@ So that I don't get lost
     Then 'Your account' page is displayed
 
 
-  
+
 # JIRA story history: MTA-292
