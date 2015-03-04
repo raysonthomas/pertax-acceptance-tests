@@ -13,6 +13,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
       assert(
         webDriver.findElements(By.cssSelector(".group>li")).filter(_.getText == linkName).isEmpty == false,
         s"$linkName was not found"
+
       )
     }
   }
