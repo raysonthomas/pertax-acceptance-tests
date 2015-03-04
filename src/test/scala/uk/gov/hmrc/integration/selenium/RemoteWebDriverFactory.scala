@@ -18,7 +18,7 @@ object RemoteWebDriverFactory {
   private val macosxMavericksCaps = List("os" -> "OS X", "os_version" -> "Mavericks") ++ browserStackCaps
   private val macosxYosemiteCaps  = List("os" -> "OS X", "os_version" -> "Yosemite") ++ browserStackCaps
   
-  //platform for browsername ios mobile devices
+  //platform for browsername mobile devices
   private val iosIphoneCaps = List("browserName" -> "iPhone", "platform" -> "MAC") ++ browserStackCaps
   private val androidPhoneCaps = List("browserName" -> "android", "platform" -> "ANDROID") ++ browserStackCaps
 
