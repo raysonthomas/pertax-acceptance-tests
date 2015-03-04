@@ -14,7 +14,7 @@ So that I don't get lost
   Scenario: View breadcrumb on Your personal details page
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then 'Home' breadcrumb link is displayed
-    And 'Personal details' breadcrumb link is displayed
+    And 'Personal Details' breadcrumb link is displayed
           
   Scenario: Navigate to Your account page using breadcrumb
     And 'Robert Jeffries' clicks on 'Personal details' link
