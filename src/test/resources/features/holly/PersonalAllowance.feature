@@ -6,50 +6,34 @@ Feature:
 
   JIRA story history: MTA-325
 
-  Scenario Outline: Total Income is less than Personal Allowance
-    Given '<user>' Personal Allowance equals '<personalAllowance>'
-    And '<user>' works for First Employer <firstEmployerRef>','<firstPayrollID>', earning <firstAnnualEarnings> annually
-    And First Employer has assigned a tax code of '<firstEmployerTaxCode>'
-    And '<user>' works for Second Employer <secondEmployerRef>','<secondPayrollID>' earning <secondAnnualEarnings> annually
-    And Second Employer has assigned a tax code of '<secondEmployerTaxCode>'
-    And '<user>' works for Third Employer <thirdEmployerRef>','<thirdPayrollID>' earning <thirdAnnualEarnings> annually
-    And Third Employer has assigned a tax code of '<thirdEmployerTaxCode>'
-    When '<user>' is logged in to PTA
-    Then PTA informs that tax is being paid on '<taxPaidOnValueCurrently>' but should be paying tax on '<taxPaidOnValueRecommended>'
-  Examples:
-    | user            | personalAllowance | firstEmployerRef | firstPayrollID | firstAnnualEarnings | firstEmployerTaxCode | secondEmployerRef | secondPayrollID | secondAnnualEarnings | secondEmployerTaxCode | thirdEmployerRef | thirdPayrollID | thirdAnnualEarnings | thirdEmployerTaxCode | taxPaidOnValueCurrently | taxPaidOnValueRecommended |
-    | John Densmore   | 10000             | ???              | ???            | 5000                | 1000L                | ???               | ???             | 3000                 |                       | ???              | ???            | 1000                |                      | 4000                    | 0                         |
-    | John Bucksworth | 10000             | ???              | ???            | 5000                | 500L                 | ???               | ???             | 3000                 | 500L                  | ???              | ???            | 1000                |                      | 1000                    | 0                         |
+  Scenario: Three jobs with the same employer
+    Given 'Fred Smith' has a Personal Allowance of '£10000'
+    And 'Fred Smith' works at L&M (ref: 'LM50') on payroll ID: '150' earning an estimated '£5000.00' per year
+    And 'Fred Smith' works at L&M (ref: 'LM50') on payroll ID: '235' earning an estimated '£3000.00' per year
+    And 'Fred Smith' works at L&M (ref: 'LM50') on payroll ID: '460' earning an estimated '£1000.00' per year
+    And The Employer has given him a tax code of '1000L' on his payroll ID: '150'
+    When 'Fred Smith' is logged in to PTA
+    Then PTA informs that tax is being paid on '£4000.00' but should be paying tax on '£0.00'
 
-  Scenario Outline: Total Income is more than Personal Allowance
-    Given '<user>' Personal Allowance equals '<personalAllowance>'
-    And '<user>' works for First Employer <firstEmployerRef>','<firstPayrollID>', earning <firstAnnualEarnings> annually
-    And First Employer has assigned a tax code of '<firstEmployerTaxCode>'
-    And '<user>' works for Second Employer <secondEmployerRef>','<secondPayrollID>' earning <secondAnnualEarnings> annually
-    And Second Employer has assigned a tax code of '<secondEmployerTaxCode>'
-    And '<user>' works for Third Employer <thirdEmployerRef>','<thirdPayrollID>' earning <thirdAnnualEarnings> annually
-    And Third Employer has assigned a tax code of '<thirdEmployerTaxCode>'
-    When '<user>' is logged in to PTA
-    Then PTA informs that tax is being paid on '<taxPaidOnValueCurrently>' but should be paying tax on '<taxPaidOnValueRecommended>'
-  Examples:
-    | user       | personalAllowance | firstEmployerRef | firstPayrollID | firstAnnualEarnings | firstEmployerTaxCode | secondEmployerRef | secondPayrollID | secondAnnualEarnings | secondEmployerTaxCode | thirdEmployerRef | thirdPayrollID | thirdAnnualEarnings | thirdEmployerTaxCode | taxPaidOnValueCurrently | taxPaidOnValueRecommended |
-    | John Check | 10000             | ???              | ???            | 5000                | 1000L                | ???               | ???             | 5000                 |                       | ???              | ???            | 5000                |                      | 10000                   | 5000                      |
+  Scenario: Three jobs with different employers
+    Given 'Jack Daniel' has a Personal Allowance of '£10000'
+    And 'Jack Daniel' works at MSI (ref: 'MSI20') on payroll ID: '222' earning an estimated '£5000.00' per year
+    And 'Jack Daniel' works at KLM (ref: 'KLM40') on payroll ID: '333' earning an estimated '£3000.00' per year
+    And 'Jack Daniel' works at ACN (ref: 'ACN60') on payroll ID: '444' earning an estimated '£1000.00' per year
+    And The Employer has given him a tax code of '1000L' on his payroll ID: '222'
+    When 'Jack Daniel' is logged in to PTA
+    Then PTA informs that tax is being paid on '£4000.00' but should be paying tax on '£0.00'
 
-  Scenario Outline: Possible wrong tax code
-    Given '<user>' Personal Allowance equals '<personalAllowance>'
-    And '<user>' works for First Employer <firstEmployerRef>','<firstPayrollID>', earning <firstAnnualEarnings> annually
-    And First Employer has assigned a tax code of '<firstEmployerTaxCode>'
-    And '<user>' works for Second Employer <secondEmployerRef>','<secondPayrollID>' earning <secondAnnualEarnings> annually
-    And Second Employer has assigned a tax code of '<secondEmployerTaxCode>'
-    And '<user>' works for Third Employer <thirdEmployerRef>','<thirdPayrollID>' earning <thirdAnnualEarnings> annually
-    And Third Employer has assigned a tax code of '<thirdEmployerTaxCode>'
-    When '<user>' is logged in to PTA
-    Then PTA informs that tax is being paid on '<taxPaidOnValueCurrently>' but should be paying tax on '<taxPaidOnValueRecommended>'
-  Examples:
-    | user       | personalAllowance | firstEmployerRef | firstPayrollID | firstAnnualEarnings | firstEmployerTaxCode | secondEmployerRef | secondPayrollID | secondAnnualEarnings | secondEmployerTaxCode | thirdEmployerRef | thirdPayrollID | thirdAnnualEarnings | thirdEmployerTaxCode | taxPaidOnValueCurrently | taxPaidOnValueRecommended |
-    | John Check | 10000             | ???              | ???            | 416.66              | 1000L                | ???               | ???             | 250                  |                       | ???              | ???            | 83.33               |                      | 10000                   | 5000                      |
+  Scenario: Unused personal Allowance - TMAC
+    Given Fred Smith has a personal allowance of £10000
+    And he works at Tesco (ref ABC) on payroll ID 123 as a cleaner earning an estimated £3k per year
+    And he works at Molly Maid (ref DEF) on payroll ID 123 as a shop floor worker earning an estimated £3k per year
+    And he works at Spar (ref GHI) on payroll ID 123 as a security guard earning an estimated £3k per year
+    Then PTA should tell him that he may have unused personal allowance - Do you wish to transfer to your spouse?
 
-
-
-
-# need to discuss other scenarios (monthly income ?)
+  Scenario: Earnings over £10000 - excess Personal Allowance
+    Given Fred Smith has a personal allowance of £10000
+    And he works at Tesco (ref ABC) on payroll ID 123 as a cleaner earning an estimated £4k per year
+    And he works at Molly Maid (ref DEF) on payroll ID 123 as a shop floor worker earning an estimated £4k per year
+    And he works at Spar (ref GHI) on payroll ID 123 as a security guard earning an estimated £3k per year
+    Then PTA should tell him that he may have over his personal allowance (underpaid tax?)
