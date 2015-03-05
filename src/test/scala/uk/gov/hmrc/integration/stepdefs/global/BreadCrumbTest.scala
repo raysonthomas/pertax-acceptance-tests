@@ -11,9 +11,17 @@ class BreadCrumbTest extends ScalaDsl with EN {
   Then( """^'(.*)' breadcrumb link is displayed$""") { (linkName: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".group>li")).filter(_.getText == linkName).isEmpty == false,
-        s"$linkName was not found"
-
+        webDriver.findElements(By.cssSelector(".group>li>a")).filter(_.getText == linkName).isEmpty == false,
+        s"$linkName breadcrumb link was not found"
+      )
+    }
+  }
+   
+  Then( """^'(.*)' breadcrumb placeholder is displayed$""") { (placeholderName: String) =>
+    withCurrentDriver { implicit webDriver =>
+      assert(
+        webDriver.findElements(By.cssSelector(".group>li")).filter(_.getText == placeholderName).isEmpty == false,
+        s"$placeholderName breadcrumb placeholder was not found"
       )
     }
   }
