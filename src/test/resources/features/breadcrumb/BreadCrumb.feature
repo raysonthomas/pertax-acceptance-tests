@@ -9,12 +9,12 @@ So that I don't get lost
     And 'Your account' page is displayed
     
   Scenario: View breadcrumb on Your account page
-    Then 'Home' breadcrumb link is displayed
+    Then 'Home' breadcrumb placeholder is displayed
          
   Scenario: View breadcrumb on Your personal details page
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then 'Home' breadcrumb link is displayed
-    And 'Personal Details' breadcrumb link is displayed
+    And 'Personal Details' breadcrumb placeholder is displayed
           
   Scenario: Navigate to Your account page using breadcrumb
     And 'Robert Jeffries' clicks on 'Personal details' link
