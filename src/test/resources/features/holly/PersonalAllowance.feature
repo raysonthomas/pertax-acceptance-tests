@@ -47,3 +47,9 @@ Feature:
     And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '400'
     When 'Fred Smith' logs into PTA
     Then PTA does not display alerts about unused Personal Allowance
+
+
+
+  #Abbreviations:
+  # PTA - Personal Tax Account
+  # FPS - Full Payment Service
