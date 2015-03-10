@@ -6,34 +6,44 @@ Feature:
 
   JIRA story history: MTA-325
 
-  Scenario: Three jobs with the same employer
-    Given 'Fred Smith' has a Personal Allowance of '£10000'
-    And 'Fred Smith' works at L&M (ref: 'LM50') on payroll ID: '150' earning an estimated '£5000.00' per year
-    And 'Fred Smith' works at L&M (ref: 'LM50') on payroll ID: '235' earning an estimated '£3000.00' per year
-    And 'Fred Smith' works at L&M (ref: 'LM50') on payroll ID: '460' earning an estimated '£1000.00' per year
-    And The Employer has given him a tax code of '1000L' on his payroll ID: '150'
-    When 'Fred Smith' is logged in to PTA
-    Then PTA informs that tax is being paid on '£4000.00' but should be paying tax on '£0.00'
+  Scenario: PTA alerts about unused Personal Allowance (User with multiple incomes, one income uses up all Personal Allowance)
+    Given 'Fred Smith' has a personal allowance of £'10000.00'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '123' as a 'cleaner'
+    And PTA forecasts yearly income as £'6000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '123' stating cumulative 'monthly' earnings: April=£'500.00', May=£'1000.00', June=£'1500.00', July=£'2000.00'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of '1000L' on Payroll ID: '123'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '456' as a 'shop floor worker'
+    And PTA forecasts yearly income as £'3000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '456' stating cumulative 'monthly' earnings: April=£'250.00', May=£'500.00', June=£'750.00', July=£'1000.00'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '456'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '789' as a 'security guard'
+    And PTA forecasts yearly income as £'1000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '789' stating cumulative 'monthly' earnings: April=£'83.33', May=£'166.66', June=£'250.00', July=£'333.33'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '789'
+    When 'Fred Smith' logs into PTA
+    Then PTA Alerts the user about his unused Personal Allowance of £'4000.00'
 
-  Scenario: Three jobs with different employers
-    Given 'Jack Daniel' has a Personal Allowance of '£10000'
-    And 'Jack Daniel' works at MSI (ref: 'MSI20') on payroll ID: '222' earning an estimated '£5000.00' per year
-    And 'Jack Daniel' works at KLM (ref: 'KLM40') on payroll ID: '333' earning an estimated '£3000.00' per year
-    And 'Jack Daniel' works at ACN (ref: 'ACN60') on payroll ID: '444' earning an estimated '£1000.00' per year
-    And The Employer has given him a tax code of '1000L' on his payroll ID: '222'
-    When 'Jack Daniel' is logged in to PTA
-    Then PTA informs that tax is being paid on '£4000.00' but should be paying tax on '£0.00'
+  Scenario: PTA alerts about unused Personal Allowance (User with pension & multiple incomes, one income uses up all Personal Allowance)
+    Given 'Fred Smith' has a personal allowance of £'10600.00'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '222' as a 'cleaner'
+    And PTA forecasts yearly income as £'6000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '222' stating cumulative 'monthly' earnings: April=£'500.00', May=£'1000.00', June=£'1500.00', July=£'2000.00'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of '1060L' on Payroll ID: '222'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '333' as a 'shop floor worker'
+    And PTA forecasts yearly income as £'3000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '333' stating cumulative 'monthly' earnings: April=£'250.00', May=£'500.00', June=£'750.00', July=£'1000.00'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '333'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '444' as a 'security guard'
+    And PTA forecasts yearly income as £'1800.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '444' stating cumulative 'monthly' earnings: April=£'150.00', May=£'300.00', June=£'450.00', July=£'600.00'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '444'
+    When 'Fred Smith' logs into PTA
+    Then PTA Alerts the user about his unused Personal Allowance of £'4600'
 
-  Scenario: Unused personal Allowance - TMAC
-    Given Fred Smith has a personal allowance of £10000
-    And he works at Tesco (ref ABC) on payroll ID 123 as a cleaner earning an estimated £3k per year
-    And he works at Molly Maid (ref DEF) on payroll ID 123 as a shop floor worker earning an estimated £3k per year
-    And he works at Spar (ref GHI) on payroll ID 123 as a security guard earning an estimated £3k per year
-    Then PTA should tell him that he may have unused personal allowance - Do you wish to transfer to your spouse?
-
-  Scenario: Earnings over £10000 - excess Personal Allowance
-    Given Fred Smith has a personal allowance of £10000
-    And he works at Tesco (ref ABC) on payroll ID 123 as a cleaner earning an estimated £4k per year
-    And he works at Molly Maid (ref DEF) on payroll ID 123 as a shop floor worker earning an estimated £4k per year
-    And he works at Spar (ref GHI) on payroll ID 123 as a security guard earning an estimated £3k per year
-    Then PTA should tell him that he may have over his personal allowance (underpaid tax?)
+  Scenario: PTA does not display alerts about unused Personal Allowance (User has multiple incomes. The inconsistent income (can't forecast) uses up all Personal Allowance)
+    Given 'Fred Smith' has a personal allowance of £'10000.00'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '200' as a 'cleaner'
+    And PTA is unable to forecast yearly income because FPS data for Employer Ref: 'ABC' / Payroll ID: '200' which states cumulative 'monthly' earnings as: April=£'500.00', May=£'720.00', June=£'1820.00', July=£'2132.00' is unstable
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of '1000L' on Payroll ID: '200'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '300' as a 'shop floor worker'
+    And PTA forecasts yearly income as £'3000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '300' states cumulative 'monthly' earnings as: April=£'250.00', May=£'500.00', June=£'750.00', July=£'1000.00'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '300'
+    And 'Fred Smith' works at 'Asda' (Employer Ref: 'ABC') on Payroll ID: '400' as a 'security guard'
+    And PTA forecasts yearly income as £'1000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '400' stating cumulative 'monthly' earnings: April=£'83.33', May=£'166.67', June=£'250.00', July=£'333.33'
+    And FPS holds data stating that 'Asda' (Employer Ref: 'ABC') has assigned 'Fred Smith' a tax code of 'BR' on Payroll ID: '400'
+    When 'Fred Smith' logs into PTA
+    Then PTA does not display alerts about unused Personal Allowance
