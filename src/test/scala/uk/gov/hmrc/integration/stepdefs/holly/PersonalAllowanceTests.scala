@@ -8,20 +8,21 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 class PersonalAllowanceTests extends ScalaDsl with EN {
 
   Given( """^'(.*)' has a personal allowance of £'(.*)'$""") {
-    (personalAllowance: BigDecimal) =>
+    (user: String, personalAllowance: String) =>
     withCurrentDriver { implicit webDriver =>
 
+      println(user)
       println(personalAllowance)
 
     }
   }
 
   Given( """^'(.*)' works at '(.*)' Employer Ref: '(.*)' / Payroll ID: '(.*)' as a '(.*)'$""") {
-    (user: String, employment: String, employerRef: String, payrollID: String, jobTitle: String) =>
+    (user: String, employer: String, employerRef: String, payrollID: String, jobTitle: String) =>
     withCurrentDriver { implicit webDriver =>
 
       println(user)
-      println(employment)
+      println(employer)
       println(employerRef)
       println(payrollID)
       println(jobTitle)
@@ -30,27 +31,30 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
   }
 
   Given( """^PTA forecasts yearly income as £'(.*)' because FPS data for Employer Ref: '(.*)' / Payroll ID: '(.*)' states cumulative '(.*)' earnings: April=£'(.*)', May=£'(.*)', June=£'(.*)', July=£'(.*)'$""") {
-    (user: String, employment: String, employerRef: String, payrollID: String, jobTitle: String) =>
+    (yearlyIncomeForecast: String, employerRef: String, payrollID: String, incomeGranularity: String, cumulativeAtApril: String, cumulativeAtMay: String, cumulativeAtJune: String, cumulativeAtJuly: String) =>
       withCurrentDriver { implicit webDriver =>
 
-        println(user)
-        println(employment)
+        println(yearlyIncomeForecast)
         println(employerRef)
         println(payrollID)
-        println(jobTitle)
+        println(incomeGranularity)
+        println(cumulativeAtApril)
+        println(cumulativeAtMay)
+        println(cumulativeAtJune)
+        println(cumulativeAtJuly)
 
       }
   }
 
   Given( """^FPS holds data stating that '(.*)' Employer Ref: '(.*)' has assigned '(.*)' a tax code of '(.*)' on Payroll ID: '(.*)'$""") {
-    (user: String, employment: String, employerRef: String, payrollID: String, jobTitle: String) =>
+    ( employer: String, employerRef: String, person: String, taxCode: String, payrollID: String) =>
       withCurrentDriver { implicit webDriver =>
 
-        println(user)
-        println(employment)
+        println(employer)
         println(employerRef)
+        println(person)
+        println(taxCode)
         println(payrollID)
-        println(jobTitle)
 
       }
   }
@@ -58,8 +62,8 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
   Then( """^PTA Alerts the user about his unused Personal Allowance of '(.*)'$""") {
     (unusedPersonalAllowance: String) =>
     withCurrentDriver { implicit webDriver =>
-      assert(!webDriver.findElement(By.cssSelector(".heading-medium")).getText.equals(s"Your personal allowance is: $unusedPersonalAllowance"),
-        s"'$unusedPersonalAllowance' value was not found in '.heading-medium' field")
+      assert(!webDriver.findElement(By.cssSelector(".heading-medium")).getText.equals(s"You have $unusedPersonalAllowance as unused Personal allowance"),
+        s"could not find text:'You have $unusedPersonalAllowance as unused Personal allowance' on the screen *sad panda*")
     }
   }
 
