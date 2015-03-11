@@ -7,7 +7,7 @@ Feature:
   JIRA story history: MTA-325
 
   Scenario: PTA alerts about unused Personal Allowance (User with multiple incomes, one income uses up all Personal Allowance)
-    Given 'Fred Smith' has a personal allowancle of £'10000.00'
+    Given 'Fred Smith' has a personal allowance of £'10000.00'
     And 'Fred Smith' works at 'Asda' Employer Ref: 'ABC' / Payroll ID: '123' as a 'cleaner'
     And PTA forecasts yearly income as £'6000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '123' states cumulative 'monthly' earnings: April=£'500.00', May=£'1000.00', June=£'1500.00', July=£'2000.00'
     And FPS holds data stating that 'Asda' Employer Ref: 'ABC' has assigned 'Fred Smith' a tax code of '1000L' on Payroll ID: '123'
