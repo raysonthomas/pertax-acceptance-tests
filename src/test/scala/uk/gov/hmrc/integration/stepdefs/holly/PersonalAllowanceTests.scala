@@ -62,7 +62,7 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
   Then( """^PTA Alerts the user about his unused Personal Allowance of '(.*)'$""") {
     (unusedPersonalAllowance: String) =>
     withCurrentDriver { implicit webDriver =>
-      assert(!webDriver.findElement(By.cssSelector(".heading-medium")).getText.equals(s"You have $unusedPersonalAllowance as unused Personal allowance"),
+      assert(!webDriver.findElement(By.cssSelector(".content__body>p")).getText.equals(s"You have $unusedPersonalAllowance as unused Personal allowance"),
         s"could not find text:'You have $unusedPersonalAllowance as unused Personal allowance' on the screen *sad panda*")
     }
   }
