@@ -17,7 +17,7 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^'(.*)' page is displayed$""") { (heading: String) =>
+  Then( """^Page is: '(.*)'$""") { (heading: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
         webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == s"$heading").isEmpty == false,

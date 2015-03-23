@@ -4,13 +4,11 @@ Feature: View Name
   I need to view my personal details,
   So that I can verify that HMRC holds my correct name
 
+  JIRA story history: MTA-7
+
   Scenario: View Name in Your personal details Page
     Given 'Robert Jeffries' is logged in to PTA
-    And 'Your account' page is displayed
+    And Page is: 'Your account'
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then 'Your personal details' page is displayed
+    Then Page is: 'Your personal details'
     And Name 'Mrs Robert Jeffries' is visible
-
-
-
-# JIRA story history: MTA-7

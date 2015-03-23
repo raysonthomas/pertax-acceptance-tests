@@ -33,9 +33,3 @@ Feature:
     And FPS holds data stating that 'Asda' Employer Ref: 'ABC' has assigned 'John Densmore' a tax code of 'BR' on Payroll ID: '444'
     When 'John Densmore' is logged in to PTA
     Then PTA Alerts the user about his unused Personal Allowance of '£4600.00'
-
-
-
-  #Abbreviations:
-  # PTA - Personal Tax Account
-  # FPS - Full Payment Submission
