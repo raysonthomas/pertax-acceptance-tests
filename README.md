@@ -1,8 +1,15 @@
-pertax-qa-test
-=========================
+Acceptance tests for Personal Tax Account
 
-Acceptance tests for the Pertax services
+=== How do ? ===
+1. Clone the project to a directory of your choice
+2. On a terminal instance run: "sm --start PERTAX_ALL -f"
+(you need service manager installed and configured, search for service manager on github)
+3. Navigate to the directory where you have the cloned project
+4. Run: "sbt test" (it might say that no tests were executed, but that is a warning about unit tests which are executed (tried) after acceptance tests)
 
+For more details check the RunLocalTestSuite class, thats where the Cucumber Options are (that is where the tests start from)
+
+=== Crossbrowser Tests ===
 If you would like to run tests on all browsers in browserstack, run all the commands at a time, but actually it will run th tests one by one only.
 
 sbt -Dbrowser=winxp-ie6-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
