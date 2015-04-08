@@ -33,7 +33,7 @@ class NavigationTest extends ScalaDsl with EN {
   Then( """^Income Tax Estimate Summary is displayed on '(.*)' page$""") {
     (pageName: String) => withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".heading-medium")).filter(_.getText == "Your Income Tax estimate for 2014 to 2015").isEmpty == false,
+        webDriver.findElements(By.cssSelector(".heading-medium")).filter(_.getText == "Your Income Tax estimate for 2015 to 2016").isEmpty == false,
         "Your Income Tax estimate for 2014 to 2015 was not found"
       )
     }
