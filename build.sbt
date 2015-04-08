@@ -25,9 +25,9 @@ libraryDependencies ++= Seq(
   "org.pegdown" % "pegdown" % "1.1.0" % "test",
   "org.scala-lang" % "scala-library" % "2.10.4",
   "org.scalaj" %% "scalaj-http" % "1.1.0",
-  "info.cukes" % "cucumber-scala_2.11" % "1.1.8",
-  "info.cukes" % "cucumber-junit" % "1.1.8",
-  "info.cukes" % "cucumber-picocontainer" % "1.1.8",
+  "info.cukes" % "cucumber-scala_2.11" % "1.2.2",
+  "info.cukes" % "cucumber-junit" % "1.2.2",
+  "info.cukes" % "cucumber-picocontainer" % "1.2.2",
   "junit" % "junit" % "4.11" % "test",
   "com.novocode" % "junit-interface" % "0.10" % "test",
   "uk.gov.hmrc" %% "scala-webdriver" % "3.8.0")
