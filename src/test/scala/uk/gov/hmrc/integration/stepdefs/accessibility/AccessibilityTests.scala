@@ -6,7 +6,7 @@ import org.openqa.selenium.JavascriptExecutor
 
 class AccessibilityTests extends ScalaDsl with EN {
 
-  Then( """^Accessibility Audit report is generated for the page$""") {
+  Then( """^Accessibility Tests are executed for the page$""") {
     () => withCurrentDriver { implicit webDriver =>
 
       val cache = collection.mutable.Map[String, String]()

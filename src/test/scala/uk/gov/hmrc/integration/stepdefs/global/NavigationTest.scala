@@ -24,17 +24,17 @@ class NavigationTest extends ScalaDsl with EN {
   Then( """^Page is: '(.*)'$""") {
     (heading: String) => withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == s"$heading").isEmpty == false,
+        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == s"$heading").nonEmpty,
         s"'$heading' was not found as '.heading-xlarge'"
       )
     }
   }
 
-  Then( """^Income Tax Estimate Summary is displayed on '(.*)' page$""") {
-    (pageName: String) => withCurrentDriver { implicit webDriver =>
+  Then( """^Content visible: '(.*)'$""") {
+    (expectedContent: String) => withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".heading-medium")).filter(_.getText == "Your Income Tax estimate for 2015 to 2016").isEmpty == false,
-        "Your Income Tax estimate for 2014 to 2015 was not found"
+        webDriver.findElements(By.cssSelector(".heading-medium")).filter(_.getText == expectedContent).nonEmpty,
+        s"this content was not found: '$expectedContent' in '.heading-medium'"
       )
     }
   }
@@ -42,7 +42,7 @@ class NavigationTest extends ScalaDsl with EN {
   Then( """^Link to PAYE service is displayed as '(.*)'$""") {
     (linkName: String) => withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".column-two-thirds>a")).filter(_.getText == linkName).isEmpty == false,
+        webDriver.findElements(By.cssSelector(".column-two-thirds>a")).filter(_.getText == linkName).nonEmpty,
         s"$linkName was not found"
       )
     }
