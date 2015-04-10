@@ -10,10 +10,8 @@ Feature: Breadcrumb for Personal Tax Account
     Given 'Robert Jeffries' is logged in to PTA
     When Page is: 'Your account'
     Then Breadcrumb is: 'Home'
-
     And 'Robert Jeffries' clicks on 'Personal details' link
     And Page is: 'Your personal details'
     And Breadcrumb is: 'Home > Personal Details'
-
     And 'Robert Jeffries' clicks on 'Home' breadcrumb link
     And Page is: 'Your account'

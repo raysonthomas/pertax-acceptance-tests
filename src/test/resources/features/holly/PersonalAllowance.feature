@@ -1,5 +1,5 @@
 @suite
-Feature:
+Feature: Personal Allowance Alerts
   As an HMRC Customer with multiple incomes
   I should be notified about inefficient use of my Personal Allowance
   So that I can use it effectively

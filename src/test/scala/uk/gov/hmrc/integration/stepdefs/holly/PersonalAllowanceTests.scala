@@ -11,21 +11,12 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
     (user: String, personalAllowance: String) =>
     withCurrentDriver { implicit webDriver =>
 
-      println(user)
-      println(personalAllowance)
-
     }
   }
 
   Given( """^'(.*)' works at '(.*)' Employer Ref: '(.*)' / Payroll ID: '(.*)' as a '(.*)'$""") {
     (user: String, employer: String, employerRef: String, payrollID: String, jobTitle: String) =>
     withCurrentDriver { implicit webDriver =>
-
-      println(user)
-      println(employer)
-      println(employerRef)
-      println(payrollID)
-      println(jobTitle)
 
     }
   }
@@ -34,27 +25,12 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
     (yearlyIncomeForecast: String, employerRef: String, payrollID: String, incomeGranularity: String, cumulativeAtApril: String, cumulativeAtMay: String, cumulativeAtJune: String, cumulativeAtJuly: String) =>
       withCurrentDriver { implicit webDriver =>
 
-        println(yearlyIncomeForecast)
-        println(employerRef)
-        println(payrollID)
-        println(incomeGranularity)
-        println(cumulativeAtApril)
-        println(cumulativeAtMay)
-        println(cumulativeAtJune)
-        println(cumulativeAtJuly)
-
       }
   }
 
   Given( """^FPS holds data stating that '(.*)' Employer Ref: '(.*)' has assigned '(.*)' a tax code of '(.*)' on Payroll ID: '(.*)'$""") {
     ( employer: String, employerRef: String, person: String, taxCode: String, payrollID: String) =>
       withCurrentDriver { implicit webDriver =>
-
-        println(employer)
-        println(employerRef)
-        println(person)
-        println(taxCode)
-        println(payrollID)
 
       }
   }
@@ -63,7 +39,7 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
     (unusedPersonalAllowance: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(!webDriver.findElement(By.cssSelector(".content__body>p")).getText.equals(s"You have $unusedPersonalAllowance as unused Personal allowance"),
-        s"could not find text:'You have $unusedPersonalAllowance as unused Personal allowance' on the screen *sad panda*")
+        s"could not find text:'You have $unusedPersonalAllowance as unused Personal allowance' on the screen")
     }
   }
 
