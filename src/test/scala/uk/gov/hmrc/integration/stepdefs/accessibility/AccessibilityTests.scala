@@ -24,6 +24,8 @@ class AccessibilityTests extends ScalaDsl with EN {
         "accessibility-developer-tools/stable/dist/js/axs_testing.js"))
       val report = js.executeScript("var results = axs.Audit.run();return axs.Audit.createReport(results);")
       println(report)
+
+
     }
   }
 
