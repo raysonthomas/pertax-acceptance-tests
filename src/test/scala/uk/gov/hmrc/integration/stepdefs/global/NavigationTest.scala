@@ -14,7 +14,7 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  When( """^'(.*)' clicks on '(.*)' link$""") {
+  When( """^'(.*)' clicks on '(.*)' .*$""") {
     (user: String, linkName: String) => withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
       GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText(linkName))

@@ -9,13 +9,6 @@ import uk.gov.hmrc.integration.utils.Configuration
 
 class BreadCrumbTest extends ScalaDsl with EN {
 
-  Then( """^'(.*)' clicks on '(.*)' breadcrumb link$""") {
-    (user: String, linkName: String) =>
-      withCurrentDriver { implicit webDriver =>
-        GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText(linkName))
-      }
-  }
-
   Then( """^Breadcrumb is: '(.*)'$""") {
     (expectedBreadcrumb: String) =>
       withCurrentDriver { implicit webDriver =>
