@@ -10,8 +10,8 @@ class ViewNameTest extends ScalaDsl with EN {
   Then( """^Name '(.*)' is visible$""") { (name: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(
-        webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == name).isEmpty == false,
-        s"$name was not found"
+        webDriver.findElements(By.cssSelector(".no-margin-top")).filter(_.getText == name).isEmpty == false,
+        s"$name was not found in '.no-margin-top' field"
       )
     }
   }

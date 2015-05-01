@@ -8,15 +8,15 @@ Feature: View Income Tax Estimate Summary
 
   Scenario: Income Tax Estimate Summary is displayed on Your account page
     Given 'Jim Ferguson' is logged in to PTA
-    And Page is: 'Your account'
+    And Page is: '/pertax'
     Then Content visible: 'Your Income Tax estimate for 2015 to 2016'
 
   Scenario: Income Tax Estimate value is displayed on Income Tax Estimate Summary
     Given 'Jim Ferguson' is logged in to PTA
-    And Page is: 'Your account'
+    And Page is: '/pertax'
     Then Income Tax Estimate is displayed as '£1361.40'
 
   Scenario: Link to PAYE service is displayed on Income Tax Estimate Summary
     Given 'Jim Ferguson' is logged in to PTA
-    And Page is: 'Your account'
+    And Page is: '/pertax'
     Then Link to PAYE service is displayed as 'View your Income Tax estimate'

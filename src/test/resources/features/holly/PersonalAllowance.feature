@@ -6,7 +6,7 @@ Feature: Personal Allowance Alerts
 
   JIRA story history: MTA-325
 
-  Scenario: PTA alerts about unused Personal Allowance (User with multiple incomes, one income uses up all Personal Allowance)
+  Scenario: PTA alerts the user about underpaid tax (User with multiple incomes, one income uses up all Personal Allowance)
     Given 'Jim Ferguson' has a personal allowance of £'10000.00'
     And 'Jim Ferguson' works at 'Asda' Employer Ref: 'ABC' / Payroll ID: '123' as a 'cleaner'
     And PTA forecasts yearly income as £'6000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '123' states cumulative 'monthly' earnings: April=£'500.00', May=£'1000.00', June=£'1500.00', July=£'2000.00'
@@ -18,9 +18,9 @@ Feature: Personal Allowance Alerts
     And PTA forecasts yearly income as £'1000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '789' states cumulative 'monthly' earnings: April=£'83.33', May=£'166.66', June=£'250.00', July=£'333.33'
     And FPS holds data stating that 'Asda' Employer Ref: 'ABC' has assigned 'Jim Ferguson' a tax code of 'BR' on Payroll ID: '789'
     When 'Jim Ferguson' is logged in to PTA
-    Then PTA Alerts the user about his unused Personal Allowance of '£4000.00'
+    Then PTA Alerts the user: 'You may be paying too little tax on your Asda income'
 
-  Scenario: PTA alerts about unused Personal Allowance (User with pension & multiple incomes, one income uses up all Personal Allowance)
+  Scenario: PTA alerts the user about underpaid tax (User with pension & multiple incomes, one income uses up all Personal Allowance)
     Given 'Jane Tidy' has a personal allowance of £'10600.00'
     And 'Jane Tidy' works at 'Asda' Employer Ref: 'ABC' / Payroll ID: '222' as a 'cleaner'
     And PTA forecasts yearly income as £'6000.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '222' states cumulative 'monthly' earnings: April=£'500.00', May=£'1000.00', June=£'1500.00', July=£'2000.00'
@@ -32,4 +32,4 @@ Feature: Personal Allowance Alerts
     And PTA forecasts yearly income as £'1800.00' because FPS data for Employer Ref: 'ABC' / Payroll ID: '444' states cumulative 'monthly' earnings: April=£'150.00', May=£'300.00', June=£'450.00', July=£'600.00'
     And FPS holds data stating that 'Asda' Employer Ref: 'ABC' has assigned 'Jane Tidy' a tax code of 'BR' on Payroll ID: '444'
     When 'Jane Tidy' is logged in to PTA
-    Then PTA Alerts the user about his unused Personal Allowance of '£4600.00'
+    Then PTA Alerts the user: 'You may be paying too little tax on your Asda income'

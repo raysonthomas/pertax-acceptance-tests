@@ -6,8 +6,8 @@
 
     Scenario: Test PTA for accessibility issues
       Given 'Jim Ferguson' is logged in to PTA
-      When Page is: 'Your account'
+      When Page is: '/pertax'
       Then Accessibility Tests are executed for the page
       And 'Jim Ferguson' clicks on 'Personal details' link
-      And Page is: 'Your personal details'
+      And Page is: '/pertax/personalDetails'
       And Accessibility Tests are executed for the page

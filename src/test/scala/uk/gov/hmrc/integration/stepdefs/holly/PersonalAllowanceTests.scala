@@ -35,11 +35,11 @@ class PersonalAllowanceTests extends ScalaDsl with EN {
       }
   }
 
-  Then( """^PTA Alerts the user about his unused Personal Allowance of '(.*)'$""") {
-    (unusedPersonalAllowance: String) =>
+  Then( """^PTA Alerts the user: '(.*)'$""") {
+    (alert: String) =>
     withCurrentDriver { implicit webDriver =>
-      assert(!webDriver.findElement(By.cssSelector(".content__body>p")).getText.equals(s"You have $unusedPersonalAllowance as unused Personal allowance"),
-        s"could not find text:'You have $unusedPersonalAllowance as unused Personal allowance' on the screen")
+      assert(!webDriver.findElement(By.cssSelector(".annual-income-notification")).getText.equals(alert + ".*"),
+        s"could not find text:'$alert' in '.annual-income-notification' field")
     }
   }
 
