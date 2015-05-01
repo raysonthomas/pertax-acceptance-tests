@@ -8,14 +8,14 @@ Feature: View Email
 
   Scenario: View Email in Your personal details Page
     Given 'Robert Jeffries' is logged in to PTA
-    And Page is: 'Your account'
+    And Page is: '/pertax'
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then Page is: 'Your personal details'
+    Then Page is: '/pertax/personalDetails'
     And 'rjeffries@example.com' is displayed as email address
 
   Scenario: No Email is held on record
     Given 'Timothy Bull' is logged in to PTA
-    And Page is: 'Your account'
+    And Page is: '/pertax'
     When 'Timothy Bull' clicks on 'Personal details' link
-    Then Page is: 'Your personal details'
+    Then Page is: '/pertax/personalDetails'
     And 'Your email' label is not displayed

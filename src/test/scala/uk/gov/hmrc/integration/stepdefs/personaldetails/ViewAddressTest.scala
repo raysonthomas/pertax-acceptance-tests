@@ -15,13 +15,14 @@ class ViewAddressTest extends ScalaDsl with EN {
       }
   }
 
-  Then( """^'(.*)' is displayed as the Date moved to this address$""") { (dateMoved: String) =>
-    withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".personal-details > p")).filter(_.getText == dateMoved).isEmpty == false,
-        s"$dateMoved was not found"
-      )
-    }
+  Then( """^'(.*)' is displayed as the Date moved to this address$""") {
+    (dateMoved: String) =>
+      withCurrentDriver { implicit webDriver =>
+        assert(
+          webDriver.findElements(By.cssSelector(".no-margin-top")).filter(_.getText == dateMoved).isEmpty == false,
+          s"$dateMoved was not found"
+        )
+      }
   }
 
 }

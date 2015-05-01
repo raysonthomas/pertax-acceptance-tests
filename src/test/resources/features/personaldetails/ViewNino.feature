@@ -8,7 +8,7 @@ Feature: View NINO
 
   Scenario: View NINO in Your personal details Page
     Given 'Robert Jeffries' is logged in to PTA
-    And Page is: 'Your account'
+    And Page is: '/pertax'
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then Page is: 'Your personal details'
+    Then Page is: '/pertax/personalDetails'
     And NINO 'ZN522915C' is visible

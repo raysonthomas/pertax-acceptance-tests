@@ -6,13 +6,14 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
 
 class ViewUpdateYourAdressLinkTest extends ScalaDsl with EN {
-  Then( """^'(.*)' link should be visible$""") { (linkName: String) =>
-    withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".personal-details>a")).filter(_.getText == linkName).isEmpty == false,
-        s"$linkName was not found"
-      )
-    }
+  Then( """^'(.*)' link should be visible$""") {
+    (linkName: String) =>
+      withCurrentDriver { implicit webDriver =>
+        assert(
+          webDriver.findElements(By.cssSelector(".no-margin-top")).filter(_.getText == linkName).isEmpty == false,
+          s"$linkName was not found '.no-margin-top' field"
+        )
+      }
   }
 
 }

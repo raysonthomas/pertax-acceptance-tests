@@ -5,6 +5,7 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
+import java.lang.String
 
 class NavigationTest extends ScalaDsl with EN {
 
@@ -22,11 +23,8 @@ class NavigationTest extends ScalaDsl with EN {
   }
 
   Then( """^Page is: '(.*)'$""") {
-    (heading: String) => withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".heading-xlarge")).filter(_.getText == s"$heading").nonEmpty,
-        s"'$heading' was not found as '.heading-xlarge'"
-      )
+    (path: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getCurrentUrl.endsWith(path), s"URL path did not end with '$path'")
     }
   }
 
