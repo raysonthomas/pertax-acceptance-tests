@@ -4,7 +4,7 @@ Feature: Annual Taxable Income estimate for the current tax year is visible on t
   I want to see my Annual Taxable Income estimate on the home page
   So I can be sure that HMRC holds my correct taxable income details
 
-  JIRA story history: MTA-489
+  JIRA story history: MTA-491
 
   Scenario: Annual Taxable Income estimate is visible on the home page
     Given 'Jim Ferguson' is logged in to PTA
