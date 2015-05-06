@@ -11,7 +11,7 @@ class ViewUpdateYourAdressLinkTest extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         assert(
           webDriver.findElements(By.cssSelector(".no-margin-top")).filter(_.getText == linkName).isEmpty == false,
-          s"$linkName was not found '.no-margin-top' field"
+          s"$linkName was not found in '.no-margin-top' field"
         )
       }
   }
