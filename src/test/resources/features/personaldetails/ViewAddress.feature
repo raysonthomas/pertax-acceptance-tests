@@ -7,7 +7,7 @@ Feature: View Address
   JIRA story history: MTA-8
 
   Scenario: View Address in Your personal details Page
-    Given 'Robert Jeffries' is logged in to PTA
+    Given user 'Robert Jeffries' is logged into the service
     And Page is: '/pertax'
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then Page is: '/pertax/personalDetails'

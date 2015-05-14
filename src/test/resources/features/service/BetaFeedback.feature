@@ -1,13 +1,16 @@
-@wip
+@suite
+Feature:
+  As a user
+  I need to know that the service I am using is in beta and have a way to provide feedback on it
+  So that my expectations are managed and I can help improve the service
 
-As a user
-I need to know that the service I am using is in beta and have a way to feed back on it
-So that my expectations are managed and I can help improve the service
+  JIRA story history: MTA-497
 
-JIRA - MTA497
+  Scenario: user can see the beta banner
+    Given user 'Robert Jeffries' is logged into the service
+    Then the Beta banner is displayed
 
-Given 'Jim Ferguson' is logged in to PTA
-And page address path is '/pertax'
-Or '/profile'
-Then Beta heading is: 'BETA This is a new service - your feedback will help us to improve it.'
-And the feedback link leads to: '/somewhere'
+  Scenario: feedback link is visible and its path leads to feedback page
+    Given user 'Robert Jeffries' is logged into the service
+    Then the feedback link is displayed
+    And the feedback url path leads to feedback page

@@ -7,9 +7,9 @@ Feature: View Update your address link
   JIRA story history: MTA-120
 
   Scenario: Update your address link is visible in Your personal details Page
-    Given 'Robert Jeffries' is logged in to PTA
+    Given user 'Robert Jeffries' is logged into the service
     And Page is: '/pertax'
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then Page is: '/pertax/personalDetails'
     And Current Address 'Benton Park View', 'Longbenton', 'Tyne and Wear', 'North Tyneside', 'NE1 1AA' should be visible
-    And 'Update your address (Opens in new window)' link should be visible
+    And 'Update your address' link should be visible

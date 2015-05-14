@@ -8,10 +8,10 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class LogInTest extends ScalaDsl with EN {
 
-  Given( """^'(.*)' is logged in to PTA$""") {
+  Given( """^user '(.*)' is logged into the service$""") {
     (user: String) =>
-      val personProperty = personProperties(user)
       withCurrentDriver { implicit webDriver =>
+        val personProperty = personProperties(user)
         if (Configuration.environment("id") == "local")
           IDAActions.logInLocalEnv(personProperty.username, personProperty.password)
         else
