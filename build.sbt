@@ -15,6 +15,8 @@ resolvers ++= Seq(
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
+resolvers += "HMRC Bintray" at "https://dl.bintray.com/hmrc/releases"
+
 libraryDependencies ++= Seq(
   "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.1.0",
   "org.reactivemongo" %% "reactivemongo" % "0.10.5.0.akka23",
@@ -30,4 +32,5 @@ libraryDependencies ++= Seq(
   "info.cukes" % "cucumber-picocontainer" % "1.2.2",
   "junit" % "junit" % "4.11" % "test",
   "com.novocode" % "junit-interface" % "0.10" % "test",
-  "uk.gov.hmrc" %% "scala-webdriver" % "3.8.0")
+  "uk.gov.hmrc" %% "accessibility-driver" % "1.2.0"
+)

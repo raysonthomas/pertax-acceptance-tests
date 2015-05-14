@@ -1,13 +1,11 @@
 package uk.gov.hmrc.integration.selenium
 
 import java.util.concurrent.TimeUnit
-import java.util.logging.Level
 
-import org.openqa.selenium.remote.{CapabilityType, DesiredCapabilities}
-import org.openqa.selenium.{Dimension, WebDriverException, WebDriver}
+import org.openqa.selenium.WebDriverException
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.logging._
+import uk.gov.hmrc.accessibility.AccessibilityDriver
 import uk.gov.hmrc.integration.selenium.RemoteWebDriverFactory._
 import uk.gov.hmrc.integration.utils.Configuration
 
@@ -19,6 +17,7 @@ object DriverFactory {
     val webDriver = System.getProperty("browser", "firefox-local") match {
       case "firefox-local"            => new FirefoxDriver
       case "chrome-local"             => new ChromeDriver
+      case "accessibility"            => new AccessibilityDriver
       case "winxp-ie6-remote"         => buildWinXPie6Driver
       case "winxp-ie7-remote"         => buildWinXPie7Driver
       case "win7-ie8-remote"          => buildWin7ie8Driver
