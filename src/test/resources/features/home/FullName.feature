@@ -6,7 +6,7 @@ Feature: Full Name is displayed on the Home Page
 
   JIRA story history: MTA-492
 
-  Scenario: View my full name on the home pagel
+  Scenario: View my full name on the home page
     Given 'Jim Ferguson' is logged in to PTA
     And Page address path is: '/pertax'
     Then Full Name Heading is: 'Jim Ferguson'

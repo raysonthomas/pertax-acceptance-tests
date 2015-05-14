@@ -7,7 +7,7 @@ Feature: View NINO
   JIRA story history: MTA-260
 
   Scenario: View NINO in Your personal details Page
-    Given 'Robert Jeffries' is logged in to PTA
+    Given user 'Robert Jeffries' is logged into the service
     And Page is: '/pertax'
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then Page is: '/pertax/personalDetails'

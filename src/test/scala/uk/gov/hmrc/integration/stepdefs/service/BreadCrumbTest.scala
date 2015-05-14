@@ -1,11 +1,11 @@
-package uk.gov.hmrc.integration.stepdefs.global
+package uk.gov.hmrc.integration.stepdefs.service
 
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.{WebElement, By}
-import uk.gov.hmrc.integration.page.GlobalActions
+import org.openqa.selenium.{By, WebElement}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import scala.collection.JavaConversions._
 import uk.gov.hmrc.integration.utils.Configuration
+
+import scala.collection.JavaConversions._
 
 class BreadCrumbTest extends ScalaDsl with EN {
 
