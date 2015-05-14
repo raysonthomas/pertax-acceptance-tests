@@ -17,7 +17,7 @@ object DriverFactory {
     val webDriver = System.getProperty("browser", "firefox-local") match {
       case "firefox-local"            => new FirefoxDriver
       case "chrome-local"             => new ChromeDriver
-      case "accessibility"            => new AccessibilityDriver
+      case "accessibility"            => new AccessibilityDriver(23748)
       case "winxp-ie6-remote"         => buildWinXPie6Driver
       case "winxp-ie7-remote"         => buildWinXPie7Driver
       case "win7-ie8-remote"          => buildWin7ie8Driver
