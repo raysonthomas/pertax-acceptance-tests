@@ -5,11 +5,13 @@ import org.openqa.selenium.{WebDriver, By}
 object Configuration {
 
   val DeviceViewBreakpoint = 768
+  
+  val defaultWait = Option(System.getProperty("defaultWait")).getOrElse("30")
 
   lazy val environment = System.getProperty("environment", "local").toLowerCase match {
-    case "local" => Map("id" -> "local", "url" -> "http://localhost:9232/pertax",              "defaultWait" -> "30")
-    case "dev"   => Map("id" -> "dev",   "url" -> "https://www-dev.tax.service.gov.uk/pertax", "defaultWait" -> "30")
-    case "qa"    => Map("id" -> "qa",    "url" -> "https://web-qa.tax.service.gov.uk/pertax",  "defaultWait" -> "30")
+    case "local" => Map("id" -> "local", "url" -> "http://localhost:9232/pertax",              "defaultWait" -> defaultWait)
+    case "dev"   => Map("id" -> "dev",   "url" -> "https://www-dev.tax.service.gov.uk/pertax", "defaultWait" -> defaultWait)
+    case "qa"    => Map("id" -> "qa",    "url" -> "https://web-qa.tax.service.gov.uk/pertax",  "defaultWait" -> defaultWait)
     case _ => throw new IllegalArgumentException(s"environment system property is invalid")
   }
 
