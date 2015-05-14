@@ -2,7 +2,7 @@ package uk.gov.hmrc.integration.selenium
 
 import java.util.concurrent.TimeUnit
 
-import org.openqa.selenium.WebDriverException
+import org.openqa.selenium.{By, WebDriverException}
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
 import uk.gov.hmrc.accessibility.AccessibilityDriver
