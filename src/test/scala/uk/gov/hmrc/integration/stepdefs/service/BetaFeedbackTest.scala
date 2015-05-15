@@ -4,7 +4,7 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
-class BetaFeedback extends ScalaDsl with EN {
+class BetaFeedbackTest extends ScalaDsl with EN {
 
   Then( """^the Beta banner is displayed$""") {
     () => withCurrentDriver { implicit webDriver =>
