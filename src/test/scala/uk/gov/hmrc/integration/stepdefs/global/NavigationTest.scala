@@ -28,6 +28,12 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  Then( """^user is on the home page$""") {
+    () => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getCurrentUrl.endsWith("/pertax"), s"URL path did not end with '/pertax'")
+    }
+  }
+
   Then( """^Content visible: '(.*)'$""") {
     (expectedContent: String) => withCurrentDriver { implicit webDriver =>
       assert(

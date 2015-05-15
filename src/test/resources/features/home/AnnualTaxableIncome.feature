@@ -1,16 +1,14 @@
-@wip
-Feature: Annual Taxable Income estimate for the current tax year is visible on the home page
+@suite
+Feature: Annual Taxable Income estimate information
   As a user
-  I want to see my Annual Taxable Income estimate on the home page
+  I want to see my Annual Taxable Income estimate information on the home page
   So I can be sure that HMRC holds my correct taxable income details
-
+  
   JIRA story history: MTA-491
 
   Scenario: Annual Taxable Income estimate is visible on the home page
-    Given 'Jim Ferguson' is logged in to PTA
-    And Page address path is: '/home'
-    Then Annual Taxable Income estimate Heading is: 'Annual taxable income'
-    And Annual Taxable Income estimate Subheading is: 'Estimate for <currentYear> to <nextYear>'
-    And Annual Taxable Income estimate value is: '£9,999.99'
-    And Annual Taxable Income estimate hyperlink that leads to more details name is: 'View details'
-    And Annual Taxable Income estimate hyperlink that leads to more details destination is: '/pertax'
+    Given user 'Jim Ferguson' is logged into the service
+    When user is on the home page
+    Then Annual Taxable Income section is visible
+    And Annual Taxable Income is displayed as '£17,467'
+
