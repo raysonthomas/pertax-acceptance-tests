@@ -15,8 +15,8 @@ object GlobalActions {
 
   def maybeClickMenu(implicit webDriver: WebDriver): Unit = {
     val dims = webDriver.findElement(By.cssSelector("body")).getSize
-    println("Body width " + dims.width)
-    println("Browser width: " + webDriver.manage().window().getSize.width)
+//    println("Body width " + dims.width)
+//    println("Browser width: " + webDriver.manage().window().getSize.width)
     if (dims.width <= uk.gov.hmrc.integration.utils.Configuration.DeviceViewBreakpoint) {
       webDriver.findElement(By.linkText("Menu")).click()
     }
