@@ -1,4 +1,4 @@
-package uk.gov.hmrc.integration.suites
+package uk.gov.hmrc.integration.cucumber
 
 import cucumber.api.CucumberOptions
 import cucumber.api.junit.Cucumber
