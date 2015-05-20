@@ -11,4 +11,4 @@ Feature: View NINO
     And Page is: '/pertax'
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then Page is: '/pertax/personalDetails'
-    And NINO 'ZN522915C' is visible
+    And NINO 'ZN 52 29 15 C' is visible
