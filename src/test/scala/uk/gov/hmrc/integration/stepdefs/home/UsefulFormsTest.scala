@@ -8,7 +8,7 @@ import scala.collection.JavaConversions._
 
 class UsefulFormsTest extends ScalaDsl with EN {
 
-  Given( """^View Income Tax forms link is visible$""") {
+  Given( """^View Income Tax forms link is correct$""") {
     () =>
     withCurrentDriver { implicit webDriver =>
       val s = "View Income Tax forms"

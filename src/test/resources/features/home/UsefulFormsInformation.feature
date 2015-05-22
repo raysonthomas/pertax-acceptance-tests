@@ -8,4 +8,4 @@ Feature: Useful Information forms links
   Scenario: View Income Tax forms link is visible on the home page
     Given user 'Jim Ferguson' is logged into the service
     When user is on the home page
-    Then View Income Tax forms link is visible
+    Then View Income Tax forms link is correct
