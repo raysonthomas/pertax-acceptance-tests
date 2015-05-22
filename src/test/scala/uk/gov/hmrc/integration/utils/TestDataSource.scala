@@ -16,6 +16,11 @@ object TestDataSource {
     "Jane Tidy" -> TestPersonProperties("AA000113B", "jtidy", "password"),
     "Jim Ferguson" -> TestPersonProperties("AA000003D", "jferguson", "password")
   )
+  
+  val pathFor = Map(
+    "home" -> "/pertax",
+    "personal details" -> "/pertax/personalDetails"
+  )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
 

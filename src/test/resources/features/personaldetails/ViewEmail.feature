@@ -8,14 +8,14 @@ Feature: View Email
 
   Scenario: View Email in Your personal details Page
     Given user 'Robert Jeffries' is logged into the service
-    And Page is: '/pertax'
+    And user is on the home page
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then Page is: '/pertax/personalDetails'
+    Then user is on the personal details page
     And 'rjeffries@example.com' is displayed as email address
 
   Scenario: No Email is held on record
     Given user 'Timothy Bull' is logged into the service
-    And Page is: '/pertax'
+    And user is on the home page
     When 'Timothy Bull' clicks on 'Personal details' link
-    Then Page is: '/pertax/personalDetails'
+    Then user is on the personal details page
     And 'Your email' label is not displayed

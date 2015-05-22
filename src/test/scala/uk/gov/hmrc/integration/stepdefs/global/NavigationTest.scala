@@ -5,7 +5,7 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import scala.collection.JavaConversions._
-import java.lang.String
+import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class NavigationTest extends ScalaDsl with EN {
 
@@ -22,15 +22,9 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Page is: '(.*)'$""") {
-    (path: String) => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getCurrentUrl.endsWith(path), s"URL path did not end with '$path'")
-    }
-  }
-
-  Then( """^user is on the home page$""") {
-    () => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getCurrentUrl.endsWith("/pertax"), s"URL path did not end with '/pertax'")
+  Then( """^user is on the (.*) page$""") {
+    (p: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getCurrentUrl.endsWith(pathFor(p)), s"URL path did not end with '${pathFor(p)}'")
     }
   }
 

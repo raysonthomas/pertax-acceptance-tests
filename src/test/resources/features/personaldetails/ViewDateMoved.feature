@@ -8,14 +8,14 @@ Feature: View Date Moved
 
   Scenario: Date moved is displayed on Your personal details page
     Given user 'Robert Jeffries' is logged into the service
-    And Page is: '/pertax'
+    And user is on the home page
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then Page is: '/pertax/personalDetails'
+    Then user is on the personal details page
     And '23 April 2013' is displayed as the Date moved to this address
 
   Scenario: Date moved is not displayed on Your personal details page if there is no value for it
     Given user 'Timothy Bull' is logged into the service
-    And Page is: '/pertax'
+    And user is on the home page
     When 'Timothy Bull' clicks on 'Personal details' link
-    Then Page is: '/pertax/personalDetails'
+    Then user is on the personal details page
     And 'Date moved to this address' label is not displayed

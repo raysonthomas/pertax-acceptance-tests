@@ -8,7 +8,7 @@ Feature: View NINO
 
   Scenario: View NINO in Your personal details Page
     Given user 'Robert Jeffries' is logged into the service
-    And Page is: '/pertax'
+    And user is on the home page
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then Page is: '/pertax/personalDetails'
+    Then user is on the personal details page
     And NINO 'ZN 52 29 15 C' is visible

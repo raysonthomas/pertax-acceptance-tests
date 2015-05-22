@@ -8,8 +8,8 @@ Feature: View Update your address link
 
   Scenario: Update your address link is visible in Your personal details Page
     Given user 'Robert Jeffries' is logged into the service
-    And Page is: '/pertax'
+    And user is on the home page
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then Page is: '/pertax/personalDetails'
+    Then user is on the personal details page
     And Current Address 'Benton Park View', 'Longbenton', 'Tyne and Wear', 'North Tyneside', 'NE1 1AA' should be visible
     And 'Update your address' link should be visible
