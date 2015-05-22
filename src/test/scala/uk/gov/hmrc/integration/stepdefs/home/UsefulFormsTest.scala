@@ -11,9 +11,11 @@ class UsefulFormsTest extends ScalaDsl with EN {
   Given( """^View Income Tax forms link is visible$""") {
     () =>
     withCurrentDriver { implicit webDriver =>
-      val testable = "View Income Tax forms"
-      assert(webDriver.findElements(By.cssSelector(".useful-forms-row a")).filter(_.getText == testable).nonEmpty,
-        s"$testable was not found in '.useful-forms-row' field"
+      val s = "View Income Tax forms"
+      val href = "https://www.gov.uk/government/collections/income-tax-forms"
+      assert(webDriver.findElements(By.cssSelector(".useful-forms-row a"))
+        .filter(e => e.getAttribute("href") == href && e.getText == s).nonEmpty,
+        s"$s was not found in '.useful-forms-row' field"
       )
     }
   }
