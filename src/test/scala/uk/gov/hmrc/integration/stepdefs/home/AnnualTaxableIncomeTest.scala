@@ -7,23 +7,58 @@ import scala.collection.JavaConversions._
 
 class AnnualTaxableIncomeTest extends ScalaDsl with EN {
 
-  Given( """^Annual Taxable Income section is visible$""") {
+  Then( """^The Annual Taxable Income section is displayed$""") {
     () =>
     withCurrentDriver { implicit webDriver =>
       val testable = "Annual taxable income"
-      assert(webDriver.findElements(By.cssSelector(".heading-large.no-margin-bottom")).filter(_.getText == testable).nonEmpty,
-        s"$testable was not found in '.heading-large.no-margin-bottom' field"
+      assert(webDriver.findElements(By.cssSelector(".annual-taxable-income h2")).filter(_.getText == testable).nonEmpty,
+        s"'$testable' was not found in '.annual-taxable-income h2' field"
+      )
+
+    }
+  }
+
+
+  And( """^that section contains annual taxable income estimate$""") {
+    () =>
+    withCurrentDriver { implicit webDriver =>
+      assert(webDriver.findElements(By.cssSelector(".income-estimate p")).nonEmpty,
+        "Annual Taxable Income estimate was not found in '.income-estimate p' field"
       )
     }
   }
 
-  Given( """^Annual Taxable Income is displayed as '(.*)'$""") {
-    (annualTaxableIncomeValue: String) =>
-    withCurrentDriver { implicit webDriver =>
-      assert(webDriver.findElements(By.cssSelector(".bold-xlarge.no-margin-top.no-margin-bottom")).filter(_.getText == annualTaxableIncomeValue).nonEmpty,
-        s"'$annualTaxableIncomeValue' was not found in '.bold-xlarge.no-margin-top.no-margin-bottom' field"
-      )
-    }
+
+  And( """^that section contains a tax estimate$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.findElements(By.cssSelector(".tax-estimate-value")).nonEmpty,
+          "Annual Taxable Income estimate was not found in '.tax-estimate-value' field"
+        )
+      }
   }
+
+  And( """^the 'View details' link leads to the TAI tax estimate page$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        val targetURL = "/tai/incomes"
+        assert(webDriver.findElements(By.cssSelector(".income-estimate a")).filter(_.getAttribute("href").contains(targetURL)).nonEmpty,
+          s"the 'View details' link leads to the TAI tax estimate page URL '$targetURL' was not found in '.income-estimate a' field"
+        )
+      }
+  }
+
+  And( """^Tax you'll pay link leads to the TAI tax you'll pay page$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        val targetURL = "/tai/current-year"
+        assert(webDriver.findElements(By.cssSelector(".tax-estimate a")).filter(_.getAttribute("href").contains(targetURL)).nonEmpty,
+          s"Tax you'll pay link leads to the TAI tax you'll pay page URL '$targetURL' was not found in '.tax-estimate a' field"
+        )
+      }
+  }
+
+
+
 
 }
