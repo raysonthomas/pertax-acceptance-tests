@@ -10,16 +10,17 @@ object TestDataSource {
   private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
   val personProperties = Map(
-    "John Densmore" -> TestPersonProperties("CS700100A", "jdensmore", "password"),
+    "John Densmore"   -> TestPersonProperties("CS700100A", "jdensmore", "password"),
     "Robert Jeffries" -> TestPersonProperties("ZN522915C", "rjeffries", "password"),
-    "Timothy Bull" -> TestPersonProperties("GC306515D", "tbull", "password"),
-    "Jane Tidy" -> TestPersonProperties("AA000113B", "jtidy", "password"),
-    "Jim Ferguson" -> TestPersonProperties("AA000003D", "jferguson", "password")
+    "Timothy Bull"    -> TestPersonProperties("GC306515D", "tbull", "password"),
+    "Jane Tidy"       -> TestPersonProperties("AA000113B", "jtidy", "password"),
+    "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password")
   )
   
   val pathFor = Map(
-    "home" -> "/pertax",
-    "personal details" -> "/pertax/personalDetails"
+    "home"             -> "/pertax",
+    "personal details" -> "/pertax/personalDetails",
+    "login"            -> "/ida/startlogin"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)

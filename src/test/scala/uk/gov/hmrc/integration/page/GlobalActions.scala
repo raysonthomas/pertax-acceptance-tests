@@ -9,9 +9,6 @@ import scala.sys.process._
 
 object GlobalActions {
 
-  def openURL(url: String)(implicit webDriver: WebDriver): Unit = {
-    webDriver.get(url)
-  }
 
   def maybeClickMenu(implicit webDriver: WebDriver): Unit = {
     val dims = webDriver.findElement(By.cssSelector("body")).getSize
