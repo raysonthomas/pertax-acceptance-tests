@@ -11,7 +11,7 @@ class NavigationTest extends ScalaDsl with EN {
 
   When( """^URL '(.*)' is opened in browser$""") {
     (url: String) => withCurrentDriver { implicit webDriver =>
-      GlobalActions.openURL(url)
+      webDriver.get(url)
     }
   }
 
