@@ -9,12 +9,6 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class NavigationTest extends ScalaDsl with EN {
 
-  When( """^URL '(.*)' is opened in browser$""") {
-    (url: String) => withCurrentDriver { implicit webDriver =>
-      webDriver.get(url)
-    }
-  }
-
   When( """^'(.*)' clicks on '(.*)' .*$""") {
     (user: String, linkName: String) => withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
