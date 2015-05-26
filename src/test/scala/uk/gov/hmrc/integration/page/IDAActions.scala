@@ -12,7 +12,7 @@ object IDAActions {
     webDriver.findElement(By.id("username")).sendKeys(user)
     webDriver.findElement(By.id("password")).sendKeys(pass)
     webDriver.findElement(By.id("submit")).click()
-    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/pertax"))
+    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
   }
 
   def logInLiveLikeEnv(user: String, pass: String)(implicit webDriver: WebDriver) = {
@@ -23,7 +23,7 @@ object IDAActions {
     webDriver.findElement(By.id("password")).sendKeys(pass)
     webDriver.findElement(By.id("login")).click()
     webDriver.findElement(By.id("agree")).click()
-    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/pertax"))
+    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
   }
 
 }
