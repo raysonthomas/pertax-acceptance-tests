@@ -2,7 +2,7 @@
 Feature: Sign out of Personal Tax Account
   As a PTA user
   I must be able to sign out of the system
-  So that (something about security and ending sessions)
+  So that other users are not able to access my account
 
   JIRA story history: MTA-591
 
