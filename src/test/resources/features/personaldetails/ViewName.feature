@@ -11,4 +11,4 @@ Feature: View Name
     And user is on the home page
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then user is on the personal details page
-    And Name 'Mrs Robert Jeffries' is visible
+    And Name 'Robert Jeffries' is visible
