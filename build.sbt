@@ -17,6 +17,9 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 
 resolvers += "HMRC Bintray" at "https://dl.bintray.com/hmrc/releases"
 
+resolvers += "HMRC Bintray" at "https://dl.bintray.com/hmrc/release-candidates"
+
+
 libraryDependencies ++= Seq(
   "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.1.0",
   "org.reactivemongo" %% "reactivemongo" % "0.10.5.0.akka23",
@@ -32,5 +35,5 @@ libraryDependencies ++= Seq(
   "info.cukes" % "cucumber-picocontainer" % "1.2.2",
   "junit" % "junit" % "4.11" % "test",
   "com.novocode" % "junit-interface" % "0.10" % "test",
-  "uk.gov.hmrc" %% "accessibility-driver" % "1.2.2"
+  "uk.gov.hmrc" %% "accessibility-driver" % "1.3.0-3-gfe66607" //"1.2.2"
 )
