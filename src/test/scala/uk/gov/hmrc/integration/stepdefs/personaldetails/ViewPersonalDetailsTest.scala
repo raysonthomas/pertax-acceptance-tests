@@ -28,8 +28,10 @@ class ViewPersonalDetailsTest extends ScalaDsl with EN {
   Then( """^Current Address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
       withCurrentDriver { implicit webDriver =>
-        val fullAddress = s"$addressLine1\n$addressLine2\n$addressLine3\n$addressLine4\n$postCode"
-        assert(webDriver.findElement(By.cssSelector("address")).getText == fullAddress, s"$fullAddress was not found")
+        val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
+        val expectedAddress = addressElements.mkString("\n")
+        val actualAddress = webDriver.findElement(By.cssSelector("address")).getText
+        assert(expectedAddress == actualAddress, s"$expectedAddress did not match $actualAddress")
       }
   }
 

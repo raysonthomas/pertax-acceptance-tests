@@ -11,7 +11,7 @@ Feature: View Personal Details
     And user is on the home page
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then user is on the personal details page
-    And Name 'Robert Jeffries' is visible
-    And Current Address 'Benton Park View', 'Longbenton', 'Tyne and Wear', 'North Tyneside', 'NE1 1AA' should be visible
+    And Name 'ROBERT JEFFRIES' is visible
+    And Current Address '71 LYNCROFT ROAD', 'LEAMINGTON SPA', 'KENT', '', 'SS9 1HA' should be visible
     And NINO 'ZN 52 29 15 C' is visible
     
