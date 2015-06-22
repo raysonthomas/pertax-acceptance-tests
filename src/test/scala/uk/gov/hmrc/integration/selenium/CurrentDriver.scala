@@ -11,7 +11,7 @@ object CurrentDriver {
   def clearSession(): Unit = {
     if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin")) {
       GlobalActions.maybeClickMenu
-      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/ida/startlogin")
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/personal-account/logged-out")
     }
   }
 

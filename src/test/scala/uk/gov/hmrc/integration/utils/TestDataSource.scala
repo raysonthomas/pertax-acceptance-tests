@@ -20,7 +20,8 @@ object TestDataSource {
   val pathFor = Map(
     "home"             -> "/personal-account",
     "personal details" -> "/personal-account/personal-details",
-    "login"            -> "/ida/startlogin"
+    "login"            -> "/ida/startlogin",
+    "logged out"       -> "/personal-account/logged-out"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
