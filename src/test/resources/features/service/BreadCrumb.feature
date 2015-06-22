@@ -12,6 +12,6 @@ Feature: Breadcrumb for Personal Tax Account
     Then Breadcrumb is: ''
     And 'Robert Jeffries' clicks on 'Personal details' link
     And user is on the personal details page
-    And Breadcrumb is: 'Home'
-    And 'Robert Jeffries' clicks on 'Home' breadcrumb link
+    And Breadcrumb is: 'Account home'
+    And 'Robert Jeffries' clicks on 'Account home' breadcrumb link
     And user is on the home page
