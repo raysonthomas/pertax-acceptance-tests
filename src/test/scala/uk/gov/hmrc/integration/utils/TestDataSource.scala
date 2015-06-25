@@ -21,7 +21,7 @@ object TestDataSource {
     "home"             -> "/personal-account",
     "personal details" -> "/personal-account/personal-details",
     "login"            -> "/ida/startlogin",
-    "logged out"       -> "/personal-account/logged-out"
+    "signed out"       -> "/personal-account/signed-out"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
