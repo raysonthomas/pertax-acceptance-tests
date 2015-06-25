@@ -9,6 +9,6 @@ Feature: Sign out of Personal Tax Account
   Scenario: Sign out of Personal Tax Account
     Given user 'Jim Ferguson' is logged into the service
     When user signs out
-    Then user is on the logged out page
+    Then user is on the signed out page
     And user is unable to access the application
 
