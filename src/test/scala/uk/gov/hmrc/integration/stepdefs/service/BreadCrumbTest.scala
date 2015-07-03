@@ -14,7 +14,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
 
         if (expectedBreadcrumb == "") {
-          assert(!webDriver.getPageSource.contains("global-breadcrumb"), "global-breadcrumb was present but no breadcrumb expected")
+          assert(!webDriver.getPageSource.contains("global-breadcrumb"), "global-breadcrumb was present but it should not be present")
         }
         else {
 
@@ -23,9 +23,9 @@ class BreadCrumbTest extends ScalaDsl with EN {
 
           val actualBreadcrumb = {
             def loop(in: List[WebElement], acc: List[(String, Option[String])]): List[(String, Option[String])] = in match {
-              case Nil => acc //Shouldn't happen, 'x :: Nil' will be final iteration
+              case Nil      => acc //Shouldn't happen, 'x :: Nil' will be final iteration
               case x :: Nil => (x.getText, None) :: acc
-              case x :: xs => loop(xs, (x.getText, x.findElements(By.tagName("a")).map(_.getAttribute("href")).headOption) :: acc)
+              case x :: xs  => loop(xs, (x.getText, x.findElements(By.tagName("a")).map(_.getAttribute("href")).headOption) :: acc)
             }
             loop(actualBreadcrumbElementList, Nil).reverse
           }
