@@ -10,7 +10,7 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
   Then( """^The Annual Taxable Income section is displayed$""") {
     () =>
     withCurrentDriver { implicit webDriver =>
-      val testable = "Annual taxable income"
+      val testable = "Annual taxable income\nEstimate for 2015 to 2016"
       assert(webDriver.findElements(By.cssSelector(".annual-taxable-income h2")).filter(_.getText == testable).nonEmpty,
         s"'$testable' was not found in '.annual-taxable-income h2' field"
       )
@@ -38,20 +38,20 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
       }
   }
 
-  And( """^the 'View details' link leads to the TAI tax estimate page$""") {
+  And( """^the 'View details' link leads to the TAI landing page$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        val targetURL = "/tai/incomes"
+        val targetURL = "/tai/landing-page"
         assert(webDriver.findElements(By.cssSelector(".income-estimate a")).filter(_.getAttribute("href").contains(targetURL)).nonEmpty,
           s"the 'View details' link leads to the TAI tax estimate page URL '$targetURL' was not found in '.income-estimate a' field"
         )
       }
   }
 
-  And( """^Tax you'll pay link leads to the TAI tax you'll pay page$""") {
+  And( """^Tax you'll pay link leads to the TAI landing page$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        val targetURL = "/tai/current-year"
+        val targetURL = "/tai/landing-page"
         assert(webDriver.findElements(By.cssSelector(".tax-estimate a")).filter(_.getAttribute("href").contains(targetURL)).nonEmpty,
           s"Tax you'll pay link leads to the TAI tax you'll pay page URL '$targetURL' was not found in '.tax-estimate a' field"
         )
