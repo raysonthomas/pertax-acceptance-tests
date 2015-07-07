@@ -16,10 +16,11 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^user is on the (.*) page$""") {
-    (page: String) => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getCurrentUrl.endsWith(pathFor(page)), s"URL path did not end with '${pathFor(page)}'")
-      assert(webDriver.getTitle == page, s"Actual page title is not equal to '$page'")
+  Then( """^user is on the page with title '(.*)'$""") {
+    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      assert(webDriver.getCurrentUrl.endsWith(pathFor(expectedPageTitle)), s"URL path did not end with '${pathFor(expectedPageTitle)}'")
+      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
     }
   }
 

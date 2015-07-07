@@ -8,9 +8,9 @@ Feature: View Personal Details
 
   Scenario: View personal details page
     Given user 'Robert Jeffries' is logged into the service
-    And user is on the Your personal tax account page
+    And user is on the page with title 'Your personal tax account'
     When 'Robert Jeffries' clicks on 'Personal details' link
-    Then user is on the Personal details page
+    Then user is on the page with title 'Personal details'
     And Name 'ROBERT JEFFRIES' is visible
     And Current Address '71 LYNCROFT ROAD', 'LEAMINGTON SPA', 'KENT', '', 'SS9 1HA' should be visible
     And NINO 'ZN 52 29 15 C' is visible
