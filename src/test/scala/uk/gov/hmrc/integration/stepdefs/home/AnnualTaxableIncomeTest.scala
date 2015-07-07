@@ -14,10 +14,8 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
       assert(webDriver.findElements(By.cssSelector(".annual-taxable-income h2")).filter(_.getText == testable).nonEmpty,
         s"'$testable' was not found in '.annual-taxable-income h2' field"
       )
-
     }
   }
-
 
   And( """^that section contains annual taxable income estimate$""") {
     () =>
@@ -27,7 +25,6 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
       )
     }
   }
-
 
   And( """^that section contains a tax estimate$""") {
     () =>
@@ -57,8 +54,5 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
         )
       }
   }
-
-
-
 
 }
