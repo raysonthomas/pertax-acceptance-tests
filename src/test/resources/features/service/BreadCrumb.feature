@@ -8,10 +8,10 @@ Feature: Breadcrumb for Personal Tax Account
 
   Scenario: See Breadcrumb while navigating through PTA
     Given user 'Robert Jeffries' is logged into the service
-    When user is on the home page
+    When user is on the Your personal tax account page
     Then Breadcrumb is: ''
     And 'Robert Jeffries' clicks on 'Personal details' link
-    And user is on the personal details page
+    And user is on the Personal details page
     And Breadcrumb is: 'Account home > Your personal details'
     And 'Robert Jeffries' clicks on 'Account home' breadcrumb link
-    And user is on the home page
+    And user is on the Your personal tax account page
