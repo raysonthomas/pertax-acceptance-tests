@@ -35,5 +35,5 @@ libraryDependencies ++= Seq(
   "info.cukes" % "cucumber-picocontainer" % "1.2.2",
   "junit" % "junit" % "4.11" % "test",
   "com.novocode" % "junit-interface" % "0.10" % "test",
-  "uk.gov.hmrc" %% "accessibility-driver" % "1.3.2-0-g0000000" //"1.2.2"
+  "uk.gov.hmrc" %% "accessibility-driver" % "1.5.0" //"1.2.2"
 )
