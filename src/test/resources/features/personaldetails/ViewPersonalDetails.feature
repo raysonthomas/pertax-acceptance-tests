@@ -4,7 +4,7 @@ Feature: View Personal Details
   I need to view my personal details,
   So that I can verify that HMRC holds my correct name, address and nino
 
-  JIRA story history: MTA-7, MTA-8, MTA-260
+  JIRA story history: MTA-7, MTA-8, MTA-260, MTA-516
 
   Scenario: View personal details page
     Given user 'Robert Jeffries' is logged into the service
