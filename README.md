@@ -7,7 +7,7 @@ How to use this ?
 
 1. Clone the project to a directory of your choice
 2. On a terminal instance run: "sm --start PERTAX_ALL -f"
-(you need service manager installed and configured, search for service manager on github)
+(you need service manager installed and configured, check confluence on configuring your laptop https://confluence.tools.tax.service.gov.uk/display/DTRG/02+Laptop+Configuration+%3A+Ubuntu)
 3. Navigate to the directory where you have the cloned project
 4. Run: "sbt test" (it might say that no tests were executed, but that is a warning about unit tests which are executed (tried) after acceptance tests)
 
