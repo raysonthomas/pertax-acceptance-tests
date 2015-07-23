@@ -12,6 +12,6 @@ Feature: View Personal Details
     When 'Robert Jeffries' clicks on 'Personal details' link
     Then user is on the page with title 'Personal details'
     And Name 'Robert Jeffries' is visible
-    And Current Address '71 LYNCROFT ROAD', 'LEAMINGTON SPA', 'KENT', '', 'SS9 1HA' should be visible
+    And Current Address '71 Lyncroft Road', 'Leamington Spa', 'Kent', '', 'SS9 1HA' should be visible
     And NINO 'ZN 52 29 15 C' is visible
     
