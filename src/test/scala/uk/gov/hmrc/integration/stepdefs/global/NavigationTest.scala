@@ -9,7 +9,7 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class NavigationTest extends ScalaDsl with EN {
 
-  When( """^'(.*)' clicks on '(.*)' .*$""") {
+  When( """^user clicks on '(.*)' .*$""") {
     (user: String, linkName: String) => withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
       GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText(linkName))
