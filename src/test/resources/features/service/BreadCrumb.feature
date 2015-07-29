@@ -1,6 +1,6 @@
 @suite @smoke
 Feature: Breadcrumb for Personal Tax Account
-  As a PTA user
+  As a user
   I must be able to see navigation links to all parent pages
   So that I don't get lost
 

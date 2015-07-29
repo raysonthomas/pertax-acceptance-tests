@@ -1,6 +1,6 @@
 @suite
 Feature: View Personal Details
-  As an HMRC Customer
+  As a user
   I need to view my personal details,
   So that I can verify that HMRC holds my correct name, address and nino
 
