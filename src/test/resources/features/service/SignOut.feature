@@ -1,6 +1,6 @@
 @suite
 Feature: Sign out of Personal Tax Account
-  As a PTA user
+  As a user
   I must be able to sign out of the system
   So that other users are not able to access my account
 
