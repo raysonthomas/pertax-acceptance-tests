@@ -20,7 +20,8 @@ object TestDataSource {
   val pathFor = Map(
     "Your personal tax account" -> "/personal-account",
     "Personal details"          -> "/personal-account/personal-details",
-    "Your personal details"     -> "/personal-account/personal-details/update-address",
+    "Update your address"       -> "/personal-account/personal-details/update-address",
+    "Address updated"           -> "/personal-account/personal-details/update-address",
     "login"                     -> "/ida/startlogin",
     "Signed out"                -> "/personal-account/signed-out"
   )
