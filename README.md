@@ -16,43 +16,10 @@ For more details check the RunLocalTestSuite class, thats where the Cucumber Opt
 Crossbrowser Tests
 ------------------
 
-You can execute crossbrowser tests by running the below mentioned commands from project root:
-Before that, however, you need to establish connection to BrowserStack like so:
-1) https://www.browserstack.com/local-testing#command-line;
-2) Download the appropriate binary from the above link;
-3) Run the Downloaded binary from project root: "./BrowserStackLocal <access-key>";
-4) Once the connection is established, you can run below commands from a separate terminal.
-
-    sbt -Dbrowser=winxp-ie6-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=winxp-ie7-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win7-ie8-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win7-ie9-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win7-ie10-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win7-ie11-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win8.1-ie11-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win8-ie10-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win7-firefox-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=win7-chrome-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=macos-safari7-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=macos-safari8-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=macos-chrome-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=macos-firefox-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=iphone5s-emu-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-    sbt -Dbrowser=samsungGalaxyS5-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-
-The above commands, all are working except Safari8, which is the following command, because Browserstack accepts only 80 and 8080 ports for Safari8.
-
-    sbt -Dbrowser=macos-safari8-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-
-If you would like to test just one browser, then use only one command
-
-    sbt -Dbrowser=win7-ie8-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
-
-
-        
-    
-    
-    
-    
- 
-
+1. https://www.browserstack.com/local-testing#command-line
+2. Download the appropriate binary from the above link
+3. Run the Downloaded binary: './BrowserStackLocal *access-key*'
+4. You can look up your *access-key* when you log in to BrowserStack with your account.
+5. Connection must be established with the same key that is used in the test project:
+https://github.tools.tax.service.gov.uk/DDCN/pertax-qa-tests/blob/master/src/test/scala/uk/gov/hmrc/integration/selenium/RemoteWebDriverFactory.scala
+5. Once the connection is established, run commands from 'run_integration_crossbrowser.sh' file from project root.
