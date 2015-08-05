@@ -16,7 +16,12 @@ For more details check the RunLocalTestSuite class, thats where the Cucumber Opt
 Crossbrowser Tests
 ------------------
 
-If you would like to run tests on all browsers in browserstack, run all the commands at a time, but actually it will run th tests one by one only.
+You can execute crossbrowser tests by running the below mentioned commands from project root:
+Before that, however, you need to establish connection to BrowserStack like so:
+1) https://www.browserstack.com/local-testing#command-line;
+2) Download the appropriate binary from the above link;
+3) Run the Downloaded binary from project root: "./BrowserStackLocal <access-key>";
+4) Once the connection is established, you can run below commands from a separate terminal.
 
     sbt -Dbrowser=winxp-ie6-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
     sbt -Dbrowser=winxp-ie7-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.suites.RunLocalTestSuite'
