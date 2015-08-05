@@ -1,5 +1,5 @@
 #!/bin/sh
-#sbt -Dbrowser=winxp-ie6-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.cucumber.RunTestSuiteAgent'
+#sbt -Dbrowser=winxp-ie6-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.cucumber.RunTestSuiteAgent' //out of GDS scope as of 2015
 #sbt -Dbrowser=winxp-ie7-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.cucumber.RunTestSuiteAgent'
 #sbt -Dbrowser=win7-ie8-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.cucumber.RunTestSuiteAgent'
 #sbt -Dbrowser=win7-ie9-remote -Denvironment=local 'test-only uk.gov.hmrc.integration.cucumber.RunTestSuiteAgent'
