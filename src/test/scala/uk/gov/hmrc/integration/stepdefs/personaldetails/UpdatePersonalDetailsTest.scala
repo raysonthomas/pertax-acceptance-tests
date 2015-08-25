@@ -21,11 +21,11 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
   Then( """^Updated Address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
       withCurrentDriver { implicit webDriver =>
-        if (System.getProperty("environment").toLowerCase == "qa") {
+        if (System.getProperty("environment", "local").toLowerCase == "qa") {
           val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
           val expectedAddress = addressElements.mkString("\n")
           val actualAddress = webDriver.findElement(By.cssSelector("address")).getText
-          assert(expectedAddress == actualAddress, s"$expectedAddress did not match $actualAddress")
+          assert(expectedAddress == actualAddress, s"\nexpected address:\n $expectedAddress \ndid not match actual address:\n $actualAddress")
         }
       }
   }
