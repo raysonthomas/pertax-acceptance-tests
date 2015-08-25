@@ -31,18 +31,12 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
   }
 
   Then( """^error message for .*'(.*)' is '(.*)'$""") {
-    (objID: String, expectedError: String) =>
+    (fieldNumber: String, expectedError: String) =>
       withCurrentDriver { implicit webDriver =>
-
         if (expectedError != "") {
-          val actualError = webDriver.findElement(By.id(objID + "-error a")).getText
-          assert(actualError == expectedError, s"error on the screen is: '$actualError', but it was expected to see: '$expectedError'")
+          val actualError = webDriver.findElement(By.cssSelector(s".form-field--error:nth-of-type($fieldNumber) .error-notification")).getText
+          assert(actualError == expectedError, s"\nerror on the screen is:\n $actualError \nbut it was expected to see:\n $expectedError")
         }
-
-        if (expectedError == "") {
-          assert(webDriver.findElements(By.cssSelector(objID + "-error a")).isEmpty, s"it was not expected to have error message in field '${objID}-error a'")
-        }
-
       }
   }
 

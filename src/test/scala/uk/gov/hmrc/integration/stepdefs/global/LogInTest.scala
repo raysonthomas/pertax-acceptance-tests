@@ -11,8 +11,6 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class LogInTest extends ScalaDsl with EN {
 
-
-
   Given( """^user '(.*)' is logged into the service$""") { (user: String) =>
     withCurrentDriver { implicit webDriver =>
       val personProperty = personProperties(user)
@@ -31,7 +29,7 @@ class LogInTest extends ScalaDsl with EN {
     }
   }
 
-  And( """^user is unable to access the application$""") {
+  And( """^user is unable to access the application$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.get(Configuration("url"))
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/ida/startlogin")))
