@@ -9,36 +9,25 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class NavigationTest extends ScalaDsl with EN {
 
-  When( """^'(.*)' clicks on '(.*)' .*$""") {
-    (user: String, linkName: String) => withCurrentDriver { implicit webDriver =>
+  When( """^user clicks on '(.*)'.* link$""") {
+    (linkName: String) => withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
       GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText(linkName))
+    }
+  }
+
+  When( """^user clicks on '(.*)' button$""") {
+    (id: String) => withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id(id)).click()
     }
   }
 
   Then( """^user is on the page with title '(.*)'$""") {
     (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
-      assert(webDriver.getCurrentUrl.endsWith(pathFor(expectedPageTitle)), s"URL path did not end with '${pathFor(expectedPageTitle)}'")
+      val currentUrl = webDriver.getCurrentUrl
+      assert(currentUrl.endsWith(pathFor(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not end with:\n ${pathFor(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-    }
-  }
-
-  Then( """^Content visible: '(.*)'$""") {
-    (expectedContent: String) => withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".heading-medium")).filter(_.getText == expectedContent).nonEmpty,
-        s"this content was not found: '$expectedContent' in '.heading-medium'"
-      )
-    }
-  }
-
-  Then( """^Link to PAYE service is displayed as '(.*)'$""") {
-    (linkName: String) => withCurrentDriver { implicit webDriver =>
-      assert(
-        webDriver.findElements(By.cssSelector(".column-two-thirds>a")).filter(_.getText == linkName).nonEmpty,
-        s"$linkName was not found"
-      )
     }
   }
 

@@ -1,6 +1,6 @@
 @suite @smoke
 Feature: Breadcrumb for Personal Tax Account
-  As a PTA user
+  As a user
   I must be able to see navigation links to all parent pages
   So that I don't get lost
 
@@ -10,8 +10,8 @@ Feature: Breadcrumb for Personal Tax Account
     Given user 'Robert Jeffries' is logged into the service
     When user is on the page with title 'Your personal tax account'
     Then Breadcrumb is: ''
-    And 'Robert Jeffries' clicks on 'Personal details' link
+    And user clicks on 'Personal details' link
     And user is on the page with title 'Personal details'
     And Breadcrumb is: 'Account home > Your personal details'
-    And 'Robert Jeffries' clicks on 'Account home' breadcrumb link
+    And user clicks on 'Account home' breadcrumb link
     And user is on the page with title 'Your personal tax account'

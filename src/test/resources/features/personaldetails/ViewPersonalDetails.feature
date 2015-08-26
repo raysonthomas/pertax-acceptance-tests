@@ -1,6 +1,6 @@
 @suite
 Feature: View Personal Details
-  As an HMRC Customer
+  As a user
   I need to view my personal details,
   So that I can verify that HMRC holds my correct name, address and nino
 
@@ -9,7 +9,7 @@ Feature: View Personal Details
   Scenario: View personal details page
     Given user 'Robert Jeffries' is logged into the service
     And user is on the page with title 'Your personal tax account'
-    When 'Robert Jeffries' clicks on 'Personal details' link
+    When user clicks on 'Personal details' link
     Then user is on the page with title 'Personal details'
     And Name 'Robert Jeffries' is visible
     And Current Address '71 Lyncroft Road', 'Leamington Spa', 'Kent', '', 'SS9 1HA' should be visible
