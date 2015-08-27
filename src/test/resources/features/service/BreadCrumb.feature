@@ -12,6 +12,6 @@ Feature: Breadcrumb for Personal Tax Account
     Then Breadcrumb is: ''
     And user clicks on 'Personal details' link
     And user is on the page with title 'Personal details'
-    And Breadcrumb is: 'Account home > Your personal details'
+    And Breadcrumb is: 'Account home'
     And user clicks on 'Account home' breadcrumb link
     And user is on the page with title 'Your personal tax account'
