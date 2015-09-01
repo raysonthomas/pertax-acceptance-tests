@@ -21,7 +21,7 @@ object TestDataSource {
     "Your personal tax account" -> "/personal-account",
     "Personal details"          -> "/personal-account/personal-details",
     "Update your address"       -> "/personal-account/personal-details/update-address",
-    "Address updated"           -> "/personal-account/personal-details/update-address/address-updated",
+    "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
     "login"                     -> "/ida/startlogin",
     "Signed out"                -> "/personal-account/signed-out"
   )
