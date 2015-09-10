@@ -7,7 +7,7 @@ import scala.collection.JavaConversions._
 
 class AnnualTaxableIncomeTest extends ScalaDsl with EN {
 
-  Then( """^The Annual Taxable Income section is displayed$""") {
+  Then( """^Annual Taxable Income section is displayed$""") {
     () =>
     withCurrentDriver { implicit webDriver =>
       val testable = "Annual taxable income\nEstimate for 2015 to 2016"
@@ -17,7 +17,7 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
     }
   }
 
-  And( """^that section contains annual taxable income estimate$""") {
+  And( """^Annual Taxable Income section contains annual taxable income estimate$""") {
     () =>
     withCurrentDriver { implicit webDriver =>
       assert(webDriver.findElements(By.cssSelector(".income-estimate p")).nonEmpty,
@@ -26,7 +26,7 @@ class AnnualTaxableIncomeTest extends ScalaDsl with EN {
     }
   }
 
-  And( """^that section contains a tax estimate$""") {
+  And( """^Annual Taxable Income section contains a tax estimate$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
         assert(webDriver.findElements(By.cssSelector(".tax-estimate-value")).nonEmpty,
