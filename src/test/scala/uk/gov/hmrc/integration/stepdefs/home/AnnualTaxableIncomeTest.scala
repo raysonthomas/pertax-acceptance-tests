@@ -7,30 +7,20 @@ import scala.collection.JavaConversions._
 
 class AnnualTaxableIncomeTest extends ScalaDsl with EN {
 
-  Then( """^Annual Taxable Income section is displayed$""") {
-    () =>
+  Then( """^'(.*)' section is displayed$""") {
+    (sectionName: String) =>
     withCurrentDriver { implicit webDriver =>
-      val testable = "Annual taxable income\nEstimate for 2015 to 2016"
-      assert(webDriver.findElements(By.cssSelector(".annual-taxable-income h2")).filter(_.getText == testable).nonEmpty,
-        s"'$testable' was not found in '.annual-taxable-income h2' field"
+      assert(webDriver.findElements(By.cssSelector(".annual-taxable-income h2")).filter(_.getText == sectionName).nonEmpty,
+        s"'$sectionName' was not found in '.annual-taxable-income h2' field"
       )
     }
   }
 
-  And( """^Annual Taxable Income section contains annual taxable income estimate$""") {
-    () =>
-    withCurrentDriver { implicit webDriver =>
-      assert(webDriver.findElements(By.cssSelector(".income-estimate p")).nonEmpty,
-        "Annual Taxable Income estimate was not found in '.income-estimate p' field"
-      )
-    }
-  }
-
-  And( """^Annual Taxable Income section contains a tax estimate$""") {
+  And( """^'.*' section contains a tax estimate$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        assert(webDriver.findElements(By.cssSelector(".tax-estimate-value")).nonEmpty,
-          "Annual Taxable Income estimate was not found in '.tax-estimate-value' field"
+        assert(webDriver.findElements(By.cssSelector(".income-estimate p")).nonEmpty,
+          "Annual Taxable Income estimate was not found in '.income-estimate p' field"
         )
       }
   }

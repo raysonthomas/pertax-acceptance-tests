@@ -1,6 +1,7 @@
 package uk.gov.hmrc.integration.page
 
 import java.io.{PrintWriter, ByteArrayOutputStream}
+import java.util
 import org.openqa.selenium.support.ui.WebDriverWait
 import org.openqa.selenium.{By, WebDriver}
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions

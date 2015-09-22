@@ -22,6 +22,15 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  When( """^user sees '(.*)' link on the page$""") {
+    (linkName: String) => withCurrentDriver { implicit webDriver =>
+      val linkObject = webDriver.findElement(By.partialLinkText(linkName))
+      val linkPath = linkObject.getAttribute("href")
+      assert(linkPath.endsWith(pathFor(linkName)), s"\n# '$linkName' link path was '$linkPath'\n# it did not match expected: '${pathFor(linkName)}'\n")
+
+    }
+  }
+
   Then( """^user is on the page with title '(.*)'$""") {
     (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
