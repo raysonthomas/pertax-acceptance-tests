@@ -4,7 +4,6 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import scala.collection.JavaConversions._
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class NavigationTest extends ScalaDsl with EN {
