@@ -14,7 +14,8 @@ object TestDataSource {
     "Robert Jeffries" -> TestPersonProperties("ZN522915C", "rjeffries", "password"),
     "Timothy Bull"    -> TestPersonProperties("GC306515D", "tbull", "password"),
     "Jane Tidy"       -> TestPersonProperties("AA000113B", "jtidy", "password"),
-    "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password")
+    "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password"),
+    "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password")
   )
   
   val pathFor = Map(
