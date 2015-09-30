@@ -11,4 +11,3 @@ Feature: Sign out of Personal Tax Account
     When user signs out
     Then user is on the page with title 'Signed out'
     And user is unable to access the application
-
