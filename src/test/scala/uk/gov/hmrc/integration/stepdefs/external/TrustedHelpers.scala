@@ -38,22 +38,35 @@ class TrustedHelpers extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         webDriver.findElement(By.linkText(linkName)).click()
       }
+  }
 
+  When( """^user clicks on link '(.*)'$""") {
+    (linkName: String) =>
+      withCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.linkText(linkName)).click()
+      }
+  }
+
+  And( """^user is able to see '(.*)' link on the page$""") {
+    (expectedLinkText: String) =>
+      withCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.linkText(expectedLinkText))
+
+        }
   }
 
   When( """^user chooses Personal Tax Account option$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-
         val PTAradio = webDriver.findElement(By.id("pertax"))
         PTAradio.click()
-
         val accessServiceButton = webDriver.findElement(By.id("accessServiceButton"))
         accessServiceButton.click()
-
       }
-
   }
+
+
+
 
 
 }

@@ -1,4 +1,4 @@
-@wap
+@wip
 Feature: Trusted helper on the personal details page
   As a trusted helper
   I want to help my helpee
@@ -16,11 +16,13 @@ Feature: Trusted helper on the personal details page
     Then user navigates to personal tax account
     When user clicks on 'Personal details' link
     Then user is on the page with title 'Personal details'
-    Then user sees 'Return to your own account' link on the page
     And Name 'John Densmore' is visible
     And Current Address 'Matheson House', 'Matheson House', 'Matheson House', 'Matheson House', 'TF3 4ER' should be visible
     And NINO 'CS 70 01 00 A' is visible
-
+    And user is able to see 'Return to your own account' link on the page
+    Then user clicks on link 'Return to your own account'
+    And user is on the page with title 'Trusted helper contacts'
+    And user navigates to personal tax account
 
 
 
