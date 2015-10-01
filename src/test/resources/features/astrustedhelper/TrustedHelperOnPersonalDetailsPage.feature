@@ -11,8 +11,7 @@ Feature: Trusted helper on the personal details page
     Given user 'Martin Hempton' is logged into the service
     When user is on the page with title 'Your personal tax account'
     And user clicks on 'View your permissions' link
-    And user clicks on the link Help John
-   # And user clicks on 'Help John' link
+    And user clicks on 'Help John' link to help someone
     And user chooses Personal Tax Account option
     Then user navigates to personal tax account
     When user clicks on 'Personal details' link
