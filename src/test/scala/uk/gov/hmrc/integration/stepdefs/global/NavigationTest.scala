@@ -4,6 +4,7 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import uk.gov.hmrc.integration.utils.Configuration
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class NavigationTest extends ScalaDsl with EN {
@@ -26,7 +27,6 @@ class NavigationTest extends ScalaDsl with EN {
       val linkObject = webDriver.findElement(By.partialLinkText(linkName))
       val linkPath = linkObject.getAttribute("href")
       assert(linkPath.endsWith(pathFor(linkName)), s"\n# '$linkName' link path was '$linkPath'\n# it did not match expected: '${pathFor(linkName)}'\n")
-
     }
   }
 
@@ -36,6 +36,12 @@ class NavigationTest extends ScalaDsl with EN {
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.endsWith(pathFor(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not end with:\n ${pathFor(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
+  }
+
+  Then( """^user navigates to personal tax account$""") {
+    () => withCurrentDriver { implicit webDriver =>
+      webDriver.get(Configuration("url"))
     }
   }
 
