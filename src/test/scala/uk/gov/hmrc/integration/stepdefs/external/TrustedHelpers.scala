@@ -53,8 +53,7 @@ class TrustedHelpers extends ScalaDsl with EN {
     (expectedLinkText: String) =>
       withCurrentDriver { implicit webDriver =>
         webDriver.findElement(By.linkText(expectedLinkText))
-
-        }
+      }
   }
 
   When( """^user selects PTA service to help with$""") {
@@ -65,15 +64,13 @@ class TrustedHelpers extends ScalaDsl with EN {
       }
   }
 
-
   Then( """^text '(.*)' is visible in the banner$""") {
     (name: String) =>
-    withCurrentDriver { implicit webDriver =>
+      withCurrentDriver { implicit webDriver =>
         val banner = webDriver.findElement(By.xpath(".//*[@id='attorneyBanner']/div[1]/div"))
         assert(banner.getText.contains(name), s"\n$name text was not found in banner"
         )
-    }
+      }
   }
-
 
 }
