@@ -1,10 +1,10 @@
-@wip
+@suite
 Feature: Trusted helper relation setup
   As a tester
   I want to set helper relation between two users
   So I can test the functionality of PTA as a trusted helper
 
-  JIRA story history: MTA-1096
+  JIRA story history: MTA-1096, MTA-1097
 
   Scenario: Ask someone for their help
     Given user 'John Densmore' is logged into the service
