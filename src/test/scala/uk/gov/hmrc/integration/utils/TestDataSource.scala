@@ -25,7 +25,8 @@ object TestDataSource {
     "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
     "login"                     -> "/ida/startlogin",
     "Signed out"                -> "/personal-account/signed-out",
-    "View Income Tax forms"     -> "/government/collections/income-tax-forms"
+    "View Income Tax forms"     -> "/government/collections/income-tax-forms",
+    "Trusted helper contacts"   -> "/trusted-helpers"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)

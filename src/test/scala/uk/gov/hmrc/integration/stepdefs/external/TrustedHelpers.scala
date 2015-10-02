@@ -1,10 +1,12 @@
 package uk.gov.hmrc.integration.stepdefs.external
 
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.junit.Assert
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.utils.TestDataSource._
+import scala.collection.JavaConversions._
 
 class TrustedHelpers extends ScalaDsl with EN {
 
@@ -66,7 +68,16 @@ class TrustedHelpers extends ScalaDsl with EN {
   }
 
 
-
+  Then( """^text '(.*)' is visible in the banner$""") { (name: String) =>
+    withCurrentDriver { implicit webDriver =>
+        val banner = webDriver.findElement(By.xpath(".//*[@id='attorneyBanner']/div[1]/div"))
+        assert(
+        banner.
+          getText.contains(name) == true,
+          s"$name text was not found in banner"
+        )
+    }
+  }
 
 
 }
