@@ -8,7 +8,8 @@ Feature: Trusted helper relation setup
 
   Scenario: Ask someone for their help
     Given user 'John Densmore' is logged into the service
-    When user clicks on 'View your permissions' link
+    And user clicks on 'View your permissions' link
+    And user removes existing relations if any
     Then user clicks on 'Ask someone for their help' link
     And user searches for 'Martin', 'Hempton', 'AB216913B', '25-12-1977' DD-MM-YYYY and submits the request
     And user clicks on 'Return to my trusted helper contacts' link
