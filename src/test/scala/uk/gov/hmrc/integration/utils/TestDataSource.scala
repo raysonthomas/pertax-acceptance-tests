@@ -25,7 +25,7 @@ object TestDataSource {
     "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
     "login"                     -> "/ida/startlogin",
     "Signed out"                -> "/personal-account/signed-out",
-    "View Income Tax forms"     -> "/government/collections/income-tax-forms",
+    "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
     "Trusted helper contacts"   -> "/trusted-helpers"
   )
 
