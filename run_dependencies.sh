@@ -15,5 +15,5 @@ else
     wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
     unzip BrowserStackLocal-linux-x64.zip
   fi
-  ./BrowserStackLocal Sauyv85GKXmkxFwAxbmY &
+  ./BrowserStackLocal 8YLTc2VvzcxoNQadFpNk &
 fi
