@@ -8,7 +8,7 @@ Feature: Annual Taxable Income estimate information
 
   Scenario: Annual Taxable Income estimate is visible on the home page
     Given user 'Jim Ferguson' is logged into the service
-    When user is on the page with title 'Your personal tax account'
+    When user is on the page with title 'Your personal tax account' and URL is as expected
     Then 'Your Income Tax' section is displayed
     And 'Your Income Tax' section contains a tax estimate
 
