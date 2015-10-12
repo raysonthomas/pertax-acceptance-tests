@@ -7,5 +7,5 @@ Feature: Useful Information forms links
 
   Scenario: View Income Tax forms link is visible on the home page
     Given user 'Jim Ferguson' is logged into the service
-    When user is on the page with title 'Your personal tax account'
-    Then user sees 'View all HM Revenue and Customs forms' link on the page
+    When user is on the page with title 'Your personal tax account' and URL is as expected
+    Then user sees 'View all HM Revenue and Customs forms' link on the page and its href is as expected

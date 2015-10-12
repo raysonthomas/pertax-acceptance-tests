@@ -8,30 +8,30 @@ Feature: Update Personal Details
 
   Scenario: Positive update address journey
     Given user 'Robert Jeffries' is logged into the service
-    And user is on the page with title 'Your personal tax account'
+    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user clicks on 'Personal details' link
-    And user is on the page with title 'Personal details'
+    And user is on the page with title 'Personal details' and URL is as expected
     And user clicks on 'Update your address' link
-    And user is on the page with title 'Update your address'
+    And user is on the page with title 'Update your address' and URL is as expected
     And user updates address 'line1' with '42 Jeffry Road'
     And user updates address 'line2' with 'Newcastle Upon Tyne'
     And user updates address 'line3' with 'North East England'
     And user updates address 'line4' with 'England'
     And user updates 'postcode' with 'NE1 4JR'
     When user clicks on 'submit' button
-    And user is on the page with title 'Address updated'
+    And user is on the page with title 'Address updated' and URL is as expected
     And user clicks on 'Return to your personal details' link
-    And user is on the page with title 'Personal details'
+    And user is on the page with title 'Personal details' and URL is as expected
     And Updated Address '42 Jeffry Road', 'Newcastle Upon Tyne', 'North East England', 'England', 'NE1 4JR' should be visible
     # last step is executed only on QA environment
 
   Scenario Outline: Negative update address journey
     Given user 'Robert Jeffries' is logged into the service
-    And user is on the page with title 'Your personal tax account'
+    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user clicks on 'Personal details' link
-    And user is on the page with title 'Personal details'
+    And user is on the page with title 'Personal details' and URL is as expected
     And user clicks on 'Update your address' link
-    And user is on the page with title 'Update your address'
+    And user is on the page with title 'Update your address' and URL is as expected
     And user updates address 'line1' with '<line1_content>'
     And user updates address 'line2' with '<line2_content>'
     And user updates address 'line3' with '<line3_content>'

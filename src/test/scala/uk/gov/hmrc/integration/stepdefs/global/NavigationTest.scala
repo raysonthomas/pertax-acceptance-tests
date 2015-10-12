@@ -22,19 +22,11 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  When( """^user sees '(.*)' link on the page$""") {
-    (linkName: String) => withCurrentDriver { implicit webDriver =>
-      val linkObject = webDriver.findElement(By.partialLinkText(linkName))
-      val linkPath = linkObject.getAttribute("href")
-      assert(linkPath.endsWith(pathFor(linkName)), s"\n# '$linkName' link path was '$linkPath'\n# it did not match expected: '${pathFor(linkName)}'\n")
-    }
-  }
-
-  Then( """^user is on the page with title '(.*)'$""") {
+  Then( """^user is on the page with title '(.*)' and URL is as expected$""") {
     (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.endsWith(pathFor(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not end with:\n ${pathFor(expectedPageTitle)}")
+      assert(currentUrl.endsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not end with:\n ${pathForTitle(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
     }
   }
@@ -42,6 +34,19 @@ class NavigationTest extends ScalaDsl with EN {
   Then( """^user navigates to personal tax account$""") {
     () => withCurrentDriver { implicit webDriver =>
       webDriver.get(Configuration("url"))
+    }
+  }
+
+  When( """^user sees '(.*)' link on the page and its href is as expected$""") {
+    (linkName: String) => withCurrentDriver { implicit webDriver =>
+      val href = webDriver.findElement(By.partialLinkText(linkName)).getAttribute("href")
+      assert(href.endsWith(pathForLink(linkName)), s"\n# '$linkName' link href was '$href'\n# it did not match expected: '${pathForLink(linkName)}'\n")
+    }
+  }
+
+  Then( """^user does not see '(.*)' link on the page$""") {
+    (linkName: String) => withCurrentDriver { implicit webDriver =>
+      assert(!webDriver.getPageSource.contains(linkName), s"'$linkName' was found when it should not be present")
     }
   }
 

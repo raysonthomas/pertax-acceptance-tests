@@ -17,16 +17,22 @@ object TestDataSource {
     "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password"),
     "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password")
   )
-  
-  val pathFor = Map(
+
+  val pathForLink = Map(
+    "login"                                   -> "/ida/startlogin",
+    "View all HM Revenue and Customs forms"   -> "/government/collections/hmrc-forms",
+    "Self Assessment messages"                -> "/personal-account/messages"
+  )
+
+
+  val pathForTitle = Map(
     "Your personal tax account" -> "/personal-account",
-    "Personal details"          -> "/personal-account/personal-details",
+    "Signed out"                -> "/personal-account/signed-out",
+    "Trusted helper contacts"   -> "/trusted-helpers",
     "Update your address"       -> "/personal-account/personal-details/update-address",
     "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
-    "login"                     -> "/ida/startlogin",
-    "Signed out"                -> "/personal-account/signed-out",
-    "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
-    "Trusted helper contacts"   -> "/trusted-helpers"
+    "Personal details"          -> "/personal-account/personal-details",
+    "List of messages"          -> "/personal-account/messages"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
