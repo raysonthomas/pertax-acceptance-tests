@@ -16,10 +16,8 @@ Feature: Use PTA service as a helper
     And text 'John Densmore' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     And user clicks on link 'Return to your own account'
-<<<<<<< HEAD
     And user is on the page with title 'Trusted Helper contacts' and URL is as expected
     And user navigates to personal tax account
-=======
     And user is on the page with title 'Trusted helper contacts' and URL is as expected
     And user navigates to personal tax account
->>>>>>> 2591283cd1057e173ccf2e71450c581645ce0066
+
