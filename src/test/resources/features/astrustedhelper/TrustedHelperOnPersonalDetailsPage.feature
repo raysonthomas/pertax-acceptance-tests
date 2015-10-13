@@ -1,4 +1,4 @@
-@wip
+@suite
 Feature: Trusted helper on the personal details page
   As a trusted helper
   I want to help my helpee
