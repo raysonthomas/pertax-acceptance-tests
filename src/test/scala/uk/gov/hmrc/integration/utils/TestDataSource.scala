@@ -28,7 +28,7 @@ object TestDataSource {
   val pathForTitle = Map(
     "Your personal tax account" -> "/personal-account",
     "Signed out"                -> "/personal-account/signed-out",
-    "Trusted helper contacts"   -> "/trusted-helpers",
+    "Trusted Helper contacts"   -> "/trusted-helpers",
     "Update your address"       -> "/personal-account/personal-details/update-address",
     "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
     "Personal details"          -> "/personal-account/personal-details",

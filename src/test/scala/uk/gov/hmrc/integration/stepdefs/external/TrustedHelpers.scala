@@ -80,12 +80,12 @@ class TrustedHelpers extends ScalaDsl with EN {
           webDriver.findElement(By.linkText("End Contact")).click()
           webDriver.findElement(By.id("radio-1")).click()
           webDriver.findElement(By.id("auto_id_confirm_submit")).click()
-          webDriver.findElement(By.linkText("Return to my trusted helper contacts")).click()
+          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
         }
         if (!webDriver.findElements(By.linkText("Cancel request")).isEmpty) {
           webDriver.findElement(By.linkText("Cancel request")).click()
           webDriver.findElement(By.id("cancel_request")).click()
-          webDriver.findElement(By.linkText("Return to my trusted helper contacts")).click()
+          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
         }
       }
   }

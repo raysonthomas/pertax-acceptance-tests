@@ -12,7 +12,7 @@ Feature: Trusted helper relation setup
     And user removes existing relations if any
     Then user clicks on 'Ask someone for their help' link
     And user searches for 'Martin', 'Hempton', 'AB216913B', '25-12-1977' DD-MM-YYYY and submits the request
-    And user clicks on 'Return to my trusted helper contacts' link
+    And user clicks on 'Return to my Trusted Helper contacts' link
     And user navigates to personal tax account
 
   Scenario: Approve request for help
