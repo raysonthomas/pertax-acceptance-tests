@@ -18,6 +18,3 @@ Feature: Use PTA service as a helper
     And user clicks on link 'Return to your own account'
     And user is on the page with title 'Trusted Helper contacts' and URL is as expected
     And user navigates to personal tax account
-    And user is on the page with title 'Trusted Helper contacts' and URL is as expected
-    And user navigates to personal tax account
-
