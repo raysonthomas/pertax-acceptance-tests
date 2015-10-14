@@ -2,7 +2,8 @@ package uk.gov.hmrc.integration.stepdefs.external
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.junit.Assert
-import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
+import org.openqa.selenium.{WebElement, WebDriver, By}
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.utils.TestDataSource._
@@ -13,7 +14,6 @@ class TrustedHelpers extends ScalaDsl with EN {
   When( """^user searches for '(.*)', '(.*)', '(.*)', '(.*)-(.*)-(.*)' DD-MM-YYYY and submits the request$""") {
     (name: String, surname: String, nino: String, dobDay: String, dobMonth: String, dobYear: String) =>
       withCurrentDriver { implicit webDriver =>
-        //query
         webDriver.findElement(By.id("firstName")).sendKeys(name)
         webDriver.findElement(By.id("lastName")).sendKeys(surname)
         webDriver.findElement(By.id("nino")).sendKeys(nino)
@@ -21,7 +21,6 @@ class TrustedHelpers extends ScalaDsl with EN {
         webDriver.findElement(By.id("dob.month")).sendKeys(dobMonth)
         webDriver.findElement(By.id("dob.year")).sendKeys(dobYear)
         webDriver.findElement(By.id("submit")).click()
-        //confirm & submit request
         webDriver.findElement(By.id("radio-1")).click()
         webDriver.findElement(By.id("auto_id_confirm_button")).click()
       }
@@ -76,12 +75,13 @@ class TrustedHelpers extends ScalaDsl with EN {
   Then( """^user removes existing relations if any$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        if (!webDriver.findElements(By.linkText("End Contact")).isEmpty) {
-          webDriver.findElement(By.linkText("End Contact")).click()
+          if (!webDriver.findElements(By.linkText("End contact")).isEmpty) {
+          webDriver.findElement(By.linkText("End contact")).click()
           webDriver.findElement(By.id("radio-1")).click()
           webDriver.findElement(By.id("auto_id_confirm_submit")).click()
           webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
         }
+
         if (!webDriver.findElements(By.linkText("Cancel request")).isEmpty) {
           webDriver.findElement(By.linkText("Cancel request")).click()
           webDriver.findElement(By.id("cancel_request")).click()
