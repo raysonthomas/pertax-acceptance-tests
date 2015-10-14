@@ -2,7 +2,6 @@ package uk.gov.hmrc.integration.stepdefs.global
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.utils.Configuration
