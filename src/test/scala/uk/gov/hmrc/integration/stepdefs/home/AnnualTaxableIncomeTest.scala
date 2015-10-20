@@ -7,24 +7,6 @@ import scala.collection.JavaConversions._
 
 class AnnualTaxableIncomeTest extends ScalaDsl with EN {
 
-  Then( """^'(.*)' section is displayed$""") {
-    (sectionName: String) =>
-    withCurrentDriver { implicit webDriver =>
-      assert(webDriver.findElements(By.cssSelector(".annual-taxable-income h2")).filter(_.getText == sectionName).nonEmpty,
-        s"'$sectionName' was not found in '.annual-taxable-income h2' field"
-      )
-    }
-  }
-
-  And( """^'.*' section contains a tax estimate$""") {
-    () =>
-      withCurrentDriver { implicit webDriver =>
-        assert(webDriver.findElements(By.cssSelector(".income-estimate p")).nonEmpty,
-          "Annual Taxable Income estimate was not found in '.income-estimate p' field"
-        )
-      }
-  }
-
   And( """^the 'View details' link leads to the TAI landing page$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
