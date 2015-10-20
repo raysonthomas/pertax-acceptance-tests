@@ -21,7 +21,8 @@ object TestDataSource {
   val pathForLink = Map(
     "login"                                   -> "/ida/startlogin",
     "View all HM Revenue and Customs forms"   -> "/government/collections/hmrc-forms",
-    "Self Assessment messages"                -> "/personal-account/messages"
+    "Self Assessment messages"                -> "/personal-account/messages",
+    "Pay as you earn"                         -> "/check-income-tax/income-tax"
   )
 
 
@@ -32,7 +33,8 @@ object TestDataSource {
     "Update your address"       -> "/personal-account/personal-details/update-address",
     "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
     "Personal details"          -> "/personal-account/personal-details",
-    "List of messages"          -> "/personal-account/messages"
+    "List of messages"          -> "/personal-account/messages",
+    "Check your Income Tax"     -> "/check-income-tax/income-tax"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
