@@ -50,4 +50,12 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+
+  And( """^user is able to see Recommendation section '(.*)'$""") {
+    (expectedText: String) =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.getPageSource.contains("Popular forms on GOV.UK"), s"\n$expectedText text was not found on the page")
+      }
+
+  }
 }

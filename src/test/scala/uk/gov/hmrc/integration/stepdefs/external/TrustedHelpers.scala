@@ -23,6 +23,8 @@ class TrustedHelpers extends ScalaDsl with EN {
         webDriver.findElement(By.id("submit")).click()
         webDriver.findElement(By.id("radio-1")).click()
         webDriver.findElement(By.id("auto_id_confirm_button")).click()
+        webDriver.findElement(By.id("radio-2")).click()
+        webDriver.findElement(By.id("auto_id_confirmed_button")).click()
       }
   }
 

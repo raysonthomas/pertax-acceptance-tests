@@ -18,5 +18,4 @@ Feature: Trusted helper on the personal details page
     And text 'John Densmore' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     Then user clicks on link 'Return to your own account'
-    And user is on the page with title 'Trusted Helper contacts' and URL is as expected
     And user navigates to personal tax account
