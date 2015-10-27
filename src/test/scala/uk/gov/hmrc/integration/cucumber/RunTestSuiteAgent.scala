@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
   format = Array("pretty",
     "html:target/suite/cucumber-html-report",
     "json:target/suite/cucumber.json"),
-  tags = Array("@suite")
+  tags = Array("@wrp")
 )
 class RunTestSuiteAgent {
 
