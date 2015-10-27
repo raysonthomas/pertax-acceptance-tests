@@ -77,14 +77,15 @@ class TrustedHelpers extends ScalaDsl with EN {
   Then( """^user removes existing relations if any$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-          if (!webDriver.findElements(By.linkText("End contact")).isEmpty) {
+
+        if (webDriver.getPageSource.contains("End contact")){
           webDriver.findElement(By.linkText("End contact")).click()
           webDriver.findElement(By.id("radio-1")).click()
           webDriver.findElement(By.id("auto_id_confirm_submit")).click()
           webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
         }
 
-        if (!webDriver.findElements(By.linkText("Cancel request")).isEmpty) {
+        if (webDriver.getPageSource.contains("Cancel request")){
           webDriver.findElement(By.linkText("Cancel request")).click()
           webDriver.findElement(By.id("cancel_request")).click()
           webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
