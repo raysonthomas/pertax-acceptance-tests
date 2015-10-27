@@ -33,10 +33,21 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
   Then( """^error message for .*'(.*)' is '(.*)'$""") {
     (fieldNumber: String, expectedError: String) =>
       withCurrentDriver { implicit webDriver =>
-        def isErrorPresent: Boolean = {
-          !webDriver.findElement(By.cssSelector(s".form-field--error:nth-of-type($fieldNumber) .error-notification")).isEmpty
+        val pageSource = webDriver.getPageSource
+        def searchableString: String = fieldNumber match {
+          case 1 => "search-page:error:line1"
+          case 2 => "search-page:error:line2"
+          case 3 => "search-page:error:line3"
+          case 4 => "search-page:error:line4"
+          case 5 => "search-page:error:postcode"
+          case _ => throw new Exception("The test did not expect such a fieldNumber, check UpdatePersonalDetails.feature")
         }
-        if(expectedError = "None")
+
+        val fieldHasError: Boolean = pageSource.contains(searchableString)
+
+
+        assert(expectedError = "None", s"\nTest expected .form-field--error:nth-of-type($fieldNumber) to be empty:\nbut it was expected to see:\n $expectedError")
+
         if (expectedError != "None") {
           val actualError = webDriver.findElement(By.cssSelector(s".form-field--error:nth-of-type($fieldNumber) .error-notification")).getText
           assert(actualError == expectedError, s"\nerror on the screen is:\n $actualError \nbut it was expected to see:\n $expectedError")
