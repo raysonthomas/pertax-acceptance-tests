@@ -35,19 +35,19 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         val pageSource = webDriver.getPageSource
         def searchableString: String = fieldNumber match {
-          case 1 => "search-page:error:line1"
-          case 2 => "search-page:error:line2"
-          case 3 => "search-page:error:line3"
-          case 4 => "search-page:error:line4"
-          case 5 => "search-page:error:postcode"
+          case "1" => "search-page:error:line1"
+          case "2" => "search-page:error:line2"
+          case "3" => "search-page:error:line3"
+          case "4" => "search-page:error:line4"
+          case "5" => "search-page:error:postcode"
           case _ => throw new Exception("The test did not expect such a fieldNumber, check UpdatePersonalDetails.feature")
         }
 
         val fieldHasError: Boolean = pageSource.contains(searchableString)
 
-
-        assert(expectedError = "None", s"\nTest expected .form-field--error:nth-of-type($fieldNumber) to be empty:\nbut it was expected to see:\n $expectedError")
-
+        if (expectedError == "None") {
+          assert(!fieldHasError, s"\nTest expected .form-field--error:nth-of-type($fieldNumber) to be empty:\nbut it contained an error message (check if test input is correct)")
+        }
         if (expectedError != "None") {
           val actualError = webDriver.findElement(By.cssSelector(s".form-field--error:nth-of-type($fieldNumber) .error-notification")).getText
           assert(actualError == expectedError, s"\nerror on the screen is:\n $actualError \nbut it was expected to see:\n $expectedError")
