@@ -1,6 +1,7 @@
 package uk.gov.hmrc.integration.stepdefs.personaldetails
 
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.jsoup.Jsoup
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.utils.TestDataSource._
@@ -34,6 +35,12 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
     (fieldNumber: String, expectedError: String) =>
       withCurrentDriver { implicit webDriver =>
         val pageSource = webDriver.getPageSource
+
+        val dom = Jsoup.parse(webDriver.getPageSource)
+
+
+          dom.select("""input[name="line1"]""").head.parent().html().contains("The error")
+
         def searchableString: String = fieldNumber match {
           case "1" => "search-page:error:line1"
           case "2" => "search-page:error:line2"
