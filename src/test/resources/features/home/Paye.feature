@@ -1,4 +1,4 @@
-@wip
+@blocked
 Feature: PAYE
   As a PAYE user
   I need to be able to access my PAYE record
