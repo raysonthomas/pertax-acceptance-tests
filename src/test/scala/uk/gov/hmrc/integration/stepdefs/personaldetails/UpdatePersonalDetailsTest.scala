@@ -32,33 +32,22 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
   }
 
   Then( """^error message for .*'(.*)' is '(.*)'$""") {
-    (fieldNumber: String, expectedError: String) =>
+    (field: String, expectedError: String) =>
       withCurrentDriver { implicit webDriver =>
         val pageSource = webDriver.getPageSource
-
-        val dom = Jsoup.parse(webDriver.getPageSource)
-
-
-          dom.select("""input[name="line1"]""").head.parent().html().contains("The error")
-
-        def searchableString: String = fieldNumber match {
-          case "1" => "search-page:error:line1"
-          case "2" => "search-page:error:line2"
-          case "3" => "search-page:error:line3"
-          case "4" => "search-page:error:line4"
-          case "5" => "search-page:error:postcode"
-          case _ => throw new Exception("The test did not expect such a fieldNumber, check UpdatePersonalDetails.feature")
-        }
-
-        val fieldHasError: Boolean = pageSource.contains(searchableString)
+        val wrapperHtml = Jsoup.parse(pageSource).select( s"""input[name="$field"]""").head.parent().html()
+        val wrapperText = Jsoup.parse(pageSource).select( s"""input[name="$field"]""").head.parent().text()
 
         if (expectedError == "None") {
-          assert(!fieldHasError, s"\nTest expected .form-field--error:nth-of-type($fieldNumber) to be empty:\nbut it contained an error message (check if test input is correct)")
+          assert(!wrapperHtml.contains("error-notification"),
+            s"\nTest expected no error for '$field'\nbut it contained an error message (check if test input is correct)")
         }
+
         if (expectedError != "None") {
-          val actualError = webDriver.findElement(By.cssSelector(s".form-field--error:nth-of-type($fieldNumber) .error-notification")).getText
-          assert(actualError == expectedError, s"\nerror on the screen is:\n $actualError \nbut it was expected to see:\n $expectedError")
+          assert(wrapperText.contains(expectedError),
+            expectedError + " was not in "  + wrapperText)
         }
+
       }
   }
 

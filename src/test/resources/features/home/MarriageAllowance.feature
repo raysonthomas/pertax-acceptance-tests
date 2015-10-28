@@ -1,4 +1,4 @@
-@wip
+@blocked
 Feature: Ability to apply for Marriage Allowance
   As a user
   I want to be notified about my eligibility for marriage allowance
