@@ -10,7 +10,7 @@ Feature: Ability to apply for Marriage Allowance
     Given user 'John Densmore' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user is able to see a recommendation section 'Recommended for you'
-    And user sees a recommendation link: 'Check if you're eligible for Marriage Allowance' that would redirect him to: '/marriage-allowance/marriage-allowance-s23'
+    And user sees a recommendation link: 'Check if you can get Marriage Allowance' that would redirect him to: 'marriage-allowance-application/transfer-allowance'
 
   Scenario: Login as a user who has enrolled for Marriage Allowance (tax code ends with a 'M')
     Given user 'M Andrew' is logged into the service
