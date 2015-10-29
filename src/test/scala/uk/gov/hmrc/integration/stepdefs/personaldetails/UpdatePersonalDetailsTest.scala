@@ -1,6 +1,7 @@
 package uk.gov.hmrc.integration.stepdefs.personaldetails
 
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.jsoup.Jsoup
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.utils.TestDataSource._
@@ -31,13 +32,20 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
   }
 
   Then( """^error message for .*'(.*)' is '(.*)'$""") {
-    (fieldNumber: String, expectedError: String) =>
+    (field: String, expectedError: String) =>
       withCurrentDriver { implicit webDriver =>
-//        if (expectedError != "") {
-          if (expectedError!="None") {
-          val actualError = webDriver.findElement(By.cssSelector(s".form-field--error:nth-of-type($fieldNumber) .error-notification")).getText
-          assert(actualError == expectedError, s"\nerror on the screen is:\n $actualError \nbut it was expected to see:\n $expectedError")
+        val selectedSource = Jsoup.parse(webDriver.getPageSource).select( s"""input[name="$field"]""").head.parent()
+
+        if (expectedError == "None") {
+          assert(!selectedSource.html().contains("error-notification"),
+            s"\nTest expected no error for '$field'\nbut it contained an error message (check if test input is correct)")
         }
+
+        if (expectedError != "None") {
+          assert(selectedSource.text().contains(expectedError),
+            expectedError + " was not in "  + selectedSource.text())
+        }
+
       }
   }
 
