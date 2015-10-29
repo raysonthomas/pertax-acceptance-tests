@@ -34,18 +34,16 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
   Then( """^error message for .*'(.*)' is '(.*)'$""") {
     (field: String, expectedError: String) =>
       withCurrentDriver { implicit webDriver =>
-        val pageSource = webDriver.getPageSource
-        val wrapperHtml = Jsoup.parse(pageSource).select( s"""input[name="$field"]""").head.parent().html()
-        val wrapperText = Jsoup.parse(pageSource).select( s"""input[name="$field"]""").head.parent().text()
+        val selectedSource = Jsoup.parse(webDriver.getPageSource).select( s"""input[name="$field"]""").head.parent()
 
         if (expectedError == "None") {
-          assert(!wrapperHtml.contains("error-notification"),
+          assert(!selectedSource.html().contains("error-notification"),
             s"\nTest expected no error for '$field'\nbut it contained an error message (check if test input is correct)")
         }
 
         if (expectedError != "None") {
-          assert(wrapperText.contains(expectedError),
-            expectedError + " was not in "  + wrapperText)
+          assert(selectedSource.text().contains(expectedError),
+            expectedError + " was not in "  + selectedSource.text())
         }
 
       }
