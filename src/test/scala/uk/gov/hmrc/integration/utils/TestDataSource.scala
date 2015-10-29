@@ -15,7 +15,9 @@ object TestDataSource {
     "Timothy Bull"    -> TestPersonProperties("GC306515D", "tbull", "password"),
     "Jane Tidy"       -> TestPersonProperties("AA000113B", "jtidy", "password"),
     "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password"),
-    "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password")
+    "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password"),
+    "M Andrew"        -> TestPersonProperties("JZ013615D", "mandrew", "password"),
+    "Jayne Rockle"    -> TestPersonProperties("PJ523813C", "jrockle", "password")
   )
 
   val pathForLink = Map(
