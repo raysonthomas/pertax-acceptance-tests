@@ -23,7 +23,7 @@ object TestDataSource {
   val pathForLink = Map(
     "login"                                     -> "/ida/startlogin",
     "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
-    "Self Assessment messages"                  -> "/personal-account/messages",
+    "Your messages"                  -> "/personal-account/messages",
     "Pay as you earn"                           -> "/check-income-tax/income-tax",
     "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/transfer-allowance"
   )
