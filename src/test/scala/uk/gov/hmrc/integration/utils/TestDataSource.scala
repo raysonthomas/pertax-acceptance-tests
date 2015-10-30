@@ -15,14 +15,17 @@ object TestDataSource {
     "Timothy Bull"    -> TestPersonProperties("GC306515D", "tbull", "password"),
     "Jane Tidy"       -> TestPersonProperties("AA000113B", "jtidy", "password"),
     "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password"),
-    "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password")
+    "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password"),
+    "M Andrew"        -> TestPersonProperties("JZ013615D", "mandrew", "password"),
+    "Jayne Rockle"    -> TestPersonProperties("PJ523813C", "jrockle", "password")
   )
 
   val pathForLink = Map(
-    "login"                                   -> "/ida/startlogin",
-    "View all HM Revenue and Customs forms"   -> "/government/collections/hmrc-forms",
-    "Self Assessment messages"                -> "/personal-account/messages",
-    "Pay as you earn"                         -> "/check-income-tax/income-tax"
+    "login"                                     -> "/ida/startlogin",
+    "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
+    "Your messages"                  -> "/personal-account/messages",
+    "Pay as you earn"                           -> "/check-income-tax/income-tax",
+    "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/transfer-allowance"
   )
 
 
