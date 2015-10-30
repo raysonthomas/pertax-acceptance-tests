@@ -8,15 +8,7 @@ class Recommendations extends ScalaDsl with EN {
 
   And( """^user is able to see a recommendation section '(.*)'$""") {
     (expectedText: String) => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getPageSource.contains("Popular forms on GOV.UK"), s"\n$expectedText text was not found on the page")
-    }
-  }
-
-  And( """^user sees a recommendation link: '(.*)' that would redirect him to: '(.*)'$""") {
-    (linkName: String, redirectUrl: String) => withCurrentDriver { implicit webDriver =>
-      val linkObject = webDriver.findElement(By.linkText(linkName))
-      val linkPath = linkObject.getAttribute("href")
-      assert(linkPath.equals(redirectUrl), s"$linkPath is not the expected redirection path")
+      assert(webDriver.getPageSource.contains("Recommended for you"), s"\n$expectedText text was not found on the page")
     }
   }
 

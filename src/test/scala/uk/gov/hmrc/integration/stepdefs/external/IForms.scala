@@ -16,7 +16,7 @@ class IForms extends ScalaDsl with EN {
       }
   }
 
-  When( """^user sees the Iform Link '(.*)' with correct redirection URL '(.*)'$""") {
+  When( """^user sees a link on the page '(.*)' with a redirection URL '(.*)'$""") {
     (linkName: String, redirectUrl:String) => withCurrentDriver { implicit webDriver =>
       val linkObject = webDriver.findElement(By.linkText(linkName))
       val linkPath = linkObject.getAttribute("href")

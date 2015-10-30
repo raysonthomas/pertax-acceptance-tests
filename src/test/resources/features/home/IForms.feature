@@ -9,7 +9,7 @@ Feature: IForms section with links to different forms
   Scenario Outline: Check that the IForms section is displayed and the links to forms have correct redirection urls
     Given user 'John Densmore' is logged into the service
     And user is able to see IForm section 'Popular forms on GOV.UK'
-    And user sees the Iform Link '<iform_link>' with correct redirection URL '<redirection_url>'
+    And user sees a link on the page '<iform_link>' with a redirection URL '<redirection_url>'
 
     Examples:
       | iform_link                                                                | redirection_url                                                                                                    |
