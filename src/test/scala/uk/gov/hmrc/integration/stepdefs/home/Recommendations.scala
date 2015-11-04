@@ -8,7 +8,13 @@ class Recommendations extends ScalaDsl with EN {
 
   And( """^user is able to see a recommendation section '(.*)'$""") {
     (expectedText: String) => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getPageSource.contains("Recommended for you"), s"\n$expectedText text was not found on the page")
+      assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
+    }
+  }
+
+  And( """^user is not able to see a recommendation section '(.*)'$""") {
+    (expectedText: String) => withCurrentDriver { implicit webDriver =>
+      assert(!webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was found on the page (but it should not be found)")
     }
   }
 
