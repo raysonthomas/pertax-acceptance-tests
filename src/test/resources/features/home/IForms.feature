@@ -7,18 +7,22 @@ Feature: IForms section with links to different forms
   JIRA story history: MTA-1135
 
   Scenario: Check that the IForms section is displayed and the links to forms have correct redirection urls
-    Given user 'John Densmore' is logged into the service
-    And user is able to see IForm section 'Popular forms on GOV.UK'
-    And user sees a link on the page 'Apply for Child Benefit' with a redirection URL 'https://www.gov.uk/government/publications/child-benefit-claim-form-ch2'
-    And user sees a link on the page 'Disagree with a tax credits overpayment decision' with a redirection URL 'https://www.gov.uk/government/publications/tax-credits-overpayment-tc846'
-    And user sees a link on the page 'Tell your bank or building society that you qualify for tax-free interest' with a redirection URL 'https://www.gov.uk/government/publications/income-tax-get-interest-without-tax-taken-off-r85-from-6-april-2015'
-    And user sees a link on the page 'Register for Self Assessment for a reason other than self employment' with a redirection URL 'https://www.gov.uk/government/publications/self-assessment-register-for-self-assessment-and-get-a-tax-return-sa1'
-    And user sees a link on the page 'Get your National Insurance number in writing' with a redirection URL 'https://www.gov.uk/government/publications/national-insurance-get-your-national-insurance-number-in-writing-ca5403'
+    Given user 'Martin Hempton' is logged into the service
+    And user sees 'Benefits and tax credits' link on the page and its href is as expected
+    Then user clicks on 'Benefits and tax credits' link
+    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
+    And heading 'Benefits and credits' is visible
+    And user navigates to personal tax account
 
-#    Examples:
-#      | iform_link                                                                | redirection_url                                                                                                    |
-#      | Apply for Child Benefit                                                   | https://www.gov.uk/government/publications/child-benefit-claim-form-ch2                                            |
-#      | Disagree with a tax credits overpayment decision                          | https://www.gov.uk/government/publications/tax-credits-overpayment-tc846                                           |
-#      | Tell your bank or building society that you qualify for tax-free interest | https://www.gov.uk/government/publications/income-tax-get-interest-without-tax-taken-off-r85-from-6-april-2015     |
-#      | Register for Self Assessment for a reason other than self employment      | https://www.gov.uk/government/publications/self-assessment-register-for-self-assessment-and-get-a-tax-return-sa1   |
-#      | Get your National Insurance number in writing                             | https://www.gov.uk/government/publications/national-insurance-get-your-national-insurance-number-in-writing-ca5403 |
+    And user sees 'National Insurance' link on the page and its href is as expected
+    Then user clicks on 'National Insurance' link
+    And heading 'National Insurance' is visible
+    And user navigates to personal tax account
+
+    And user sees 'Pension' link on the page and its href is as expected
+    Then user clicks on 'Pension' link
+    And heading 'State Pension' is visible
+    And user navigates to personal tax account
+
+
+

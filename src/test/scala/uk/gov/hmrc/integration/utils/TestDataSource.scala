@@ -24,21 +24,27 @@ object TestDataSource {
     "login"                                     -> "/ida/startlogin",
     "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
     "Your messages"                             -> "/personal-account/messages",
-    "Pay as you earn"                           -> "/check-income-tax/income-tax",
+    "Income tax"                                -> "/check-income-tax/income-tax",
     "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/transfer-allowance",
-    "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA"
+    "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA",
+    "Benefits and tax credits"                  -> "/personal-account/benefits-credits-summary",
+    "National Insurance"                        -> "/personal-account/national-insurance-summary",
+    "Pension"                                   -> "/personal-account/pensions-summary"
   )
 
 
   val pathForTitle = Map(
-    "Your personal tax account" -> "/personal-account",
-    "Signed out"                -> "/personal-account/signed-out",
-    "Trusted Helper contacts"   -> "/trusted-helpers",
-    "Update your address"       -> "/personal-account/personal-details/update-address",
-    "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
-    "Update your address"       -> "/personal-account/your-address",
-    "List of messages"          -> "/personal-account/messages",
-    "Check your Income Tax"     -> "/check-income-tax/income-tax"
+    "Your personal tax account"                 -> "/personal-account",
+    "Signed out"                                -> "/personal-account/signed-out",
+    "Trusted Helper contacts"                   -> "/trusted-helpers",
+    "Update your address"                       -> "/personal-account/personal-details/update-address",
+    "Address updated"                           -> "/personal-account/personal-details/update-address/thank-you",
+    "Update your address"                       -> "/personal-account/your-address",
+    "List of messages"                          -> "/personal-account/messages",
+    "Check your Income Tax"                     -> "/check-income-tax/income-tax",
+    "Benefits and tax credits summary"          -> "/personal-account/benefits-credits-summary",
+    "National Insurance summary"                -> "/personal-account/national-insurance-summary",
+    "Pensions summary"                          -> "/personal-account/pensions-summary"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
