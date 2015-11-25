@@ -9,19 +9,11 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class IForms extends ScalaDsl with EN {
 
-  And( """^user is able to see IForm section '(.*)'$""") {
-    (expectedText: String) =>
+   Then( """^heading '(.*)' is visible$""") {
+    (name: String) =>
       withCurrentDriver { implicit webDriver =>
-        assert(webDriver.getPageSource.contains("Popular forms on GOV.UK"), s"\n$expectedText text was not found on the page")
+        assert(webDriver.getPageSource.contains(name), s"\n$name heading was not found in page"
+        )
       }
   }
-
-  When( """^user sees a link on the page '(.*)' with a redirection URL '(.*)'$""") {
-    (linkName: String, redirectUrl:String) => withCurrentDriver { implicit webDriver =>
-      val linkObject = webDriver.findElement(By.linkText(linkName))
-      val linkPath = linkObject.getAttribute("href")
-     assert(linkPath.equals(redirectUrl), s"$linkPath is not the expected redirection path")
-    }
-  }
-
 }
