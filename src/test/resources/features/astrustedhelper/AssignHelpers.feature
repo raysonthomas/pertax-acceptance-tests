@@ -7,8 +7,8 @@ Feature: Trusted helper relation setup
   JIRA story history: MTA-1096, MTA-1097
 
   Scenario: Ask someone for their help
-    Given user 'John Densmore' is logged into the service
-    And user clicks on 'View your permissions' link
+    Given user 'M Andrew' is logged into the service
+    And user clicks on 'View your trusted helper contacts' link
     And user removes existing relations if any
     Then user clicks on 'Ask someone for their help' link
     And user searches for 'Martin', 'Hempton', 'AB216913B', '25-12-1977' DD-MM-YYYY and submits the request
@@ -16,8 +16,8 @@ Feature: Trusted helper relation setup
 
   Scenario: Approve request for help
     Given user 'Martin Hempton' is logged into the service
-    Then user clicks on 'View your permissions' link
-    And user clicks on 'Respond to John's request' link to help someone
+    Then user clicks on 'View your trusted helper contacts' link
+    And user clicks on 'Respond to M's request' link to help someone
     And user submits his decision to help
     And user navigates to personal tax account
 

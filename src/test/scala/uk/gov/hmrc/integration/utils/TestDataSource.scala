@@ -36,7 +36,7 @@ object TestDataSource {
     "Trusted Helper contacts"   -> "/trusted-helpers",
     "Update your address"       -> "/personal-account/personal-details/update-address",
     "Address updated"           -> "/personal-account/personal-details/update-address/thank-you",
-    "Personal details"          -> "/personal-account/personal-details",
+    "Update your address"       -> "/personal-account/your-address",
     "List of messages"          -> "/personal-account/messages",
     "Check your Income Tax"     -> "/check-income-tax/income-tax"
   )

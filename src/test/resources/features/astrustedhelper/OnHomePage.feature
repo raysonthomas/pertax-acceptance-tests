@@ -9,11 +9,11 @@ Feature: Use PTA service as a helper
   Scenario: View PTA home as a trusted helper
     Given user 'Martin Hempton' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    And user clicks on 'View your permissions' link
-    And user clicks on 'Help John' link to help someone
+    And user clicks on 'View your trusted helper contacts' link
+    And user clicks on 'Help M' link to help someone
     When user selects PTA service to help with
     Then user is on the page with title 'Your personal tax account' and URL is as expected
-    And text 'John Densmore' is visible in the banner
+    And text 'M ANDREW' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     And user clicks on link 'Return to your own account'
     And user navigates to personal tax account
