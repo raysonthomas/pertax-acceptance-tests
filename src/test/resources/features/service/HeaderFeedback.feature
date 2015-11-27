@@ -7,6 +7,6 @@ Feature: Feedback From Anywhere in the Service
   JIRA story history: MTA-1119
 
   Scenario: See Feedback Link while navigating through PTA & other integrated Services
-    Given user 'Robert Jeffries' is logged into the service
+    Given user 'Martin Hempton' is logged into the service
     When user is on the page with title 'Your personal tax account' and URL is as expected
     Then user sees 'feedback' link on the page and its href is as expected

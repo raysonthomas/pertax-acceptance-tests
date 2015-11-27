@@ -13,8 +13,8 @@ Feature: Trusted helper on the personal details page
     And user clicks on 'Help M' link to help someone
     And user selects PTA service to help with
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    When user clicks on 'Personal details' link
-    Then user is on the page with title 'Update your address' and URL is as expected
+    When user clicks on 'Update your address' link
+    Then user is on the page with title 'Your address' and URL is as expected
     And text 'M ANDREW' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     Then user clicks on link 'Return to your own account'
