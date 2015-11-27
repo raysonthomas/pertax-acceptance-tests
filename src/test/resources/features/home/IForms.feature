@@ -23,7 +23,7 @@ Feature: IForms section with links to different forms
     And user sees 'Pension' link on the page and its href is as expected
     Then user clicks on 'Pension' link
     Then user is on the page with title 'Pensions summary' and URL is as expected
-    And heading 'State Pension' is visible
+    And heading 'Pension' is visible
     And user navigates to personal tax account
 
 
