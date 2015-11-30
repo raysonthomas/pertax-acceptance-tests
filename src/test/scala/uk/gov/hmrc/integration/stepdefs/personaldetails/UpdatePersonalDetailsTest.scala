@@ -49,17 +49,5 @@ class UpdatePersonalDetailsTest extends ScalaDsl with EN {
       }
   }
 
-  When( """^user selects the address '(.*)','(.*)','(.*)','(.*)','(.*)' and continues$""") {
-    (line1:String,line2:String,line3:String,line4:String,postcode:String) =>
-      withCurrentDriver { implicit webDriver =>
-        val addressElements = Array(line1, line2, line3, line4, postcode).filter(_ != "")
-        val address = addressElements.mkString(",")
-        println(address)
-                   if (webDriver.getPageSource.contains(address))
-                    webDriver.findElement(By.xpath(".//*[@id='select-address-form']/fieldset/label[2]")).click()
-
-          webDriver.findElement(By.id("submitAddressSelector")).click()
-      }
-  }
 
 }
