@@ -1,4 +1,4 @@
-@wip
+@suite
 Feature: Update Personal Details
   As a user
   I need to be able to change my address
