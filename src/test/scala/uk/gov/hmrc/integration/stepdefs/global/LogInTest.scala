@@ -3,7 +3,7 @@ package uk.gov.hmrc.integration.stepdefs.global
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
 import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
-import uk.gov.hmrc.integration.page.{GlobalActions, IDAActions}
+import uk.gov.hmrc.integration.page.{HighGGActions, GGActions, GlobalActions, IDAActions}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
@@ -18,6 +18,26 @@ class LogInTest extends ScalaDsl with EN {
         IDAActions.logInLocalEnv(personProperty.username, personProperty.password)
       else
         IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
+    }
+  }
+
+  Given( """^GG user '(.*)' is logged into the service$""") { (user: String) =>
+    withCurrentDriver { implicit webDriver =>
+      val personProperty = personProperties(user)
+      if (Configuration.environment("id") == "local")
+        GGActions.logInLocalEnv(personProperty.username, personProperty.password)
+      else
+        GGActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
+    }
+  }
+
+  Given( """^High GG user '(.*)' is logged into the service$""") { (user: String) =>
+    withCurrentDriver { implicit webDriver =>
+      val personProperty = personProperties(user)
+      if (Configuration.environment("id") == "local")
+        HighGGActions.logInLocalEnv(personProperty.username, personProperty.password)
+      else
+        HighGGActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
     }
   }
 

@@ -10,14 +10,19 @@ object TestDataSource {
   private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
   val personProperties = Map(
-    "John Densmore"   -> TestPersonProperties("CS700100A", "jdensmore", "password"),
-    "Robert Jeffries" -> TestPersonProperties("ZN522915C", "rjeffries", "password"),
-    "Timothy Bull"    -> TestPersonProperties("GC306515D", "tbull", "password"),
-    "Jane Tidy"       -> TestPersonProperties("AA000113B", "jtidy", "password"),
-    "Jim Ferguson"    -> TestPersonProperties("AA000003D", "jferguson", "password"),
-    "Martin Hempton"  -> TestPersonProperties("AB216913B", "mhempton", "password"),
-    "M Andrew"        -> TestPersonProperties("JZ013615D", "mandrew", "password"),
-    "Jayne Rockle"    -> TestPersonProperties("PJ523813C", "jrockle", "password")
+    "John Densmore"              -> TestPersonProperties("CS700100A", "jdensmore", "password"),
+    "Robert Jeffries"            -> TestPersonProperties("ZN522915C", "rjeffries", "password"),
+    "Timothy Bull"               -> TestPersonProperties("GC306515D", "tbull", "password"),
+    "Jane Tidy"                  -> TestPersonProperties("AA000113B", "jtidy", "password"),
+    "Jim Ferguson"               -> TestPersonProperties("AA000003D", "jferguson", "password"),
+    "Martin Hempton"             -> TestPersonProperties("AB216913B", "mhempton", "password"),
+    "M Andrew"                   -> TestPersonProperties("JZ013615D", "mandrew", "password"),
+    "Jayne Rockle"               -> TestPersonProperties("PJ523813C", "jrockle", "password"),
+    "Scott The Booth"            -> TestPersonProperties("CE123457D", "543212300020", "testing123"),
+    "Tom Quinney"                -> TestPersonProperties("", "543212300124", "testing123"),
+    "Cass Carter"                -> TestPersonProperties("", "543212300123", "testing123"),
+    "Christopher Grantham"       -> TestPersonProperties("CE123457D", "543212300022", "testing123")
+
   )
 
   val pathForLink = Map(
@@ -29,7 +34,15 @@ object TestDataSource {
     "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                  -> "/personal-account/benefits-credits-summary",
     "National Insurance"                        -> "/personal-account/national-insurance-summary",
-    "Pension"                                   -> "/personal-account/pensions-summary"
+    "Pension"                                   -> "/personal-account/pensions-summary",
+    "View your trusted helper contacts"         -> "/trusted-helpers",
+    "Update your address"                       -> "/personal-account/your-address",
+    "Track your forms"                          -> "/track",
+    "Manage your paperless settings"            ->"/personal-account/preferences",
+    "Self Assessment"                           ->"/personal-account/self-assessment-summary",
+    "Go to your messages"                       ->"/personal-account/messages",
+    "your business tax account."                ->"/business-account"
+
   )
 
 
@@ -44,7 +57,10 @@ object TestDataSource {
     "Check your Income Tax"                     -> "/check-income-tax/income-tax",
     "Benefits and tax credits summary"          -> "/personal-account/benefits-credits-summary",
     "National Insurance summary"                -> "/personal-account/national-insurance-summary",
-    "Pensions summary"                          -> "/personal-account/pensions-summary"
+    "Pensions summary"                          -> "/personal-account/pensions-summary",
+    "Manage your paperless settings"            -> "/personal-account/preferences",
+     "Self Assessment summary"                  -> "/personal-account/self-assessment-summary"
+
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
