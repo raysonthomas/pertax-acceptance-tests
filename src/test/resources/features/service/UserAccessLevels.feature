@@ -4,6 +4,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
   I want to view the appropriate items based on my access levels
 
   JIRA story history: MTA-1237,MTA-1188,MTA-1354,MTA-1355, MTA-1356, MTA_1357
+  // lowGG means CL50, highGG means CL100 or CL200 (dependant on watchlist - to which we dont pay attention here)
 
   Scenario: Check that a Verify user(CL500) NOT IN SA regime sees the appropriate options on PTA
     Given user 'Martin Hempton' is logged into the service
