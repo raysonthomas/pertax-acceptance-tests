@@ -8,6 +8,8 @@ Feature: Uplift feature used by user - success and failure pages
   JIRA story history: MTA-1482
 
   Scenario: Positive Uplift Journey
+
     Given user 'xxx' logs into the IV uplift service
-    When user is on the page with title 'Your personal tax account' and URL is as expected
-    Then user sees 'feedback' link on the page and its href is as expected
+    And text 'You are attempting to perform a user uplift' is visible on IV Page
+    And user clicks on Success radio button
+    And user is on the page with title 'Your personal tax account' and URL is as expected
