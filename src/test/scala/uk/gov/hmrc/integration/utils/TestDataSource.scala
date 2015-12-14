@@ -44,7 +44,8 @@ object TestDataSource {
     "Check your Income Tax"                     -> "/check-income-tax/income-tax",
     "Benefits and tax credits summary"          -> "/personal-account/benefits-credits-summary",
     "National Insurance summary"                -> "/personal-account/national-insurance-summary",
-    "Pensions summary"                          -> "/personal-account/pensions-summary"
+    "Pensions summary"                          -> "/personal-account/pensions-summary",
+    "Identity verification confirmation"        -> "/personal-account/pensions-summary"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)

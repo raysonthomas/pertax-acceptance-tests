@@ -17,7 +17,7 @@ import scala.collection.JavaConversions._
 
 class UserUplift extends ScalaDsl with EN {
 
-  Then( """^user '(.*)' logs into the IV uplift service$""") {
+  Then( """^user Christopher Grantham logs into the IV uplift service$""") {
     withCurrentDriver { implicit webDriver =>
       webDriver.get("http://localhost:9232/personal-account/start-self-assessment")
       webDriver.findElement(By.cssSelector(".button.button-get-started.start-verify-action")).click()
@@ -35,12 +35,75 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-
   And( """^user clicks on Success radio button$""") {()=>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
-      webDriver.findElement(By.cssSelector(".button"))
+
     }
   }
 
+  And( """^user clicks on Locked Out radio button$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
+
+    }
+  }
+
+  And( """^user clicks on User Aborted radio button$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
+
+    }
+  }
+
+  And( """^user clicks on Insufficient Evidence radio button$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
+
+    }
+  }
+
+  And( """^user clicks on Technical Issue radio button$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
+
+    }
+  }
+
+  And( """^user clicks on Timed Out radio button$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-timeout")).click()
+
+    }
+  }
+
+  And( """^user clicks on Submit button$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
+  Then( """^user is on the page with title '(.*)' with expected URL$""") {
+    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      val currentUrl = webDriver.getCurrentUrl
+      assert(currentUrl.startsWith("http://localhost:9232/personal-account/identity-check-failed?token"), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
+      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
+  }
+
+  And( """^user sees text '(.*)' on the page$""") {(text:String)=>
+    withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
+    }
+  }
+
+  And( """^user clicks on Continue button$""") { () =>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#continueFailure")).click()
+
+    }
+
+  }
 }
