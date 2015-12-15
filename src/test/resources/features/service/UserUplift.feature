@@ -1,4 +1,4 @@
-@wip
+@suite
 Feature: Uplift feature used by user - success and failure pages
   As a user
   I must be able to use the uplift feature
@@ -12,6 +12,8 @@ Feature: Uplift feature used by user - success and failure pages
     And text 'You are attempting to perform a user uplift' is visible on IV Page
     And user clicks on Success radio button
     And user clicks on Submit button
+    And user is on the page with title 'Identity verification confirmation' with expected URL
+    And user clicks on Continue button
     And user is on the page with title 'Your personal tax account' and URL is as expected
 
   Scenario: IV Failure Journey for Locked Out screen
@@ -20,7 +22,8 @@ Feature: Uplift feature used by user - success and failure pages
     And user clicks on Locked Out radio button
     And user clicks on Submit button
     And user is on the page with title 'Identity Verification Failed' with expected URL
-    And user sees text 'Maximum number of attempts reached' on the page
+    And user sees text 'Continue to your personal tax account' on the page
+    And user sees text 'you can try again in 24 hours' on the page
     And user clicks on Continue button
     And user is on the page with title 'Your personal tax account' and URL is as expected
 

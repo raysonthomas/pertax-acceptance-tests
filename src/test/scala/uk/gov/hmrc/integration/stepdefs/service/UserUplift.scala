@@ -88,10 +88,11 @@ class UserUplift extends ScalaDsl with EN {
     (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.startsWith("http://localhost:9232/personal-account/identity-check-failed?token"), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
+      assert(currentUrl.startsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
     }
   }
+
 
   And( """^user sees text '(.*)' on the page$""") {(text:String)=>
     withCurrentDriver { implicit webDriver =>
