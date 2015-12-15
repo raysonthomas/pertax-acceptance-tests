@@ -59,8 +59,9 @@ object TestDataSource {
     "National Insurance summary"                -> "/personal-account/national-insurance-summary",
     "Pensions summary"                          -> "/personal-account/pensions-summary",
     "Manage your paperless settings"            -> "/personal-account/preferences",
-     "Self Assessment summary"                  -> "/personal-account/self-assessment-summary"
-
+     "Self Assessment summary"                  -> "/personal-account/self-assessment-summary",
+    "Identity verification confirmation"        -> "http://localhost:9232/personal-account/identity-check-complete",
+    "Identity Verification Failed"              -> "http://localhost:9232/personal-account/identity-check-failed"
   )
 
   def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
