@@ -13,4 +13,11 @@ object CustomExpectedConditions {
     }
   }
 
+  def pageContains(suffix: String)(implicit webDriver: WebDriver): ExpectedCondition[Boolean] = {
+    new ExpectedCondition[Boolean] {
+      override def apply(wd: WebDriver): Boolean = {
+        wd.getPageSource.contains(suffix)
+      }
+    }
+  }
 }

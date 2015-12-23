@@ -14,7 +14,7 @@ object GGActions {
     webDriver.findElement(By.id("userId")).sendKeys(user)
     webDriver.findElement(By.id("password")).sendKeys(pass)
     webDriver.findElement(By.cssSelector(".button")).click()
-    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
+    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("Confirm your identity"))
 
   }
 

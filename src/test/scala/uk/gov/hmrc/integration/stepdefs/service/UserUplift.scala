@@ -17,17 +17,6 @@ import scala.collection.JavaConversions._
 
 class UserUplift extends ScalaDsl with EN {
 
-  Then( """^user Christopher Grantham logs into the IV uplift service$""") {
-    withCurrentDriver { implicit webDriver =>
-      webDriver.get("http://localhost:9232/personal-account/start-self-assessment")
-      webDriver.findElement(By.cssSelector(".button.button-get-started.start-verify-action")).click()
-      webDriver.findElement(By.cssSelector("#userId")).sendKeys("543212300020")
-      webDriver.findElement(By.cssSelector("#password")).sendKeys("testing123")
-      webDriver.findElement(By.cssSelector(".button")).click()
-      webDriver.get("http://localhost:9232/personal-account/full")
-    }
-  }
-
 
   And( """^text '(.*)' is visible on IV Page$""") {(text:String)=>
     withCurrentDriver { implicit webDriver =>
@@ -42,47 +31,51 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user clicks on Locked Out radio button$""") {()=>
+  And( """^user is Locked Out of the service for IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("continue")).click()
       webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
-
-    }
-  }
-
-  And( """^user clicks on User Aborted radio button$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
-
-    }
-  }
-
-  And( """^user clicks on Insufficient Evidence radio button$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
-
-    }
-  }
-
-  And( """^user clicks on Technical Issue radio button$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
-
-    }
-  }
-
-  And( """^user clicks on Timed Out radio button$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-timeout")).click()
-
-    }
-  }
-
-  And( """^user clicks on Submit button$""") {()=>
-    withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".button")).click()
 
     }
   }
+
+  And( """^user is Aborted for IV Uplift$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("continue")).click()
+      webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
+  And( """^user has Insufficient Evidence for IV Uplift$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("continue")).click()
+      webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
+  And( """^user has technical issues for IV Uplift$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("continue")).click()
+      webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
+  And( """^user is Timed Out for IV Uplift$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("continue")).click()
+      webDriver.findElement(By.cssSelector("#requiredResult-timeout")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
 
   Then( """^user is on the page with title '(.*)' with expected URL$""") {
     (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
@@ -100,11 +93,18 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user clicks on Continue button$""") { () =>
+  And( """^user Continues the journey to PTA$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#continueFailure")).click()
 
     }
+  }
 
+  And( """^user does not go through IV Uplift Journey$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
   }
 }

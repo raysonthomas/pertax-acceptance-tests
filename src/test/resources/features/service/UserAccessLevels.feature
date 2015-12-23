@@ -23,11 +23,12 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'Services for businesses' section
     And user can not see 'Manage your paperless settings' link
 
-
-
   Scenario: Check that a High GG user(CL200) NOT IN SA regime sees the appropriate options on PTA
-    Given High GG user 'Cass Carter' is logged into the service
-    And user sees name 'Cass Carter' on the page
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user goes through IV Uplift Journey
+    And user Continues the journey to PTA
+    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user sees name 'Christopher Grantham' on the page
     And user sees nino 'xxxx' on the page
     And user sees 'Income tax' link on the page and its href is as expected
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -44,7 +45,10 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'Manage your paperless settings' link
 
   Scenario: Check that a High GG user(CL200) IN SA regime sees the appropriate options on PTA
-    Given High GG user 'Christopher Grantham' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user goes through IV Uplift Journey
+    And user Continues the journey to PTA
+    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'Christopher Grantham' on the page
     And user sees nino 'CE 12 34 57 D' on the page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -61,10 +65,11 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'View your trusted helper contacts' link
     And user can not see 'Update your address' link
 
-
-
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime sees the appropriate options on PTA
-    Given GG user 'Tom Quinney' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user does not go through IV Uplift Journey
+    And user Continues the journey to PTA
+    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'Tom Quinney' on the page
     And user sees nino 'none' on the page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -82,7 +87,10 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'Manage your paperless settings' link
 
   Scenario: Check that a Low GG user(CL50) IN SA regime sees the appropriate options on PTA
-    Given GG user 'Scott The Booth' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user does not go through IV Uplift Journey
+    And user Continues the journey to PTA
+    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'Scott The Booth' on the page
     And user sees nino 'none' on the page
     And user sees 'Important deadlines' section
@@ -98,9 +106,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'View your trusted helper contacts' link
     And user can not see 'Update your address' link
     And user can not see 'Track your forms' link
-
-
-
 
   Scenario: Check that a Verify user(CL500) NOT IN SA regime is able to access the appropriate options on PTA
     Given user 'Martin Hempton' is logged into the service
@@ -119,10 +124,10 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
 
-
-
   Scenario: Check that a High GG user(CL200) NOT IN SA regime is able to access the appropriate options on PTA
-    Given High GG user 'Cass Carter' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user goes through IV Uplift Journey
+    And user Continues the journey to PTA
     Then user clicks on 'Income tax' link
     And user is on the page with title 'Check your Income Tax' and URL is as expected
     And user navigates to personal tax account
@@ -140,7 +145,9 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a High GG user(CL200) IN SA regime is able to access the appropriate options on PTA
-    Given High GG user 'Christopher Grantham' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user goes through IV Uplift Journey
+    And user Continues the journey to PTA
     And user clicks on 'View your Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
     And user navigates to personal tax account
@@ -169,7 +176,9 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime is able to access the appropriate options on PTA
-    Given GG user 'Tom Quinney' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user does not go through IV Uplift Journey
+    And user Continues the journey to PTA
     And user clicks on 'Benefits and tax credits' link
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
     And user navigates to personal tax account
@@ -186,7 +195,9 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a Low GG user(CL50) IN SA regime is able to access the appropriate options on PTA
-    Given GG user 'Scott The Booth' is logged into the service
+    Given GG user 'Christopher Grantham' is logged into the service
+    And user does not go through IV Uplift Journey
+    And user Continues the journey to PTA
     And user clicks on 'View your Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
     And user navigates to personal tax account

@@ -1,10 +1,26 @@
 package uk.gov.hmrc.integration.stepdefs.service
 
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import org.openqa.selenium.support.ui.WebDriverWait
+import org.openqa.selenium.{By, WebDriver}
+import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
+import uk.gov.hmrc.integration.utils.Configuration
 
 class UserAccessLevels extends ScalaDsl with EN {
+
+
+
+  Then( """^user goes through IV Uplift Journey$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("continue")).click()
+        webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
+        webDriver.findElement(By.cssSelector(".button")).click()
+        //webDriver.findElement(By.cssSelector("#continueFailure")).click()
+        //(new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
+      }
+  }
 
 
   Then( """^user sees name '(.*)' on the page$""") {
@@ -33,8 +49,8 @@ class UserAccessLevels extends ScalaDsl with EN {
   }
 
   And( """^user can not see '(.*)' section$""") {
-    (linkName: String) => withCurrentDriver { implicit webDriver =>
-      assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page while it should not be")
+    (section: String) => withCurrentDriver { implicit webDriver =>
+      assert(!webDriver.getPageSource.contains(section), s"$section is present on the page while it should not be")
     }
   }
 
