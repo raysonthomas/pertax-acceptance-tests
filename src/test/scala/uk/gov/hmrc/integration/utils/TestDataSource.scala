@@ -19,8 +19,6 @@ object TestDataSource {
     "M Andrew"                   -> TestPersonProperties("JZ013615D", "mandrew", "password"),
     "Jayne Rockle"               -> TestPersonProperties("PJ523813C", "jrockle", "password"),
     "Scott The Booth"            -> TestPersonProperties("CE123457D", "543212300020", "testing123"),
-    "Tom Quinney"                -> TestPersonProperties("", "543212300124", "testing123"),
-    "Cass Carter"                -> TestPersonProperties("", "543212300123", "testing123"),
     "Christopher Grantham"       -> TestPersonProperties("CE123457D", "543212300022", "testing123")
 
   )
