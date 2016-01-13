@@ -28,7 +28,7 @@ object TestDataSource {
     "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
     "Your messages"                             -> "/personal-account/messages",
     "Income tax"                                -> "/check-income-tax/income-tax",
-    "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/transfer-allowance",
+    "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/status",
     "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                  -> "/personal-account/benefits-credits-summary",
     "National Insurance"                        -> "/personal-account/national-insurance-summary",
