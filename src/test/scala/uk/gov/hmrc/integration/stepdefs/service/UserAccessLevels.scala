@@ -9,16 +9,24 @@ import uk.gov.hmrc.integration.utils.Configuration
 
 class UserAccessLevels extends ScalaDsl with EN {
 
+  Then( """^user goes through 2FA Journey$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("continue")).click()
+        webDriver.findElement(By.xpath(".//*[@id='continue']")).click()
+
+      }
+  }
+
+
 
 
   Then( """^user goes through IV Uplift Journey$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        webDriver.findElement(By.id("continue")).click()
         webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
         webDriver.findElement(By.cssSelector(".button")).click()
-        //webDriver.findElement(By.cssSelector("#continueFailure")).click()
-        //(new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
+
       }
   }
 

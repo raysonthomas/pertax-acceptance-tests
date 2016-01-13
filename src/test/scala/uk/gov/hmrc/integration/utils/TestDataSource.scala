@@ -5,6 +5,8 @@ import scala.io.Source
 import uk.gov.hmrc.integration.utils.model._
 
 case class TestPersonProperties(nino: String, username: String, password: String)
+case class SATestPersonProperties(sautr: String, nino:String, username: String, password: String)
+
 
 object TestDataSource {
   private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
@@ -19,7 +21,14 @@ object TestDataSource {
     "M Andrew"                   -> TestPersonProperties("JZ013615D", "mandrew", "password"),
     "Jayne Rockle"               -> TestPersonProperties("PJ523813C", "jrockle", "password"),
     "Scott The Booth"            -> TestPersonProperties("CE123457D", "543212300020", "testing123"),
-    "Christopher Grantham"       -> TestPersonProperties("CE123457D", "543212300022", "testing123")
+    "Christopher Grantham"       -> TestPersonProperties("CE123457D", "543212300022", "testing123"),
+    "Bob Jones"                  -> TestPersonProperties("AA000003B", "bjones", "password")
+
+
+  )
+  val SApersonProperties = Map(
+    "Verify User1"              -> SATestPersonProperties("111111111", "", "vuser1", "password"),
+    "Bob Jones"                 -> SATestPersonProperties("111112222", "AA000003B", "bjones", "password")
 
   )
 

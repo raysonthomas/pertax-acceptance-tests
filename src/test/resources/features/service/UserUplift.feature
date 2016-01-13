@@ -10,6 +10,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: Positive Uplift Journey
     Given GG user 'Christopher Grantham' is logged into the service
     And user is on the page with title 'Confirm your identity' and URL is as expected
+    And user goes through 2FA Journey
     And user goes through IV Uplift Journey
     And user is on the page with title 'Identity verification confirmation' with expected URL
     And user Continues the journey to PTA
@@ -18,6 +19,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for Locked Out screen
     Given GG user 'Christopher Grantham' is logged into the service
     And user is on the page with title 'Confirm your identity' and URL is as expected
+    And user goes through 2FA Journey
     And user is Locked Out of the service for IV Uplift
     And user is on the page with title 'Identity Verification Failed' with expected URL
     And user sees text 'Continue to your personal tax account' on the page
@@ -28,6 +30,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for Insufficient Evidence
     Given GG user 'Christopher Grantham' is logged into the service
     And user is on the page with title 'Confirm your identity' and URL is as expected
+    And user goes through 2FA Journey
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'Identity Verification Failed' with expected URL
     And user sees text 'Continue to your personal tax account' on the page
@@ -38,6 +41,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for User Aborted
     Given GG user 'Christopher Grantham' is logged into the service
     And user is on the page with title 'Confirm your identity' and URL is as expected
+    And user goes through 2FA Journey
     And user is Aborted for IV Uplift
     And user is on the page with title 'Identity Verification Failed' with expected URL
     And user sees text 'Continue to your personal tax account' on the page
@@ -48,6 +52,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for Technical Issue
     Given GG user 'Christopher Grantham' is logged into the service
     And user is on the page with title 'Confirm your identity' and URL is as expected
+    And user goes through 2FA Journey
     And user has technical issues for IV Uplift
     And user is on the page with title 'Identity Verification Failed' with expected URL
     And user sees text 'There's a technical problem' on the page
@@ -58,6 +63,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for Timeout
     Given GG user 'Christopher Grantham' is logged into the service
     And user is on the page with title 'Confirm your identity' and URL is as expected
+    And user goes through 2FA Journey
     And user is Timed Out for IV Uplift
     And user sees text 'Session Timed Out' on the page
     And user navigates to personal tax account

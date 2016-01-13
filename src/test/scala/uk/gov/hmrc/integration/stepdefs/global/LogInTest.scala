@@ -3,7 +3,7 @@ package uk.gov.hmrc.integration.stepdefs.global
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
 import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
-import uk.gov.hmrc.integration.page.{GGActions, GlobalActions, IDAActions}
+import uk.gov.hmrc.integration.page._
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
@@ -15,7 +15,16 @@ class LogInTest extends ScalaDsl with EN {
     withCurrentDriver { implicit webDriver =>
       val personProperty = personProperties(user)
       if (Configuration.environment("id") == "local")
-        IDAActions.logInLocalEnv(personProperty.username, personProperty.password)
+        IDAActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.nino)
+      else
+        IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
+    }
+  }
+  Given( """^SA user '(.*)' is logged into the service$""") { (user: String) =>
+    withCurrentDriver { implicit webDriver =>
+      val personProperty = SApersonProperties(user)
+      if (Configuration.environment("id") == "local")
+        SAIDAActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr)
       else
         IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
     }
@@ -25,9 +34,21 @@ class LogInTest extends ScalaDsl with EN {
     withCurrentDriver { implicit webDriver =>
       val personProperty = personProperties(user)
       if (Configuration.environment("id") == "local")
-        GGActions.logInLocalEnv(personProperty.username, personProperty.password)
+        GGActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.nino )
       else
         GGActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
+    }
+  }
+
+
+
+  Given( """^SA GG user '(.*)' is logged into the service$""") { (user: String) =>
+    withCurrentDriver { implicit webDriver =>
+      val personProperty = SApersonProperties(user)
+      if (Configuration.environment("id") == "local")
+        SAGGActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr, personProperty.nino )
+      else
+        SAGGActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
     }
   }
 

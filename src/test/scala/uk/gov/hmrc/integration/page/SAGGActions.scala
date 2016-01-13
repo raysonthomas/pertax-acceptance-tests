@@ -6,9 +6,9 @@ import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
 
 
-object GGActions {
+object SAGGActions {
 
-  def logInLocalEnv(user: String, pass: String, nino: String)(implicit webDriver: WebDriver) = {
+  def logInLocalEnv(user: String, pass: String, sautr: String, nino:String)(implicit webDriver: WebDriver) = {
     webDriver.get(Configuration("url") + "/start-self-assessment")
     webDriver.findElement(By.xpath(".//*[@id='content']/article/div/div/a")).click()
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[1]/input")).sendKeys(user)
@@ -18,7 +18,14 @@ object GGActions {
     select.selectByValue("weak")
     val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
     select1.selectByValue("50")
+    if (sautr != "")
+    {
+    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(sautr)
+    }
+    if (sautr != "")
+    {
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input")).sendKeys(nino)
+    }
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("Confirm your identity"))
 
