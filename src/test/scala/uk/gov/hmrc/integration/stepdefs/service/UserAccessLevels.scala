@@ -9,7 +9,7 @@ import uk.gov.hmrc.integration.utils.Configuration
 
 class UserAccessLevels extends ScalaDsl with EN {
 
-  Then( """^user goes through 2FA Journey$""") {
+  Then( """^user completes 2FA Journey$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
         //webDriver.findElement(By.id("continue")).click()
@@ -21,7 +21,7 @@ class UserAccessLevels extends ScalaDsl with EN {
 
 
 
-  Then( """^user goes through IV Uplift Journey$""") {
+  Then( """^user completes IV Uplift Journey$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
         webDriver.findElement(By.cssSelector("#requiredResult-success")).click()

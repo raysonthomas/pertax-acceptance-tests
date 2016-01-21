@@ -38,7 +38,7 @@ object TestDataSource {
     "login"                                     -> "/ida/startlogin",
     "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
     "Your messages"                             -> "/personal-account/messages",
-    "Income tax"                                -> "/check-income-tax/income-tax",
+    "Income tax"                                -> "/check-income-tax/income-tax-refresh",
     "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/status",
     "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                  -> "/personal-account/benefits-credits-summary",

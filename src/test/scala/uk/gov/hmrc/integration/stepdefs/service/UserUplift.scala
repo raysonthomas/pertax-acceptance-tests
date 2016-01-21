@@ -36,7 +36,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user is Aborted for IV Uplift$""") {()=>
+  And( """^user Aborts the IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -105,11 +105,4 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user does not go through IV Uplift Journey$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
-      webDriver.findElement(By.cssSelector(".button")).click()
-
-    }
-  }
 }

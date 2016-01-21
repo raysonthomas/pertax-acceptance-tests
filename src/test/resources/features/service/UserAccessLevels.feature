@@ -30,7 +30,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
-    And user sees nino 'none' on the page
     And user can not see 'Important deadlines' section
     And user can not see 'Messages' link
     And user can not see 'Self Assessment' link
@@ -46,8 +45,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a High GG user(CL200) NOT IN SA regime sees the appropriate options on PTA
     Given GG user 'Bob Jones' is logged into the service
-    And user goes through 2FA Journey
-    And user goes through IV Uplift Journey
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'Bob Jones' on the page
@@ -67,8 +66,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a High GG user(CL200) IN SA regime sees the appropriate options on PTA
     Given GG user 'SA Bob Jones' is logged into the service
-    And user goes through 2FA Journey
-    And user goes through IV Uplift Journey
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'Bob Jones' on the page
@@ -90,12 +89,11 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime sees the appropriate options on PTA
     Given GG user 'M Andrew' is logged into the service
-    And user goes through 2FA Journey
-    And user does not go through IV Uplift Journey
+    And user completes 2FA Journey
+    And user Aborts the IV Uplift
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'mandrew' on the page
-    And user sees nino 'none' on the page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
@@ -111,12 +109,11 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a Low GG user(CL50) IN SA regime sees the appropriate options on PTA
     Given GG user 'SA Christopher Grantham' is logged into the service
-    And user goes through 2FA Journey
-    And user does not go through IV Uplift Journey
+    And user completes 2FA Journey
+    And user Aborts the IV Uplift
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'chris' on the page
-    And user sees nino 'none' on the page
     And user sees 'Important deadlines' section
     And user sees 'Go to your messages' link on the page and its href is as expected
     And user sees 'Self Assessment' link on the page and its href is as expected
@@ -162,8 +159,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a High GG user(CL200) NOT IN SA regime is able to access the appropriate options on PTA
     Given GG user 'Bob Jones' is logged into the service
-    And user goes through 2FA Journey
-    And user goes through IV Uplift Journey
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
     And user Continues the journey to PTA
     Then user clicks on 'Income tax' link
     And user is on the page with title 'Check your Income Tax' and URL is as expected
@@ -183,8 +180,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a High GG user(CL200) IN SA regime is able to access the appropriate options on PTA
     Given GG user 'SA Christopher Grantham' is logged into the service
-    And user goes through 2FA Journey
-    And user goes through IV Uplift Journey
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user clicks on 'View your Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
@@ -217,8 +214,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime is able to access the appropriate options on PTA
     Given GG user 'M Andrew' is logged into the service
-    And user goes through 2FA Journey
-    And user does not go through IV Uplift Journey
+    And user completes 2FA Journey
+    And user Aborts the IV Uplift
     And user Continues the journey to PTA
     And user clicks on 'Benefits and tax credits' link
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
@@ -240,8 +237,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a Low GG user(CL50) IN SA regime is able to access the appropriate options on PTA
     Given GG user 'SA Christopher Grantham' is logged into the service
-    And user goes through 2FA Journey
-    And user does not go through IV Uplift Journey
+    And user completes 2FA Journey
+    And user Aborts the IV Uplift
     And user Continues the journey to PTA
     And user clicks on 'View your Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
