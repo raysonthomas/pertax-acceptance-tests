@@ -12,7 +12,7 @@ class UserAccessLevels extends ScalaDsl with EN {
   Then( """^user goes through 2FA Journey$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        webDriver.findElement(By.id("continue")).click()
+        //webDriver.findElement(By.id("continue")).click()
         webDriver.findElement(By.xpath(".//*[@id='continue']")).click()
 
       }
@@ -49,7 +49,7 @@ class UserAccessLevels extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if(webDriver.getPageSource.contains(nino)) {
           val actualNino = webDriver.findElement(By.cssSelector(".gray-sub-heading")).getText
-          assert(actualNino contains(nino), s"$nino did not match $actualNino")
+          assert(actualNino.contains(nino), s"$nino did not match $actualNino")
         }
         else
           assert(nino=="none",s"$nino present when not expected")

@@ -15,40 +15,20 @@ class LogInTest extends ScalaDsl with EN {
     withCurrentDriver { implicit webDriver =>
       val personProperty = personProperties(user)
       if (Configuration.environment("id") == "local")
-        IDAActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.nino)
+        IDAActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
       else
-        IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
+        IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
     }
   }
-  Given( """^SA user '(.*)' is logged into the service$""") { (user: String) =>
-    withCurrentDriver { implicit webDriver =>
-      val personProperty = SApersonProperties(user)
-      if (Configuration.environment("id") == "local")
-        SAIDAActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr)
-      else
-        IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
-    }
-  }
+
 
   Given( """^GG user '(.*)' is logged into the service$""") { (user: String) =>
     withCurrentDriver { implicit webDriver =>
       val personProperty = personProperties(user)
       if (Configuration.environment("id") == "local")
-        GGActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.nino )
+        GGActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
       else
-        GGActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
-    }
-  }
-
-
-
-  Given( """^SA GG user '(.*)' is logged into the service$""") { (user: String) =>
-    withCurrentDriver { implicit webDriver =>
-      val personProperty = SApersonProperties(user)
-      if (Configuration.environment("id") == "local")
-        SAGGActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr, personProperty.nino )
-      else
-        SAGGActions.logInLiveLikeEnv(personProperty.username, personProperty.password)
+        GGActions.logInLiveLikeEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
     }
   }
 

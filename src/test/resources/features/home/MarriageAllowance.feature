@@ -1,4 +1,4 @@
-@suite
+@descoped
 
 Feature: Ability to apply for Marriage Allowance
   As a user

@@ -45,6 +45,24 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
+  And( """^user has an Incomplete journey$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-incomplete")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+
+    }
+  }
+
+  And( """^user has Precondition Failed$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+
+    }
+  }
+
   And( """^user has Insufficient Evidence for IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
@@ -62,14 +80,6 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user is Timed Out for IV Uplift$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-timeout")).click()
-      webDriver.findElement(By.cssSelector(".button")).click()
-
-    }
-  }
-
 
   Then( """^user is on the page with title '(.*)' with expected URL$""") {
     (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
@@ -77,6 +87,7 @@ class UserUplift extends ScalaDsl with EN {
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.startsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+
     }
   }
 
@@ -89,7 +100,7 @@ class UserUplift extends ScalaDsl with EN {
 
   And( """^user Continues the journey to PTA$""") { () =>
     withCurrentDriver { implicit webDriver =>
-           webDriver.findElement(By.cssSelector("#continueFailure")).click()
+           webDriver.findElement(By.cssSelector("#continue")).click()
 
     }
   }
