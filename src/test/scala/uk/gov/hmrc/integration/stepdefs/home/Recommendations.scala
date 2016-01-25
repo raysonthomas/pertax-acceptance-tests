@@ -6,7 +6,7 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 class Recommendations extends ScalaDsl with EN {
 
-  And( """^user is able to see a recommendation section '(.*)'$""") {
+  And( """^user is able to see a section '(.*)'$""") {
     (expectedText: String) => withCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
     }
