@@ -4,31 +4,42 @@ import play.api.libs.json.Json
 import scala.io.Source
 import uk.gov.hmrc.integration.utils.model._
 
-case class TestPersonProperties(nino: String, username: String, password: String)
+case class TestPersonProperties(nino: Option[String], sautr: Option[String], username: String, password: String)
+
 
 object TestDataSource {
   private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
   val personProperties = Map(
-    "John Densmore"              -> TestPersonProperties("CS700100A", "jdensmore", "password"),
-    "Robert Jeffries"            -> TestPersonProperties("ZN522915C", "rjeffries", "password"),
-    "Timothy Bull"               -> TestPersonProperties("GC306515D", "tbull", "password"),
-    "Jane Tidy"                  -> TestPersonProperties("AA000113B", "jtidy", "password"),
-    "Jim Ferguson"               -> TestPersonProperties("AA000003D", "jferguson", "password"),
-    "Martin Hempton"             -> TestPersonProperties("AB216913B", "mhempton", "password"),
-    "M Andrew"                   -> TestPersonProperties("JZ013615D", "mandrew", "password"),
-    "Jayne Rockle"               -> TestPersonProperties("PJ523813C", "jrockle", "password"),
-    "Scott The Booth"            -> TestPersonProperties("CE123457D", "543212300020", "testing123"),
-    "Christopher Grantham"       -> TestPersonProperties("CE123457D", "543212300022", "testing123")
+    "John Densmore"              -> TestPersonProperties(Some("CS700100A"), None, "jdensmore", "password"),
+    "Robert Jeffries"            -> TestPersonProperties(Some("ZN522915C"), None, "rjeffries", "password"),
+    "Timothy Bull"               -> TestPersonProperties(Some("GC306515D"), None, "tbull", "password"),
+    "Jane Tidy"                  -> TestPersonProperties(Some("AA000113B"), None, "jtidy", "password"),
+    "Jim Ferguson"               -> TestPersonProperties(Some("AA000003D"), None, "jferguson", "password"),
+    "Martin Hempton"             -> TestPersonProperties(Some("AB216913B"), None, "mhempton", "password"),
+    "M Andrew"                   -> TestPersonProperties(Some("JZ013615D"), None, "mandrew", "password"),
+    "Jayne Rockle"               -> TestPersonProperties(Some("PJ523813C"), None, "jrockle", "password"),
+    "Scott The Booth"            -> TestPersonProperties(Some("CE123457D"), None, "scott", "testing123"),
+    "Christopher Grantham"       -> TestPersonProperties(Some("CE123457D"), None, "chris", "testing123"),
+    "Bob Jones"                  -> TestPersonProperties(Some("AA000003B"), None, "bjones", "password"),
+    "Verify User1"               -> TestPersonProperties(None             , Some("111111111"), "vuser1", "password"),
+    "SA Bob Jones"               -> TestPersonProperties(Some("AA000003B"), Some("111112222"),"bjones", "password"),
+    "SA Christopher Grantham"    -> TestPersonProperties(Some("CE123457D"), Some("333333333"), "chris", "testing123"),
+    "Hazel Young"                -> TestPersonProperties(Some("AM242413B"), None, "hyoung", "password"),
+    "Sharaine Cowling"           -> TestPersonProperties(Some("AR822513A"), None, "scowling", "password"),
+    "SA Hazel Young"             -> TestPersonProperties(Some("AM242413B"), Some("444444444"), "hazel", "testing123"),
+    "SA Sharaine Cowling"        -> TestPersonProperties(Some("AR822513A"), Some("555555555"), "scowling", "password")
+
 
   )
+
 
   val pathForLink = Map(
     "login"                                     -> "/ida/startlogin",
     "View all HM Revenue and Customs forms"     -> "/government/collections/hmrc-forms",
     "Your messages"                             -> "/personal-account/messages",
-    "Income tax"                                -> "/check-income-tax/income-tax",
-    "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/transfer-allowance",
+    "Income tax"                                -> "/check-income-tax/income-tax-refresh",
+    "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/status",
     "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                  -> "/personal-account/benefits-credits-summary",
     "National Insurance"                        -> "/personal-account/national-insurance-summary",
@@ -43,43 +54,25 @@ object TestDataSource {
 
   )
 
-
   val pathForTitle = Map(
-    "Your personal tax account"                 -> "/personal-account",
-    "Signed out"                                -> "/personal-account/signed-out",
-    "Trusted Helper contacts"                   -> "/trusted-helpers",
-    "Your address"                              -> "/personal-account/your-address",
-    "Your address has been updated"             -> "/personal-account/your-address/thank-you",
-    "Update your address"                       -> "/personal-account/your-address",
-    "List of messages"                          -> "/personal-account/messages",
-    "Check your Income Tax"                     -> "/check-income-tax/income-tax",
-    "Benefits and tax credits summary"          -> "/personal-account/benefits-credits-summary",
-    "National Insurance summary"                -> "/personal-account/national-insurance-summary",
-    "Pensions summary"                          -> "/personal-account/pensions-summary",
-    "Manage your paperless settings"            -> "/personal-account/preferences",
-    "Self Assessment summary"                   -> "/personal-account/self-assessment-summary",
-    "Identity verification confirmation"        -> "http://localhost:9232/personal-account/identity-check-complete",
-    "Identity Verification Failed"              -> "http://localhost:9232/personal-account/identity-check-failed",
-    "Confirm your identity"                     -> "/personal-account/full"
+    "Your personal tax account"                                     -> "/personal-account",
+    "Signed out"                                                    -> "/personal-account/signed-out",
+    "Trusted Helper contacts"                                       -> "/trusted-helpers",
+    "Your address"                                                  -> "/personal-account/your-address",
+    "Your address has been updated"                                 -> "/personal-account/your-address/thank-you",
+    "Update your address"                                           -> "/personal-account/your-address",
+    "List of messages"                                              -> "/personal-account/messages",
+    "Check your Income Tax"                                         -> "/check-income-tax/income-tax",
+    "Benefits and tax credits summary"                              -> "/personal-account/benefits-credits-summary",
+    "National Insurance summary"                                    -> "/personal-account/national-insurance-summary",
+    "Pensions summary"                                              -> "/personal-account/pensions-summary",
+    "Manage your paperless settings"                                -> "/personal-account/preferences",
+    "Self Assessment summary"                                       -> "/personal-account/self-assessment-summary",
+    "Identity verification confirmation"                            -> "http://localhost:9232/personal-account/identity-check-complete",
+    "Identity Verification Failed"                                  -> "http://localhost:9232/personal-account/identity-check-complete",
+    "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
+    "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
+    "We can't confirm your identity"                                -> "http://localhost:9232/personal-account/identity-check-complete"
   )
 
-  def getTestPersonDetailsByName(name: String) = getTestPersonDetailsByNino(personProperties(name).nino)
-
-  def getTestPersonDetailsByNino(nino: String): PersonDetails = {
-    def fetchTestPersonDetails(nino: String): Option[PersonDetails] = {
-      Option(getClass.getResourceAsStream(s"/testdata/dev/$nino.json")) flatMap { is =>
-        val json = Source.fromInputStream(is).getLines.mkString("\n")
-        Json.parse(json).asOpt[PersonDetails]
-      }
-    }
-
-    Option(personalDetailsCache.get(nino)) match {
-      case Some(personDetails) => personDetails
-      case None => {
-        val pd = fetchTestPersonDetails(nino) //Get from service
-        pd.foreach(a => personalDetailsCache.put(nino, a)) //Maybe store result
-        pd getOrElse (throw new RuntimeException(s"PersonDetails for $nino not found"))
-      }
-    }
-  }
 }
