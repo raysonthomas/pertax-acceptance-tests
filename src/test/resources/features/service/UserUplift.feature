@@ -1,4 +1,4 @@
-@suite
+@suite1
 Feature: IV Uplift feature used by user - success and failure pages
   As a user
   I must be able to use the IV uplift feature

@@ -64,7 +64,6 @@ class UserAccessLevels extends ScalaDsl with EN {
 
   And( """^user can not see '(.*)' link$""") {
     (linkName: String) => withCurrentDriver { implicit webDriver =>
-      println(webDriver.getPageSource)
       assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page while it should not be")
     }
   }

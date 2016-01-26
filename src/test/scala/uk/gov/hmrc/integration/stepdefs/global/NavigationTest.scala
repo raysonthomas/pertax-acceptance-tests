@@ -31,7 +31,7 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^user navigates to personal tax account$""") {
+  Then( """^user navigates to personal tax account home page$""") {
     () => withCurrentDriver { implicit webDriver =>
       webDriver.get(Configuration("url"))
     }
