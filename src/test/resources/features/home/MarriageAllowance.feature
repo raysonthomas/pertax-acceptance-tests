@@ -10,19 +10,19 @@ Feature: Ability to apply for Marriage Allowance
   Scenario: Login as a user who has not enrolled for Marriage Allowance (tax code does not end with a 'N' or 'M')
     Given user 'Martin Hempton' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    Then user is able to see a section 'Marriage allowance'
+    Then user is able to see a section 'Recommended for you'
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
   Scenario: Login as a user who has enrolled for Marriage Allowance (tax code ends with a 'M')
     Given user 'M Andrew' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    Then user is able to see a section 'Marriage allowance'
+    Then user is able to see a section 'Recommended for you'
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
   Scenario: Login as a user who has enrolled for Marriage Allowance (tax code ends with a 'N')
     Given user 'Jayne Rockle' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    Then user is able to see a section 'Marriage allowance'
+    Then user is able to see a section 'Recommended for you'
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
   Scenario: Login as a GG user
@@ -31,5 +31,5 @@ Feature: Ability to apply for Marriage Allowance
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    Then user is able to see a section 'Marriage allowance'
+    Then user is able to see a section 'Recommended for you'
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected

@@ -9,6 +9,4 @@ Feature: TES/TAI/PAYE
   Scenario: User is enrolled in PAYE regime and should be able to see link to PAYE
     Given user 'Martin Hempton' is logged into the service
     And user sees 'Income tax' link on the page and its href is as expected
-    Then user clicks on 'Income tax' link
-    And user is on the page with title 'Check your Income Tax' and URL is as expected
-    Then user navigates to personal tax account
+
