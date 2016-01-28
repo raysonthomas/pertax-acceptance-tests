@@ -176,8 +176,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user clicks on 'View your Self Assessment' link
-    Then user is on the page with title 'Self Assessment summary' and URL is as expected
     And user navigates to personal tax account home page
     And user clicks on 'Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
@@ -226,8 +224,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user Continues the journey to PTA
-    And user clicks on 'View your Self Assessment' link
-    Then user is on the page with title 'Self Assessment summary' and URL is as expected
     And user navigates to personal tax account home page
     And user clicks on 'Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
