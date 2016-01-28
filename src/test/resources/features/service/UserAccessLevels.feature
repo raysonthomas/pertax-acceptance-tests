@@ -30,7 +30,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Pension' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
-    And user can not see 'Important deadlines' section
     And user can not see 'Messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Income tax' link
