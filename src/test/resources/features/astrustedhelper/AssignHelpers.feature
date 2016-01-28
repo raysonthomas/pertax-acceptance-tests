@@ -12,14 +12,14 @@ Feature: Trusted helper relation setup
     And user removes existing relations if any
     Then user clicks on 'Ask someone for their help' link
     And user searches for 'Martin', 'Hempton', 'AB216913B', '25-12-1977' DD-MM-YYYY and submits the request
-    And user navigates to personal tax account
+    And user navigates to personal tax account home page
 
   Scenario: Approve request for help
     Given user 'Martin Hempton' is logged into the service
     Then user clicks on 'View your trusted helper contacts' link
     And user clicks on 'Respond to M's request' link to help someone
     And user submits his decision to help
-    And user navigates to personal tax account
+    And user navigates to personal tax account home page
 
 
 

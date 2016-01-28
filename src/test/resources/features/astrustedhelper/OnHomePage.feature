@@ -16,4 +16,4 @@ Feature: Use PTA service as a helper
     And text 'M ANDREW' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     And user clicks on link 'Return to your own account'
-    And user navigates to personal tax account
+    And user navigates to personal tax account home page

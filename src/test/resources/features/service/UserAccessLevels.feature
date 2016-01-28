@@ -3,7 +3,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
   As a user
   I want to view the appropriate items based on my access levels
 
-  JIRA story history: MTA-1237,MTA-1188,MTA-1354,MTA-1355, MTA-1356, MTA_1357
+  JIRA story history: MTA-1237,MTA-1188,MTA-1354,MTA-1355, MTA-1356, MTA_1357, MTA-1585
   lowGG means CL50, highGG means CL100 or CL200 (dependant on watchlist - to which we do not pay attention here)
 
   Scenario: Check that a Verify user(CL500) NOT IN SA regime sees the appropriate options on PTA
@@ -18,7 +18,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
-    And user can not see 'Important deadlines' section
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
@@ -37,7 +36,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'Income tax' link
     And user can not see 'View your trusted helper contacts' link
     And user can not see 'Update your address' link
-    And user can not see 'Important deadlines' section
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
@@ -58,7 +56,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
-    And user can not see 'Important deadlines' section
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'View your trusted helper contacts' link
@@ -76,7 +73,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
-    And user sees 'Important deadlines' section
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Go to your messages' link on the page and its href is as expected
     And user sees 'Self Assessment' link on the page and its href is as expected
@@ -115,7 +111,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user sees name 'chris' on the page
-    And user sees 'Important deadlines' section
     And user sees 'Go to your messages' link on the page and its href is as expected
     And user sees 'Self Assessment' link on the page and its href is as expected
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -181,8 +176,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user clicks on 'View your Self Assessment' link
-    Then user is on the page with title 'Self Assessment summary' and URL is as expected
     And user navigates to personal tax account home page
     And user clicks on 'Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
@@ -231,8 +224,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user Continues the journey to PTA
-    And user clicks on 'View your Self Assessment' link
-    Then user is on the page with title 'Self Assessment summary' and URL is as expected
     And user navigates to personal tax account home page
     And user clicks on 'Self Assessment' link
     Then user is on the page with title 'Self Assessment summary' and URL is as expected
