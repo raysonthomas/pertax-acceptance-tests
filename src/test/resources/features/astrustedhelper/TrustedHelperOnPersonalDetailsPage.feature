@@ -18,4 +18,4 @@ Feature: Trusted helper on the personal details page
     And text 'M ANDREW' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     Then user clicks on link 'Return to your own account'
-    And user navigates to personal tax account
+    And user navigates to personal tax account home page
