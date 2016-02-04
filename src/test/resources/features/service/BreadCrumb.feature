@@ -13,8 +13,8 @@ Feature: Breadcrumb for Personal Tax Account
     Given user 'Martin Hempton' is logged into the service
     When user is on the page with title 'Your personal tax account' and URL is as expected
     Then Breadcrumb is: ''
-    And user clicks on 'Update your address' link
-    And user is on the page with title 'Your address' and URL is as expected
-    And Breadcrumb is: 'Account home'
-    And user clicks on 'Account home' breadcrumb link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user clicks on 'Update your address' link
+#    And user is on the page with title 'Your address' and URL is as expected
+#    And Breadcrumb is: 'Account home'
+#    And user clicks on 'Account home' breadcrumb link
+#    And user is on the page with title 'Your personal tax account' and URL is as expected

@@ -50,7 +50,8 @@ object TestDataSource {
     "Manage your paperless settings"            ->"/personal-account/preferences",
     "Self Assessment"                           ->"/personal-account/self-assessment-summary",
     "Go to your messages"                       ->"/personal-account/messages",
-    "your business tax account."                ->"/business-account"
+    "your business tax account."                ->"/business-account",
+    "View or update your tax credits claim"     -> "/tax-credits-service/home"
 
   )
 
@@ -73,6 +74,7 @@ object TestDataSource {
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
     "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
     "We can't confirm your identity"                                -> "http://localhost:9232/personal-account/identity-check-complete"
+
   )
 
 }

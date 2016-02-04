@@ -10,8 +10,7 @@ import uk.gov.hmrc.integration.utils._
 object IDAActions {
 
   def logInLocalEnv(user: String, pass: String, sautr: Option[String], nino: Option[String])(implicit webDriver: WebDriver) = {
-    webDriver.get(Configuration("url")+"/start")
-    webDriver.findElement(By.cssSelector(".button.button-get-started.start-verify-action")).click()
+    webDriver.get(Configuration("url")+"/start-verify")
     webDriver.findElement(By.name("authorityId")).sendKeys("Verify")
     webDriver.findElement(By.name("redirectionUrl")).clear()
     webDriver.findElement(By.name("redirectionUrl")).sendKeys("http://localhost:9232/personal-account")
