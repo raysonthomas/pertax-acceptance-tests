@@ -1,4 +1,4 @@
-@suite
+@wip
 Feature: View Personal Details
   As a user
   I need to view my personal details,

@@ -16,7 +16,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Income tax' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
-    And user sees 'Update your address' link on the page and its href is as expected
+#    And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
@@ -34,7 +34,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'Self Assessment' link
     And user can not see 'Income tax' link
     And user can not see 'View your trusted helper contacts' link
-    And user can not see 'Update your address' link
+#    And user can not see 'Update your address' link
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
@@ -52,7 +52,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
-    And user sees 'Update your address' link on the page and its href is as expected
+#    And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
     And user can not see 'Go to your messages' link
@@ -72,7 +72,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
-    And user sees 'Update your address' link on the page and its href is as expected
+#    And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Go to your messages' link on the page and its href is as expected
     And user sees 'Self Assessment' link on the page and its href is as expected
     And user sees 'your business tax account.' link on the page and its href is as expected
@@ -94,7 +94,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
     And user sees 'Income tax' link on the page and its href is as expected
-    And user sees 'Update your address' link on the page and its href is as expected
+#    And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
     And user can not see 'Go to your messages' link
@@ -116,7 +116,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Pension' link on the page and its href is as expected
     And user sees 'Income tax' link on the page and its href is as expected
-    And user sees 'Update your address' link on the page and its href is as expected
+#    And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'your business tax account.' link on the page and its href is as expected
     And user sees 'Manage your paperless settings' link on the page and its href is as expected
@@ -136,8 +136,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
     Then user is on the page with title 'Pensions summary' and URL is as expected
     And user navigates to personal tax account home page
     And user navigates to personal tax account home page
-    And user clicks on 'Update your address' link
-    And user is on the page with title 'Your address' and URL is as expected
+#    And user clicks on 'Update your address' link
+#    And user is on the page with title 'Your address' and URL is as expected
 
 
     Scenario: Check that a Verify user(CL500) IN SA regime is able to access the appropriate options on PTA
@@ -166,8 +166,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
     Then user clicks on 'Pension' link
     Then user is on the page with title 'Pensions summary' and URL is as expected
     And user navigates to personal tax account home page
-    And user clicks on 'Update your address' link
-    And user is on the page with title 'Your address' and URL is as expected
+#    And user clicks on 'Update your address' link
+#    And user is on the page with title 'Your address' and URL is as expected
 
 
   Scenario: Check that a High GG user(CL200) IN SA regime is able to access the appropriate options on PTA
@@ -211,9 +211,9 @@ Feature: Users with various access levels view/access appropriate items on PTA
     Then user clicks on 'Pension' link
     Then user is on the page with title 'Pensions summary' and URL is as expected
     And user navigates to personal tax account home page
-    And user clicks on 'Update your address' link
-    And user is on the page with title 'Your address' and URL is as expected
-    And user navigates to personal tax account home page
+#    And user clicks on 'Update your address' link
+#    And user is on the page with title 'Your address' and URL is as expected
+#    And user navigates to personal tax account home page
 
 
 
