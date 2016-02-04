@@ -1,19 +1,16 @@
 package uk.gov.hmrc.integration.stepdefs.service
 
+
 import cucumber.api.scala.{EN, ScalaDsl}
+
 import org.openqa.selenium.{By, WebElement}
-import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.utils.Configuration
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
-import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
 import uk.gov.hmrc.integration.page.{GlobalActions, IDAActions}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
-import uk.gov.hmrc.integration.utils.Configuration
+
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
-import scala.collection.JavaConversions._
 
 class UserUplift extends ScalaDsl with EN {
 
@@ -33,25 +30,41 @@ class UserUplift extends ScalaDsl with EN {
 
   And( """^user is Locked Out of the service for IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("continue")).click()
       webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
     }
   }
 
-  And( """^user is Aborted for IV Uplift$""") {()=>
+  And( """^user Aborts the IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("continue")).click()
       webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
+
+
+    }
+  }
+
+  And( """^user has an Incomplete journey$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-incomplete")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+
+    }
+  }
+
+  And( """^user has Precondition Failed$""") {()=>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
 
     }
   }
 
   And( """^user has Insufficient Evidence for IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("continue")).click()
       webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -60,18 +73,9 @@ class UserUplift extends ScalaDsl with EN {
 
   And( """^user has technical issues for IV Uplift$""") {()=>
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("continue")).click()
       webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
-    }
-  }
-
-  And( """^user is Timed Out for IV Uplift$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("continue")).click()
-      webDriver.findElement(By.cssSelector("#requiredResult-timeout")).click()
-      webDriver.findElement(By.cssSelector(".button")).click()
 
     }
   }
@@ -83,6 +87,7 @@ class UserUplift extends ScalaDsl with EN {
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.startsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+
     }
   }
 
@@ -95,16 +100,9 @@ class UserUplift extends ScalaDsl with EN {
 
   And( """^user Continues the journey to PTA$""") { () =>
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#continueFailure")).click()
+           webDriver.findElement(By.cssSelector("#continue")).click()
 
     }
   }
 
-  And( """^user does not go through IV Uplift Journey$""") {()=>
-    withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
-      webDriver.findElement(By.cssSelector(".button")).click()
-
-    }
-  }
 }

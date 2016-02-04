@@ -9,16 +9,24 @@ import uk.gov.hmrc.integration.utils.Configuration
 
 class UserAccessLevels extends ScalaDsl with EN {
 
-
-
-  Then( """^user goes through IV Uplift Journey$""") {
+  Then( """^user completes 2FA Journey$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        webDriver.findElement(By.id("continue")).click()
+        //webDriver.findElement(By.id("continue")).click()
+        webDriver.findElement(By.xpath(".//*[@id='continue']")).click()
+
+      }
+  }
+
+
+
+
+  Then( """^user completes IV Uplift Journey$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
         webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
         webDriver.findElement(By.cssSelector(".button")).click()
-        //webDriver.findElement(By.cssSelector("#continueFailure")).click()
-        //(new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
+
       }
   }
 
@@ -41,7 +49,7 @@ class UserAccessLevels extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if(webDriver.getPageSource.contains(nino)) {
           val actualNino = webDriver.findElement(By.cssSelector(".gray-sub-heading")).getText
-          assert(actualNino contains(nino), s"$nino did not match $actualNino")
+          assert(actualNino.contains(nino), s"$nino did not match $actualNino")
         }
         else
           assert(nino=="none",s"$nino present when not expected")
@@ -56,7 +64,6 @@ class UserAccessLevels extends ScalaDsl with EN {
 
   And( """^user can not see '(.*)' link$""") {
     (linkName: String) => withCurrentDriver { implicit webDriver =>
-      println(webDriver.getPageSource)
       assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page while it should not be")
     }
   }
