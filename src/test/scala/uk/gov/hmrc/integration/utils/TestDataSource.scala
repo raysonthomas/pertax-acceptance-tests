@@ -40,7 +40,6 @@ object TestDataSource {
     "Your messages"                             -> "/personal-account/messages",
     "Income tax"                                -> "/check-income-tax/income-tax",
     "Income tax"                                -> "/check-income-tax/income-tax-refresh",
-
     "Check if you can get Marriage Allowance"   -> "/marriage-allowance-application/status",
     "feedback"                                  -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                  -> "/personal-account/benefits-credits-summary",
