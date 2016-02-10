@@ -96,7 +96,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Income tax' link on the page and its href is as expected
 #    And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
-    And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
+    And user can not see 'Check if you can get Marriage Allowance' link
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
@@ -120,7 +120,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'your business tax account.' link on the page and its href is as expected
     And user sees 'Manage your paperless settings' link on the page and its href is as expected
-    And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
+    And user can not see 'Check if you can get Marriage Allowance' link
     And user can not see 'View your trusted helper contacts' link
 
 
@@ -237,7 +237,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     Then user is on the page with title 'Pensions summary' and URL is as expected
     And user navigates to personal tax account home page
     And user clicks on 'Manage your paperless settings' link
-    And user navigates to personal tax account home page
     And user navigates to personal tax account home page
     And user clicks on 'Go to your messages' link
     Then user is on the page with title 'List of messages' and URL is as expected

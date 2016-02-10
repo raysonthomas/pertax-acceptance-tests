@@ -28,7 +28,9 @@ object TestDataSource {
     "Hazel Young"                -> TestPersonProperties(Some("AM242413B"), None, "hyoung", "password"),
     "Sharaine Cowling"           -> TestPersonProperties(Some("AR822513A"), None, "scowling", "password"),
     "SA Hazel Young"             -> TestPersonProperties(Some("AM242413B"), Some("444444444"), "hazel", "testing123"),
-    "SA Sharaine Cowling"        -> TestPersonProperties(Some("AR822513A"), Some("555555555"), "scowling", "password")
+    "SA Sharaine Cowling"        -> TestPersonProperties(Some("AR822513A"), Some("555555555"), "scowling", "password"),
+    "SA M Andrew"                -> TestPersonProperties(Some("JZ013615D"), Some("111113333"), "mandrew", "password"),
+    "SA Jayne Rockle"            -> TestPersonProperties(Some("PJ523813C"), Some("111114444"), "jrockle", "password")
 
 
   )
