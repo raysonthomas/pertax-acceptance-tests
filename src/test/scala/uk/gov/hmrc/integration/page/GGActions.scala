@@ -10,7 +10,6 @@ object GGActions {
 
   def logInLocalEnv(user: String, pass: String, sautr: Option[String], nino: Option[String])(implicit webDriver: WebDriver) = {
     webDriver.get(Configuration("url") + "/start-government-gateway")
-    //webDriver.findElement(By.xpath(".//*[@id='content']/article/div/div/a")).click()
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[1]/input")).sendKeys(user)
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[2]/input")).clear()
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[2]/input")).sendKeys("http://localhost:9232/personal-account/full")
