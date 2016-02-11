@@ -1,4 +1,4 @@
-name := "pertax-qa-tests"
+name := "pertax-acceptance-tests"
 
 version := "0.0.1"
 
