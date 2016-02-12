@@ -15,20 +15,20 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 class UserUplift extends ScalaDsl with EN {
 
 
-  And( """^text '(.*)' is visible on IV Page$""") {(text:String)=>
+  And( """^text '(.*)' is visible on IV Page$""") { (text: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
 
-  And( """^user clicks on Success radio button$""") {()=>
+  And( """^user clicks on Success radio button$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
 
     }
   }
 
-  And( """^user is Locked Out of the service for IV Uplift$""") {()=>
+  And( """^user is Locked Out of the service for IV Uplift$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -36,7 +36,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user Aborts the IV Uplift$""") {()=>
+  And( """^user Aborts the IV Uplift$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -45,7 +45,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user has an Incomplete journey$""") {()=>
+  And( """^user has an Incomplete journey$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-incomplete")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -54,7 +54,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user has Precondition Failed$""") {()=>
+  And( """^user has Precondition Failed$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -63,7 +63,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user has Insufficient Evidence for IV Uplift$""") {()=>
+  And( """^user has Insufficient Evidence for IV Uplift$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -71,7 +71,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user has technical issues for IV Uplift$""") {()=>
+  And( """^user has technical issues for IV Uplift$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -92,17 +92,23 @@ class UserUplift extends ScalaDsl with EN {
   }
 
 
-  And( """^user sees text '(.*)' on the page$""") {(text:String)=>
+  And( """^user sees text '(.*)' on the page$""") { (text: String) =>
     withCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
 
+
   And( """^user Continues the journey to PTA$""") { () =>
     withCurrentDriver { implicit webDriver =>
-           webDriver.findElement(By.cssSelector("#continue")).click()
-
+      webDriver.findElement(By.cssSelector("#continue")).click()
+      val currentUrl = webDriver.getCurrentUrl
+      if (currentUrl.startsWith("http://localhost:9024/paperless/choose/"))
+            {
+              webDriver.findElement(By.xpath(".//*[@id='opt-in-out']")).click()
+              webDriver.findElement(By.xpath(".//*[@id='submitEmailButton']")).click()
+            }
     }
-  }
 
+  }
 }

@@ -1,11 +1,11 @@
-@suite
+@suite1
 Feature: IV Uplift feature used by user - success and failure pages
   As a user
   I must be able to use the IV uplift feature
   So that I can access the service successfully and I get the proper Failure Pages and Messages
 
 
-  JIRA story history: MTA-1482
+  JIRA story history: MTA-1482, MTA-1736
 
   Scenario: Positive Uplift Journey
     Given GG user 'Christopher Grantham' is logged into the service
@@ -76,6 +76,10 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees text 'You can continue to complete your Self Assessment. Your details are still secure. We’ll ask you to confirm your identity the next time you sign in.' on the page
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
+
+
+
+
 
 
 
