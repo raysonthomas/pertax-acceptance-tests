@@ -1,6 +1,8 @@
 package uk.gov.hmrc.integration.stepdefs.service
 
 
+import java.net.URL
+
 import cucumber.api.scala.{EN, ScalaDsl}
 
 import org.openqa.selenium.{By, WebElement}
@@ -102,12 +104,11 @@ class UserUplift extends ScalaDsl with EN {
   And( """^user Continues the journey to PTA$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#continue")).click()
-      val currentUrl = webDriver.getCurrentUrl
-      if (currentUrl.startsWith("http://localhost:9024/paperless/choose/"))
-            {
-              webDriver.findElement(By.xpath(".//*[@id='opt-in-out']")).click()
-              webDriver.findElement(By.xpath(".//*[@id='submitEmailButton']")).click()
-            }
+
+      if (new URL(webDriver.getCurrentUrl).getPath.startsWith("/paperless/choose/")) {
+        webDriver.findElement(By.xpath(".//*[@id='opt-in-out']")).click()
+        webDriver.findElement(By.xpath(".//*[@id='submitEmailButton']")).click()
+      }
     }
 
   }
