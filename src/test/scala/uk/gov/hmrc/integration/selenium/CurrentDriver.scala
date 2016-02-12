@@ -1,5 +1,8 @@
 package uk.gov.hmrc.integration.selenium
 
+import java.io.PrintWriter
+import java.util.Calendar
+
 import org.openqa.selenium.{By, WebDriver}
 import uk.gov.hmrc.integration.page.GlobalActions
 
@@ -10,6 +13,10 @@ object CurrentDriver {
   
   def clearSession(): Unit = {
     if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("/personal-account/do-uplift")) {
+
+
+     // new PrintWriter(Calendar.getInstance().getTime().toString+".html") { write( webDriver.getPageSource); close }
+
       GlobalActions.maybeClickMenu
       GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/personal-account/signed-out")
     }
