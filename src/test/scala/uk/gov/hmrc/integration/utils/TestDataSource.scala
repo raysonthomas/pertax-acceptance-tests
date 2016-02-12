@@ -76,7 +76,7 @@ object TestDataSource {
     "Identity Verification Failed"                                  -> "http://localhost:9232/personal-account/identity-check-complete",
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
     "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
-    "We can't confirm your identity"                                -> "http://localhost:9232/personal-account/identity-check-complete"
+    "We’re unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete"
 
   )
 
