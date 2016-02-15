@@ -1,0 +1,5 @@
+MongoDB shell version: 2.6.5
+connecting to: test
+auth     0.078GB
+message  0.078GB
+bye

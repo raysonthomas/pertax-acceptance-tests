@@ -12,7 +12,7 @@ object CurrentDriver {
 
   
   def clearSession(): Unit = {
-    if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("/personal-account/do-uplift")) {
+    if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual")) {
 
 
      // new PrintWriter(Calendar.getInstance().getTime().toString+".html") { write( webDriver.getPageSource); close }
