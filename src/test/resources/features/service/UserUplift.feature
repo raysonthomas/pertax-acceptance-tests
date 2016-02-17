@@ -62,7 +62,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'To help protect your data, you can access your personal tax account once we’ve confirmed who you are.' on the page
     And user sees text 'If you can’t confirm your identity and you have a query you can ' on the page
-    And user sees 'contact HM Revenue and Customs' link on the page and its href is as expected
+    And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
 
@@ -73,7 +73,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'We're unable to confirm your identity' on the page
     And user sees text 'If you can’t confirm your identity and you have a query you can ' on the page
-    And user sees 'contact HM Revenue and Customs' link on the page and its href is as expected
+    And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Locked Out screen for Non SA user
@@ -84,7 +84,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees text 'You’ve tried to confirm your identity too many times' on the page
     And user sees text 'You can try again in 7 days.' on the page
     And user sees text 'If you have a query you can ' on the page
-    And user sees 'contact HM Revenue and Customs' link on the page and its href is as expected
+    And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
 
 
