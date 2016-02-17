@@ -55,7 +55,7 @@ object TestDataSource {
     "Go to your messages"                       -> "/personal-account/messages",
     "your business tax account."                -> "/business-account",
     "View or update your tax credits claim"     -> "/tax-credits-service/home",
-    "Try Again"                                 -> "/personal-account/do-uplift",
+    "Try again"                                 -> "/personal-account/do-uplift",
     "try to confirm your identity again"        -> "/personal-account/do-uplift",
     "Try to confirm your identity again"        -> "/personal-account/do-uplift",
     "contact HM Revenue and Customs"            -> "/contact-hmrc"

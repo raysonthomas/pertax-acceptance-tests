@@ -23,8 +23,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees text 'There's a technical problem' on the page
     And user sees text 'This online service is experiencing technical difficulties.' on the page
     And user sees text 'Please try again in 5 minutes.' on the page
-    And user sees 'Try Again' link on the page and its href is as expected
-
+    And user sees 'Try again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Locked Out screen for SA user
     Given GG user 'SA Christopher Grantham' is logged into the service
