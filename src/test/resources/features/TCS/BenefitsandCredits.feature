@@ -1,10 +1,10 @@
-@suite
+@wip
 Feature: Link to tax Credits in benefits and Credits
   As a user
   I must be able to use the link to tax Credits from Benefits and Credits
 
 
-  JIRA story history: MTA-1646
+  JIRA story history: MTA-1646, MTA-1750
 
   Scenario: Verify user can see TCS link in Benefits and Credits section
     Given user 'Martin Hempton' is logged into the service

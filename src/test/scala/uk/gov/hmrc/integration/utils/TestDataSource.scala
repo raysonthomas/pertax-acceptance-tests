@@ -50,11 +50,15 @@ object TestDataSource {
     "View your trusted helper contacts"         -> "/trusted-helpers",
     "Update your address"                       -> "/personal-account/your-address",
     "Track your forms"                          -> "/track",
-    "Manage your paperless settings"            ->"/personal-account/preferences",
-    "Self Assessment"                           ->"/personal-account/self-assessment-summary",
-    "Go to your messages"                       ->"/personal-account/messages",
-    "your business tax account."                ->"/business-account",
-    "View or update your tax credits claim"     -> "/tax-credits-service/home"
+    "Manage your paperless settings"            -> "/personal-account/preferences",
+    "Self Assessment"                           -> "/personal-account/self-assessment-summary",
+    "Go to your messages"                       -> "/personal-account/messages",
+    "your business tax account."                -> "/business-account",
+    "View or update your tax credits claim"     -> "/tax-credits-service/home",
+    "Try Again"                                 -> "/personal-account/do-uplift",
+    "try to confirm your identity again"        -> "/personal-account/do-uplift",
+    "Try to confirm your identity again"        -> "/personal-account/do-uplift",
+    "contact HM Revenue and Customs"            -> "/contact-hmrc"
 
   )
 
@@ -73,10 +77,10 @@ object TestDataSource {
     "Manage your paperless settings"                                -> "/personal-account/preferences",
     "Self Assessment summary"                                       -> "/personal-account/self-assessment-summary",
     "Identity verification confirmation"                            -> "http://localhost:9232/personal-account/identity-check-complete",
-    "Identity Verification Failed"                                  -> "http://localhost:9232/personal-account/identity-check-complete",
+    "There's a technical problem"                                   -> "http://localhost:9232/personal-account/identity-check-complete",
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
     "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
-    "We’re unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete"
+    "We're unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete"
 
   )
 

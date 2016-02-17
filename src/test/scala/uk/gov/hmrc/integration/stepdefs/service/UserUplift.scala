@@ -100,6 +100,13 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
+  And( """^user is asked to complete the IV Uplift journey$""") { () =>
+    withCurrentDriver { implicit webDriver =>
+      val text:String ="Identity Verification Stub"
+      assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
+    }
+  }
+
 
   And( """^user Continues the journey to PTA$""") { () =>
     withCurrentDriver { implicit webDriver =>
