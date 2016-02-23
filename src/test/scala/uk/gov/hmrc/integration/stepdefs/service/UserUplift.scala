@@ -73,6 +73,14 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
+  And( """^user Failed Matching for IV Uplift$""") { () =>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-failedmatching")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
   And( """^user has technical issues for IV Uplift$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
@@ -96,6 +104,13 @@ class UserUplift extends ScalaDsl with EN {
 
   And( """^user sees text '(.*)' on the page$""") { (text: String) =>
     withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
+    }
+  }
+
+  And( """^user is asked to complete the IV Uplift journey$""") { () =>
+    withCurrentDriver { implicit webDriver =>
+      val text:String ="Identity Verification Stub"
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
