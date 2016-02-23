@@ -73,6 +73,14 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
+  And( """^user Failed Matching for IV Uplift$""") { () =>
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("#requiredResult-failedmatching")).click()
+      webDriver.findElement(By.cssSelector(".button")).click()
+
+    }
+  }
+
   And( """^user has technical issues for IV Uplift$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
