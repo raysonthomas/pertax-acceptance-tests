@@ -28,7 +28,7 @@ object GGActions {
     }
 
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
-    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("You have successfully set up 2-step verification"))
+    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
 
   }
 
