@@ -12,12 +12,12 @@ class UserAccessLevels extends ScalaDsl with EN {
   Then( """^user completes 2FA Journey$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        //webDriver.findElement(By.id("continue")).click()
+        webDriver.findElement(By.xpath(".//*[@id='desiredOutcome-success']")).click()
+        webDriver.findElement(By.xpath(".//*[@id='content']/article/form/button")).click()
         webDriver.findElement(By.xpath(".//*[@id='continue']")).click()
 
       }
   }
-
 
 
 

@@ -13,7 +13,7 @@ object IDAActions {
     webDriver.get(Configuration("url")+"/start-verify")
     webDriver.findElement(By.name("authorityId")).sendKeys("Verify")
     webDriver.findElement(By.name("redirectionUrl")).clear()
-    webDriver.findElement(By.name("redirectionUrl")).sendKeys("http://localhost:9232/personal-account")
+    webDriver.findElement(By.name("redirectionUrl")).sendKeys("http://localhost:9232/personal-account/do-uplift")
     val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[3]/select")))
     select.selectByValue("strong")
     val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))

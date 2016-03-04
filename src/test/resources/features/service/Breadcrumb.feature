@@ -8,6 +8,9 @@ Feature: Test the breadcrumb
 
   Scenario: See the correct breadcrumb when navigating to messages with a SAUTR User
     Given GG user 'SA Christopher Grantham' is logged into the service
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
     When user is on the page with title 'Your personal tax account' and URL is as expected
     And Breadcrumb is: ''
     And user clicks on 'Go to your messages' link
