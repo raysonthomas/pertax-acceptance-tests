@@ -4,21 +4,26 @@ Feature: Update Personal Details
   I need to be able to change my address
   So that HMRC holds the correct info about me
 
-  JIRA story history: MTA-1349,MTA_1420
+  JIRA story history: MTA-1349,MTA_1420, MTA-1848
 
   Scenario: Positive update address entering postcode
     Given user 'Martin Hempton' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
+    And Breadcrumb is: 'Account home'
     And user is on the page with title 'Your address' and URL is as expected
     Then user clicks on 'Update your postal address' link
+    And Breadcrumb is: 'Account home>Your address'
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user clicks on 'updateAddress' button
+    And Breadcrumb is: 'Account home>Your address'
     And user is on the page with title 'Your address has been updated' and URL is as expected
     And user clicks on 'Return to your personal details' link
     And user is on the page with title 'Your address' and URL is as expected
+    And user clicks on 'Account home' breadcrumb link
+    And user is on the page with title 'Your personal tax account' and URL is as expected
 
   Scenario: Positive update address entering postcode without space
     Given user 'Martin Hempton' is logged into the service
