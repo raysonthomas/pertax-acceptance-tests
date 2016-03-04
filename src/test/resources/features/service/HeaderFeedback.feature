@@ -9,4 +9,5 @@ Feature: Feedback From Anywhere in the Service
   Scenario: See Feedback Link while navigating through PTA & other integrated Services
     Given user 'Martin Hempton' is logged into the service
     When user is on the page with title 'Your personal tax account' and URL is as expected
+    And Breadcrumb is: ''
     Then user sees 'feedback' link on the page and its href is as expected

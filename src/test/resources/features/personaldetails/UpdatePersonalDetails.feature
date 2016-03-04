@@ -9,19 +9,23 @@ Feature: Update Personal Details
   Scenario: Positive update address journey
     Given user 'Martin Hempton' is logged into the service
     And user is on the page with title 'Your personal tax account' and URL is as expected
+    Then Breadcrumb is: ''
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user clicks on 'Update your postal address' link
     Then user clicks on 'submitAddressFinder' button
     Then user clicks on 'Enter your address if it isn't shown' link
+    And Breadcrumb is: 'Account home>Your address'
     And user updates address 'line1' with '42 Jeffry Road'
     And user updates address 'line2' with 'Newcastle Upon Tyne'
     And user updates address 'line3' with 'North East England'
     And user updates address 'line4' with 'England'
     And user updates 'postcode' with 'NE1 4JR'
     Then user clicks on 'updateAddress' button
+    And Breadcrumb is: 'Account home>Your address'
     And user is on the page with title 'Your address has been updated' and URL is as expected
     And user clicks on 'Return to your personal details' link
+    And Breadcrumb is: 'Account home'
     And user is on the page with title 'Your address' and URL is as expected
     And Updated Address '42 Jeffry Road', 'Newcastle Upon Tyne', 'North East England', 'England', 'NE1 4JR' should be visible
 #   last step is executed only on QA environment

@@ -8,8 +8,10 @@ Feature: Link to tax Credits in benefits and Credits
 
   Scenario: Verify user can see TCS link in Benefits and Credits section
     Given user 'Martin Hempton' is logged into the service
+    And Breadcrumb is: ''
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user clicks on 'Benefits and tax credits' link
+    And Breadcrumb is: 'Account home'
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
     And user sees 'View or update your tax credits claim' link on the page and its href is as expected
 
