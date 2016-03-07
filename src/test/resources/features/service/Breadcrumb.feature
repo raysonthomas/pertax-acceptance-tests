@@ -1,4 +1,4 @@
-@suite1 @smoke
+@suite @smoke
 Feature: Test the breadcrumb
   As a user
   I must be able to see the correct breadcrumb
