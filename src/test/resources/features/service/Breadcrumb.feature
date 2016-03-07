@@ -17,3 +17,9 @@ Feature: Test the breadcrumb
     And Breadcrumb is: 'Account home'
     And user clicks on 'Account home' breadcrumb link
     And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user clicks on 'Self Assessment' link
+    And Breadcrumb is: 'Account home'
+    And user clicks on 'Account home' breadcrumb link
+    And user is on the page with title 'Your personal tax account' and URL is as expected
+
+    
