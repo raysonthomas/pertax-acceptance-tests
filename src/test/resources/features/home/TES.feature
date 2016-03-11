@@ -8,5 +8,6 @@ Feature: TES/TAI/PAYE
 
   Scenario: User is enrolled in PAYE regime and should be able to see link to PAYE
     Given user 'Martin Hempton' is logged into the service
-    And user sees 'Income tax' link on the page and its href is as expected
+    And user sees text 'How you pay Income Tax' on the home page
+    And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
 

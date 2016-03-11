@@ -41,7 +41,7 @@ object TestDataSource {
     "View all HM Revenue and Customs forms"                         -> "/government/collections/hmrc-forms",
     "Your messages"                                                 -> "/personal-account/messages",
     "Income tax"                                                    -> "/check-income-tax/income-tax",
-    "Income tax"                                                    -> "/check-income-tax/income-tax-refresh",
+    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/income-tax-refresh",
     "Check if you can get Marriage Allowance"                       -> "/marriage-allowance-application/history",
     "feedback"                                                      -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                                      -> "/personal-account/benefits-credits-summary",
@@ -53,12 +53,15 @@ object TestDataSource {
     "Manage your paperless settings"                                -> "/personal-account/preferences",
     "Self Assessment"                                               -> "/personal-account/self-assessment-summary",
     "Go to your messages"                                           -> "/personal-account/messages",
-    "your business tax account."                                    -> "/business-account",
+    "your business tax account"                                     -> "/business-account",
     "View or update your tax credits claim"                         -> "/tax-credits-service/home",
     "Try again"                                                     -> "/personal-account/do-uplift",
     "try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "Try to confirm your identity again"                            -> "/personal-account/do-uplift",
-    "contact HM Revenue and Customs (opens in a new window)"        -> "/contact-hmrc"
+    "contact HM Revenue and Customs (opens in a new window)"        -> "/contact-hmrc",
+    "Check your National Insurance record"                          -> "/checkmystatepension/account/nirecord/gaps",
+    "Back to account home"                                          -> "/personal-account",
+    "State Pension forecast"                                        -> "/checkmystatepension/account"
 
   )
 
