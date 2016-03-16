@@ -59,9 +59,9 @@ object TestDataSource {
     "try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "Try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "contact HM Revenue and Customs (opens in a new window)"        -> "/contact-hmrc",
-    "Check your National Insurance record"                          -> "/checkmystatepension/account/nirecord/gaps",
+    "Check your National Insurance record"                          -> "/checkmystatepension/account/nirecord/pta",
     "Back to account home"                                          -> "/personal-account",
-    "State Pension forecast"                                        -> "/checkmystatepension/account"
+    "State Pension forecast"                                        -> "/checkmystatepension/account/pta"
 
   )
 
