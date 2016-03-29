@@ -25,7 +25,7 @@ class ViewPersonalDetailsTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^Postal address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
+  Then( """^Home address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
       withCurrentDriver { implicit webDriver =>
         val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
