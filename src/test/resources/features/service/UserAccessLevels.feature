@@ -18,10 +18,11 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
+    And user sees 'Manage your paperless settings' link on the page and its href is as expected
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
-    And user can not see 'Manage your paperless settings' link
+
 
 
   Scenario: Check that a Verify user(CL500) IN SA regime sees the appropriate options on PTA
@@ -31,6 +32,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
+    And user sees 'Manage your paperless settings' link on the page and its href is as expected
     And user can not see 'Messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Pay As You Earn (PAYE)' link
@@ -39,7 +41,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
-    And user can not see 'Manage your paperless settings' link
+
 
 
   Scenario: Check that a High GG user(CL200) NOT IN SA regime sees the appropriate options on PTA
@@ -57,11 +59,12 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
+    And user sees 'Manage your paperless settings' link on the page and its href is as expected
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'View your trusted helper contacts' link
     And user can not see 'Services for businesses' section
-    And user can not see 'Manage your paperless settings' link
+
 
 
   Scenario: Check that a High GG user(CL200) IN SA regime sees the appropriate options on PTA
