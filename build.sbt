@@ -23,7 +23,7 @@ resolvers += "HMRC Bintray RCs" at "https://dl.bintray.com/hmrc/release-candidat
 libraryDependencies ++= Seq(
   "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.1.0",
   "org.reactivemongo" %% "reactivemongo" % "0.10.5.0.akka23",
-  "org.seleniumhq.selenium" % "selenium-java" % "2.45.0",
+  "org.seleniumhq.selenium" % "selenium-java" % "2.52.0",
   "org.seleniumhq.selenium" % "selenium-firefox-driver" % "2.45.0",
   "com.typesafe.play" %% "play-json" % "2.3.0",
   "org.scalatest" %% "scalatest" % "2.2.1",
