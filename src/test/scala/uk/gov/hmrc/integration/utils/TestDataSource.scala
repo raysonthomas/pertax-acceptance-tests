@@ -54,7 +54,7 @@ object TestDataSource {
     "Self Assessment"                                               -> "/personal-account/self-assessment-summary",
     "Go to your messages"                                           -> "/personal-account/messages",
     "your business tax account"                                     -> "/business-account",
-    "View or update your tax credits claim"                         -> "/tax-credits-service/home",
+    "Renew your tax credit claim"                                  -> "/tax-credits-service/renewals/do-you-want-to-renew-now",
     "Try again"                                                     -> "/personal-account/do-uplift",
     "try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "Try to confirm your identity again"                            -> "/personal-account/do-uplift",
