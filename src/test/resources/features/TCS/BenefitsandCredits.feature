@@ -1,4 +1,4 @@
-@wip
+@suite
 Feature: Link to tax Credits in benefits and Credits
   As a user
   I must be able to use the link to tax Credits from Benefits and Credits
@@ -13,7 +13,7 @@ Feature: Link to tax Credits in benefits and Credits
     And user clicks on 'Benefits and tax credits' link
     And Breadcrumb is: 'Account home'
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
-    And user sees 'View or update your tax credits claim' link on the page and its href is as expected
+    And user sees 'Renew your tax credit claim' link on the page and its href is as expected
 
   Scenario: GG User if Uplifted can see TCS link in Benefits and Credits section
     Given GG user 'SA Christopher Grantham' is logged into the service
@@ -24,7 +24,7 @@ Feature: Link to tax Credits in benefits and Credits
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user clicks on 'Benefits and tax credits' link
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
-    And user sees 'View or update your tax credits claim' link on the page and its href is as expected
+    And user sees 'Renew your tax credit claim' link on the page and its href is as expected
 
   Scenario: GG User if Not Uplifted can Not see TCS link in Benefits and Credits section
     Given GG user 'SA Christopher Grantham' is logged into the service
