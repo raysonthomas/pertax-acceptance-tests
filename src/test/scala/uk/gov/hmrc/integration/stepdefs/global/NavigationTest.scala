@@ -31,6 +31,13 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  Then( """^user is not on the page with title '(.*)' and URL is as expected$""") {
+    (notExpectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      assert(!(actualPageTitle == notExpectedPageTitle), "Page title not as expected")
+    }
+  }
+
   Then( """^user navigates to personal tax account home page$""") {
     () => withCurrentDriver { implicit webDriver =>
       webDriver.get(Configuration("url"))

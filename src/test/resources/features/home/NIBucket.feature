@@ -38,17 +38,18 @@ Feature: NI Bucket
     Given GG user 'SA Christopher Grantham' is logged into the service
     And user completes 2FA Journey
     And user Aborts the IV Uplift
-    And user Continues the journey to PTA
-    Then user clicks on 'National Insurance' link
-    And Breadcrumb is: 'Account home'
-    Then user is on the page with title 'National Insurance summary' and URL is as expected
-    And heading 'National Insurance' is visible on NI page
-    And user sees text 'You can see this part of your account if you complete some additional security steps.' on the NI page
-    And user sees 'Back to account home' link on the page and its href is as expected
-    And user sees link 'continue' on NI page and its href is as expected
-    And user sees 'Back to account home' link on the page and its href is as expected
-    And user clicks on 'Account home' breadcrumb link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'We're unable to confirm your identity' with expected URL
+#    And user Continues the journey to PTA
+#    Then user clicks on 'National Insurance' link
+#    And Breadcrumb is: 'Account home'
+#    Then user is on the page with title 'National Insurance summary' and URL is as expected
+#    And heading 'National Insurance' is visible on NI page
+#    And user sees text 'You can see this part of your account if you complete some additional security steps.' on the NI page
+#    And user sees 'Back to account home' link on the page and its href is as expected
+#    And user sees link 'continue' on NI page and its href is as expected
+#    And user sees 'Back to account home' link on the page and its href is as expected
+#    And user clicks on 'Account home' breadcrumb link
+#    And user is on the page with title 'Your personal tax account' and URL is as expected
 
 
 
