@@ -34,14 +34,14 @@ Feature: Ability to apply for Marriage Allowance
     Then user is able to see a section 'Recommended for you'
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
-  Scenario: Login as a GG user who is Not Uplifted and tax code does not end with a 'N' or 'M'
-    Given GG user 'SA Christopher Grantham' is logged into the service
-    And user completes 2FA Journey
-    And user Aborts the IV Uplift
-    And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
-    Then user is not able to see a recommendation section 'Recommended for you'
-    And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
+#  Scenario: Login as a GG user who is Not Uplifted and tax code does not end with a 'N' or 'M'
+#    Given GG user 'SA Christopher Grantham' is logged into the service
+#    And user completes 2FA Journey
+#    And user Aborts the IV Uplift
+#    And user Continues the journey to PTA
+#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    Then user is not able to see a recommendation section 'Recommended for you'
+#    And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
   Scenario: Login as a GG user who is Uplifted and tax code ends with a 'M'
     Given GG user 'SA M Andrew' is logged into the service
