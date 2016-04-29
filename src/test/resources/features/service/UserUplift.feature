@@ -32,7 +32,10 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user is on the page with title 'You’ve tried to confirm your identity too many times' with expected URL
     And user sees text 'You’ve tried to confirm your identity too many times' on the page
     And user sees text 'You can try again in 7 days.' on the page
-    And user sees text 'You can continue to your personal tax account but you will not be able to access all parts of the service. Your details are still secure.' on the page
+#    And user sees text 'You can continue to your personal tax account but you will not be able to access all parts of the service. Your details are still secure.' on the page
+    And user sees text 'You can continue to your personal tax account' on the page
+    And user sees text 'but you will not be able to access all parts of the service.' on the page
+    And user sees text 'Your details are still secure.' on the page
     And user Continues the journey to PTA
     And user is not on the page with title 'Your personal tax account' and URL is as expected
 
@@ -41,11 +44,14 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-    And user sees text 'or continue to your personal tax account but you will not be able to access all parts of the service. Your details are still secure.' on the page
+#    And user sees text 'or continue to your personal tax account but you will not be able to access all parts of the service. Your details are still secure.' on the page
+    And user sees text 'or continue to your personal tax account' on the page
+    And user sees text 'but you will not be able to access all parts of the service.' on the page
+    And user sees text 'Your details are still secure.' on the page
     And user sees 'try to confirm your identity again' link on the page and its href is as expected
     And user Continues the journey to PTA
     And user is not on the page with title 'Your personal tax account' and URL is as expected
-
+#
   Scenario: IV Failure Journey for Failed Matching for SA user
     Given GG user 'SA Christopher Grantham' is logged into the service
     And user completes 2FA Journey
@@ -60,7 +66,10 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-    And user sees text ' or continue to your personal tax account but you will not be able to access all parts of the service. Your details are still secure.' on the page
+#    And user sees text 'or continue to your personal tax account but you will not be able to access all parts of the service. Your details are still secure.' on the page
+    And user sees text 'or continue to your personal tax account' on the page
+    And user sees text 'but you will not be able to access all parts of the service.' on the page
+    And user sees text 'Your details are still secure.' on the page
     And user Continues the journey to PTA
     And user is not on the page with title 'Your personal tax account' and URL is as expected
 
