@@ -54,14 +54,17 @@ object TestDataSource {
     "Self Assessment"                                               -> "/personal-account/self-assessment-summary",
     "Go to your messages"                                           -> "/personal-account/messages",
     "your business tax account"                                     -> "/business-account",
-    "Renew your tax credit claim"                                  -> "/tax-credits-service/renewals/do-you-want-to-renew-now",
+    "Renew your tax credit claim"                                   -> "/tax-credits-service/renewals/do-you-want-to-renew-now",
     "Try again"                                                     -> "/personal-account/do-uplift",
     "try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "Try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "contact HM Revenue and Customs (opens in a new window)"        -> "/contact-hmrc",
     "Check your National Insurance record"                          -> "/checkmystatepension/account/nirecord/pta",
     "Back to account home"                                          -> "/personal-account",
-    "State Pension forecast"                                        -> "/checkmystatepension/account/pta"
+    "State Pension forecast"                                        -> "/checkmystatepension/account/pta",
+    "check your taxable income"                                     -> "/check-income-tax/taxable-income",
+
+
 
   )
 

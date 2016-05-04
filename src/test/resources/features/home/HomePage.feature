@@ -4,7 +4,7 @@ Feature: Home Page segmentation
   I want to see PTA home page with proper segmentation and bucketing
   Also test the breadcrumb is as expected
 
-  JIRA story history: MTA-1135, MTA-1848, MTA-1783
+  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966
 
   Scenario: Check that the home page has proper segmentation
     Given user 'Martin Hempton' is logged into the service
@@ -22,8 +22,12 @@ Feature: Home Page segmentation
     And user sees text 'Your State Pension' on the home page
     And user sees 'National Insurance' link on the page and its href is as expected
 
-
     And user sees 'State Pension forecast' link on the page and its href is as expected
+
+    And user sees text 'On Thursday 23 June there will be a vote on the UK’s membership of the European Union' on the home page
+    And user sees 'More information (opens in a new window)' link for EU Referendum
+
+
 
 
 

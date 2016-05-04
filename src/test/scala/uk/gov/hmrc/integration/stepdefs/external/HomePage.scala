@@ -22,4 +22,13 @@ class HomePage extends ScalaDsl with EN {
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
+
+
+And( """^user sees '(.*)' link for EU Referendum$""") { (link: String) =>
+ withCurrentDriver { implicit webDriver =>
+   val href = webDriver.findElement(By.partialLinkText(link)).getAttribute("href")
+   assert(href.contains("eureferendum.gov.uk"), "link href did not match expected")
+
+  }
+ }
 }
