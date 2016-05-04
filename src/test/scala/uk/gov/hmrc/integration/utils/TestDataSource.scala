@@ -62,7 +62,7 @@ object TestDataSource {
     "Check your National Insurance record"                          -> "/checkmystatepension/account/nirecord/pta",
     "Back to account home"                                          -> "/personal-account",
     "State Pension forecast"                                        -> "/checkmystatepension/account/pta",
-    "check your taxable income"                                     -> "/check-income-tax/taxable-income",
+    "check your taxable income"                                     -> "/check-income-tax/taxable-income"
 
 
 
