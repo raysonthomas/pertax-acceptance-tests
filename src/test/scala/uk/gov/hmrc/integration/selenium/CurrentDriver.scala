@@ -12,7 +12,7 @@ object CurrentDriver {
 
   
   def clearSession(): Unit = {
-    if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual")
+    if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual&origin=PERTAX")
       && !webDriver.getCurrentUrl.endsWith("identity-check-complete") && !webDriver.getCurrentUrl.contains("identity-check-complete")) {
 
       GlobalActions.maybeClickMenu
