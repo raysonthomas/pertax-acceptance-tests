@@ -6,11 +6,10 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 class GA extends ScalaDsl with EN {
 
-//  And( """^user sees '(.*)' link for EU Referendum$""") { (link: String) =>
-// withCurrentDriver { implicit webDriver =>
-//   val href = webDriver.findElement(By.partialLinkText(link)).getAttribute("href")
-//   assert(href.contains("eureferendum.gov.uk"), "link href did not match expected")
-//
-//  }
-// }
+  And( """^'(.*)' link has Google Analytics tracking enabled$""") { (link: String) =>
+  withCurrentDriver { implicit webDriver =>
+    val nameOfClass:String = webDriver.findElement(By.linkText(link)).getAttribute("class")
+    assert((nameOfClass == "trackLink"), "Expected classname not found for GA")
+  }
+ }
 }
