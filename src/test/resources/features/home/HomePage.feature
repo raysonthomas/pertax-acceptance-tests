@@ -27,6 +27,8 @@ Feature: Home Page segmentation
     And user sees text 'On Thursday 23 June there will be a vote on the UK’s membership of the European Union' on the home page
     And user sees 'More information (opens in a new window)' link for EU Referendum
 
+    And user sees 'check your taxable income' link on the page and its href is as expected
+
 
 
 
