@@ -1,4 +1,4 @@
-@wip
+@suite
 
 Feature: Ability to make use of Medical Benefits and Company Car from PTA
   As a user
