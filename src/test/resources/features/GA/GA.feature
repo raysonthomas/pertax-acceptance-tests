@@ -10,6 +10,7 @@ Feature: Google Analytics Tracking
 
   Scenario: link 'Renew your tax credit claim' is Trackeable in Google Analytics
     Given user 'Martin Hempton' is logged into the service
+    Then user clicks on 'Benefits and tax credits' link
     And  'Renew your tax credit claim' link has Google Analytics tracking enabled
 
 
