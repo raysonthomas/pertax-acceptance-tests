@@ -23,6 +23,12 @@ class HomePage extends ScalaDsl with EN {
     }
   }
 
+  And( """^user does not see text '(.*)' on the home page$""") { (text: String) =>
+    withCurrentDriver { implicit webDriver =>
+      assert(!webDriver.getPageSource.contains(text), s"Text $text found on page when not expected")
+    }
+  }
+
 
 And( """^user sees '(.*)' link for EU Referendum$""") { (link: String) =>
  withCurrentDriver { implicit webDriver =>
@@ -31,4 +37,13 @@ And( """^user sees '(.*)' link for EU Referendum$""") { (link: String) =>
 
   }
  }
+
+
+  And( """^user does not see the link  '(.*)' on the home page$""") { (linkName: String) =>
+    withCurrentDriver { implicit webDriver =>
+      assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page")
+
+    }
+  }
+
 }
