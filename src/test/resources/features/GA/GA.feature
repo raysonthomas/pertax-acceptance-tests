@@ -13,6 +13,12 @@ Feature: Google Analytics Tracking
     Then user clicks on 'Benefits and tax credits' link
     And  'Renew your tax credit claim' link has Google Analytics tracking enabled
 
+  Scenario: Continue button for 'Do you get tax credits?' is Trackeable in Google Analytics
+    Given user 'Bob Jones' is logged into the service
+    And user clicks on 'Update your address' link
+    And user clicks on 'Change your address' link
+    And  Continue button has Google Analytics tracking enabled
+
 
 
 
