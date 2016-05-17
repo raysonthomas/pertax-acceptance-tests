@@ -16,13 +16,12 @@ Feature: Home Page segmentation
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
     And Breadcrumb is: 'Account home'
     And heading 'Benefits and tax credits' is visible
-
     And user sees text 'The personal tax account is a new service – in the future we'll show you more details from your record.' on the home page
-
     And user clicks on 'Account home' breadcrumb link
     And user is on the page with title 'Personal tax account' and URL is as expected
 
     And user sees text 'Your State Pension' on the home page
+
     And user sees 'National Insurance' link on the page and its href is as expected
 
     And user sees 'State Pension forecast' link on the page and its href is as expected
