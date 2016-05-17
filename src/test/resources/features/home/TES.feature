@@ -1,4 +1,4 @@
-@wip
+@suite
 Feature: TES/TAI/PAYE
   As a PAYE user
   I need to be able to access my PAYE record
@@ -26,7 +26,7 @@ Feature: TES/TAI/PAYE
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Your personal tax account' and URL is as expected
-    And user does not see text 'How you pay Income Tax' on the home page
+    And user sees text 'How you pay Income Tax' on the home page
     And user does not see the link  'Pay As You Earn (PAYE)' on the home page
     And user sees 'Self Assessment' link on the page and its href is as expected
 
