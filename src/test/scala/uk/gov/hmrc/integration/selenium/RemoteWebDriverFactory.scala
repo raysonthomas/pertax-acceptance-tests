@@ -65,7 +65,8 @@ object RemoteWebDriverFactory {
   
 
   //private val browserStackURL = s"http://kristapsmelderis1:8YLTc2VvzcxoNQadFpNk@hub.browserstack.com/wd/hub"
-  private val browserStackURL = s"http://raysonaccenture1:hGsxKmx1tqwGsqpVqWpw@hub.browserstack.com/wd/hub"
+  //  private val browserStackURL = s"http://raysonaccenture1:hGsxKmx1tqwGsqpVqWpw@hub.browserstack.com/wd/hub"
+  private val browserStackURL = s"http://beverleybyford2:PHkz4K8szamU5Z7CkhSb@hub.browserstack.com/wd/hub"
 
   private def buildRemoteWebDriver(caps: List[(String,String)]) = {
     val dc = new DesiredCapabilities
