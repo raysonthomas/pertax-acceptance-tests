@@ -37,4 +37,4 @@ Feature: Test the bookmark feature
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    Then user is on the page with title 'benefits & tax credits' and URL is as expected
+    Then user is on the page with title 'Your address has already been updated' and URL is as expected
