@@ -1,4 +1,4 @@
-@suite1
+l@suite1
 Feature: Deep Links
   As a user
   I want to make sure Deep Links are as expected
@@ -58,16 +58,77 @@ Feature: Deep Links
 #  | Select Your Address                                | http://localhost:9232/personal-account/your-address/sole/select-address?postcode=FX97+4TU                  | /your-address        |
 
 
-  Scenario Outline: User navigates to 'Edit Your Address' and not submitted data for 'Do you live in more than one place'
+#  Scenario Outline: User navigates to 'Edit Your Address' and not submitted data for 'Do you live in more than one place'
+#    Given user 'M Andrew' is logged into the service
+#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user clicks on 'Update your address' link
+#    And user clicks on 'Change your address' link
+#    Then user selects the option No for Tax Credits
+#    Then user continues from Tax Credits page
+#    Then user sees text 'Do you live in more than one place?' on the page
+#    And user navigates to <NavigatedTo> page with <PageURL> url
+#    And url ends with <ExpectedEndOfURL>
+#  Examples:
+#  | NavigatedTo                                        | PageURL                                                                                                    | ExpectedEndOfURL     |
+#  | Edit Your Address                                  | http://localhost:9232/personal-account/your-address/sole/edit-address                                      | /your-address        |
+
+
+#  Scenario Outline: User navigates to 'When did you start living here' and not submitted data for 'Address details'
+#    Given user 'M Andrew' is logged into the service
+#    And user clicks on 'Update your address' link
+#    And user clicks on 'Change your address' link
+#    Then user sees text 'Do you get tax credits?' on the page
+#    Then user selects the option No for Tax Credits
+#    Then user continues from Tax Credits page
+#    Then user sees text 'Do you live in more than one place?' on the page
+#    Then user selects the option No
+#    Then user continues from Your address page
+#    And user navigates to <NavigatedTo> page with <PageURL> url
+#    And url ends with <ExpectedEndOfURL>
+#    Examples:
+#      | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
+#      | When did you start living here                                  | http://localhost:9232/personal-account/your-address/sole/enter-start-date                                      | /your-address        |
+
+
+#  Scenario Outline: User navigates to 'Check your details' and not submitted data for 'Date'
+#    Given user 'M Andrew' is logged into the service
+#    And user clicks on 'Update your address' link
+#    And user clicks on 'Change your address' link
+#    Then user sees text 'Do you get tax credits?' on the page
+#    Then user selects the option No for Tax Credits
+#    Then user continues from Tax Credits page
+#    Then user sees text 'Do you live in more than one place?' on the page
+#    Then user selects the option No
+#    Then user continues from Your address page
+#    And user updates 'postcode' with 'FX97 4TU'
+#    Then user clicks on 'submitAddressFinder' button
+#    And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
+#    Then user continues from Edit the address page
+#    Then user sees text 'When did you start living here?' on the page
+#    And user navigates to <NavigatedTo> page with <PageURL> url
+#    And url ends with <ExpectedEndOfURL>
+#    Examples:
+#      | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
+#      | Check your details                                              | http://localhost:9232/personal-account/your-address/sole/changes                                               | /your-address        |
+
+
+  Scenario Outline: Correspondence Address: User navigates to 'Done' page and not submitted data for 'Date'
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user clicks on 'Change your address' link
+    Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
     Then user sees text 'Do you live in more than one place?' on the page
+    Then user selects the option No
+    Then user continues from Your address page
+    And user updates 'postcode' with 'FX97 4TU'
+    Then user clicks on 'submitAddressFinder' button
+    And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
+    Then user continues from Edit the address page
+    Then user sees text 'When did you start living here?' on the page
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
-  Examples:
-  | NavigatedTo                                        | PageURL                                                                                                    | ExpectedEndOfURL     |
-  | Edit Your Address                                  | http://localhost:9232/personal-account/your-address/sole/edit-address                                      | /your-address        |
+    Examples:
+      | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
+      | Check your details                                              | http://localhost:9232/personal-account/your-address/sole/changes                                               | /your-address        |
