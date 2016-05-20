@@ -1,4 +1,4 @@
-@suite1
+@wip
 Feature: Deep Links
   As a user
   I want to make sure Deep Links are as expected

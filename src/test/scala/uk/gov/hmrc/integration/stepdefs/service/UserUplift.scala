@@ -8,7 +8,7 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{By, WebElement}
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.{WebDriver, By}
-import uk.gov.hmrc.integration.page.{GlobalActions, IDAActions}
+import uk.gov.hmrc.integration.page.{GlobalActions, AuthActions}
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 import uk.gov.hmrc.integration.utils.TestDataSource._

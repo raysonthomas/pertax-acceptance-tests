@@ -6,9 +6,41 @@ import uk.gov.hmrc.integration.utils.model._
 
 case class TestPersonProperties(nino: Option[String], sautr: Option[String], username: String, password: String)
 
+object AuthProviders {
+  val Verify = "verify"
+  val GG     = "gg"
+}
+case class UserProperties(
+  verify: Option[VerifyUserProperties],
+  gg: Option[GGUserProperties]
+)
+object UserProperties {
+  def build(nino: Option[String] = None, sautr: Option[String] = None, name: Option[String] = None,  verify: Boolean = false, gg: Boolean = false) = {
+    UserProperties(
+      if(verify) Some(VerifyUserProperties(nino, sautr)) else None,
+      if(gg) Some(GGUserProperties(name.get, nino, sautr)) else None
+    )
+  }
+}
+case class VerifyUserProperties(nino: Option[String], sautr: Option[String])
+case class GGUserProperties(name: String, nino: Option[String], sautr: Option[String])
 
 object TestDataSource {
-  private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
+  //private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
+
+  private val userProperties = Map(
+    "A user with a PAYE account, but no SA account"        -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
+    "A user with Tax Code ending with M"                   -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
+    "A user with Tax Code ending with N"                   -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle
+    "A user with a PAYE account and SA account"            -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111111111"), gg = true),//Martin Hempton GG
+    "A user with Tax Code ending with M and SA"            -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
+    "A user with Tax Code ending with N and SA"            -> UserProperties.build(name = Some("JayneRockle"), nino = Some("PJ523813C"), sautr = Some("333333333"), gg = true),  //Jayne Rockle
+    "A user with No Active PAYE and No SA account"         -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = None, gg = true),  //Kelly Billson
+    "A user with No Active PAYE account, but SA account"   -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), gg = true),  //xxxx
+    "A user with No PAYE but SA account"                   -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true)  //M Andrew
+  )
+
+  def getUserProperties(token: String, authProvider: String) = userProperties( token )
 
   val personProperties = Map(
     "John Densmore"              -> TestPersonProperties(Some("CS700100A"), None, "jdensmore", "password"),
@@ -33,9 +65,9 @@ object TestDataSource {
     "SA Jayne Rockle"            -> TestPersonProperties(Some("PJ523813C"), Some("111114444"), "jrockle", "password"),
     "Kelly Billson"              -> TestPersonProperties(Some("TA936115D"), None, "kbillson", "testing123"),
     "SA Kelly Billson"           -> TestPersonProperties(Some("TA936115D"), Some("111115555"), "kbillson", "testing123")
-
-
   )
+
+
 
 
   val pathForLink = Map(

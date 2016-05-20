@@ -6,7 +6,7 @@ Feature: NI Bucket
   JIRA story history: MTA-1788, MTA-1818
 
   Scenario: As Verify user, check that the NI Bucket page is displayed as expected
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     Then user clicks on 'National Insurance' link
     And Breadcrumb is: 'Account home'
     Then user is on the page with title 'National Insurance summary' and URL is as expected
@@ -19,7 +19,7 @@ Feature: NI Bucket
     And user is on the page with title 'Personal tax account' and URL is as expected
 
   Scenario: As a Uplifted GG user, check that the NI Bucket page is displayed as expected
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given A user with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -35,10 +35,12 @@ Feature: NI Bucket
     And user is on the page with title 'Personal tax account' and URL is as expected
 
   Scenario: As a Not Uplifted GG user, check that the user is asked to uplift to see the NI information
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given A user with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
+
+
 
 
 

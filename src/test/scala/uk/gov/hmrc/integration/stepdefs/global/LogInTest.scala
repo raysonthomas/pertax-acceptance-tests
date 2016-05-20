@@ -11,24 +11,10 @@ import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class LogInTest extends ScalaDsl with EN {
 
-  Given( """^user '(.*)' is logged into the service$""") { (user: String) =>
-    withCurrentDriver { implicit webDriver =>
-      val personProperty = personProperties(user)
-      if (Configuration.environment("id") == "local")
-        IDAActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
-      else
-        IDAActions.logInLiveLikeEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
-    }
-  }
 
-
-  Given( """^GG user '(.*)' is logged into the service$""") { (user: String) =>
+  Given( """^(.*) is logged into the service using (.*)$""") { (user: String, authProvider: String) =>
     withCurrentDriver { implicit webDriver =>
-      val personProperty = personProperties(user)
-      if (Configuration.environment("id") == "local")
-        GGActions.logInLocalEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
-      else
-        GGActions.logInLiveLikeEnv(personProperty.username, personProperty.password, personProperty.sautr: Option[String], personProperty.nino: Option[String])
+      AuthActions.logIn(user, authProvider)
     }
   }
 
