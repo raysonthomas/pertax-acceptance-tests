@@ -33,11 +33,11 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
     And user sees 'Manage your paperless settings' link on the page and its href is as expected
+    And user sees 'View your trusted helper contacts' link on the page and its href is as expected
+    And user sees 'Update your address' link on the page and its href is as expected
     And user can not see 'Messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Pay As You Earn (PAYE)' link
-    And user can not see 'View your trusted helper contacts' link
-    And user can not see 'Update your address' link
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
