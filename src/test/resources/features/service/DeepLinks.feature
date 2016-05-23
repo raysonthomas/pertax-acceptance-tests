@@ -112,23 +112,49 @@ Feature: Deep Links
 #      | Check your details                                              | http://localhost:9232/personal-account/your-address/sole/changes                                               | /your-address        |
 
 
-  Scenario Outline: Correspondence Address: User navigates to 'Done' page and not submitted data for 'Date'
+#  Scenario Outline: Correspondence Address: User navigates to 'Find an address' page and not viewed page 'Your address'
+#    Given user 'M Andrew' is logged into the service
+#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user navigates to <NavigatedTo> page with <PageURL> url
+#    And url ends with <ExpectedEndOfURL>
+#    Examples:
+#      | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
+#      | Find an address                                                 | http://localhost:9232/personal-account/your-address/postal/find-address                                        | /your-address        |
+
+
+#  Scenario Outline: Correspondence Address: User navigates to 'Select an address' page and not submitted data for 'Find an address'
+#    Given user 'M Andrew' is logged into the service
+#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user clicks on 'Update your address' link
+#    And user is on the page with title 'Your address' and URL is as expected
+#    Then user clicks on 'Change where we send your letters' link
+#    Then user is on the page with title 'Find an address' and URL is as expected
+#    And user navigates to <NavigatedTo> page with <PageURL> url
+#    And url ends with <ExpectedEndOfURL>
+#    Examples:
+#      | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL     |
+#      | Select an address                                               | http://localhost:9232/personal-account/your-address/postal/select-address?postcode=FX97+4TU                                        | /your-address        |
+
+
+#  Scenario Outline: Correspondence Address: User navigates to 'Edit the address' page and not viewed page 'Your address'
+#    Given user 'M Andrew' is logged into the service
+#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user navigates to <NavigatedTo> page with <PageURL> url
+#    And url ends with <ExpectedEndOfURL>
+#    Examples:
+#      | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL     |
+#      | Edit the address                                                | http://localhost:9232/personal-account/your-address/postal/edit-address                                                            | /your-address        |
+
+
+  Scenario Outline: Correspondence Address: User navigates directly to 'Done' page
     Given user 'M Andrew' is logged into the service
-    And user clicks on 'Update your address' link
-    And user clicks on 'Change your address' link
-    Then user sees text 'Do you get tax credits?' on the page
-    Then user selects the option No for Tax Credits
-    Then user continues from Tax Credits page
-    Then user sees text 'Do you live in more than one place?' on the page
-    Then user selects the option No
-    Then user continues from Your address page
-    And user updates 'postcode' with 'FX97 4TU'
-    Then user clicks on 'submitAddressFinder' button
-    And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
-    Then user continues from Edit the address page
-    Then user sees text 'When did you start living here?' on the page
+    And user is on the page with title 'Your personal tax account' and URL is as expected
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
+    And user is on the page with title 'Your address has already been updated' and URL is as expected
+    Then user sees 'current address' link on the page and its href is as expected
+    Then user sees 'personal tax account home' link on the page and its href is as expected
+
     Examples:
-      | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
-      | Check your details                                              | http://localhost:9232/personal-account/your-address/sole/changes                                               | /your-address        |
+      | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL                |
+      | Your address has been saved                                     | http://localhost:9232/personal-account/your-address/postal/thank-you                                                               | /address-already-updated        |
