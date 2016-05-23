@@ -26,7 +26,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a Verify user (without PAYE record)(CL500) IN SA regime sees the appropriate options on PTA
-    Given user 'Kelly Billson' is logged into the service
+    Given user 'SA Kelly Billson' is logged into the service
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
