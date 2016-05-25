@@ -7,7 +7,7 @@ Feature: Test the breadcrumb
   JIRA story history: MTA-1119, 1848
 
   Scenario: See the correct breadcrumb when navigating to messages with a SAUTR User
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given A user with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA

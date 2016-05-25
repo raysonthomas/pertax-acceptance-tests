@@ -9,7 +9,7 @@ import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.TestDataSource._
 import uk.gov.hmrc.integration.utils._
 
-object AuthActions {
+object lAuthActions {
 
   def logIn(user: String, authProvider: String)(implicit webDriver: WebDriver) = {
     withCurrentDriver { implicit webDriver =>

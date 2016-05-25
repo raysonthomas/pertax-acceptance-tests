@@ -112,6 +112,20 @@ Feature: Deep Links
 #      | Check your details                                              | http://localhost:9232/personal-account/your-address/sole/changes                                               | /your-address        |
 
 
+  Scenario Outline: User navigates directly to 'Done' page
+    Given user 'M Andrew' is logged into the service
+    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user navigates to <NavigatedTo> page with <PageURL> url
+    And url ends with <ExpectedEndOfURL>
+    And user is on the page with title 'Your address has already been updated' and URL is as expected
+    Then user sees 'current address' link on the page and its href is as expected
+    Then user sees 'personal tax account home' link on the page and its href is as expected
+
+    Examples:
+      | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL                |
+      | Your address has been saved                                     | http://localhost:9232/personal-account/your-address/sole/thank-you                                                                 | /address-already-updated        |
+
+
 #  Scenario Outline: Correspondence Address: User navigates to 'Find an address' page and not viewed page 'Your address'
 #    Given user 'M Andrew' is logged into the service
 #    And user is on the page with title 'Your personal tax account' and URL is as expected

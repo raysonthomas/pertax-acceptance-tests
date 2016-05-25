@@ -7,7 +7,7 @@ Feature: Feedback From Anywhere in the Service
   JIRA story history: MTA-1119
 
   Scenario: See Feedback Link while navigating through PTA & other integrated Services
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     When user is on the page with title 'Personal tax account' and URL is as expected
     And Breadcrumb is: ''
     Then user sees 'feedback' link on the page and its href is as expected
