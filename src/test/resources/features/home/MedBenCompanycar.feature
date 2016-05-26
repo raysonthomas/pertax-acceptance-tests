@@ -12,7 +12,7 @@ Feature: Ability to make use of Medical Benefits and Company Car from PTA
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     Then user is able to see a section 'Recommended services'
     And user sees text 'Have you had a change in your company car or private medical insurance provided by your employer?' on the home page
     And user sees 'check your taxable income' link on the page and its href is as expected
