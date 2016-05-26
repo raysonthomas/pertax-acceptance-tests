@@ -36,8 +36,10 @@ object TestDataSource {
     "A user with Tax Code ending with M and SA"            -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
     "A user with Tax Code ending with N and SA"            -> UserProperties.build(name = Some("JayneRockle"), nino = Some("PJ523813C"), sautr = Some("333333333"), gg = true),  //Jayne Rockle
     "A user with No Active PAYE and No SA account"         -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = None, gg = true),  //Kelly Billson
-    "A user with No Active PAYE account, but SA account"   -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), gg = true),  //xxxx
-    "A user with No PAYE but SA account"                   -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true)  //M Andrew
+    "A user with No Active PAYE account, but SA account"   -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), verify = true),  //xxxx
+    "A user with No PAYE but SA account"                   -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
+
+    "User with a PAYE account, but no SA account"          -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true) //
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
