@@ -8,7 +8,7 @@ Feature: Home Page segmentation
 
   Scenario: Check that the home page has proper segmentation
     Given user 'Martin Hempton' is logged into the service
-    When user is on the page with title 'Your personal tax account' and URL is as expected
+    When user is on the page with title 'Personal tax account' and URL is as expected
     Then Breadcrumb is: ''
     And user sees text 'Your benefits and tax credits' on the home page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -18,15 +18,12 @@ Feature: Home Page segmentation
     And heading 'Benefits and tax credits' is visible
     And user sees text 'The personal tax account is a new service – in the future we'll show you more details from your record.' on the home page
     And user clicks on 'Account home' breadcrumb link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 
     And user sees text 'Your State Pension' on the home page
     And user sees 'National Insurance' link on the page and its href is as expected
 
     And user sees 'State Pension forecast' link on the page and its href is as expected
-
-    And user sees text 'On Thursday 23 June there will be a vote on the UK’s membership of the European Union' on the home page
-    And user sees 'More information (opens in a new window)' link for EU Referendum
 
     And user sees 'check your taxable income' link on the page and its href is as expected
 

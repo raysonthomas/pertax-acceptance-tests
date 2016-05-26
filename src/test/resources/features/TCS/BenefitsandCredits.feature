@@ -31,13 +31,3 @@ Feature: Link to tax Credits in benefits and Credits
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-#    And user Continues the journey to PTA
-#    And user navigates to personal tax account home page
-#    And user sees 'Benefits and tax credits' link on the page and its href is as expected
-#    And user clicks on 'Benefits and tax credits' link
-#    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
-#    And text 'You can see this part of your account if you complete some additional security steps.' is visible on Benefits and Credits Page
-
-
-
-

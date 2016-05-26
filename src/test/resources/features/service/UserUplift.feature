@@ -13,7 +13,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user completes IV Uplift Journey
     And user is on the page with title 'We've confirmed your identity' with expected URL
     And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 
   Scenario: IV Failure Journey for Technical Issue
     Given GG user 'Christopher Grantham' is logged into the service

@@ -49,7 +49,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user sees name 'Bob Jones' on the page
     And user sees nino 'AA 00 00 03 B' on the page
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
@@ -72,7 +72,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user sees name 'Bob Jones' on the page
     And user sees nino 'AA 00 00 03 B' on the page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -101,21 +101,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-#    And user Continues the journey to PTA
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
-#    And user sees name 'chris' on the page
-#    And user sees 'Go to your messages' link on the page and its href is as expected
-#    And user sees 'Self Assessment' link on the page and its href is as expected
-#    And user sees 'Benefits and tax credits' link on the page and its href is as expected
-#    And user sees 'National Insurance' link on the page and its href is as expected
-#    And user sees 'State Pension forecast' link on the page and its href is as expected
-#    And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
-#    And user sees 'Update your address' link on the page and its href is as expected
-#    And user sees 'Track your forms' link on the page and its href is as expected
-#    And user sees 'your business tax account' link on the page and its href is as expected
-#    And user sees 'Manage your paperless settings' link on the page and its href is as expected
-#    And user can not see 'Check if you can get Marriage Allowance' link
-#    And user can not see 'View your trusted helper contacts' link
 
 
   Scenario: Check that a Verify user(CL500) NOT IN SA regime is able to access the appropriate options on PTA
@@ -183,26 +168,5 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-
-
-#  Scenario: Check that a Low GG user(CL50) IN SA regime is able to access the appropriate options on PTA
-#    Given GG user 'SA Christopher Grantham' is logged into the service
-#    And user completes 2FA Journey
-#    And user Aborts the IV Uplift
-#    And user Continues the journey to PTA
-#    And user clicks on 'Self Assessment' link
-#    Then user is on the page with title 'Self Assessment summary' and URL is as expected
-#    And user navigates to personal tax account home page
-#    And user clicks on 'Benefits and tax credits' link
-#    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
-#    And user navigates to personal tax account home page
-#    Then user clicks on 'National Insurance' link
-#    Then user is on the page with title 'National Insurance summary' and URL is as expected
-#    And user navigates to personal tax account home page
-#    And user clicks on 'Manage your paperless settings' link
-#    And user navigates to personal tax account home page
-#    And user clicks on 'Go to your messages' link
-#    Then user is on the page with title 'List of messages' and URL is as expected
-
 
 
