@@ -7,7 +7,7 @@ Feature: Update Personal Details
   JIRA story history: MTA-1349,MTA_1420, MTA-1848, MTA-1691
 
   Scenario: Positive update address entering postcode
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -36,7 +36,7 @@ Feature: Update Personal Details
 
 
   Scenario: Positive update address entering postcode without space
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -64,7 +64,7 @@ Feature: Update Personal Details
 
 
   Scenario: Positive update address entering postcode and address line
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -93,7 +93,7 @@ Feature: Update Personal Details
 
 
   Scenario: Negative - User does not have their Postcode in the database
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -110,7 +110,7 @@ Feature: Update Personal Details
     And the error message for 'postcode' is 'Your address cannot be found. You can try again or enter your address yourself.'
 
   Scenario: Negative - User finds their Postcode but not their address
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -128,7 +128,7 @@ Feature: Update Personal Details
     And the error message for 'postcode' is 'Your address cannot be found. You can try again or enter your address yourself.'
 
   Scenario: User uses an Invalid Postcode
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected

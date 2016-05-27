@@ -6,7 +6,7 @@ Feature: Verify my correspondence address
   JIRA story history: MTA-1691
 
   Scenario: User with correspondence address is able to view their correspondence address
-    Given user 'Bob Jones' is logged into the service
+    Given A user with a Correspondence Address is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -15,7 +15,7 @@ Feature: Verify my correspondence address
     And user sees 'Change where we send your letters' link on the page and its href is as expected
 
   Scenario: User able to change their correspondence address
-    Given user 'Bob Jones' is logged into the service
+    Given A user with a Correspondence Address is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected

@@ -29,12 +29,19 @@ object TestDataSource {
   //private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
   private val userProperties = Map(
-    "A user with a PAYE account, but no SA account"        -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
-    "A user with Tax Code ending with M"                   -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
-    "A user with Tax Code ending with N"                   -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle
-    "A user with No Active PAYE account, but SA account"   -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), verify = true),  //xxxx
-    "A user with No PAYE but SA account"                   -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
-    "A user with a PAYE account and SA account"            -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),//Martin Hempton GG
+    "A user with a PAYE account, but no SA account"                  -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
+    "A user with Tax Code ending with M"                             -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
+    "A user with Tax Code ending with N"                             -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle
+    "A user with No Active PAYE account, but SA account"             -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), verify = true),  //xxxx
+    "A user with No PAYE but SA account"                             -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
+    "A user with a PAYE account and SA account"                      -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),//Martin Hempton
+    "A user with a Correspondence Address"                           -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
+    "A user with Effective From date 06 April 2016"                  -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
+    "A user with Effective From date other than 06 April 2016"       -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
+    "A user with No Effective From date"                             -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
+    "A user"                                                         -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
+
+
 
     "User with a PAYE account, but no SA account"          -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true), //GG Chris
     "User with a PAYE account and SA account"              -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones
@@ -42,8 +49,11 @@ object TestDataSource {
 //    "A user with a PAYE account and SA account"            -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111111111"), gg = true),//Martin Hempton GG
     "User with Tax Code ending with M and SA"              -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
     "User with Tax Code ending with N and SA"              -> UserProperties.build(name = Some("JayneRockle"), nino = Some("PJ523813C"), sautr = Some("333333333"), gg = true),  //Jayne Rockle
-    "User with No Active PAYE and No SA account"         -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = None, gg = true),  //Kelly Billson
-    "User with No Active PAYE account, but SA account"     -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), gg = true)  //xxxx
+    "User with No Active PAYE and No SA account"           -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = None, gg = true),  //Kelly Billson
+    "User with No Active PAYE account, but SA account"     -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), gg = true),  //xxxx
+    "User"                                                 -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("444444444"), gg = true),  //xxxx
+    "TCS user"                                             -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
+    "User with No Correspondence Address"                  -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true)//Hazel Young
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
@@ -104,7 +114,10 @@ object TestDataSource {
     "State Pension forecast"                                        -> "/checkmystatepension/account/pta",
     "check your taxable income"                                     -> "/check-income-tax/taxable-income",
     "current address"                                               -> "/personal-account/your-address",
-    "personal tax account home"                                     -> "/personal-account"
+    "personal tax account home"                                     -> "/personal-account",
+    "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
+    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
+    "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address"
 
 
 
@@ -129,7 +142,10 @@ object TestDataSource {
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
     "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
     "We're unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete",
-    "Your address has already been updated"                         -> "/personal-account/address-already-updated"
+    "Your address has already been updated"                         -> "/personal-account/address-already-updated",
+    "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
+    "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
+    "Your address"                                                  -> "/personal-account/your-address"
 
   )
 

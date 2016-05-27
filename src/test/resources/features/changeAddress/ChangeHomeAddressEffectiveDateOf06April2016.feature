@@ -7,7 +7,7 @@ Feature: Verify my home address
   JIRA story history: MTA-1691
 
   Scenario: User has an effective from date of 6th April 2016 and able to view correct details
-    Given user 'Bob Jones' is logged into the service
+    Given A user with Effective From date 06 April 2016 is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
@@ -15,7 +15,7 @@ Feature: Verify my home address
     And user is able to see 'Change your address' link on the page
 
   Scenario: User changes home address
-    Given user 'Bob Jones' is logged into the service
+    Given A user with Effective From date 06 April 2016 is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected

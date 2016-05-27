@@ -7,7 +7,7 @@ Feature: Verify my home address
 
 
   Scenario: User changes home address
-    Given GG user 'SA Hazel Young' is logged into the service
+    Given TCS user is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA

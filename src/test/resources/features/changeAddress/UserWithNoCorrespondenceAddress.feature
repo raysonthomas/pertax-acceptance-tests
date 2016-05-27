@@ -6,7 +6,7 @@ Feature: Verify my correspondence address
   JIRA story history: MTA-1691
 
   Scenario: User with no correspondence address sees appropriate details
-    Given GG user 'SA Hazel Young' is logged into the service
+    Given User with No Correspondence Address is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -18,7 +18,7 @@ Feature: Verify my correspondence address
 
 
   Scenario: User with no correspondence address is able to add their correspondence address
-    Given GG user 'SA Hazel Young' is logged into the service
+    Given User with No Correspondence Address is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA

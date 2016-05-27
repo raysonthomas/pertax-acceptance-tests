@@ -7,7 +7,7 @@ Feature: Verify my home address
 
 
   Scenario Outline: User tries to change home address and enters an invalid date and gets correct error messages
-    Given user 'M Andrew' is logged into the service
+    Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected

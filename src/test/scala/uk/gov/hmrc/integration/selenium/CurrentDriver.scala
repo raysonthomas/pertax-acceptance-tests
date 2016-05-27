@@ -12,9 +12,13 @@ object CurrentDriver {
 
   
   def clearSession(): Unit = {
-    if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual&origin=PERTAX")
-      && !webDriver.getCurrentUrl.endsWith("identity-check-complete") && !webDriver.getCurrentUrl.contains("identity-check-complete")) {
+//    if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual&origin=PERTAX")
+//      && !webDriver.getCurrentUrl.endsWith("identity-check-complete") && !webDriver.getCurrentUrl.contains("identity-check-complete"))
 
+      if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual")
+        && !webDriver.getCurrentUrl.contains("/tax-credits-service/personal/change-address") && !webDriver.getCurrentUrl.contains("identity-check-complete"))
+
+    {
       GlobalActions.maybeClickMenu
       GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/personal-account/signed-out")
     }

@@ -7,7 +7,7 @@ Feature: Change/Modify my home address
 
 
   Scenario Outline: Negative update address journey
-    Given GG user 'SA Hazel Young' is logged into the service
+    Given User is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
