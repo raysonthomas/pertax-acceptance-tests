@@ -1,4 +1,4 @@
-@suite
+@suite1
 Feature: Google Analytics Tracking
 
   I want to make sure that links are Trackeable by Google Analytics

@@ -1,4 +1,4 @@
-@suite
+@suite1
 
 Feature: Ability to apply for Marriage Allowance
   As a user
@@ -26,7 +26,7 @@ Feature: Ability to apply for Marriage Allowance
     And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
   Scenario: Login as a GG user who is Uplifted and tax code does not end with a 'N' or 'M'
-    Given  A user with a PAYE account and SA account is logged into the service using gg
+    Given  User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -37,7 +37,7 @@ Feature: Ability to apply for Marriage Allowance
 
 
   Scenario: Login as a GG user who is Uplifted and tax code ends with a 'M'
-    Given A user with Tax Code ending with M and SA is logged into the service using gg
+    Given User with Tax Code ending with M and SA is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -46,7 +46,7 @@ Feature: Ability to apply for Marriage Allowance
     And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
   Scenario: Login as a GG user who is Uplifted and tax code ends with a 'N'
-    Given A user with Tax Code ending with N and SA is logged into the service using gg
+    Given User with Tax Code ending with N and SA is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA

@@ -1,4 +1,4 @@
-@suite
+@suite1
 
 Feature: Ability to make use of Medical Benefits and Company Car from PTA
   As a user
@@ -8,7 +8,7 @@ Feature: Ability to make use of Medical Benefits and Company Car from PTA
 
 
   Scenario: GG user is able to use the 'check your taxable income' link to go to Company car and Medical benefits
-    Given A user with a PAYE account and SA account is logged into the service using gg
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA

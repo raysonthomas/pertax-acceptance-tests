@@ -32,14 +32,17 @@ object TestDataSource {
     "A user with a PAYE account, but no SA account"        -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
     "A user with Tax Code ending with M"                   -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
     "A user with Tax Code ending with N"                   -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle
-    "A user with a PAYE account and SA account"            -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111111111"), gg = true),//Martin Hempton GG
-    "A user with Tax Code ending with M and SA"            -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
-    "A user with Tax Code ending with N and SA"            -> UserProperties.build(name = Some("JayneRockle"), nino = Some("PJ523813C"), sautr = Some("333333333"), gg = true),  //Jayne Rockle
-    "A user with No Active PAYE and No SA account"         -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = None, gg = true),  //Kelly Billson
     "A user with No Active PAYE account, but SA account"   -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), verify = true),  //xxxx
     "A user with No PAYE but SA account"                   -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
+    "A user with a PAYE account and SA account"            -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),//Martin Hempton GG
 
-    "User with a PAYE account, but no SA account"          -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true) //
+    "User with a PAYE account, but no SA account"          -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true), //GG Chris
+    "User with a PAYE account and SA account"              -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones
+    "User with a PAYE account, but no SA account"          -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111113333"), gg = true), //Martin Hempton
+//    "A user with a PAYE account and SA account"            -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111111111"), gg = true),//Martin Hempton GG
+    "User with Tax Code ending with M and SA"              -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
+    "User with Tax Code ending with N and SA"              -> UserProperties.build(name = Some("JayneRockle"), nino = Some("PJ523813C"), sautr = Some("333333333"), gg = true),  //Jayne Rockle
+    "A user with No Active PAYE and No SA account"         -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = None, gg = true)  //Kelly Billson
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
