@@ -19,7 +19,7 @@ Feature: NI Bucket
     And user is on the page with title 'Personal tax account' and URL is as expected
 
   Scenario: As a Uplifted GG user, check that the NI Bucket page is displayed as expected
-    Given A user with a PAYE account and SA account is logged into the service using gg
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -35,7 +35,7 @@ Feature: NI Bucket
     And user is on the page with title 'Personal tax account' and URL is as expected
 
   Scenario: As a Not Uplifted GG user, check that the user is asked to uplift to see the NI information
-    Given A user with a PAYE account and SA account is logged into the service using gg
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL

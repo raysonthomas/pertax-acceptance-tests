@@ -9,14 +9,14 @@ Feature: Verify my home address
 
   Scenario: User has no effective from date on record
     Given user 'Christopher Grantham' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
 
 
   Scenario: User changes home address
     Given user 'Christopher Grantham' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     And user clicks on 'Change your address' link
@@ -41,4 +41,4 @@ Feature: Verify my home address
     Then user clicks on Confirm and save button on Check your answers page
     And user is on the page with title 'Your address has been updated' and URL is as expected
     And user clicks on 'Return to your account home' link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected

@@ -8,7 +8,7 @@ Feature: View Home Address Details
 
   Scenario: View personal details page
     Given user 'Martin Hempton' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     And Home address '6 Howsell Road', 'Llanddew', '', '', 'DN16 3FB' should be visible

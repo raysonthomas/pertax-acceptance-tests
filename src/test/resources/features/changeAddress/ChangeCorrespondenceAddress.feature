@@ -7,7 +7,7 @@ Feature: Verify my correspondence address
 
   Scenario: User with correspondence address is able to view their correspondence address
     Given user 'Bob Jones' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     And Postal address '11 Test Street', 'Testtown', '', '', 'FX97 4TU' should be visible
@@ -16,7 +16,7 @@ Feature: Verify my correspondence address
 
   Scenario: User able to change their correspondence address
     Given user 'Bob Jones' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user clicks on 'Change where we send your letters' link
@@ -27,5 +27,5 @@ Feature: Verify my correspondence address
     Then user continues from Edit the address page
     And user is on the page with title 'Your address has been updated' whose URL is as expected
     And user clicks on 'Return to your account home' link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 

@@ -8,7 +8,7 @@ Feature: Verify my home address
 
   Scenario Outline: User tries to change home address and enters an invalid date and gets correct error messages
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'

@@ -1,4 +1,4 @@
-@suite1
+@suite
 
 Feature: Ability to apply for Marriage Allowance
   As a user

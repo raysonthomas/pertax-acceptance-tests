@@ -8,7 +8,7 @@ Feature: Update Personal Details
 
   Scenario: Positive update address entering postcode
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
@@ -31,13 +31,13 @@ Feature: Update Personal Details
     Then user clicks on Confirm and save button on Check your answers page
     And user is on the page with title 'Your address has been updated' and whose URL is as expected
     And user clicks on 'Return to your account home' link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 
 
 
   Scenario: Positive update address entering postcode without space
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
@@ -60,12 +60,12 @@ Feature: Update Personal Details
     Then user clicks on Confirm and save button on Check your answers page
     And user is on the page with title 'Your address has been updated' and whose URL is as expected
     And user clicks on 'Return to your account home' link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 
 
   Scenario: Positive update address entering postcode and address line
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
@@ -89,12 +89,12 @@ Feature: Update Personal Details
     Then user clicks on Confirm and save button on Check your answers page
     And user is on the page with title 'Your address has been updated' and whose URL is as expected
     And user clicks on 'Return to your account home' link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 
 
   Scenario: Negative - User does not have their Postcode in the database
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
@@ -111,7 +111,7 @@ Feature: Update Personal Details
 
   Scenario: Negative - User finds their Postcode but not their address
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
@@ -129,7 +129,7 @@ Feature: Update Personal Details
 
   Scenario: User uses an Invalid Postcode
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'

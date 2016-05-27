@@ -12,7 +12,7 @@ Feature: TES/TAI/PAYE
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
 
   Scenario: GG User is enrolled in PAYE regime and should be able to see link to PAYE
-    Given A user with a PAYE account and SA account is logged into the service using gg
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -22,7 +22,7 @@ Feature: TES/TAI/PAYE
     And user sees 'Self Assessment' link on the page and its href is as expected
 
   Scenario: User is NOT enrolled in PAYE regime and should NOT be able to see link to PAYE, but able to see SA bucket link
-    Given A user with No Active PAYE account, but SA account is logged into the service using gg
+    Given User with No Active PAYE account, but SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -32,7 +32,7 @@ Feature: TES/TAI/PAYE
     And user sees 'Self Assessment' link on the page and its href is as expected
 
   Scenario: User is NOT enrolled in PAYE regime and no active SA Enrolment should NOT be able to see link to PAYE and SA bucket link
-    Given A user with No Active PAYE and No SA account is logged into the service using gg
+    Given User with No Active PAYE and No SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA

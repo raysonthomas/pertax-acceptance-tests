@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: Users with various access levels view/access appropriate items on PTA
   As a user
   I want to view the appropriate items based on my access levels
@@ -87,22 +87,22 @@ Feature: Users with various access levels view/access appropriate items on PTA
 #    And user sees 'Track your forms' link on the page and its href is as expected
 #    And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 #    And user can not see 'View your trusted helper contacts' link
-
+#
 #
 #  Scenario: Check that a Low GG user(CL50) NOT IN SA regime sees the appropriate options on PTA
 #    Given User with a PAYE account, but no SA account is logged into the service using gg
 #    And user completes 2FA Journey
 #    And user Aborts the IV Uplift
 #    And user is on the page with title 'We're unable to confirm your identity' with expected URL
-
-
+#
+#
 #  Scenario: Check that a Low GG user(CL50) IN SA regime sees the appropriate options on PTA
 #    Given User with a PAYE account and SA account is logged into the service using gg
 #    And user completes 2FA Journey
 #    And user Aborts the IV Uplift
 #    And user is on the page with title 'We're unable to confirm your identity' with expected URL
-
-
+#
+#
 #
 #  Scenario: Check that a Verify user(CL500) NOT IN SA regime is able to access the appropriate options on PTA
 #    Given A user with a PAYE account, but no SA account is logged into the service using verify
@@ -114,34 +114,34 @@ Feature: Users with various access levels view/access appropriate items on PTA
 #    And user navigates to personal tax account home page
 #    And user clicks on 'Update your address' link
 #    And user is on the page with title 'Your address' and URL is as expected
-
-
-    Scenario: Check that a Verify user(CL500) IN SA regime is able to access the appropriate options on PTA
-    Given  A user with a PAYE account and SA account is logged into the service using verify
-    And user clicks on 'Benefits and tax credits' link
-    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
-    And user navigates to personal tax account home page
-    Then user clicks on 'National Insurance' link
-    Then user is on the page with title 'National Insurance summary' and URL is as expected
-    And user navigates to personal tax account home page
-
-
 #
-#  Scenario: Check that a High GG user(CL200) NOT IN SA regime is able to access the appropriate options on PTA
-#    Given GG user 'Bob Jones' is logged into the service
-#    And user completes 2FA Journey
-#    And user completes IV Uplift Journey
-#    And user Continues the journey to PTA
-#    And user navigates to personal tax account home page
+#
+#    Scenario: Check that a Verify user(CL500) IN SA regime is able to access the appropriate options on PTA
+#    Given  A user with a PAYE account and SA account is logged into the service using verify
 #    And user clicks on 'Benefits and tax credits' link
 #    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
 #    And user navigates to personal tax account home page
 #    Then user clicks on 'National Insurance' link
 #    Then user is on the page with title 'National Insurance summary' and URL is as expected
 #    And user navigates to personal tax account home page
-#    And user clicks on 'Update your address' link
-#    And user is on the page with title 'Your address' and URL is as expected
-#
+
+
+
+  Scenario: Check that a High GG user(CL200) NOT IN SA regime is able to access the appropriate options on PTA
+    Given GG user 'Bob Jones' is logged into the service
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    And user navigates to personal tax account home page
+    And user clicks on 'Benefits and tax credits' link
+    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
+    And user navigates to personal tax account home page
+    Then user clicks on 'National Insurance' link
+    Then user is on the page with title 'National Insurance summary' and URL is as expected
+    And user navigates to personal tax account home page
+    And user clicks on 'Update your address' link
+    And user is on the page with title 'Your address' and URL is as expected
+
 #
 #  Scenario: Check that a High GG user(CL200) IN SA regime is able to access the appropriate options on PTA
 #    Given GG user 'SA Christopher Grantham' is logged into the service

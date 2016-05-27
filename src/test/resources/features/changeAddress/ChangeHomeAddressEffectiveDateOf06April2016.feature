@@ -8,7 +8,7 @@ Feature: Verify my home address
 
   Scenario: User has an effective from date of 6th April 2016 and able to view correct details
     Given user 'Bob Jones' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section '6 April 2016'
@@ -16,7 +16,7 @@ Feature: Verify my home address
 
   Scenario: User changes home address
     Given user 'Bob Jones' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section '6 April 2016'
@@ -42,5 +42,5 @@ Feature: Verify my home address
     Then user clicks on Confirm and save button on Check your answers page
     And user is on the page with title 'Your address has been updated' and URL is as expected
     And user clicks on 'Return to your account home' link
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
 

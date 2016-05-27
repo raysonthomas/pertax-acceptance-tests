@@ -10,7 +10,7 @@ Feature: Verify my correspondence address
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user sees text 'Letters from HM Revenue and Customs currently get sent to your home address.' on the page
@@ -22,7 +22,7 @@ Feature: Verify my correspondence address
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user sees text 'Get letters sent to a different address' on the page

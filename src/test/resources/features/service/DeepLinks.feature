@@ -8,7 +8,7 @@ Feature: Deep Links
 
 #  Scenario Outline: User navigates to 'Do you get tax credits' and 'not your address page'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user navigates to <NavigatedTo> page with <PageURL> url
 #    And url ends with <ExpectedEndOfURL>
 #  Examples:
@@ -18,7 +18,7 @@ Feature: Deep Links
 
 #  Scenario Outline: User navigates to 'Do you live in more than one place' and not indicated that they receive Tax Credits
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user clicks on 'Update your address' link
 #    And user clicks on 'Change your address' link
 #    And user navigates to <NavigatedTo> page with <PageURL> url
@@ -30,7 +30,7 @@ Feature: Deep Links
 
 #  Scenario Outline: User navigates to 'Find your address' and not submitted data for 'do you live in more than one place'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user clicks on 'Update your address' link
 #    And user clicks on 'Change your address' link
 #    Then user selects the option No for Tax Credits
@@ -43,7 +43,7 @@ Feature: Deep Links
 
 #  Scenario Outline: User navigates to 'Select your address' and not submitted data for 'Find your address'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user clicks on 'Update your address' link
 #    And user clicks on 'Change your address' link
 #    Then user selects the option No for Tax Credits
@@ -60,7 +60,7 @@ Feature: Deep Links
 
 #  Scenario Outline: User navigates to 'Edit Your Address' and not submitted data for 'Do you live in more than one place'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user clicks on 'Update your address' link
 #    And user clicks on 'Change your address' link
 #    Then user selects the option No for Tax Credits
@@ -114,7 +114,7 @@ Feature: Deep Links
 
   Scenario Outline: User navigates directly to 'Done' page
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     And user is on the page with title 'Your address has already been updated' and URL is as expected
@@ -128,7 +128,7 @@ Feature: Deep Links
 
 #  Scenario Outline: Correspondence Address: User navigates to 'Find an address' page and not viewed page 'Your address'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user navigates to <NavigatedTo> page with <PageURL> url
 #    And url ends with <ExpectedEndOfURL>
 #    Examples:
@@ -138,7 +138,7 @@ Feature: Deep Links
 
 #  Scenario Outline: Correspondence Address: User navigates to 'Select an address' page and not submitted data for 'Find an address'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user clicks on 'Update your address' link
 #    And user is on the page with title 'Your address' and URL is as expected
 #    Then user clicks on 'Change where we send your letters' link
@@ -152,7 +152,7 @@ Feature: Deep Links
 
 #  Scenario Outline: Correspondence Address: User navigates to 'Edit the address' page and not viewed page 'Your address'
 #    Given user 'M Andrew' is logged into the service
-#    And user is on the page with title 'Your personal tax account' and URL is as expected
+#    And user is on the page with title 'Personal tax account' and URL is as expected
 #    And user navigates to <NavigatedTo> page with <PageURL> url
 #    And url ends with <ExpectedEndOfURL>
 #    Examples:
@@ -162,7 +162,7 @@ Feature: Deep Links
 
   Scenario Outline: Correspondence Address: User navigates directly to 'Done' page
     Given user 'M Andrew' is logged into the service
-    And user is on the page with title 'Your personal tax account' and URL is as expected
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     And user is on the page with title 'Your address has already been updated' and URL is as expected
