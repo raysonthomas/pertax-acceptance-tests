@@ -35,7 +35,6 @@ Feature: Ability to apply for Marriage Allowance
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
 
-
   Scenario: Login as a GG user who is Uplifted and tax code ends with a 'M'
     Given User with Tax Code ending with M and SA is logged into the service using gg
     And user completes 2FA Journey
