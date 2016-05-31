@@ -8,7 +8,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   JIRA story history: MTA-1482, MTA-1736
 
   Scenario: Positive Uplift Journey
-    Given GG user 'Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user is on the page with title 'We've confirmed your identity' with expected URL
@@ -16,7 +16,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user is on the page with title 'Personal tax account' and URL is as expected
 
   Scenario: IV Failure Journey for Technical Issue
-    Given GG user 'Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has technical issues for IV Uplift
     And user is on the page with title 'There's a technical problem' with expected URL
@@ -26,7 +26,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'Try again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Locked Out screen for SA user
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user is Locked Out of the service for IV Uplift
     And user is on the page with title 'You’ve tried to confirm your identity too many times' with expected URL
@@ -35,7 +35,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Insufficient Evidence / Precondition Failed for SA user
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
@@ -43,7 +43,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Failed Matching for SA user
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Failed Matching for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
@@ -52,7 +52,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for User Aborted / Incomplete Journey for SA user
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
@@ -61,7 +61,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for User Aborted / Incomplete Journey for Non SA user
-    Given GG user 'Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
@@ -71,7 +71,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Insufficient Evidence / Precondition Failed / Failed Matching for Non SA user
-    Given GG user 'Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
@@ -81,7 +81,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Locked Out screen for Non SA user
-    Given GG user 'Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user is Locked Out of the service for IV Uplift
     And user is on the page with title 'You’ve tried to confirm your identity too many times' with expected URL

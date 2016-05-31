@@ -7,7 +7,7 @@ Feature: Sign out of Personal Tax Account
   JIRA story history: MTA-591, MTA-805
 
   Scenario: Sign out of Personal Tax Account
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     When user signs out
     Then user is on the page with title 'Signed out' and URL is as expected
     And user is unable to access the application

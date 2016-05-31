@@ -7,7 +7,7 @@ Feature: Home Page segmentation
   JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964
 
   Scenario: Check that the home page has proper segmentation
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     When user is on the page with title 'Personal tax account' and URL is as expected
     Then Breadcrumb is: ''
     And user sees text 'Your benefits and tax credits' on the home page
@@ -21,6 +21,7 @@ Feature: Home Page segmentation
     And user is on the page with title 'Personal tax account' and URL is as expected
 
     And user sees text 'Your State Pension' on the home page
+
     And user sees 'National Insurance' link on the page and its href is as expected
 
     And user sees 'State Pension forecast' link on the page and its href is as expected

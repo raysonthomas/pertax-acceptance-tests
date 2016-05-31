@@ -7,7 +7,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
   lowGG means CL50, highGG means CL100 or CL200 (dependant on watchlist - to which we do not pay attention here)
 
   Scenario: Check that a Verify user(CL500) NOT IN SA regime sees the appropriate options on PTA
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     And user sees name 'Martin Hempton' on the page
     And user sees nino 'AB 21 69 13 B' on the page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
@@ -26,7 +26,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a Verify user (without PAYE record)(CL500) IN SA regime sees the appropriate options on PTA
-    Given user 'SA Kelly Billson' is logged into the service
+    Given A user with No Active PAYE account, but SA account is logged into the service using verify
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
@@ -45,13 +45,13 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a High GG user(CL200) NOT IN SA regime sees the appropriate options on PTA
-    Given GG user 'Bob Jones' is logged into the service
+    Given User with a PAYE account, but no SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user sees name 'Bob Jones' on the page
-    And user sees nino 'AA 00 00 03 B' on the page
+    And user sees name 'Samuel Margstest' on the page
+    And user sees nino 'CE 12 34 57 D' on the page
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
@@ -68,7 +68,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a High GG user(CL200) IN SA regime sees the appropriate options on PTA
-    Given GG user 'SA Bob Jones' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -90,21 +90,22 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime sees the appropriate options on PTA
-    Given GG user 'M Andrew' is logged into the service
+    Given User with a PAYE account, but no SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
 
 
   Scenario: Check that a Low GG user(CL50) IN SA regime sees the appropriate options on PTA
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
 
 
+
   Scenario: Check that a Verify user(CL500) NOT IN SA regime is able to access the appropriate options on PTA
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     And user clicks on 'Benefits and tax credits' link
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
     And user navigates to personal tax account home page
@@ -116,7 +117,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
     Scenario: Check that a Verify user(CL500) IN SA regime is able to access the appropriate options on PTA
-    Given  user 'Verify User1' is logged into the service
+    Given  A user with a PAYE account and SA account is logged into the service using verify
     And user clicks on 'Benefits and tax credits' link
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
     And user navigates to personal tax account home page
@@ -127,7 +128,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a High GG user(CL200) NOT IN SA regime is able to access the appropriate options on PTA
-    Given GG user 'Bob Jones' is logged into the service
+    Given User with a PAYE account, but no SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -143,7 +144,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a High GG user(CL200) IN SA regime is able to access the appropriate options on PTA
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -164,9 +165,12 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
 
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime is able to access the appropriate options on PTA
-    Given GG user 'M Andrew' is logged into the service
+    Given User with a PAYE account, but no SA account is logged into the service using gg
     And user completes 2FA Journey
     And user Aborts the IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
+
+
+
 
 

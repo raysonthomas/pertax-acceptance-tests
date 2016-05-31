@@ -8,25 +8,25 @@ Feature: Ability to apply for Marriage Allowance
   JIRA story history: MTA-1194, MTA-1683, MTA-1625, MTA-1731, MTA-2037
 
   Scenario: Login as a user who has not enrolled for Marriage Allowance (tax code does not end with a 'N' or 'M')
-    Given user 'Martin Hempton' is logged into the service
+    Given A user with a PAYE account, but no SA account is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     Then user is able to see a section 'Recommended services'
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
   Scenario: Login as a user who has enrolled for Marriage Allowance (tax code ends with a 'M')
-    Given user 'M Andrew' is logged into the service
+    Given A user with Tax Code ending with M is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     Then user is able to see a section 'Recommended services'
     And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
   Scenario: Login as a user who has enrolled for Marriage Allowance (tax code ends with a 'N')
-    Given user 'Jayne Rockle' is logged into the service
+    Given A user with Tax Code ending with N is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     Then user is able to see a section 'Recommended services'
     And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
   Scenario: Login as a GG user who is Uplifted and tax code does not end with a 'N' or 'M'
-    Given GG user 'SA Christopher Grantham' is logged into the service
+    Given  User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -36,7 +36,7 @@ Feature: Ability to apply for Marriage Allowance
 
 
   Scenario: Login as a GG user who is Uplifted and tax code ends with a 'M'
-    Given GG user 'SA M Andrew' is logged into the service
+    Given User with Tax Code ending with M and SA is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -45,7 +45,7 @@ Feature: Ability to apply for Marriage Allowance
     And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
   Scenario: Login as a GG user who is Uplifted and tax code ends with a 'N'
-    Given GG user 'SA Jayne Rockle' is logged into the service
+    Given User with Tax Code ending with N and SA is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
