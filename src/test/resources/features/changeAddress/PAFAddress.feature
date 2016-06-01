@@ -80,7 +80,7 @@ Feature: Update Personal Details
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     And address '11 Test Street','Testtown','FX97 4TU' is displayed
-#    Then user continues from Edit the address page
+    Then user continues from Edit the address page
     Then user sees text 'When did you start living here?' on the page
     And user updates date field 'startDate.day' with '03'
     And user updates date field 'startDate.month' with '01'
