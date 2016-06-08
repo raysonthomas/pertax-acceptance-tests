@@ -15,5 +15,12 @@ class BenefitsandCredits extends ScalaDsl with EN {
     }
   }
 
+  And( """^text '(.*)' is visible on Tax credits Page$""") {(text:String)=>
+    withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
+    }
+  }
+
+
 
 }
