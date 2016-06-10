@@ -1,4 +1,4 @@
-@suite @smoke
+@suite
 Feature: Test the bookmark feature
 
   As a user
@@ -7,34 +7,56 @@ Feature: Test the bookmark feature
 
   JIRA story history: MTA-2016
 
-  Scenario: User should be returned to the 'your Address' page when directly navigating to the 'your address' page
-    Given GG user is not logged into the service
-    And Directly navigates to 'your address' page
-    And user completes 2FA Journey
+  Scenario Outline: User should be returned to the 'your Address' page when directly navigating to the 'your address' page
+    Given user navigates to <NavigatedTo> page with <PageURL> url
+    And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
+    Then User is logged into the service using gg
+    Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     Then user is on the page with title 'Your address' and URL is as expected
+    Examples:
+      | NavigatedTo                    | PageURL                                                                         | ExpectedEndOfURL                        |
+      | Your address                   | http://localhost:9232/personal-account/your-address/tax-credits-choice          | accountType=individual&origin=PERTAX    |
 
-  Scenario: User should be returned to the 'your Address' page when directly navigating to the 'check your answers' page
-    Given GG user is not logged into the service
-    And Directly navigates to 'check your answers' page
-    And user completes 2FA Journey
+
+  Scenario Outline: User should be returned to the 'your Address' page when directly navigating to the 'Check your details' page
+    Given user navigates to <NavigatedTo> page with <PageURL> url
+    And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
+    Then User is logged into the service using gg
+    Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     Then user is on the page with title 'Your address' and URL is as expected
+    Examples:
+      | NavigatedTo                          | PageURL                                                                         | ExpectedEndOfURL                        |
+      | Check your details                   | http://localhost:9232/personal-account/your-address/sole/changes                | accountType=individual&origin=PERTAX    |
 
-  Scenario: User should be returned to the 'benefits & tax credits' page when directly navigating to the 'benefits and tax credits' page
-    Given GG user is not logged into the service
-    And Directly navigates to 'benefits & tax credits' page
-    And user completes 2FA Journey
+
+  Scenario Outline: User should be returned to the 'National Insurance' page when directly navigating to the 'National Insurance' page
+    Given user navigates to <NavigatedTo> page with <PageURL> url
+    And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
+    Then User is logged into the service using gg
+    Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    Then user is on the page with title 'benefits & tax credits' and URL is as expected
+    Then user is on the page with title 'National Insurance summary' and URL is as expected
+    Examples:
+      | NavigatedTo                          | PageURL                                                                          | ExpectedEndOfURL                        |
+      | National Insurance                   | http://localhost:9232/personal-account/national-insurance-summary                | accountType=individual&origin=PERTAX    |
 
-  Scenario: User should be returned to the 'address already updated' page when directly navigating to the 'done' page
-    Given GG user is not logged into the service
-    And Directly navigates to 'address already updated' page
-    And user completes 2FA Journey
+
+  Scenario Outline: User should be returned to the 'address already updated' page when directly navigating to the 'done' page
+    Given user navigates to <NavigatedTo> page with <PageURL> url
+    And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
+    Then User is logged into the service using gg
+    Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    Then user is on the page with title 'Your address has already been updated' and URL is as expected
+    And user is on the page with title 'Your address has already been updated' and URL is as expected
+    Examples:
+      | NavigatedTo                                   | PageURL                                                                           | ExpectedEndOfURL                        |
+      | Your address has been saved                   | http://localhost:9232/personal-account/your-address/sole/thank-you                | accountType=individual&origin=PERTAX    |
+
+
+
