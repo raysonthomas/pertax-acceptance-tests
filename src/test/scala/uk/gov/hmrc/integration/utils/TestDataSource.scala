@@ -148,7 +148,9 @@ object TestDataSource {
     "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
     "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
     "Your address"                                                  -> "/personal-account/your-address",
-    "Your address has already been updated"                         -> "/personal-account/your-address/postal/thank-you"
+    "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
+    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms"
+
 
   )
 
