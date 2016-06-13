@@ -23,7 +23,7 @@ Feature: Change Address Manually link visibility
     And user updates 'postcode' with ''
     Then user clicks on 'submitAddressFinder' button
     And the error message for 'postcode' is 'Enter a valid UK postcode'
-    And user does not see a manual entry link matching: 'Enter your address if it isn't shown'
+    And user does not see a manual entry link matching: 'Enter your address yourself'
 
   Scenario: User enters Invalid Postcode
     Given A user is logged into the service using verify
@@ -40,7 +40,7 @@ Feature: Change Address Manually link visibility
     Then user continues from Your address page
     And user updates 'postcode' with 'ZZZZ ZZZ'
     Then user clicks on 'submitAddressFinder' button
-    And user does not see a manual entry link matching: 'Enter your address if it isn't shown'
+    And user does not see a manual entry link matching: 'Enter your address yourself'
 
   Scenario: User enters valid Postcode that can not be found
     Given A user is logged into the service using verify
@@ -57,7 +57,7 @@ Feature: Change Address Manually link visibility
     Then user continues from Your address page
     And user updates 'postcode' with 'NE61 6DB'
     Then user clicks on 'submitAddressFinder' button
-    And user sees a manual entry link matching: 'Enter your address if it isn't shown'
+    And user sees a manual entry link matching: 'Enter your address yourself'
 
   Scenario: User enters valid Postcode that can not be found with valid House Number
     Given A user is logged into the service using verify
@@ -75,7 +75,7 @@ Feature: Change Address Manually link visibility
     And user updates 'filter' with '10000001'
     And user updates 'postcode' with 'NE61 6DB'
     Then user clicks on 'submitAddressFinder' button
-    And user sees a manual entry link matching: 'Enter your address if it isn't shown'
+    And user sees a manual entry link matching: 'Enter your address yourself'
 
   Scenario: User enters valid Postcode that can not be found with invalid House Number
     Given A user is logged into the service using verify
@@ -93,7 +93,7 @@ Feature: Change Address Manually link visibility
     And user updates 'filter' with '%$£'
     And user updates 'postcode' with 'NE61 6DB'
     Then user clicks on 'submitAddressFinder' button
-    And user sees a manual entry link matching: 'Enter your address if it isn't shown'
+    And user does not see a manual entry link matching: 'Enter your address yourself'
 
   Scenario: User enters valid Postcode that Can be found with House Number not found
     Given A user is logged into the service using verify
@@ -111,7 +111,7 @@ Feature: Change Address Manually link visibility
     And user updates 'filter' with '100000001'
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
-    And user sees a manual entry link matching: 'Enter your address if it isn't shown'
+    And user sees a manual entry link matching: 'Enter your address yourself'
 
 
   Scenario: User enters valid Postcode that Can be found with invalid House Number
@@ -130,7 +130,7 @@ Feature: Change Address Manually link visibility
     And user updates 'filter' with '%%£$'
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
-    And user sees a manual entry link matching: 'Enter your address if it isn't shown'
+    And user does not see a manual entry link matching: 'Enter your address yourself'
 
 
 
