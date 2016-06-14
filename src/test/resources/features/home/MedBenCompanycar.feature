@@ -14,8 +14,8 @@ Feature: Ability to make use of Medical Benefits and Company Car from PTA
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
     Then user is able to see a section 'Recommended for you'
-    And user sees text 'Have you had a change in your company car or private medical insurance provided by your employer?' on the home page
-    And user sees 'check your taxable income' link on the page and its href is as expected
+    And user sees text 'View your taxable income and see any company benefits that may affect the amount, for example a company car or medical benefit.' on the home page
+    And user sees 'View your company benefits' link on the page and its href is as expected
 
   Scenario: User without active company benefits sees appropriate content on home page
     Given User without active company benefits is logged into the service using gg
@@ -23,9 +23,9 @@ Feature: Ability to make use of Medical Benefits and Company Car from PTA
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
-    Then user is able to see a section 'RRecommended for you'
-    And user does not see text 'Have you had a change in your company car or private medical insurance provided by your employer?' on the home page
-    And user does not see the link  'check your taxable income' on the home page
+    Then user is able to see a section 'Recommended for you'
+    And user does not see text 'View your taxable income and see any company benefits that may affect the amount, for example a company car or medical benefit.' on the home page
+    And user does not see the link  'View your company benefits' on the home page
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
   Scenario: User without active company benefits but with Marriage Allowance sees appropriate content on home page
@@ -35,8 +35,8 @@ Feature: Ability to make use of Medical Benefits and Company Car from PTA
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
     Then user is not able to see a recommendation section 'Recommended for you'
-    And user does not see text 'Have you had a change in your company car or private medical insurance provided by your employer?' on the home page
-    And user does not see the link  'check your taxable income' on the home page
+    And user does not see text 'View your taxable income and see any company benefits that may affect the amount, for example a company car or medical benefit.' on the home page
+    And user does not see the link  'View your company benefits' on the home page
     And user does not see a recommendation link matching: 'Check if you can get Marriage Allowance'
 
 

@@ -20,8 +20,9 @@ Feature: Change/Modify my home address
     Then user continues from Tax Credits page
     Then user selects the option No
     Then user continues from Your address page
+    And user updates 'postcode' with 'NE7 7HN'
     Then user clicks on 'submitAddressFinder' button
-    Then user clicks on 'Enter your address if it isn't shown' link
+    Then user clicks on 'Enter your address yourself' link
     And user updates address 'line1' with '<line1_content>'
     And user updates address 'line2' with '<line2_content>'
     And user updates address 'line3' with '<line3_content>'
