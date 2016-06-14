@@ -31,6 +31,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
+    And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
     And user sees 'Manage your paperless settings' link on the page and its href is as expected
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected

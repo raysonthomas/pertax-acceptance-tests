@@ -29,7 +29,7 @@ Feature: Verify my home address
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     And user selects new address '8 Test Street, Testtown, FX97 4TU' and continues
-    Then user continues from Edit the address page
+#    Then user continues from Edit the address page
     Then user sees text 'When did this become your main home?' on the page
     And user updates date field 'startDate.day' with '01'
     And user updates date field 'startDate.month' with '01'
