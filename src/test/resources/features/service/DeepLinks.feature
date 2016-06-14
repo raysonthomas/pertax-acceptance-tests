@@ -55,8 +55,8 @@ Feature: Deep Links
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
-  | NavigatedTo                                        | PageURL                                                                                                    | ExpectedEndOfURL     |
-  | Select Your Address                                | http://localhost:9232/personal-account/your-address/sole/select-address?postcode=FX97+4TU                  | /your-address        |
+  | NavigatedTo                                        | PageURL                                                                                                      | ExpectedEndOfURL     |
+  | Select Your Address                                |http://localhost:9232/personal-account/your-address/sole/select-address?postcode=FX97+4TU                     | /your-address        |
 
 
   Scenario Outline: User navigates to 'Edit Your Address' and not submitted data for 'Do you live in more than one place'
@@ -104,7 +104,6 @@ Feature: Deep Links
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
-    Then user continues from Edit the address page
     Then user sees text 'When did you start living here?' on the page
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
