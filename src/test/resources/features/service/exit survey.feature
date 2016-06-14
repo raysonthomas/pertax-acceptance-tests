@@ -67,7 +67,7 @@ Feature: Test the exit survey
     When  User enters 1200 characters into the free text box
     Then  User will see the content '0 characters remaining'
     When  User enters 1201 characters into the free text box
-    Then  User will see the content '-1 character remaining'
+    Then  User will not see the final character in the free text box
 
 
 
