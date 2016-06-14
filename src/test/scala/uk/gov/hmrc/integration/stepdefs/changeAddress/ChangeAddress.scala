@@ -239,4 +239,16 @@ class ChangeAddress extends ScalaDsl with EN {
     }
   }
 
+  And( """^user does not see a manual entry link matching: '(.*)'$""") {
+    (linkName: String) => withCurrentDriver { implicit webDriver =>
+      assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page when not expected")
+    }
+  }
+
+  And( """^user sees a manual entry link matching: '(.*)'$""") {
+    (linkName: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(linkName), s"$linkName is not present on the page when expected")
+    }
+  }
+
 }
