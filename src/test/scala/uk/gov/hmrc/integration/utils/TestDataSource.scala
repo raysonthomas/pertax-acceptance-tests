@@ -114,7 +114,7 @@ object TestDataSource {
     "Check your National Insurance record"                          -> "/checkmystatepension/account/nirecord/pta",
     "Back to account home"                                          -> "/personal-account",
     "State Pension forecast"                                        -> "/checkmystatepension/account/pta",
-    "check your taxable income"                                     -> "/check-income-tax/taxable-income",
+    "View your company benefits"                                    -> "/check-income-tax/taxable-income",
     "current address"                                               -> "/personal-account/your-address",
     "personal tax account home"                                     -> "/personal-account",
     "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
