@@ -21,25 +21,44 @@ Feature: Test the exit survey
     When  clicks on the Sign out link
     And   User sees sub heading 'Before you go, please answer some questions to help us improve your experience'
     //Q1
-    And   User sees content 'Based on what you have done today, what do you need to do next? You can tick more than one box.'
-    And   User sees checkbox with content 'Contact HMRC'
-    And   User sees checkbox with content 'Find out more about tax online'
+    And   User sees content 'Before using your tax account, were you going to phone or write to HMRC about your query?'
+    And   User sees radio button with the content 'Yes'
+    And   User sees radio button with the content 'No'
+    //Q2a
+    When  User Selects the Radio button 'Yes'
+    Then  User will see the content 'After using your tax account, do you still need to phone or write to HMRC?'
+    And   User sees additional radio button with the content 'Yes'
+    And   User sees additional radio button with the content 'No'
+    And   User sees radio button with the content 'Don't Know'
+    //Q2b
+    When  User Selects the Radio button 'No'
+    Then  User will see the content 'After using your tax account, do you now need to phone or write to HMRC?'
+    And   User sees additional radio button with the content 'Yes'
+    And   User sees additional radio button with the content 'No'
+    And   User sees radio button with the content 'Don't Know'
+
+    When  User selects 'Yes' on Q1
+    And   User selects 'Yes' on Q2a and amends selection on Q1 to No
+    Then  The selction for Q2a should be removed
+    //Q3
+    And   User sees content 'Based on what you have done today, do you need to do anything else? You can tick more than one box.'
+    And   User sees checkbox with content 'Don't need to do anything else'
+    And   User sees checkbox with content 'Find out more online'
     And   User sees checkbox with content 'Speak to your employer'
     And   User sees checkbox with content 'Ask a friend or family member for advice'
     And   User sees checkbox with content 'Ask an agent or accountant for advice'
-    And   User sees checkbox with content 'Nothing'
     And   User sees checkbox with content 'Don't know'
     And   User sees checkbox with content 'Other'
     And   User is able to select multiple checkboxes
 
-    When  User selects the option 'Nothing' as well as any other checkbox
+    When  User selects the option 'Don't need to do anything else' as well as any other checkbox
     Then  User sees the content 'XXXXXXXXXXXXXXXX'
 
     When  User selects the option 'Other'
     Then  User sees the text 'please state:'
     And   User sees a freetext box where they can enter text
 
-    //Q2
+    //Q4
     And   User sees the content 'How likely are you to recommend your tax account to your friends or family?'
     And   User sees radio button with the content 'Very likely'
     And   User sees radio button with the content 'Likely'
@@ -48,7 +67,7 @@ Feature: Test the exit survey
     And   User sees radio button with the content 'Very unlikely'
 
 
-    //Q3
+    //Q5
     And   User sees the content 'Overall, how do you feel about your experience using your tax account today?'
     And   User sees radio button with the content 'Very satisfied'
     And   User sees radio button with the content 'Satisfied'
@@ -68,6 +87,12 @@ Feature: Test the exit survey
     Then  User will see the content '0 characters remaining'
     When  User enters 1201 characters into the free text box
     Then  User will not see the final character in the free text box
+
+
+    //Button
+
+    When User clicks 'Send Feedback' button
+    Then user is on the page with title 'Thank you for your feedback'and URL is as expected
 
 
 
