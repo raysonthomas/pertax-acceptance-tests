@@ -31,6 +31,15 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  Then( """^user is on the page with title '(.*)' and URL is correct$""") {
+    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      val currentUrl = webDriver.getCurrentUrl
+      assert(currentUrl.endsWith("/your-address/sole/thank-you"), "current URL does not end with /your-address/sole/thank-you")
+      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
+  }
+
   Then( """^user is not on the page with title '(.*)' and URL is as expected$""") {
     (notExpectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
@@ -64,4 +73,6 @@ class NavigationTest extends ScalaDsl with EN {
         assert(webDriver.getPageSource.contains("Popular forms on GOV.UK"), s"\n$expectedText text was not found on the page")
       }
    }
+
+
 }
