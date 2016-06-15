@@ -25,7 +25,7 @@ Feature: Verify my correspondence address
     Then user clicks on 'submitAddressFinder' button
     And user selects new address '8 Test Street, Testtown, FX97 4TU' and continues
     Then user continues from Edit the address page
-    And user is on the page with title 'Your address has been updated' whose URL is as expected
+    And user is on the page with title 'Your address has been updated' with correct URL for postal address update
     And user clicks on 'Return to your account home' link
     And user is on the page with title 'Personal tax account' and URL is as expected
 

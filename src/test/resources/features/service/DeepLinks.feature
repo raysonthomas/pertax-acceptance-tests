@@ -55,8 +55,8 @@ Feature: Deep Links
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
-  | NavigatedTo                                        | PageURL                                                                                                    | ExpectedEndOfURL     |
-  | Select Your Address                                | http://localhost:9232/personal-account/your-address/sole/select-address?postcode=FX97+4TU                  | /your-address        |
+  | NavigatedTo                                        | PageURL                                                                                                      | ExpectedEndOfURL     |
+  | Select Your Address                                |http://localhost:9232/personal-account/your-address/sole/select-address?postcode=FX97+4TU                     | /your-address        |
 
 
   Scenario Outline: User navigates to 'Edit Your Address' and not submitted data for 'Do you live in more than one place'
@@ -104,7 +104,6 @@ Feature: Deep Links
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
-    Then user continues from Edit the address page
     Then user sees text 'When did you start living here?' on the page
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
@@ -118,13 +117,13 @@ Feature: Deep Links
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
-    And user is on the page with title 'Your address has already been updated' and URL is as expected
+    And user is on the page with title 'Your address has already been updated' and URL is correct
     Then user sees 'current address' link on the page and its href is as expected
     Then user sees 'personal tax account home' link on the page and its href is as expected
 
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL                |
-      | Your address has been saved                                     | http://localhost:9232/personal-account/your-address/sole/thank-you                                                                 | /address-already-updated        |
+      | Your address has been saved                                     | http://localhost:9232/personal-account/your-address/sole/thank-you                                                                 | /your-address/sole/thank-you    |
 
 
   Scenario Outline: Correspondence Address: User navigates to 'Find an address' page and not viewed page 'Your address'
@@ -172,4 +171,4 @@ Feature: Deep Links
 
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL                |
-      | Your address has been saved                                     | http://localhost:9232/personal-account/your-address/postal/thank-you                                                               | /address-already-updated        |
+      | Your address has been saved                                     | http://localhost:9232/personal-account/your-address/postal/thank-you                                                               | /your-address/postal/thank-you  |

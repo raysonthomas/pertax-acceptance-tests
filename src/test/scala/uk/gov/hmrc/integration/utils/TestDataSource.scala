@@ -147,7 +147,8 @@ object TestDataSource {
     "Your address has already been updated"                         -> "/personal-account/address-already-updated",
     "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
     "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
-    "Your address"                                                  -> "/personal-account/your-address"
+    "Your address"                                                  -> "/personal-account/your-address",
+    "Your address has already been updated"                         -> "/personal-account/your-address/postal/thank-you"
 
   )
 
