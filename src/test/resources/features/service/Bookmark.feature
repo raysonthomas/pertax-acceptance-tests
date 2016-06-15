@@ -10,7 +10,7 @@ Feature: Test the bookmark feature
   Scenario Outline: User should be returned to the 'your Address' page when directly navigating to the 'your address' page
     Given user navigates to <NavigatedTo> page with <PageURL> url
     And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
-    Then User is logged into the service using gg
+    Then User logs into the service using gg
     Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -23,7 +23,7 @@ Feature: Test the bookmark feature
   Scenario Outline: User should be returned to the 'your Address' page when directly navigating to the 'Check your details' page
     Given user navigates to <NavigatedTo> page with <PageURL> url
     And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
-    Then User is logged into the service using gg
+    Then User logs into the service using gg
     Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -36,7 +36,7 @@ Feature: Test the bookmark feature
   Scenario Outline: User should be returned to the 'National Insurance' page when directly navigating to the 'National Insurance' page
     Given user navigates to <NavigatedTo> page with <PageURL> url
     And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
-    Then User is logged into the service using gg
+    Then User logs into the service using gg
     Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
@@ -49,11 +49,11 @@ Feature: Test the bookmark feature
   Scenario Outline: User should be returned to the 'address already updated' page when directly navigating to the 'done' page
     Given user navigates to <NavigatedTo> page with <PageURL> url
     And user is redirected to Sign In page and url ends with <ExpectedEndOfURL>
-    Then User is logged into the service using gg
+    Then User logs into the service using gg
     Then user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
-    And user is on the page with title 'Your address has already been updated' and URL is as expected
+    And user is on the page with title 'Your address has already been updated' and URL is correct
     Examples:
       | NavigatedTo                                   | PageURL                                                                           | ExpectedEndOfURL                        |
       | Your address has been saved                   | http://localhost:9232/personal-account/your-address/sole/thank-you                | accountType=individual&origin=PERTAX    |
