@@ -1,10 +1,9 @@
 package uk.gov.hmrc.integration.stepdefs.GA
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.jsoup.Jsoup
 import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
-import uk.gov.hmrc.integration.utils.Configuration
+import scala.collection.JavaConversions._
 
 class GA extends ScalaDsl with EN {
 
@@ -24,7 +23,8 @@ class GA extends ScalaDsl with EN {
 
   And( """^Continue button has Google Analytics tracking enabled$""") { () =>
     withCurrentDriver { implicit webDriver =>
-           (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("send-tcs-ga-event"))
+      val selectedSource = Jsoup.parse(webDriver.getPageSource).select( """.send-tcs-ga-event""").head.parent()
+      assert(selectedSource.html().contains("http://localhost:9362/tax-credits-service/personal/change-address"), "\nGA Tracking url not found in the section")
 //      assert(webDriver.getPageSource.contains("data-tcs-ga-event-url"),"The GA url not found on the page" )
     }
   }
