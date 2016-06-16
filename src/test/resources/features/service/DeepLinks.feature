@@ -165,7 +165,7 @@ Feature: Deep Links
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user navigates to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
-    And user is on the page with title 'Your address has already been updated' and URL is as expected
+    And user is on the page with title 'Your address has already been updated' and URL is as expected for the postal address change
     Then user sees 'current address' link on the page and its href is as expected
     Then user sees 'personal tax account home' link on the page and its href is as expected
 

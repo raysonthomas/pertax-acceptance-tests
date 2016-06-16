@@ -119,7 +119,9 @@ object TestDataSource {
     "personal tax account home"                                     -> "/personal-account",
     "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
 //    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
-    "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address"
+    "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
+    "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
+    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms"
 
 
 
@@ -144,11 +146,11 @@ object TestDataSource {
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
     "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
     "We're unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete",
-    "Your address has already been updated"                         -> "/personal-account/address-already-updated",
+    "Your address has already been updated"                         -> "/personal-account/your-address/sole/thank-you",
     "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
     "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
     "Your address"                                                  -> "/personal-account/your-address",
-    "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
+    "Your tax credits"                                              -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms"
 
 
