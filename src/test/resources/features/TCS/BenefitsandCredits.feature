@@ -1,4 +1,4 @@
-@suite
+@wip
 Feature: Link to tax Credits in benefits and Credits
   As a user
   I must be able to use the link to tax Credits from Benefits and Credits

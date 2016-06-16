@@ -260,4 +260,13 @@ class ChangeAddress extends ScalaDsl with EN {
     }
   }
 
+  Then( """^user is on the page with title '(.*)' and URL is as expected for the postal address change$""") {
+    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      val currentUrl = webDriver.getCurrentUrl
+      assert(currentUrl.endsWith("/personal-account/your-address/postal/thank-you"), "current URL does not end with /personal-account/your-address/sole/thank-you")
+      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
+  }
+
 }
