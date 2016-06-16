@@ -51,8 +51,6 @@ Feature: Test the exit survey
     And   User sees checkbox with content 'Other'
     And   User is able to select multiple checkboxes
 
-    When  User selects the option 'Don't need to do anything else' as well as any other checkbox
-    Then  User sees the content 'XXXXXXXXXXXXXXXX'
 
     When  User selects the option 'Other'
     Then  User sees the text 'please state:'
