@@ -40,6 +40,7 @@ object TestDataSource {
     "A user with Effective From date other than 06 April 2016"       -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
     "A user with No Effective From date"                             -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
     "A user"                                                         -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
+    "A user with a PAYE account and not in NPS"                      -> UserProperties.build(nino = Some("CS700100A"), sautr = Some("111111111"), verify = true),//John Densmore
 
 
 
@@ -151,7 +152,8 @@ object TestDataSource {
     "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
     "Your address"                                                  -> "/personal-account/your-address",
     "Your tax credits"                                              -> "/personal-account/tax-credits-summary",
-    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms"
+    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
+    "There's a problem"                                             -> "/personal-account"
 
 
   )
