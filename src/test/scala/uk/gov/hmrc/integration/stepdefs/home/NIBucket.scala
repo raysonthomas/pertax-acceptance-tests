@@ -19,6 +19,12 @@ class NIBucket extends ScalaDsl with EN {
     }
   }
 
+  And( """^user sees nino '(.*)' on the NI page$""") {
+    (expectedNino: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(expectedNino), s"\n'$expectedNino' nino was not found on the page")
+    }
+  }
+
   Then( """^user sees link '(.*)' on NI page and its href is as expected$""") {
     (link: String) => withCurrentDriver { implicit webDriver =>
       val linkhref = webDriver.findElement(By.id(link)).getAttribute("href")
@@ -32,6 +38,42 @@ class NIBucket extends ScalaDsl with EN {
         assert(webDriver.getPageSource.contains(name), s"\n$name heading was not found in page"
         )
       }
+  }
+
+  And( """^user sees nino '(.*)' on the NI Print page$""") {
+    (expectedNino: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(expectedNino), s"\n'$expectedNino' nino was not found on the page")
+    }
+  }
+
+  And( """^user sees name and address '(.*)', '(.*)', '(.*)', '(.*)' on the NI Print page$""") {
+    (name: String, addressLine1: String, addressLine2: String, addressLine3: String, postCode: String) =>
+      withCurrentDriver { implicit webDriver =>
+        val pageSource = webDriver.getPageSource
+        assert(pageSource.contains(name), s"\n'$name' address was not found on the page")
+        assert(pageSource.contains(addressLine1), s"\n'$addressLine1' address was not found on the page")
+        assert(pageSource.contains(addressLine2), s"\n'$addressLine2' address was not found on the page")
+        assert(pageSource.contains(postCode), s"\n'$postCode' address was not found on the page")
+    }
+  }
+
+  And( """^user sees name '(.*)' on the NI Print page$""") {
+    (expectedName: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' nino was not found on the page")
+    }
+  }
+
+  And( """^user sees date '(today)' on the NI Print page$""") {
+    (expectedName: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' nino was not found on the page")
+    }
+  }
+
+  And( """^user sees todays date on the NI Print page$""") {
+    withCurrentDriver { implicit webDriver =>
+      val date = org.joda.time.DateTime.now.toString("dd/mm/yyyy")
+      assert(webDriver.getPageSource.contains(date), s"\n'$date' nino was not found on the page")
+    }
   }
 
 }
