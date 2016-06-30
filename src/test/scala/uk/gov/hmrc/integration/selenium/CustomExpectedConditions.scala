@@ -1,6 +1,6 @@
 package uk.gov.hmrc.integration.selenium
 
-import org.openqa.selenium.WebDriver
+import org.openqa.selenium.{By, WebDriver}
 import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
 
 object CustomExpectedConditions {

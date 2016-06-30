@@ -122,7 +122,8 @@ object TestDataSource {
 //    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
-    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms"
+    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
+    "sign in to your account again"                                 -> "/personal-account"
 
 
 
@@ -153,7 +154,8 @@ object TestDataSource {
     "Your address"                                                  -> "/personal-account/your-address",
     "Your tax credits"                                              -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
-    "There's a problem"                                             -> "/personal-account"
+    "There's a problem"                                             -> "/personal-account",
+    "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks"
 
 
   )

@@ -31,7 +31,6 @@ class LogInTest extends ScalaDsl with EN {
   And( """^user is unable to access the application$""") { () =>
     withCurrentDriver { implicit webDriver =>
       webDriver.get(Configuration("url"))
-<<<<<<< HEAD
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("personal-account&accountType=individual&origin=PERTAX")))
       assert(webDriver.getCurrentUrl.endsWith("personal-account&accountType=individual&origin=PERTAX"), "User should be on the start page")
     }
@@ -39,12 +38,4 @@ class LogInTest extends ScalaDsl with EN {
 
 
 
-=======
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("do-uplift&accountType=individual&origin=PERTAX")))
-      assert(webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual&origin=PERTAX"), "User should be on the start page")
-      }
-  }
-
-
->>>>>>> exit
 }

@@ -12,7 +12,7 @@ import uk.gov.hmrc.integration.utils.Configuration
 class ExitTest extends ScalaDsl with EN {
 
 
-  And( """^user sees text '(.*)' on the Exit page$""") {
+    And( """^user sees text '(.*)' on the Exit page$""") {
     (expectedText: String) => withCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
     }
@@ -25,14 +25,16 @@ class ExitTest extends ScalaDsl with EN {
   }
 
   Then( """^user selects no radio button on 'before using your tax account' question""") {
+    ()=>
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("beforeUsingYourTaxAccount-0")).click()
+       webDriver.findElement(By.id("beforeUsingYourTaxAccount-0")).click()
+
     }
   }
 
   Then( """^user selects other checkbox""") {
     withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("other")).click()
+      webDriver.findElement(By.cssSelector("input[name=\"other\" ][id=\"other\"]")).click()
     }
   }
 
@@ -40,8 +42,7 @@ class ExitTest extends ScalaDsl with EN {
   And( """^user sees the radio button '(.*)'$""") {
     (answer: String) =>
       withCurrentDriver { implicit webDriver =>
-        if (webDriver.getPageSource.contains(answer))
-          webDriver.findElement(By.xpath(".//*[@type='radio' and @value='"+answer+"']"))
+        assert(webDriver.getPageSource.contains(answer), "The answers not found when expected")
 
       }
   }
@@ -50,8 +51,8 @@ class ExitTest extends ScalaDsl with EN {
   Then( """^user sees checkbox '(.*)'$""") {
     (answer: String) =>
       withCurrentDriver { implicit webDriver =>
-        if (webDriver.getPageSource.contains(answer))
-          webDriver.findElement(By.xpath(".//*[@type='checkbox' and @value='"+answer+"']"))
+        assert(webDriver.getPageSource.contains(answer),"Checkbox for answer not found")
+//          webDriver.findElement(By.xpath(".//*[@type='checkbox' and @value='"+answer+"']"))
 
       }
   }
@@ -61,6 +62,80 @@ class ExitTest extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(button))
           webDriver.findElement(By.id(id))
+      }
+  }
+
+  Then( """^user sees radio button 'Yes' under Before using your tax account$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+          assert(webDriver.findElement(By.cssSelector("#beforeUsingYourTaxAccount-1")).isDisplayed, "Button not displayed")
+      }
+  }
+
+  Then( """^user sees radio button 'No' under Before using your tax account$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.findElement(By.cssSelector("#beforeUsingYourTaxAccount-0")).isDisplayed, "Button not displayed")
+      }
+  }
+
+  Then( """^user sees radio button 'Yes' under still need to phone or write to HMRC""" ) {
+    withCurrentDriver { implicit webDriver =>
+      assert(webDriver.findElement(By.id("stillReduceHMRCPhoneCalls-2")).isDisplayed, "The expected button not displayed")
+    }
+  }
+
+  Then( """^user sees radio button 'No' under still need to phone or write to HMRC$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.findElement(By.cssSelector("#stillReduceHMRCPhoneCalls-1")).isDisplayed, "Button not displayed")
+      }
+  }
+
+  Then( """^user sees radio button 'Don't know' under still need to phone or write to HMRC$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.findElement(By.cssSelector("#stillReduceHMRCPhoneCalls-0")).isDisplayed, "Button not displayed")
+      }
+  }
+
+  Then( """^user sees radio button 'Yes' under now need to phone or write to HMRC""" ) {
+    withCurrentDriver { implicit webDriver =>
+      assert(webDriver.findElement(By.id("nowReduceHMRCPhoneCalls-2")).isDisplayed, "The expected button not displayed")
+    }
+  }
+  Then( """^user sees radio button 'No' under now need to phone or write to HMRC$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.findElement(By.cssSelector("#nowReduceHMRCPhoneCalls-1")).isDisplayed, "Button not displayed")
+      }
+  }
+
+  Then( """^user sees radio button 'Don't know' under now need to phone or write to HMRC$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(webDriver.findElement(By.cssSelector("#nowReduceHMRCPhoneCalls-0")).isDisplayed, "Button not displayed")
+      }
+  }
+
+
+  Then( """^user selects radio button 'Yes' under still need to phone or write to HMRC""" ) {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("stillReduceHMRCPhoneCalls-2")).click()
+    }
+  }
+
+  Then( """^user selects radio button 'No' under Before using your tax account$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+       webDriver.findElement(By.cssSelector("#beforeUsingYourTaxAccount-0")).click()
+      }
+  }
+
+  Then( """^The selection Yes for still need to phone section is removed$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        assert(!webDriver.findElement(By.id("nowReduceHMRCPhoneCalls-2")).isSelected, "Button selected when not expected")
       }
   }
 
@@ -80,11 +155,17 @@ class ExitTest extends ScalaDsl with EN {
       }
   }
 
-  Then( """^user now sees the 'do you still need to phone or write' question""" ) {
-    withCurrentDriver { implicit webDriver =>
-      assert(webDriver.findElement(By.id("stillReduceHMRCPhoneCalls-2")).isDisplayed, "The expected button not displayed")
-    }
+  When( """^user is able to select multiple checkboxes$""") {
+    () =>
+      withCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.cssSelector("input[name=\"dontKnow\" ][id=\"dontKnow\"]")).click()
+        webDriver.findElement(By.cssSelector("input[name=\"askEmployer\" ][id=\"askEmployer\"]")).click()
+        assert(webDriver.findElement(By.cssSelector("input[name=\"dontKnow\" ][id=\"dontKnow\"]")).isSelected,"Checkbox not selected when expected")
+        assert(webDriver.findElement(By.cssSelector("input[name=\"askEmployer\" ][id=\"askEmployer\"]")).isSelected,"Checkbox not selected when expected")
+
+      }
   }
+
 
   Then( """^user now sees the 'Please state' text box""" ) {
     withCurrentDriver { implicit webDriver =>
@@ -92,23 +173,19 @@ class ExitTest extends ScalaDsl with EN {
     }
   }
 
-  Then( """^user now sees the 'do you now need to phone or write' question""" ) {
-    withCurrentDriver { implicit webDriver =>
-      assert(webDriver.findElement(By.id("nowReduceHMRCPhoneCalls-2")).isDisplayed, "The expected button not displayed")
-    }
-  }
+
 
   And( """^user enters the 10 characters: '(.*)' into the free text box""") {
     (value: String) => withCurrentDriver { implicit webDriver =>
-      val field = webDriver.findElement(By.className("char-counter"))
+      val field = webDriver.findElement(By.cssSelector(".char-counter>textarea"))
       field.clear()
       field.sendKeys(value)
     }
   }
 
-  And( """^user clicks on the '(.*)' button$""") {
-    (id: String) => withCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.className(id)).click()
+  And( """^user clicks on the Send feedback button on Exit survey page$""") {
+    () => withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.xpath(".//*[@id='content']/article/div/div/form/div/button")).click()
     }
   }
 
