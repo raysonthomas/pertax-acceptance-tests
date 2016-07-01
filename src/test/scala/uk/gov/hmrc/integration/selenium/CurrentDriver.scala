@@ -16,7 +16,7 @@ object CurrentDriver {
 //      && !webDriver.getCurrentUrl.endsWith("identity-check-complete") && !webDriver.getCurrentUrl.contains("identity-check-complete"))
 
       if (webDriver != null && !webDriver.getCurrentUrl.endsWith("/ida/startlogin") && !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual")&& !webDriver.getCurrentUrl.endsWith("do-uplift&accountType=individual&origin=PERTAX")&& !webDriver.getCurrentUrl.endsWith("personal-account&accountType=individual&origin=PERTAX")
-        && !webDriver.getCurrentUrl.contains("/tax-credits-service/personal/change-address") && !webDriver.getCurrentUrl.contains("identity-check-complete"))
+        && !webDriver.getCurrentUrl.contains("/tax-credits-service/personal/change-address") && !webDriver.getCurrentUrl.contains("identity-check-complete")&& !webDriver.getCurrentUrl.endsWith("/signed-out")&& !webDriver.getCurrentUrl.endsWith("/personal-account/feedback-thanks"))
 
     {
       GlobalActions.maybeClickMenu

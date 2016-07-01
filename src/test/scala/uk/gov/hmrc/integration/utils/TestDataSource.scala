@@ -122,7 +122,8 @@ object TestDataSource {
 //    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
-    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms"
+    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
+    "sign in to your account again"                                 -> "/personal-account"
 
 
 
@@ -147,13 +148,14 @@ object TestDataSource {
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
     "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
     "We're unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete",
-    "Your address has already been updated"                         -> "/personal-account/your-address/sole/thank-you",
+    "Your address has already been updated"                         -> "/personal-account/address-already-updated",
     "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
     "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
     "Your address"                                                  -> "/personal-account/your-address",
     "Your tax credits"                                              -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
-    "There's a problem"                                             -> "/personal-account"
+    "There's a problem"                                             -> "/personal-account",
+    "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks"
 
 
   )
