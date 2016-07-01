@@ -59,15 +59,15 @@ class NIBucket extends ScalaDsl with EN {
 
   And( """^user sees name '(.*)' on the NI Print page$""") {
     (expectedName: String) => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' nino was not found on the page")
+      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' name was not found on the page")
     }
   }
 
-  And( """^user sees date '(today)' on the NI Print page$""") {
-    (expectedName: String) => withCurrentDriver { implicit webDriver =>
-      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' nino was not found on the page")
-    }
-  }
+//  And( """^user sees date '(today)' on the NI Print page$""") {
+//    (expectedName: String) => withCurrentDriver { implicit webDriver =>
+//      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' date was not found on the page")
+//    }
+//  }
 
   And( """^user sees todays date on the NI Print page$""") {
     withCurrentDriver { implicit webDriver =>
