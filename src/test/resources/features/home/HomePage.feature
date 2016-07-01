@@ -4,7 +4,7 @@ Feature: Home Page segmentation
   I want to see PTA home page with proper segmentation and bucketing
   Also test the breadcrumb is as expected
 
-  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964, MTA-1990
+  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964, MTA-1990, MTA-1985
 
   Scenario: Check that the home page has proper segmentation
     Given A user with a PAYE account, but no SA account is logged into the service using verify
@@ -39,6 +39,26 @@ Feature: Home Page segmentation
     And user sees 'View your company benefits' link on the page and its href is as expected
 
 
+    Scenario: User with overpayment logs in and sees p800 banner
+      Given A user with a tax overpayment is logged into the service
+      Then  user is on the page with title 'Personal tax account' and URL is as expected
+      And   user sees text 'You have paid too much tax' on the home page
+      And   user sees text 'HM Revenue and Customs owe you a £250 refund for the 2015 to 2016 tax year.' on the home page
+      And   user sees 'Get your refund' link on the page and its href is as expected
+
+
+    Scenario: User with underpayment logs in and sees p800 banner
+      Given A user with a tax underpayment is logged into the service
+      Then  user is on the page with title 'Personal tax account' and URL is as expected
+      And   user sees text 'You have paid too little tax' on the home page
+      And   user sees text 'You owe HM Revenue and Customs £250 for the 2015 to 2016 tax year.' on the home page
+      And   user sees 'Further information' link on the page and its href is as expected
+
+    Scenario: User without over or under payment logs in and does not see P800 banner
+      Given A user without a tax underpayment or overpayment is logged into the service
+      Then  user is on the page with title 'Personal tax account' and URL is as expected
+      And   user does not see text 'You have paid too little tax' on the home page
+      And   user does not see text 'You have paid too much tax' on the home page
 
 
 
