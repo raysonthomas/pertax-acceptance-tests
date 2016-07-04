@@ -26,7 +26,7 @@ Feature: Test the exit survey
     Then  user sees text 'Before you go, please answer some questions to help us improve your experience' on the Exit page
 
 #  //Q1
-    And  user sees text 'Before using your tax account, were you going to phone or write to HMRC about your query?' on the Exit page
+    And  user sees text 'Before using your personal tax account, were you going to phone or write to HMRC about your query?' on the Exit page
     And  user sees radio button 'Yes' under Before using your tax account
     And  user sees radio button 'No' under Before using your tax account
 
@@ -60,11 +60,11 @@ Feature: Test the exit survey
     And user sees checkbox 'Don't know'
     And user sees checkbox 'Other'
     And user selects other checkbox
-    And user now sees the 'Please state' text box
+    And user now sees the 'tellUsWhatYouNeedToDo' text box
     And user is able to select multiple checkboxes
 
 #   //Q4
-    And   user sees text 'How likely are you to recommend your tax account to your friends or family?' on the Exit page
+    And   user sees text 'How likely are you to recommend your personal tax account to your friends or family?' on the Exit page
     And   user sees the radio button 'Very likely'
     And   user sees the radio button 'Likely'
     And   user sees the radio button 'Not likely or unlikely'
@@ -73,7 +73,7 @@ Feature: Test the exit survey
 
 #    //Q5
 
-    And   user sees text 'Overall, how do you feel about your experience using your tax account today?' on the Exit page
+    And   user sees text 'Overall, how do you feel about your experience using your personal tax account today?' on the Exit page
     And   user sees the radio button 'Very satisfied'
     And   user sees the radio button 'Satisfied'
     And   user sees the radio button 'Neither satisfied nor dissatisfied'
