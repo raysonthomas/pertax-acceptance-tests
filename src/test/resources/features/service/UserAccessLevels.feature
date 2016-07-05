@@ -9,7 +9,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
   Scenario: Check that a Verify user(CL500) NOT IN SA regime sees the appropriate options on PTA
     Given A user with a PAYE account, but no SA account is logged into the service using verify
     And user sees name 'Martin Hempton' on the page
-    And user sees nino 'AB 21 69 13 B' on the page
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
@@ -48,7 +47,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user sees name 'Samuel Margstest' on the page
-    And user sees nino 'CE 12 34 57 D' on the page
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
@@ -70,7 +68,6 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user sees name 'Bob Jones' on the page
-    And user sees nino 'AA 00 00 03 B' on the page
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
