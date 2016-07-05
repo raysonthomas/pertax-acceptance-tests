@@ -47,12 +47,12 @@ class NIBucket extends ScalaDsl with EN {
   }
 
   And( """^user sees name and address '(.*)', '(.*)', '(.*)', '(.*)' on the NI Print page$""") {
-    (name: String, addressLine1: String, addressLine2: String, addressLine3: String, postCode: String) =>
+    (name: String, addressLine1: String, addressLine2: String, postCode: String) =>
       withCurrentDriver { implicit webDriver =>
         val pageSource = webDriver.getPageSource
-        assert(pageSource.contains(name), s"\n'$name' address was not found on the page")
-        assert(pageSource.contains(addressLine1), s"\n'$addressLine1' address was not found on the page")
-        assert(pageSource.contains(addressLine2), s"\n'$addressLine2' address was not found on the page")
+        assert(pageSource.contains(name), s"\n'$name' name was not found on the page")
+        assert(pageSource.contains(addressLine1), s"\n'$addressLine1' address line was not found on the page")
+        assert(pageSource.contains(addressLine2), s"\n'$addressLine2' address line was not found on the page")
         assert(pageSource.contains(postCode), s"\n'$postCode' address was not found on the page")
     }
   }
@@ -63,16 +63,17 @@ class NIBucket extends ScalaDsl with EN {
     }
   }
 
-//  And( """^user sees date '(today)' on the NI Print page$""") {
-//    (expectedName: String) => withCurrentDriver { implicit webDriver =>
-//      assert(webDriver.getPageSource.contains(expectedName), s"\n'$expectedName' date was not found on the page")
-//    }
-//  }
 
-  And( """^user sees todays date on the NI Print page$""") {
+  And( """^user sees today's date on the NI Print page$""") {
     withCurrentDriver { implicit webDriver =>
-      val date = org.joda.time.DateTime.now.toString("dd/mm/yyyy")
-      assert(webDriver.getPageSource.contains(date), s"\n'$date' nino was not found on the page")
+      val date = org.joda.time.DateTime.now.toString("dd/MM/yyyy")
+      assert(webDriver.getPageSource.contains(date), s"\n'$date' Today's date was not found on the page")
+    }
+  }
+
+  And( """^user clicks the Back button to go back to account home$""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector(".column-half.back-link>a")).click()
     }
   }
 

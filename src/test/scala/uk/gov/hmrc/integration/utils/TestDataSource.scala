@@ -158,7 +158,8 @@ object TestDataSource {
     "Your tax credits"                                              -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
     "There's a problem"                                             -> "/personal-account",
-    "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks"
+    "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
+    "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter"
 
 
   )
