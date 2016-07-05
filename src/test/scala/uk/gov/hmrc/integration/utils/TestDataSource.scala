@@ -91,6 +91,8 @@ object TestDataSource {
 
   val pathForLink = Map(
     "login"                                                         -> "/ida/startlogin",
+    "Print proof of your National Insurance number"                 -> "/personal-account/national-insurance-summary/print-letter",
+    "Check your National Insurance contributions"                   -> "/checkmystatepension/account/nirecord",
     "View all HM Revenue and Customs forms"                         -> "/government/collections/hmrc-forms",
     "Your messages"                                                 -> "/personal-account/messages",
     "Income tax"                                                    -> "/check-income-tax/income-tax",
@@ -140,6 +142,7 @@ object TestDataSource {
     "Check your Income Tax"                                         -> "/check-income-tax/income-tax",
     "Benefits and tax credits summary"                              -> "/personal-account/benefits-credits-summary",
     "National Insurance summary"                                    -> "/personal-account/national-insurance-summary",
+    "Print"                                                         -> "/personal-account/national-insurance-summary/print-letter",
     "Pensions summary"                                              -> "/personal-account/pensions-summary",
     "Manage your paperless settings"                                -> "/personal-account/preferences",
     "Self Assessment summary"                                       -> "/personal-account/self-assessment-summary",
@@ -155,7 +158,8 @@ object TestDataSource {
     "Your tax credits"                                              -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
     "There's a problem"                                             -> "/personal-account",
-    "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks"
+    "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
+    "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter"
 
 
   )
