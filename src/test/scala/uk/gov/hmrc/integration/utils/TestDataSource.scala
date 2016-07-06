@@ -125,8 +125,8 @@ object TestDataSource {
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
-    "sign in to your account again"                                 -> "/personal-account"
-
+    "sign in to your account again"                                 -> "/personal-account",
+    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview"
 
 
   )
