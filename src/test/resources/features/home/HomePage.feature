@@ -39,28 +39,38 @@ Feature: Home Page segmentation
     And user sees 'View your company benefits' link on the page and its href is as expected
 
 
-    Scenario: User with overpayment logs in and sees p800 banner
-      Given A user with a tax overpayment is logged into the service
+    Scenario: When a user has paid too much tax in the previous tax year and has not requested a refund yet
+      Given A user who has not requested a refund yet is logged into the service
       Then  user is on the page with title 'Personal tax account' and URL is as expected
       And   user sees text 'You have paid too much tax' on the home page
       And   user sees text 'HM Revenue and Customs owe you a £250 refund for the 2015 to 2016 tax year.' on the home page
       And   user sees 'Get your refund' link on the page and its href is as expected
 
 
-    Scenario: User with underpayment logs in and sees p800 banner
-      Given A user with a tax underpayment is logged into the service
+    Scenario: When a user has paid too much tax in the previous tax year and has requested a refund which is currently being processed
+      Given A user who has requested a refund which is currently being processed is logged into the service
       Then  user is on the page with title 'Personal tax account' and URL is as expected
-      And   user sees text 'You have paid too little tax' on the home page
-      And   user sees text 'You owe HM Revenue and Customs £250 for the 2015 to 2016 tax year.' on the home page
-      And   user sees 'Further information' link on the page and its href is as expected
+      And   user sees text 'You have paid too much tax' on the home page
+      And   user sees text 'HM Revenue and Customs are processing your £250 refund.' on the home page
 
-    Scenario: User without over or under payment logs in and does not see P800 banner
-      Given A user without a tax underpayment or overpayment is logged into the service
+
+    Scenario: When a user has been sent a BACS payment for their refund
+      Given A user who has has been sent a BACS payment is logged into the service
       Then  user is on the page with title 'Personal tax account' and URL is as expected
-      And   user does not see text 'You have paid too little tax' on the home page
+      And   user sees text 'You have paid too much tax' on the home page
+      And   user sees text 'HM Revenue and Customs paid you a refund of £500 on 19 May 2016.' on the home page
+
+
+    Scenario:When a user has been sent a cheque for their refund they should see a banner with the below details
+     Given A user who has has been sent a cheque is logged into the service
+     Then  user is on the page with title 'Personal tax account' and URL is as expected
+     And   user sees text 'You have paid too much tax' on the home page
+     And   user sees text 'HM Revenue and Customs sent you a cheque for £600 on 19 May 2016.' on the home page
+
+    Scenario: When a user has not got an overpayment
+      Given A user without a tax underpayment is logged into the service
+      Then  user is on the page with title 'Personal tax account' and URL is as expected
       And   user does not see text 'You have paid too much tax' on the home page
-
-
 
 
 
