@@ -50,27 +50,27 @@ Feature: Home Page segmentation
     Scenario: When a user has paid too much tax in the previous tax year and has requested a refund which is currently being processed
       Given A user who has requested a refund which is currently being processed is logged into the service
       Then  user is on the page with title 'Personal tax account' and URL is as expected
-      And   user sees text 'You have paid too much tax' on the home page
+      And   user sees text 'You paid too much tax' on the home page
       And   user sees text 'HM Revenue and Customs are processing your £250 refund.' on the home page
 
 
     Scenario: When a user has been sent a BACS payment for their refund
       Given A user who has has been sent a BACS payment is logged into the service
       Then  user is on the page with title 'Personal tax account' and URL is as expected
-      And   user sees text 'You have paid too much tax' on the home page
+      And   user sees text 'You paid too much tax' on the home page
       And   user sees text 'HM Revenue and Customs paid you a refund of £500 on 19 May 2016.' on the home page
 
 
     Scenario:When a user has been sent a cheque for their refund they should see a banner with the below details
      Given A user who has has been sent a cheque is logged into the service
      Then  user is on the page with title 'Personal tax account' and URL is as expected
-     And   user sees text 'You have paid too much tax' on the home page
+     And   user sees text 'You paid too much tax' on the home page
      And   user sees text 'HM Revenue and Customs sent you a cheque for £600 on 19 May 2016.' on the home page
 
     Scenario: When a user has not got an overpayment
       Given A user without a tax underpayment is logged into the service
       Then  user is on the page with title 'Personal tax account' and URL is as expected
-      And   user does not see text 'You have paid too much tax' on the home page
+      And   user does not see text 'You paid too much tax' on the home page
 
 
 
