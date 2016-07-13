@@ -29,19 +29,23 @@ object TestDataSource {
   //private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
   private val userProperties = Map(
-    "A user with a PAYE account, but no SA account"                  -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
-    "A user with Tax Code ending with M"                             -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
-    "A user with Tax Code ending with N"                             -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle
-    "A user with No Active PAYE account, but SA account"             -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), verify = true),  //xxxx
-    "A user with No PAYE but SA account"                             -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
-    "A user with a PAYE account and SA account"                      -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),//Martin Hempton
-    "A user with a Correspondence Address"                           -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
-    "A user with Effective From date 06 April 2016"                  -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
-    "A user with Effective From date other than 06 April 2016"       -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
-    "A user with No Effective From date"                             -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
-    "A user"                                                         -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
-    "A user with a PAYE account and not in NPS"                      -> UserProperties.build(nino = Some("CS700100A"), sautr = Some("111111111"), verify = true),//John Densmore
-  
+    "A user with a PAYE account, but no SA account"                       -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
+    "A user with Tax Code ending with M"                                  -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
+    "A user with Tax Code ending with N"                                  -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle
+    "A user with No Active PAYE account, but SA account"                  -> UserProperties.build(name = Some("KellyBillson"), nino = Some("TA936115D"), sautr = Some("444444444"), verify = true),  //xxxx
+    "A user with No PAYE but SA account"                                  -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
+    "A user with a PAYE account and SA account"                           -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),//Martin Hempton
+    "A user with a Correspondence Address"                                -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
+    "A user with Effective From date 06 April 2016"                       -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
+    "A user with Effective From date other than 06 April 2016"            -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
+    "A user with No Effective From date"                                  -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
+    "A user"                                                              -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
+    "A user with a PAYE account and not in NPS"                           -> UserProperties.build(nino = Some("CS700100A"), sautr = Some("111111111"), verify = true),//John Densmore
+    "A user who has not requested a refund yet"                           -> UserProperties.build(nino = Some("NA000938A"), sautr = Some("111111111"), verify = true),
+    "A user who has requested a refund currently being processed"         -> UserProperties.build(nino = Some("AM242413A"), sautr = Some("111111111"), verify = true),
+    "A user who has has been sent a BACS payment"                         -> UserProperties.build(nino = Some("JZ013615A"), sautr = Some("111111111"), verify = true),
+    "A user who has has been sent a cheque"                               -> UserProperties.build(nino = Some("JN333333A"), sautr = Some("111111111"), verify = true),
+    "A user without a tax underpayment"                                   -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),
 
 
 
