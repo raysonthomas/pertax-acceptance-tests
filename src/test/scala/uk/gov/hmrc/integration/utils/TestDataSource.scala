@@ -41,6 +41,7 @@ object TestDataSource {
     "A user with No Effective From date"                             -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
     "A user"                                                         -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
     "A user with a PAYE account and not in NPS"                      -> UserProperties.build(nino = Some("CS700100A"), sautr = Some("111111111"), verify = true),//John Densmore
+  
 
 
 
