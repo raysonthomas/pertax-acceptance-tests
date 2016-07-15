@@ -41,7 +41,7 @@ object TestDataSource {
     "A user with No Effective From date"                             -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
     "A user"                                                         -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
     "A user with a PAYE account and not in NPS"                      -> UserProperties.build(nino = Some("CS700100A"), sautr = Some("111111111"), verify = true),//John Densmore
-
+    "A user with MCI Indicator set as true"                          -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
 
 
     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true), //GG Chris
@@ -126,7 +126,8 @@ object TestDataSource {
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
     "sign in to your account again"                                 -> "/personal-account",
-    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview"
+    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",
+    "Find out about call charges (opens in a new window)"           -> "/call-charges"
 
 
   )
