@@ -46,7 +46,7 @@ object TestDataSource {
     "A user who has has been sent a BACS payment"                         -> UserProperties.build(nino = Some("JZ013615A"), sautr = Some("111111111"), verify = true),
     "A user who has has been sent a cheque"                               -> UserProperties.build(nino = Some("JN333333A"), sautr = Some("111111111"), verify = true),
     "A user without a tax underpayment"                                   -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),
-
+    "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
 
 
     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true), //GG Chris
@@ -131,9 +131,9 @@ object TestDataSource {
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
     "sign in to your account again"                                 -> "/personal-account",
-    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview"
-
-
+    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",
+    "Get your refund"                                               -> "/tax-you-paid/status",
+    "Find out about call charges (opens in a new window)"           -> "/call-charges"
   )
 
   val pathForTitle = Map(
