@@ -47,7 +47,7 @@ object TestDataSource {
     "A user who has has been sent a cheque"                               -> UserProperties.build(nino = Some("JN333333A"), sautr = Some("111111111"), verify = true),
     "A user without a tax underpayment"                                   -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),
     "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
-
+    "A user who has paid too little tax"                                  -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//UnderPayment
 
     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true), //GG Chris
     "User with a PAYE account and SA account"                         -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones

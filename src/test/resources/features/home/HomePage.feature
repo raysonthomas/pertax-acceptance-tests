@@ -1,4 +1,4 @@
-@suite
+@suite1
 Feature: Home Page segmentation
   As a user
   I want to see PTA home page with proper segmentation and bucketing
@@ -78,6 +78,13 @@ Feature: Home Page segmentation
       Then  user is on the page with title 'Personal tax account' and URL is as expected
       And   user does not see text 'You paid too much tax' on the home page
       And   user does not see text 'You have paid too much tax' on the home page
+
+     Scenario: When a user has paid too little tax in the previous tax year and has not made an additional payment yet
+        Given A user who has paid too little tax is logged into the service using verify
+        Then  user is on the page with title 'Personal tax account' and URL is as expected
+        And   user sees text 'You have paid too little tax' on the home page
+        And   user sees text 'You owe HM Revenue and Customs £864 for the 2015 to 2016 tax year.' on the home page
+        And   user sees 'Get more details and choose how to pay' link on the page and its href is as expected
 
 
 
