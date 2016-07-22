@@ -131,10 +131,9 @@ object TestDataSource {
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
     "sign in to your account again"                                 -> "/personal-account",
-    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",
-    "Get your refund"                                               -> "/tax-you-paid/status",
-    "Find out about call charges (opens in a new window)"           -> "/call-charges",
-    "Get more details"                                              -> "/tax-you-paid/status"
+    "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview"
+
+
   )
 
   val pathForTitle = Map(
