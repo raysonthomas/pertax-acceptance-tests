@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: Home Page segmentation
   As a user
   I want to see PTA home page with proper segmentation and bucketing
@@ -51,27 +51,27 @@ Feature: Home Page segmentation
       Given A user who has not requested a refund yet is logged into the service using verify
       Then  user is on the page with title 'Personal tax account' and URL is as expected
       And   user sees text 'You have paid too much tax' on the home page
-      And   user sees text 'HM Revenue and Customs owe you a £322.00 refund for the 2015 to 2016 tax year.' on the home page
+      And   user sees text 'HM Revenue and Customs owe you a £1,000 refund for the 2015 to 2016 tax year.' on the home page
       And   user sees 'Get your refund' link on the page and its href is as expected
 
 
     Scenario: When a user has paid too much tax in the previous tax year and has requested a refund which is currently being processed
-      Given A user who has requested a refund which is currently being processed is logged into the service using verify
+      Given A user who has requested a refund currently being processed is logged into the service using verify
       Then  user is on the page with title 'Personal tax account' and URL is as expected
       And   user sees text 'You paid too much tax' on the home page
-      And   user sees text 'HM Revenue and Customs are processing your £500.00 refund.' on the home page
+      And   user sees text 'HM Revenue and Customs are processing your £1,000 refund.' on the home page
 
     Scenario: When a user has been sent a BACS payment for their refund
       Given A user who has has been sent a BACS payment is logged into the service using verify
       Then  user is on the page with title 'Personal tax account' and URL is as expected
       And   user sees text 'You paid too much tax' on the home page
-      And   user sees text 'HM Revenue and Customs paid you a refund of £1000.00' on the home page
+      And   user sees text 'HM Revenue and Customs paid you a refund of £1,000' on the home page
 
     Scenario:When a user has been sent a cheque for their refund they should see a banner with the below details
      Given A user who has has been sent a cheque is logged into the service using verify
      Then  user is on the page with title 'Personal tax account' and URL is as expected
      And   user sees text 'You paid too much tax' on the home page
-     And   user sees text 'HM Revenue and Customs sent you a cheque for £322.00' on the home page
+     And   user sees text 'HM Revenue and Customs sent you a cheque for £1,000' on the home page
 
     Scenario: When a user has not got an overpayment
       Given A user without a tax underpayment is logged into the service using verify
@@ -83,8 +83,8 @@ Feature: Home Page segmentation
         Given A user who has paid too little tax is logged into the service using verify
         Then  user is on the page with title 'Personal tax account' and URL is as expected
         And   user sees text 'You have paid too little tax' on the home page
-        And   user sees text 'You owe HM Revenue and Customs £864 for the 2015 to 2016 tax year.' on the home page
-        And   user sees 'Get more details and choose how to pay' link on the page and its href is as expected
+        And   user sees text 'You owe HM Revenue and Customs £2,000 for the 2015 to 2016 tax year.' on the home page
+        And   user sees 'Get more details' link on the page and its href is as expected
 
 
 
