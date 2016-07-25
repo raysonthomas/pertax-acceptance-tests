@@ -134,7 +134,7 @@ object TestDataSource {
     "sign in to your account again"                                 -> "/personal-account",
     "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",
     "Get your refund"                                               -> "/tax-you-paid/status",
-    "Get more details"                                               -> "/tax-you-paid/status"
+    "Get more details"                                              -> "/tax-you-paid/status"
 
 
   )
