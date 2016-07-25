@@ -116,6 +116,7 @@ object TestDataSource {
     "your business tax account"                                     -> "/business-account",
     "Renew your tax credit claim"                                   -> "/tax-credits-service/renewals/do-you-want-to-renew-now",
     "Try again"                                                     -> "/personal-account/do-uplift",
+    "Find out about call charges (opens in a new window)"           -> "/call-charges",
     "try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "Try to confirm your identity again"                            -> "/personal-account/do-uplift",
     "contact HM Revenue and Customs (opens in a new window)"        -> "/contact-hmrc",
