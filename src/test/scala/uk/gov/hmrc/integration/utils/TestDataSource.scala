@@ -61,7 +61,9 @@ object TestDataSource {
     "User"                                                            -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("444444444"), gg = true),  //xxxx
     "TCS user"                                                        -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
     "User with No Correspondence Address"                             -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
-    "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true)  //M Andrew
+    "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
+    "User who has enrolled for Self Assessment and been issued an activation code" -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true),  //XXXXXX
+    "User with gg credentials"                                        -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true)  //XXXXXX
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
