@@ -1,4 +1,4 @@
-@suite
+@ignore
 Feature: SA Activation
   As a user
   I want to see correct SA features based on SA Activation
