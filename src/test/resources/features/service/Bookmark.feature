@@ -1,4 +1,6 @@
-@suite
+#@suite
+
+#  got decommission on friday 6th Aug 2016- will review later on
 Feature: Test the bookmark feature
 
   As a user
