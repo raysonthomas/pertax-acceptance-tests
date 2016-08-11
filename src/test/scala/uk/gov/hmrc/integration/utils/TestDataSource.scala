@@ -165,8 +165,9 @@ object TestDataSource {
     "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
     "Your address has been updated"                                 -> "/personal-account/your-address/primary/thank-you",
     "Your address"                                                  -> "/personal-account/your-address",
-    "Service not available"                                              -> "/personal-account/tax-credits-summary",
+    "Service not available"                                         -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
+    "Report changes that affect your Child Benefit"                 -> "/personal-account/child-benefit-forms",
     "There's a problem"                                             -> "/personal-account",
     "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
     "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter"

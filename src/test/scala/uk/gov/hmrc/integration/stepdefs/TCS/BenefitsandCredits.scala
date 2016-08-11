@@ -26,6 +26,11 @@ class BenefitsandCredits extends ScalaDsl with EN {
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
+  And( """^user sees text '(.*)' on the CB page$""") {
+    (expectedText: String) => withCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
+    }
+  }
 
 
 }
