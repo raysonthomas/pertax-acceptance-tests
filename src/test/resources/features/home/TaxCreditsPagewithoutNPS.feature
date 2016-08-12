@@ -1,4 +1,4 @@
-@suitee
+@suite
 Feature: Tax Credits Page without dependency on NPS
   As a user
   I want to go into Tax Credits page from PTA home without dependency on NPS

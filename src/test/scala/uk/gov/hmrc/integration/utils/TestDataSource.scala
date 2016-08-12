@@ -170,8 +170,8 @@ object TestDataSource {
     "Report changes that affect your Child Benefit"                 -> "/personal-account/child-benefit-forms",
     "There's a problem"                                             -> "/personal-account",
     "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
-    "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter"
-
+    "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter",
+    "There's a problem logging you in"                              -> "/personal-account"
 
   )
 
