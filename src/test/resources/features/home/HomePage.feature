@@ -30,16 +30,8 @@ Feature: Home Page segmentation
     And user sees 'Child Benefit forms' link on the page and its href is as expected
     And user sees text 'Tell us about changes that may affect your Child Benefit.' on the home page
 
+    Then user is able to see a section 'Services you might need'
+    And user sees text 'If you receive Child Benefit, and your child was aged 16 on or before 31 August, you need to tell us if your child is staying in education or training.' on the home page
+    And user sees 'Tell us if your child is staying in education or training' link on the page and its href is as expected
 
-    Then user clicks on 'Child Benefit forms' link
-    Then user is on the page with title 'Report changes that affect your Child Benefit' and URL is as expected
-    And Breadcrumb is: 'Account home'
-    And text 'Report changes that affect your Child Benefit' is visible on Child Benefit Page
-#    And text 'If you currently claim Child Benefit you may need to use one of these forms to tell us about changes.' is visible on Child Benefit Page
-#    And text 'Check if you can claim Child Benefit' is visible on Child Benefit Page
-    And text 'If you don't claim Child Benefit you normally qualify for it if you're responsible for a child under 16 (or under 20 if they stay in approved education or training) and you live in the UK. ' is visible on Child Benefit Page
-    And user sees 'Check if you can claim Child Benefit (opens in new window)' link on the page and its href is as expected
-#    And user clicks on 'Account home' breadcrumb link
-#    And user is on the page with title 'Personal tax account' and URL is as expected
-#    And   user sees 'Get more details' link on the page and its href is as expected
 
