@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: Home Page segmentation
   As a user
   I want to see PTA home page with proper segmentation and bucketing
