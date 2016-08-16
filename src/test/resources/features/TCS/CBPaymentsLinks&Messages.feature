@@ -11,6 +11,7 @@ Feature:
     Then user clicks on 'Child Benefit forms' link
     Then user is on the page with title 'Report changes that affect your Child Benefit' and URL is as expected
     And Breadcrumb is: 'Account home'
+    And text 'Report changes that affect your Child Benefit' is visible on Child Benefit Page
     And user sees text 'If your child's circumstances change' on the CB page
     Then user sees text 'Child Benefit stops on 31 August on or after your child's 16th birthday if they leave approved education or training.' on the CB page
     Then user sees text 'Tell us if your child:' on the CB page
@@ -34,3 +35,4 @@ Feature:
     And user sees text 'If you don't currently claim Child Benefit' on the CB page
     And user sees text 'If you don't claim Child Benefit you normally qualify for it if you're responsible for a child under 16 (or under 20 if they stay in approved education or training) and you live in the UK.' on the CB page
     And user sees text 'Check if you can claim Child Benefit (opens in new window)' on the CB page
+    And user sees 'Check if you can claim Child Benefit (opens in new window)' link on the page and its href is as expected
