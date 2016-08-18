@@ -48,6 +48,7 @@ object TestDataSource {
     "A user without a tax underpayment"                                   -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),
     "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
     "A user who has paid too little tax"                                  -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//UnderPayment
+    "A verify user who has applied for lifetime allowance"                -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//LTA
 
     "A user who has requested a refund currently being processed"     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AM242413A"), gg = true),
     "A user who has not requested a refund yet"                       -> UserProperties.build(name = Some("MartinHempton"), nino = Some("NA000938A"), gg = true),
@@ -111,7 +112,7 @@ object TestDataSource {
     "View all HM Revenue and Customs forms"                         -> "/government/collections/hmrc-forms",
     "Your messages"                                                 -> "/personal-account/messages",
     "Income tax"                                                    -> "/check-income-tax/income-tax",
-    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/paye",
+    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/income-tax-refresh",
     "Check if you can get Marriage Allowance"                       -> "/marriage-allowance-application/history",
     "feedback"                                                      -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                                      -> "/personal-account/benefits-credits-summary",
@@ -137,6 +138,7 @@ object TestDataSource {
     "current address"                                               -> "/personal-account/your-address",
     "personal tax account home"                                     -> "/personal-account",
     "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
+//    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
