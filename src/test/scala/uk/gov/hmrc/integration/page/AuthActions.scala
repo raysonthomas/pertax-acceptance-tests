@@ -32,15 +32,7 @@ object AuthActions {
     }
   }
 
-  def logInforSA(user: String, authProvider: String)(implicit webDriver: WebDriver) = {
-    withCurrentDriver { implicit webDriver =>
-      val userProperties = getUserProperties(user, authProvider)
-      authProvider match {
-        //        case AuthProviders.Verify => userProperties.verify.fold(throw new RuntimeException("No verify details for user"))(loginUsingVerifyforBookmark)
-        case AuthProviders.GG     => userProperties.gg.fold(throw new RuntimeException("No gg details for user"))(loginUsingGovernmentGatewayforSA)
-      }
-    }
-  }
+
   
   def loginUsingVerify(verifyUserProperties: VerifyUserProperties)(implicit webDriver: WebDriver) = {
     webDriver.get(Configuration("url")+"/start-verify")
@@ -71,6 +63,8 @@ object AuthActions {
     select1.selectByValue("50")
 
     ggUserProperties.sautr.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(_))
+    val select2 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/select")))
+    select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
 
     ggUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input[1]")).sendKeys(_))
 
@@ -94,23 +88,5 @@ object AuthActions {
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
   }
 
-  def loginUsingGovernmentGatewayforSA(ggUserProperties: GGUserProperties)(implicit webDriver: WebDriver) = {
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[1]/input")).sendKeys(ggUserProperties.name)
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[2]/input")).clear()
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[2]/input")).sendKeys("http://localhost:9232/personal-account/full")
-    val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[3]/select")))
-    select.selectByValue("weak")
-    val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
-    select1.selectByValue("50")
-
-    ggUserProperties.sautr.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(_))
-    val select2 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/select")))
-    select2.selectByValue("NotYetActivated")
-
-    ggUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input")).sendKeys(_))
-
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
-    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
-  }
 
 }

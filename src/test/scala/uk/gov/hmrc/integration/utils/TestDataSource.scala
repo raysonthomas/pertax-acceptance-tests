@@ -15,15 +15,15 @@ case class UserProperties(
   gg: Option[GGUserProperties]
 )
 object UserProperties {
-  def build(nino: Option[String] = None, sautr: Option[String] = None, name: Option[String] = None,  verify: Boolean = false, gg: Boolean = false) = {
+  def build(nino: Option[String] = None, sautr: Option[String] = None, name: Option[String] = None, verify: Boolean = false, gg: Boolean = false, saEnrolmentStatus: String = "Activated") = {
     UserProperties(
       if(verify) Some(VerifyUserProperties(nino, sautr)) else None,
-      if(gg) Some(GGUserProperties(name.get, nino, sautr)) else None
+      if(gg) Some(GGUserProperties(name.get, nino, sautr, saEnrolmentStatus)) else None
     )
   }
 }
 case class VerifyUserProperties(nino: Option[String], sautr: Option[String])
-case class GGUserProperties(name: String, nino: Option[String], sautr: Option[String])
+case class GGUserProperties(name: String, nino: Option[String], sautr: Option[String], saEnrolmentStatus: String)
 
 object TestDataSource {
   //private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
@@ -62,7 +62,8 @@ object TestDataSource {
     "TCS user"                                                        -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
     "User with No Correspondence Address"                             -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
     "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
-    "User who has enrolled for Self Assessment and been issued an activation code" -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true),  //XXXXXX
+    "User who has enrolled for Self Assessment and been issued an activation code" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111114444"), gg = true, saEnrolmentStatus = "Activated"),  //XXXXXX
+    "User who has enrolled for Self Assessment and Not Yet Activated" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("112214444"), gg = true, saEnrolmentStatus = "NotYetActivated"),  //XXXXXX
     "User with gg credentials"                                        -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true)  //XXXXXX
   )
 

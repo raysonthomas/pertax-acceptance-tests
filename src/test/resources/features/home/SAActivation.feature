@@ -1,4 +1,4 @@
-@suite1
+@wip
 Feature: SA Activation
   As a user
   I want to see correct SA features based on SA Activation
@@ -6,11 +6,14 @@ Feature: SA Activation
   JIRA story history: MTA-2112
 
   Scenario: When a gg user has enrolled for self assessment and been issued their activation code then navigates to PTA
-            User logs into the service using gg
-    Given   'User who has enrolled for Self Assessment and been issued an activation code' logs into the service for SA using gg
-    Then    user is on the page with title 'Personal tax account' and URL is as expected
-    And     user sees 'Self Assessment' link on the page and its href is as expected
-    And     user sees text 'Activate your Self Assessment using the 12-digit activation code you received in the post.' on the home page
+
+    Given User who has enrolled for Self Assessment and Not Yet Activated is logged into the service using gg
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    Then user is on the page with title 'Personal tax account' and URL is as expected
+    And user sees 'Self Assessment' link on the page and its href is as expected
+    And user sees text 'Activate your Self Assessment using the 12-digit activation code you received in the post.' on the home page
 
 #
 #  Scenario: User logs in to PTA with gg credentials which are not linked to his SA enrolment
@@ -27,4 +30,4 @@ Feature: SA Activation
 #
 #
 #
-#
+

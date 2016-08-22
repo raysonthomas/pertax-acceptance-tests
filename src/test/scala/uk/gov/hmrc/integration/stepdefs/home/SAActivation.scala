@@ -12,10 +12,5 @@ class SAActivation extends ScalaDsl with EN {
     }
   }
 
-  Given( """^(.*) logs into the service for SA using (.*)$""") { (user: String, authProvider: String) =>
-    withCurrentDriver { implicit webDriver =>
-      AuthActions.logInforSA(user, authProvider)
-    }
-  }
 
 }
