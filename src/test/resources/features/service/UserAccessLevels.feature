@@ -46,7 +46,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user sees name 'Samuel Margstest' on the page
+    And user sees name 'Martin Hempton' on the page
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
