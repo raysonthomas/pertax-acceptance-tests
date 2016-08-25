@@ -15,15 +15,15 @@ case class UserProperties(
   gg: Option[GGUserProperties]
 )
 object UserProperties {
-  def build(nino: Option[String] = None, sautr: Option[String] = None, name: Option[String] = None,  verify: Boolean = false, gg: Boolean = false) = {
+  def build(nino: Option[String] = None, sautr: Option[String] = None, name: Option[String] = None, verify: Boolean = false, gg: Boolean = false, saEnrolmentStatus: String = "Activated") = {
     UserProperties(
       if(verify) Some(VerifyUserProperties(nino, sautr)) else None,
-      if(gg) Some(GGUserProperties(name.get, nino, sautr)) else None
+      if(gg) Some(GGUserProperties(name.get, nino, sautr, saEnrolmentStatus)) else None
     )
   }
 }
 case class VerifyUserProperties(nino: Option[String], sautr: Option[String])
-case class GGUserProperties(name: String, nino: Option[String], sautr: Option[String])
+case class GGUserProperties(name: String, nino: Option[String], sautr: Option[String], saEnrolmentStatus: String)
 
 object TestDataSource {
   //private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
@@ -49,7 +49,7 @@ object TestDataSource {
     "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
     "A user who has paid too little tax"                                  -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//UnderPayment
 
-    "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("Chris"), nino = Some("CE123457D"), gg = true), //GG Chris
+    "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true), //GG Chris
     "User with a PAYE account and SA account"                         -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones
     "User with active company benefits"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111113333"), gg = true), //Martin Hempton
     "User without active company benefits"                            -> UserProperties.build(name = Some("AnthonyKellegher"), nino = Some("CK720413B"), sautr = Some("111114444"), gg = true), //Anthony Kellegher
@@ -62,7 +62,8 @@ object TestDataSource {
     "TCS user"                                                        -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
     "User with No Correspondence Address"                             -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
     "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
-    "User who has enrolled for Self Assessment and been issued an activation code" -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true),  //XXXXXX
+    "User who has enrolled for Self Assessment and Not Yet Activated" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111114444"), gg = true, saEnrolmentStatus = "NotYetActivated"),  //XXXXXX
+    "User with gg credentials not linked to SA"                       -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003D"), sautr = None, gg = true, saEnrolmentStatus = "Activated"),  //GG not SA
     "User with gg credentials"                                        -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true)  //XXXXXX
   )
 

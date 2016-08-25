@@ -31,6 +31,8 @@ object AuthActions {
       }
     }
   }
+
+
   
   def loginUsingVerify(verifyUserProperties: VerifyUserProperties)(implicit webDriver: WebDriver) = {
     webDriver.get(Configuration("url")+"/start-verify")
@@ -61,8 +63,10 @@ object AuthActions {
     select1.selectByValue("50")
 
     ggUserProperties.sautr.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(_))
+    val select2 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/select")))
+    select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
 
-    ggUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input")).sendKeys(_))
+    ggUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input[1]")).sendKeys(_))
 
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
@@ -83,5 +87,6 @@ object AuthActions {
       webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
   }
+
 
 }
