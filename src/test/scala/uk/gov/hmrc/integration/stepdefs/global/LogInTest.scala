@@ -23,7 +23,7 @@ class LogInTest extends ScalaDsl with EN {
     withCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
       webDriver.findElement(By.linkText("Sign out")).click()
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/signed-out")))
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/signed-out?origin=PERTAX")))
     }
   }
 
