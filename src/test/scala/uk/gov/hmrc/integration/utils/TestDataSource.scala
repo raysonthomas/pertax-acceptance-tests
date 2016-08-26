@@ -104,7 +104,7 @@ object TestDataSource {
     "View all HM Revenue and Customs forms"                         -> "/government/collections/hmrc-forms",
     "Your messages"                                                 -> "/personal-account/messages",
     "Income tax"                                                    -> "/check-income-tax/income-tax",
-    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/income-tax-refresh",
+    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/paye",
     "Check if you can get Marriage Allowance"                       -> "/marriage-allowance-application/history",
     "feedback"                                                      -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                                      -> "/personal-account/benefits-credits-summary",
