@@ -49,6 +49,13 @@ object TestDataSource {
     "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
     "A user who has paid too little tax"                                  -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//UnderPayment
 
+    "A user who has requested a refund currently being processed"     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AM242413A"), gg = true),
+    "A user who has not requested a refund yet"                       -> UserProperties.build(name = Some("MartinHempton"), nino = Some("NA000938A"), gg = true),
+    "A user who has has been sent a BACS payment"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("JZ013615A"), gg = true),
+    "A user who has has been sent a cheque"                           -> UserProperties.build(name = Some("MartinHempton"), nino = Some("JN333333A"), gg = true),
+    "A user without a tax underpayment"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true),
+    "A user who has paid too little tax"                              -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AH498813B"), gg = true),
+
     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true), //GG Chris
     "User with a PAYE account and SA account"                         -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones
     "User with active company benefits"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111113333"), gg = true), //Martin Hempton

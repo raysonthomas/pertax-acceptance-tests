@@ -31,7 +31,9 @@ Feature: Home Page segmentation
     And user sees text 'Tell us about changes that may affect your Child Benefit.' on the home page
 
     Then user is able to see a section 'Services you might need'
-    And user sees text 'If you receive Child Benefit, and your child was aged 16 on or before 31 August, you need to tell us if your child is staying in education or training.' on the home page
-    And user sees 'Tell us if your child is staying in education or training' link on the page and its href is as expected
+    And user sees text 'View your taxable income and see any company benefits that may affect the amount, for example a company car or medical benefit.' on the home page
+    And user sees text 'If you're married or in a civil partnership and you earn less than £11,000, you may benefit from applying for Marriage Allowance.' on the home page
+    And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
+    And user sees 'View your company benefits' link on the page and its href is as expected
 
 

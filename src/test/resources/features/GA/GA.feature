@@ -13,7 +13,6 @@ Feature: Google Analytics Tracking
 #    And user clicks on 'Update your address' link
 #    And user clicks on 'Change your address' link
 #    And  Continue button has Google Analytics tracking enabled
-#
 
 
 
