@@ -137,7 +137,7 @@ object TestDataSource {
     "current address"                                               -> "/personal-account/your-address",
     "personal tax account home"                                     -> "/personal-account",
     "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
-//    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
+    "Self Assessment"                                               -> "/personal-account/self-assessment",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
