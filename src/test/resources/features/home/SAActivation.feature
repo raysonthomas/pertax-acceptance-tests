@@ -14,7 +14,6 @@ Feature: SA Activation
     Then user is on the page with title 'Personal tax account' and URL is as expected
     And user sees 'Self Assessment' link on page and its href is as expected
     And user sees text 'Activate your Self Assessment using the 12-digit activation code you received in the post.' on the home page
-    And user sees 'Self Assessment' link on the page and its href is as expected
 
 
   Scenario: User logs in to PTA with gg credentials which are not linked to his SA enrolment
