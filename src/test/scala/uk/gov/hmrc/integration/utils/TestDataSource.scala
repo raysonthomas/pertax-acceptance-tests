@@ -26,7 +26,7 @@ case class VerifyUserProperties(nino: Option[String], sautr: Option[String])
 case class GGUserProperties(name: String, nino: Option[String], sautr: Option[String], saEnrolmentStatus: String)
 
 object TestDataSource {
-  //private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
+  private val personalDetailsCache = new java.util.concurrent.ConcurrentHashMap[String, PersonDetails]
 
   private val userProperties = Map(
     "A user with a PAYE account, but no SA account"                       -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
@@ -137,7 +137,6 @@ object TestDataSource {
     "current address"                                               -> "/personal-account/your-address",
     "personal tax account home"                                     -> "/personal-account",
     "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
-    "Self Assessment"                                               -> "/personal-account/self-assessment",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
     "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",

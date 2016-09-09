@@ -11,7 +11,6 @@ import uk.gov.hmrc.integration.utils.Configuration
 
 class ExitTest extends ScalaDsl with EN {
 
-
   And( """^user sees text '(.*)' on the Exit page$""") {
     (expectedText: String) => withCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
@@ -19,15 +18,14 @@ class ExitTest extends ScalaDsl with EN {
   }
 
   Then( """^user selects yes radio button on 'before using your tax account' question""") {
-      withCurrentDriver { implicit webDriver =>
-        webDriver.findElement(By.id("beforeUsingYourPersonalTaxAccount-1")).click()
-      }
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("beforeUsingYourPersonalTaxAccount-1")).click()
+    }
   }
 
   Then( """^user selects no radio button on 'before using your tax account' question""") {
     withCurrentDriver { implicit webDriver =>
-       webDriver.findElement(By.id("beforeUsingYourPersonalTaxAccount-0")).click()
-
+      webDriver.findElement(By.id("beforeUsingYourPersonalTaxAccount-0")).click()
     }
   }
 
@@ -37,22 +35,54 @@ class ExitTest extends ScalaDsl with EN {
     }
   }
 
+  Then( """^the 'Friend or family member' checkbox should not be selected""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("input[name=\"#friendOrFamily\" ][id=\"#friendOrFamily\"]")).clear()
+    }
+  }
+
+  When( """^user selects checkbox 'I didn’t get help' on 'get help' question""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("input[name=\"#didntNeedHelp\" ][id=\"#didntNeedHelp\"]")).clear()
+    }
+  }
+
+  Then( """^the 'I didn't get help' checkbox should not be selected""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("input[name=\"#didntNeedHelp\" ][id=\"#didntNeedHelp\"]")).clear()
+    }
+  }
+
+  When( """user selects 'Friend or family member' checkbox""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("input[name=\"#friendOrFamily\" ][id=\"#friendOrFamily\"]")).click()
+    }
+  }
+
+  And( """user selects 'I didn’t get help' checkbox""") {
+    withCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("input[name=\"#didntNeedHelp\" ][id=\"#didntNeedHelp\"]")).click()
+    }
+  }
+
+  And( """^user now sees the '(.*)' text box""" ) {(Textboxname: String)=>
+    withCurrentDriver { implicit webDriver =>
+      assert(webDriver.findElement(By.name(Textboxname)).isDisplayed, "The expected text box was not displayed")
+    }
+  }
 
   And( """^user sees the radio button '(.*)'$""") {
     (answer: String) =>
       withCurrentDriver { implicit webDriver =>
         assert(webDriver.getPageSource.contains(answer), "The answers not found when expected")
-
       }
   }
-
 
   Then( """^user sees checkbox '(.*)'$""") {
     (answer: String) =>
       withCurrentDriver { implicit webDriver =>
         assert(webDriver.getPageSource.contains(answer),"Checkbox for answer not found")
-//          webDriver.findElement(By.xpath(".//*[@type='checkbox' and @value='"+answer+"']"))
-
+        //        webDriver.findElement(By.xpath(".//*[@type='checkbox' and @value='"+answer+"']"))
       }
   }
 
@@ -67,11 +97,11 @@ class ExitTest extends ScalaDsl with EN {
   Then( """^user sees radio button 'Yes' under Before using your tax account$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-          assert(webDriver.findElement(By.cssSelector("#beforeUsingYourPersonalTaxAccount-1")).isDisplayed, "Button not displayed")
+        assert(webDriver.findElement(By.cssSelector("#beforeUsingYourPersonalTaxAccount-1")).isDisplayed, "Button not displayed")
       }
   }
 
-  Then( """^user sees radio button 'No' under Before using your tax account$""") {
+  Then( """^user sees radio button 'No' under Before using your personal tax account$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
         assert(webDriver.findElement(By.cssSelector("#beforeUsingYourPersonalTaxAccount-0")).isDisplayed, "Button not displayed")
@@ -103,6 +133,7 @@ class ExitTest extends ScalaDsl with EN {
       assert(webDriver.findElement(By.id("nowReduceHMRCPhoneCalls-2")).isDisplayed, "The expected button not displayed")
     }
   }
+
   Then( """^user sees radio button 'No' under now need to phone or write to HMRC$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
@@ -117,7 +148,6 @@ class ExitTest extends ScalaDsl with EN {
       }
   }
 
-
   Then( """^user selects radio button 'Yes' under still need to phone or write to HMRC""" ) {
     withCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("stillReduceHMRCPhoneCalls-2")).click()
@@ -127,7 +157,7 @@ class ExitTest extends ScalaDsl with EN {
   Then( """^user selects radio button 'No' under Before using your tax account$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-       webDriver.findElement(By.cssSelector("#beforeUsingYourTaxAccount-0")).click()
+        webDriver.findElement(By.cssSelector("#beforeUsingYourTaxAccount-0")).click()
       }
   }
 
@@ -143,7 +173,6 @@ class ExitTest extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(answer))
           webDriver.findElement(By.xpath(".//*[@type='checkbox' and @checked='true']"))
-
       }
   }
 
@@ -154,22 +183,25 @@ class ExitTest extends ScalaDsl with EN {
       }
   }
 
+  When( """^Friend or Family is unselected$""") {
+    withCurrentDriver { implicit webDriver =>
+      val elem1 = webDriver.findElement(By.id("friendOrFamily"))
+      assert(!(elem1.isSelected), "Checkbox selected when Not expected")
+      val elem2 = webDriver.findElement(By.id("didntNeedHelp"))
+      assert(elem2.isSelected, "Checkbox not selected when expected")
+    }
+  }
+
   When( """^user is able to select multiple checkboxes$""") {
     () =>
       withCurrentDriver { implicit webDriver =>
-        webDriver.findElement(By.cssSelector("input[name=\"dontKnow\" ][id=\"dontKnow\"]")).click()
-        webDriver.findElement(By.cssSelector("input[name=\"askEmployer\" ][id=\"askEmployer\"]")).click()
-        assert(webDriver.findElement(By.cssSelector("input[name=\"dontKnow\" ][id=\"dontKnow\"]")).isSelected,"Checkbox not selected when expected")
-        assert(webDriver.findElement(By.cssSelector("input[name=\"askEmployer\" ][id=\"askEmployer\"]")).isSelected,"Checkbox not selected when expected")
-
+        val elem1 =  webDriver.findElement(By.id("charity"))
+        elem1.click()
+        assert(elem1.isSelected, "Checkbox not selected when expected")
+        val elem2 = webDriver.findElement(By.id("citizensAdvice"))
+        elem2.click()
+        assert(elem2.isSelected, "Checkbox not selected when expected")
       }
-  }
-
-
-  Then( """^user now sees the 'tellUsWhatYouNeedToDo' text box""" ) {
-    withCurrentDriver { implicit webDriver =>
-      assert(webDriver.findElement(By.id("tellUsWhatYouNeedToDo")).isDisplayed, "The expected text box was not displayed")
-    }
   }
 
   And( """^user enters the 10 characters: '(.*)' into the free text box""") {
@@ -185,6 +217,4 @@ class ExitTest extends ScalaDsl with EN {
       webDriver.findElement(By.xpath(".//*[@id='content']/article/div/div/form/div/button")).click()
     }
   }
-
-
 }
