@@ -1,4 +1,4 @@
-@suite
+@suite1
 Feature: Home Page segmentation
   As a user
   I want to see PTA home page with proper segmentation and bucketing
@@ -42,12 +42,11 @@ Feature: Home Page segmentation
     Given   User who has applied for lifetime allowance is logged into the service using gg
     Then    user is on the page with title 'Personal tax account' and URL is as expected
     And     user sees 'Lifetime allowance protection' link on the page and the href is as expected
-    And     user sees text 'View your lifetime allowance protection.' on the home page
+    And     user sees text 'See your existing protection details.' on the home page
 
 
   Scenario: Verify User who has applied for lifetime allowance navigates to PTA homepage and sees lifetime allowance bucket
-
-    Given   A verify user who has applied for lifetime allowance is logged into the service using verify
+    Given   A user who has applied for lifetime allowance is logged into the service using verify
     Then    user is on the page with title 'Personal tax account' and URL is as expected
     And     user sees 'Lifetime allowance protection' link on the page and the href is as expected
-    And     user sees text 'View your lifetime allowance protection.' on the home page
+    And     user sees text 'See your existing protection details.' on the home page
