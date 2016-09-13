@@ -25,7 +25,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 
   Scenario: Check that a Verify user (without PAYE record)(CL500) IN SA regime sees the appropriate options on PTA
     Given A user with No Active PAYE account, but SA account is logged into the service using verify
-    And user sees 'National Insurance' link on the page and its href is as expected
+#    And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Manage your paperless settings' link on the page and its href is as expected

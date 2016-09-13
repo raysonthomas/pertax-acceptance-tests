@@ -48,7 +48,7 @@ object TestDataSource {
     "A user without a tax underpayment"                                   -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),
     "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
     "A user who has paid too little tax"                                  -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//UnderPayment
-    "A verify user who has applied for lifetime allowance"                -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//LTA
+    "A user who has applied for lifetime allowance"                       -> UserProperties.build(nino = Some("AA321456A"), sautr = Some("111111111"), verify = true),//LTA
 
     "A user who has requested a refund currently being processed"     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AM242413A"), gg = true),
     "A user who has not requested a refund yet"                       -> UserProperties.build(name = Some("MartinHempton"), nino = Some("NA000938A"), gg = true),
@@ -72,7 +72,7 @@ object TestDataSource {
     "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
     "User who has enrolled for Self Assessment and Not Yet Activated" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111114444"), gg = true, saEnrolmentStatus = "NotYetActivated"),  //XXXXXX
     "User with gg credentials not linked to SA"                       -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003D"), sautr = None, gg = true, saEnrolmentStatus = "Activated"),  //GG not SA
-    "User who has applied for lifetime allowance"                                    -> UserProperties.build(name = Some("XXXX"), nino = Some("XXXXX"), sautr = Some("222222222"), gg = true)  //XXXXXX
+    "User who has applied for lifetime allowance"                     -> UserProperties.build(name = Some("BobJones"), nino = Some("AA321456A"), sautr = Some("222222222"), gg = true)  //LTA
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
@@ -112,7 +112,7 @@ object TestDataSource {
     "View all HM Revenue and Customs forms"                         -> "/government/collections/hmrc-forms",
     "Your messages"                                                 -> "/personal-account/messages",
     "Income tax"                                                    -> "/check-income-tax/income-tax",
-    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/income-tax-refresh",
+    "Pay As You Earn (PAYE)"                                        -> "/check-income-tax/paye",
     "Check if you can get Marriage Allowance"                       -> "/marriage-allowance-application/history",
     "feedback"                                                      -> "/contact/beta-feedback-unauthenticated?service=PTA",
     "Benefits and tax credits"                                      -> "/personal-account/benefits-credits-summary",
@@ -141,14 +141,14 @@ object TestDataSource {
 //    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
     "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
-    "Child Benefit forms"                                           -> "/personal-account/child-benefit-forms",
+    "Child Benefit"                                                 -> "/personal-account/child-benefit-forms",
     "sign in to your account again"                                 -> "/personal-account",
     "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",
     "Get your refund"                                               -> "/tax-you-paid/status",
     "Get more details"                                              -> "/tax-you-paid/status",
-    "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1"
-
-
+    "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
+    "Company benefits"                                              -> "/check-income-tax/taxable-income",
+    "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections"
   )
 
   val pathForTitle = Map(

@@ -8,7 +8,7 @@ Feature:
   Scenario: when a gg user has navigates to the child benefit page they should see the correct links and content
     Given A user with a PAYE account, but no SA account is logged into the service using verify
     When user is on the page with title 'Personal tax account' and URL is as expected
-    Then user clicks on 'Child Benefit forms' link
+    Then user clicks on 'Child Benefit' link
     Then user is on the page with title 'Report changes that affect your Child Benefit' and URL is as expected
     And Breadcrumb is: 'Account home'
     And text 'Report changes that affect your Child Benefit' is visible on Child Benefit Page
