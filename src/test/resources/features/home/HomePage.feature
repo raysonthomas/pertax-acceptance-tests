@@ -1,4 +1,4 @@
-@suite12
+@suite1
 Feature: Home Page segmentation
   As a user
   I want to see PTA home page with proper segmentation and bucketing
@@ -11,7 +11,7 @@ Feature: Home Page segmentation
     When user is on the page with title 'Personal tax account' and URL is as expected
     Then Breadcrumb is: ''
 
-    And heading 'Your benefits and tax credits' is visible
+    And heading 'Tax credits and Child Benefit' is visible
     And user sees 'Tax credits' link on the page and its href is as expected
     And user sees text 'Check your tax credits record.' on the home page
     Then user clicks on 'Tax credits' link
