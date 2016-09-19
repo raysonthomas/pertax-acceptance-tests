@@ -13,7 +13,7 @@ class UserAccessLevels extends ScalaDsl with EN {
     () =>
       withCurrentDriver { implicit webDriver =>
         webDriver.findElement(By.xpath(".//*[@id='desiredOutcome-success']")).click()
-        webDriver.findElement(By.xpath(".//*[@id='content']/article/form/button")).click()
+        webDriver.findElement(By.xpath(".//*[@id='content']/form/button")).click()
         webDriver.findElement(By.xpath(".//*[@id='continue']")).click()
 
       }
