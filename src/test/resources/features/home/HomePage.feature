@@ -29,8 +29,6 @@ Feature: Home Page segmentation
     And heading 'Pension and retirement' is visible
     And user sees 'State Pension forecast' link on the page and its href is as expected
 
-
-
     Then user is able to see a section 'Services you might need'
     And user sees text 'If you're married or in a civil partnership and you earn less than £11,000, you may benefit from applying for Marriage Allowance.' on the home page
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected

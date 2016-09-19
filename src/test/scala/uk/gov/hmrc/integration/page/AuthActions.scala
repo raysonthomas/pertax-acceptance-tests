@@ -44,8 +44,8 @@ object AuthActions {
     val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
     select1.selectByValue("200")
 
-    verifyUserProperties.sautr.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[2]/input")).sendKeys(_))
-    verifyUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(_))
+    verifyUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[1].value\"][type=\"text\"]")).sendKeys(_))
+    verifyUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[0].value\"][type=\"text\"]")).sendKeys(_))
 
     webDriver.findElement(By.cssSelector(".button")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
@@ -62,11 +62,11 @@ object AuthActions {
     val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
     select1.selectByValue("50")
 
-    ggUserProperties.sautr.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(_))
-    val select2 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/select")))
+    ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[0].value\"][type=\"text\"]")).sendKeys(_))
+    val select2 = new Select(webDriver.findElement(By.name("taxIdInfo[0].state")))
     select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
 
-    ggUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input[1]")).sendKeys(_))
+    ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[8].value\"][type=\"text\"]")).sendKeys(_))
 
     webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
@@ -80,9 +80,9 @@ object AuthActions {
       val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
       select1.selectByValue("50")
 
-      ggUserProperties.sautr.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[1]/input")).sendKeys(_))
+      ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[0].value\"][type=\"text\"]")).sendKeys(_))
 
-      ggUserProperties.nino.map(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/div[9]/input")).sendKeys(_))
+      ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[8].value\"][type=\"text\"]")).sendKeys(_))
 
       webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
