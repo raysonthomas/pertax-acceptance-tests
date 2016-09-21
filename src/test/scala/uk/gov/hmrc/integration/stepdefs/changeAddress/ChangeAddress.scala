@@ -152,7 +152,7 @@ class ChangeAddress extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @id='radio-1' and @value='GB990091234582']")).click()
-        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
+//        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
           webDriver.findElement(By.xpath(".//*[@id='submitAddressSelector']")).click()
       }
   }
@@ -171,7 +171,7 @@ class ChangeAddress extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @value='GB990091234579']")).click()
-          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
+//          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
           webDriver.findElement(By.xpath(".//*[@id='submitAddressSelector']")).click()
       }
   }
