@@ -148,7 +148,7 @@ class ChangeAddress extends ScalaDsl with EN {
     (address: String) =>
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
-          webDriver.findElement(By.xpath(".//*[@type='radio' and @value='GB990091234582']")).click()
+          webDriver.findElement(By.xpath(".//*[@type='radio' and @id='radio-1' and @value='GB990091234582']")).click()
           webDriver.findElement(By.id("submitAddressSelector")).click()
       }
   }
