@@ -3,7 +3,10 @@ package uk.gov.hmrc.integration.stepdefs.changeAddress
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.jsoup.Jsoup
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
+import uk.gov.hmrc.integration.utils.Configuration
 
 import scala.collection.JavaConversions._
 
@@ -149,7 +152,8 @@ class ChangeAddress extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @id='radio-1' and @value='GB990091234582']")).click()
-          webDriver.findElement(By.id("submitAddressSelector")).click()
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
+          webDriver.findElement(By.xpath(".//*[@id='submitAddressSelector']")).click()
       }
   }
 
@@ -167,7 +171,8 @@ class ChangeAddress extends ScalaDsl with EN {
       withCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @value='GB990091234579']")).click()
-        webDriver.findElement(By.id("submitAddressSelector")).click()
+          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
+          webDriver.findElement(By.xpath(".//*[@id='submitAddressSelector']")).click()
       }
   }
 

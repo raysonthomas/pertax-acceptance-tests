@@ -21,4 +21,13 @@ object CustomExpectedConditions {
     }
   }
 
+  def buttonVisible(selector: String)(implicit webDriver: WebDriver): ExpectedCondition[Boolean] = {
+    new ExpectedCondition[Boolean] {
+      override def apply(wd: WebDriver): Boolean = {
+        wd.findElement(By.xpath(selector)).isDisplayed
+        wd.findElement(By.xpath(selector)).isEnabled
+      }
+    }
+  }
+
 }
