@@ -8,9 +8,10 @@ import org.junit.runner.RunWith
 @CucumberOptions(
   features = Array("src/test/resources/features"),
   glue = Array("uk.gov.hmrc.integration.stepdefs"),
-  format = Array("pretty",
-    "html:target/suite/cucumber-html-report",
-    "json:target/suite/cucumber.json"),
+//  format = Array("pretty",
+//    "html:target/suite/cucumber-html-report",
+//    "json:target/suite/cucumber.json"),
+  format = Array("pretty", "html:target/cucumber", "json:target/cucumber.json"),
   tags = Array("@suite")
 )
 class RunTestSuiteAgent {
