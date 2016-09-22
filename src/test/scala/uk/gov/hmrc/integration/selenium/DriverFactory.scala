@@ -2,7 +2,8 @@ package uk.gov.hmrc.integration.selenium
 
 import java.util.concurrent.TimeUnit
 
-import org.openqa.selenium.{By, WebDriverException}
+import org.openqa.selenium.remote.RemoteWebDriver
+import org.openqa.selenium.{WebDriver, By, WebDriverException}
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
 import org.openqa.selenium.firefox.FirefoxDriver
 import uk.gov.hmrc.accessibility.AccessibilityDriver
@@ -34,7 +35,7 @@ object DriverFactory {
       case "macos-firefox-remote"     => buildMacosxYosemitefirefox33Driver
       case "iphone5s-emu-remote"      => buildIosIphone5SDriver
       case "galaxys5-remote"          => buildAndroidSamsungGalaxyS5Driver
-      case _                          => throw new IllegalArgumentException(s"Browser type not recognised")
+      case _                          => throw new IllegalArgumentException("Browser type not recognised")
     }
 
     webDriver.manage.timeouts.implicitlyWait(Configuration("defaultWait").toInt, TimeUnit.SECONDS)

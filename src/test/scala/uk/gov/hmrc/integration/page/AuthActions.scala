@@ -12,7 +12,7 @@ import uk.gov.hmrc.integration.utils._
 object AuthActions {
 
   def logIn(user: String, authProvider: String)(implicit webDriver: WebDriver) = {
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       val userProperties = getUserProperties(user, authProvider)
       authProvider match {
         case AuthProviders.Verify => userProperties.verify.fold(throw new RuntimeException("No verify details for user"))(loginUsingVerify)
@@ -23,7 +23,7 @@ object AuthActions {
 
 
   def logInforBookmark(user: String, authProvider: String)(implicit webDriver: WebDriver) = {
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       val userProperties = getUserProperties(user, authProvider)
       authProvider match {
 //        case AuthProviders.Verify => userProperties.verify.fold(throw new RuntimeException("No verify details for user"))(loginUsingVerifyforBookmark)

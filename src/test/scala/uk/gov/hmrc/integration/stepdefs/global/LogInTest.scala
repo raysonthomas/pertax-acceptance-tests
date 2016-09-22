@@ -13,14 +13,14 @@ class LogInTest extends ScalaDsl with EN {
 
 
   Given( """^(.*) is logged into the service using (.*)$""") { (user: String, authProvider: String) =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       AuthActions.logIn(user, authProvider)
     }
   }
 
 
   When( """^user signs out$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       GlobalActions.maybeClickMenu
       webDriver.findElement(By.linkText("Sign out")).click()
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/signed-out?origin=PERTAX")))
@@ -29,7 +29,7 @@ class LogInTest extends ScalaDsl with EN {
 
 
   And( """^user is unable to access the application$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.get(Configuration("url"))
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("personal-account&accountType=individual&origin=PERTAX")))
       assert(webDriver.getCurrentUrl.endsWith("personal-account&accountType=individual&origin=PERTAX"), "User should be on the start page")

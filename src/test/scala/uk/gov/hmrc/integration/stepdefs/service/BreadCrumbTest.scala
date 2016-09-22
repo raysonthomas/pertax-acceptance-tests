@@ -11,7 +11,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
 
   Then( """^Breadcrumb is: '(.*)'$""") {
     (expectedBreadcrumb: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
 
         if (expectedBreadcrumb == "") {
           assert(!webDriver.getPageSource.contains("global-breadcrumb"), "global-breadcrumb was present but it should not be present")
