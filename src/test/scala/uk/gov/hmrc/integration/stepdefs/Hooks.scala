@@ -1,9 +1,12 @@
 package uk.gov.hmrc.integration.stepdefs
 
+import cucumber.api.Scenario
 import cucumber.api.java.{Before, After}
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.openqa.selenium.{OutputType, TakesScreenshot, WebDriverException, WebDriver}
 import org.scalatest.Matchers
-import uk.gov.hmrc.integration.selenium.{CurrentDriver, DriverFactory}
+import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import uk.gov.hmrc.integration.selenium.{Snapshotter, CurrentDriver, DriverFactory}
 
 
 class Hooks extends ScalaDsl with EN with Matchers {
@@ -14,7 +17,10 @@ class Hooks extends ScalaDsl with EN with Matchers {
 
   //Executes after each scenario in a feature
   @After
-  def tearDown = {
+  def tearDown(result: Scenario){
+    ifCurrentDriverTakesSnapshot { takesSnapShot =>
+      Snapshotter.takeSnapshot(takesSnapShot, result)
+    }
     CurrentDriver.clearSession()
   }
 }

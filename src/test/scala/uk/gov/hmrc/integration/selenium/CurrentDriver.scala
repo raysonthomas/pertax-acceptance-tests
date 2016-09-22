@@ -3,7 +3,7 @@ package uk.gov.hmrc.integration.selenium
 import java.io.PrintWriter
 import java.util.Calendar
 
-import org.openqa.selenium.{By, WebDriver}
+import org.openqa.selenium.{TakesScreenshot, By, WebDriver}
 import uk.gov.hmrc.integration.page.GlobalActions
 
 object CurrentDriver {
@@ -44,8 +44,21 @@ object CurrentDriver {
       webDriver = DriverFactory.buildWebDriver
     webDriver
   }
+  
+  def ifCurrentDriver[T](block: WebDriver => T): Option[T] = {
+    if (webDriver != null) 
+      Some(block(webDriver))
+    else None
+  }
 
-  def withCurrentDriver[T](block: WebDriver => T) = {
+  def ifCurrentDriverTakesSnapshot[T](block: TakesScreenshot => T): Option[T] = {
+    ifCurrentDriver {
+      case takesSnapshot: TakesScreenshot =>
+        block(takesSnapshot)
+    }
+  }
+
+  def provisioningCurrentDriver[T](block: WebDriver => T) = {
     block(getWebDriver)
   }
 }

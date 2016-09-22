@@ -18,20 +18,20 @@ class UserUplift extends ScalaDsl with EN {
 
 
   And( """^text '(.*)' is visible on IV Page$""") { (text: String) =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
 
   And( """^user clicks on Success radio button$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
 
     }
   }
 
   And( """^user is Locked Out of the service for IV Uplift$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -39,7 +39,7 @@ class UserUplift extends ScalaDsl with EN {
   }
 
   And( """^user Aborts the IV Uplift$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -48,7 +48,7 @@ class UserUplift extends ScalaDsl with EN {
   }
 
   And( """^user has an Incomplete journey$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-incomplete")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -57,7 +57,7 @@ class UserUplift extends ScalaDsl with EN {
   }
 
   And( """^user has Precondition Failed$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -66,7 +66,7 @@ class UserUplift extends ScalaDsl with EN {
   }
 
   And( """^user has Insufficient Evidence for IV Uplift$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -74,7 +74,7 @@ class UserUplift extends ScalaDsl with EN {
   }
 
   And( """^user Failed Matching for IV Uplift$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-failedmatching")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -82,7 +82,7 @@ class UserUplift extends ScalaDsl with EN {
   }
 
   And( """^user has technical issues for IV Uplift$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
 
@@ -92,7 +92,7 @@ class UserUplift extends ScalaDsl with EN {
 
 
   Then( """^user is on the page with title '(.*)' with expected URL$""") {
-    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.startsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
@@ -103,13 +103,13 @@ class UserUplift extends ScalaDsl with EN {
 
 
   And( """^user sees text '(.*)' on the page$""") { (text: String) =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
 
   And( """^user is asked to complete the IV Uplift journey$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       val text:String ="Identity Verification Stub"
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
@@ -117,7 +117,7 @@ class UserUplift extends ScalaDsl with EN {
 
 
   And( """^user Continues the journey to PTA$""") { () =>
-    withCurrentDriver { implicit webDriver =>
+    provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#continue")).click()
 
       if (new URL(webDriver.getCurrentUrl).getPath.startsWith("/paperless/choose/")) {

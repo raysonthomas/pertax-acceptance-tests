@@ -9,13 +9,13 @@ class DeepLink extends ScalaDsl with EN {
 
   Then( """^user navigates to (.*) page with (.*) url$""") {
     (page:String, url:String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         webDriver.get(url)
       }
   }
 
   Then( """^url ends with (.*)$""") {
-        (urlEnd:String) => withCurrentDriver { implicit webDriver =>
+        (urlEnd:String) => provisioningCurrentDriver { implicit webDriver =>
           val currentUrl = webDriver.getCurrentUrl
           assert(currentUrl.endsWith(urlEnd), "\n Not the expected end of url")
 //          assert(currentUrl.endsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not end with:\n ${pathForTitle(expectedPageTitle)}")

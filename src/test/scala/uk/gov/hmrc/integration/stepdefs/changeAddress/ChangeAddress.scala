@@ -13,7 +13,7 @@ import scala.collection.JavaConversions._
 class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^user updates .*'(.*)' with '(.*)'$""") {
-    (objID: String, value: String) => withCurrentDriver { implicit webDriver =>
+    (objID: String, value: String) => provisioningCurrentDriver { implicit webDriver =>
       val field = webDriver.findElement(By.id(objID))
       field.clear()
       field.sendKeys(value)
@@ -24,7 +24,7 @@ class ChangeAddress extends ScalaDsl with EN {
   // this step definition does nothing if it is not qa environment (because we cant modify address in stubs)
   Then( """^Updated Address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         if (System.getProperty("environment", "local").toLowerCase == "qa") {
           val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
           val expectedAddress = addressElements.mkString("\n")
@@ -37,7 +37,7 @@ class ChangeAddress extends ScalaDsl with EN {
   //Then( """^error message for .*'(.*)' is '(.*)'$""") {
   Then( """^error message for date field is '(.*)' and .*'(.*)'$"""){
     (expectedError: String, mainError: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
 //        val selectedSource = Jsoup.parse(webDriver.getPageSource).select( """input[name="$field"]""").head.parent()
         val selectedSource = Jsoup.parse(webDriver.getPageSource).select( """#startDate-fieldset""").head.parent()
 
@@ -68,7 +68,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
   And( """^address '(.*)','(.*)','(.*)' is displayed$""") {
     (Line1: String, Line2: String, Postcode: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         assert(webDriver.findElement(By.id("line1")).getAttribute("value") == Line1, s"\nexpected text:\n $Line1 did not match actual address line")
         assert(webDriver.findElement(By.id("line2")).getAttribute("value") == Line2, s"\nexpected text:\n $Line2 did not match actual address line")
         assert(webDriver.findElement(By.id("postcode")).getAttribute("value") == Postcode, s"\nexpected text:\n $Postcode did not match actual address line")
@@ -78,28 +78,28 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   Then( """user selects the option No$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
     webDriver.findElement(By.id("residencyChoice-sole")).click()
 
     }
   }
 
   Then( """user selects the option Yes$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
     webDriver.findElement(By.id("residencyChoice-primary")).click()
 
     }
   }
 
   Then( """user selects the option Yes for Tax Credits$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("value-true")).click()
 
     }
   }
 
   Then( """user selects the option No for Tax Credits$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("value-false")).click()
 
     }
@@ -107,49 +107,49 @@ class ChangeAddress extends ScalaDsl with EN {
 
 
   Then( """user continues from Your address page$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
      webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
 
     }
   }
 
   Then( """user continues from Tax Credits page$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
 
     }
   }
 
   Then( """user continues from Select your address page$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("submitAddressSelector")).click()
 
     }
   }
 
   Then( """user continues from Edit the address page$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("updateAddress")).click()
 
     }
   }
 
   Then( """user continues from Enter start date page$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".button")).click()
 
     }
   }
 
   Then( """user clicks on Confirm and save button on Check your answers page$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".column-whole>form>button")).click()
     }
   }
 
   Then( """^user selects the address '(.*)' and continues$""") {
     (address: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @id='radio-1' and @value='GB990091234582']")).click()
 //        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
@@ -159,7 +159,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^user selects the address '(.*)'$""") {
     (address: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @value='GB990091234582']")).click()
 
@@ -168,7 +168,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^user selects new address '(.*)' and continues$""") {
     (address: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         if (webDriver.getPageSource.contains(address))
           webDriver.findElement(By.xpath(".//*[@type='radio' and @value='GB990091234579']")).click()
 //          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
@@ -177,7 +177,7 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   Then( """^user is on the page with title '(.*)' whose URL is as expected$""") {
-    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
       val urlTail:String = "/personal-account/your-address/postal/thank-you"
@@ -188,7 +188,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
 
   Then( """^user is on the page with title '(.*)' and whose URL is as expected$""") {
-    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
       val urlTail:String = "/personal-account/your-address/sole/thank-you"
@@ -200,7 +200,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^the error message for .*'(.*)' is '(.*)'$""") {
     (field: String, expectedError: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         val selectedSource = Jsoup.parse(webDriver.getPageSource).select( s"""input[name="$field"]""").head.parent()
 
         if (expectedError == "None") {
@@ -218,7 +218,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^Home address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
         val expectedAddress = addressElements.mkString("\n")
         val actualAddress = webDriver.findElement(By.cssSelector("address")).getText
@@ -228,7 +228,7 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^Postal address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
     (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
-      withCurrentDriver { implicit webDriver =>
+      provisioningCurrentDriver { implicit webDriver =>
         val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
         val expectedAddress = addressElements.mkString("\n")
         val actualAddress = webDriver.findElement(By.cssSelector(".panel-indent>address")).getText
@@ -237,7 +237,7 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   Then( """^user is on the page with expected URL$""") {
-    () => withCurrentDriver { implicit webDriver =>
+    () => provisioningCurrentDriver { implicit webDriver =>
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.endsWith("/tax-credits-service/personal/change-address"), "\n current page URL did not end as expected}")
 
@@ -245,19 +245,19 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   And( """^user does not see a manual entry link matching: '(.*)'$""") {
-    (linkName: String) => withCurrentDriver { implicit webDriver =>
+    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
       assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page when not expected")
     }
   }
 
   And( """^user sees a manual entry link matching: '(.*)'$""") {
-    (linkName: String) => withCurrentDriver { implicit webDriver =>
+    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(linkName), s"$linkName is not present on the page when expected")
     }
   }
 
   Then( """^user is on the page with title '(.*)' with correct URL for postal address update$""") {
-    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.endsWith("/your-address/postal/edit-address"), "current URL does not end with /your-address/postal/edit-address")
@@ -266,7 +266,7 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   Then( """^user is on the page with title '(.*)' and URL is as expected for the postal address change$""") {
-    (expectedPageTitle: String) => withCurrentDriver { implicit webDriver =>
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.endsWith("/personal-account/your-address/postal/thank-you"), "current URL does not end with /personal-account/your-address/sole/thank-you")

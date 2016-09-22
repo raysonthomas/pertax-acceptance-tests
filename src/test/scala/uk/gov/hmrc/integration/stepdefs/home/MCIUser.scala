@@ -7,7 +7,7 @@ import uk.gov.hmrc.integration.selenium.CurrentDriver._
 class MCIUser extends ScalaDsl with EN {
 
   And( """^MCI user sees text '(.*)' on the page$""") {
-    (expectedText: String) => withCurrentDriver { implicit webDriver =>
+    (expectedText: String) => provisioningCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
     }
   }
