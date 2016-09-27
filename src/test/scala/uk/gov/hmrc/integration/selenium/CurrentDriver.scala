@@ -45,9 +45,10 @@ object CurrentDriver {
     webDriver
   }
   
-  def ifCurrentDriver[T](block: WebDriver => T): Option[T] = {
-    if (webDriver != null) 
-      Some(block(webDriver))
+  def ifCurrentDriver[T](block: PartialFunction[WebDriver, T]): Option[T] = {
+    if (webDriver != null) {
+      block.lift(webDriver)
+    }
     else None
   }
 
