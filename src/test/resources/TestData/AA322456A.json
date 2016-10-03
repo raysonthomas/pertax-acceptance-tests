@@ -1,0 +1,17 @@
+{
+  "pensionSchemeAdministratorCheckReference": "PSA12345678A",
+  "nino": "AA322456",
+  "id": 4294967271,
+  "version": 12,
+  "type": 3,
+  "status": 1,
+  "protectionReference": "FAKE1PRIMARY",
+  "certificateDate" : "2013-12-18",
+  "certificateTime" : "14:30:40",
+  "protectedAmount": 2000000.00,
+  "relevantAmount": 2000000.00,
+  "uncrystallisedRights" : 500000.00,
+  "preADayPensionInPayment": 500000.00,
+  "postADayBCE": 500000.00,
+  "nonUKRights": 500000.00
+}
