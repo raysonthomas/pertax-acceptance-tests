@@ -48,7 +48,7 @@ object TestDataSource {
     "A user without a tax underpayment"                                   -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),
     "A user with MCI Indicator set as true"                               -> UserProperties.build(nino = Some("ST281614D"), sautr = Some("111111111"), verify = true),//MCI
     "A user who has paid too little tax"                                  -> UserProperties.build(nino = Some("AH498813B"), sautr = Some("111111111"), verify = true),//UnderPayment
-    "A user who has applied for lifetime allowance"                       -> UserProperties.build(nino = Some("AA321456A"), sautr = Some("111111111"), verify = true),//LTA
+    "A user who has applied for lifetime allowance"                       -> UserProperties.build(nino = Some("AA323456A"), sautr = Some("111111111"), verify = true),//LTA
 
     "A user who has requested a refund currently being processed"     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AM242413A"), gg = true),
     "A user who has not requested a refund yet"                       -> UserProperties.build(name = Some("MartinHempton"), nino = Some("NA000938A"), gg = true),
