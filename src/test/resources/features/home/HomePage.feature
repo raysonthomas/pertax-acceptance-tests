@@ -32,3 +32,18 @@ Feature: Home Page segmentation
     Then user is able to see a section 'Services you might need'
     And user sees text 'If you're married or in a civil partnership and you earn less than £11,000, you may benefit from applying for Marriage Allowance.' on the home page
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
+
+  Scenario: GG User who has applied for lifetime allowance navigates to PTA homepage and sees lifetime allowance bucket
+    Given   User who has applied for lifetime allowance is logged into the service using gg
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    Then user is on the page with title 'Personal tax account' and URL is as expected
+    And user sees 'Lifetime allowance protection' link on the page and its href is as expected
+    And user sees text 'See your existing protection details' on the home page
+
+  Scenario: Verify User who has applied for lifetime allowance navigates to PTA homepage and sees lifetime allowance bucket
+    Given   A user who has applied for lifetime allowance is logged into the service using verify
+    Then user is on the page with title 'Personal tax account' and URL is as expected
+    And user sees 'Lifetime allowance protection' link on the page and its href is as expected
+    And user sees text 'See your existing protection details' on the home page
