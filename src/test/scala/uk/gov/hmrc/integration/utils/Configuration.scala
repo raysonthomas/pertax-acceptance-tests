@@ -11,9 +11,15 @@ object Configuration {
   lazy val environment = System.getProperty("environment", "local").toLowerCase match {
     case "local" => Map(
       "id" -> "local",
-      "url" -> "http://localhost:9232/personal-account",
+      "url" -> "http://localhost:9949/auth-login-stub",
       "defaultWait" -> defaultWait
     )
+//    case "local" => Map(
+//      "id" -> "local",
+//      "url" -> "http://localhost:9232/personal-account",
+//      "defaultWait" -> defaultWait
+//    )
+
     case "dev" => Map(
       "id" -> "dev",
       "url" -> "https://www-dev.tax.service.gov.uk/personal-account",

@@ -5,6 +5,7 @@ Feature: Verify my correspondence address
 
   JIRA story history: MTA-1691
 
+
   Scenario: User with correspondence address is able to view their correspondence address
     Given A user with a Correspondence Address is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
