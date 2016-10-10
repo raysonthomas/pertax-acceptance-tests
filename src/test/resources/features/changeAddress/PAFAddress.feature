@@ -6,6 +6,7 @@ Feature: Update Personal Details
 
   JIRA story history: MTA-1349,MTA_1420, MTA-1848, MTA-1691
 
+
   Scenario: Positive update address entering postcode
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
@@ -21,6 +22,7 @@ Feature: Update Personal Details
     Then user continues from Your address page
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
+    Then user waits for select address page
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did you start living here?' on the page
     And user updates date field 'startDate.day' with '01'

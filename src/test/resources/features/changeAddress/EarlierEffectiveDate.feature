@@ -21,6 +21,7 @@ Feature: Verify my home address
     Then user continues from Your address page
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
+    Then user waits for select address page
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did you start living here?' on the page
     And user updates date field 'startDate.day' with '<dayContent>'

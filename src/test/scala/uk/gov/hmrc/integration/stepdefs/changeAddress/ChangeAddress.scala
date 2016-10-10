@@ -109,13 +109,32 @@ class ChangeAddress extends ScalaDsl with EN {
   Then( """user continues from Your address page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
      webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
+//      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/primary/find-address")))
 
     }
   }
 
+  Then( """^user waits for primary find address page$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/primary/find-address")))
+      }
+  }
+
+  Then( """^user waits for find address page$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/sole/find-address")))
+      }
+  }
+
+
   Then( """user continues from Tax Credits page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/residency-choice")))
+
+
 
     }
   }
@@ -154,6 +173,7 @@ class ChangeAddress extends ScalaDsl with EN {
           webDriver.findElement(By.xpath(".//*[@type='radio' and @id='radio-1' and @value='GB990091234582']")).click()
 //        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
           webDriver.findElement(By.xpath(".//*[@id='submitAddressSelector']")).click()
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/sole/enter-start-date")))
       }
   }
 
@@ -173,8 +193,15 @@ class ChangeAddress extends ScalaDsl with EN {
           webDriver.findElement(By.xpath(".//*[@type='radio' and @value='GB990091234579']")).click()
 //          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.buttonVisible(".//*[@id='submitAddressSelector']")))
           webDriver.findElement(By.xpath(".//*[@id='submitAddressSelector']")).click()
+              }
+  }
+  Then( """^user waits to enter start date$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/primary/enter-start-date")))
       }
   }
+
 
   Then( """^user is on the page with title '(.*)' whose URL is as expected$""") {
     (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
