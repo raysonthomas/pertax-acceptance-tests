@@ -17,6 +17,7 @@ Feature: Update Personal Details
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -46,6 +47,7 @@ Feature: Update Personal Details
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -73,6 +75,7 @@ Feature: Update Personal Details
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -102,6 +105,7 @@ Feature: Update Personal Details
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -119,6 +123,7 @@ Feature: Update Personal Details
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -137,6 +142,7 @@ Feature: Update Personal Details
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page

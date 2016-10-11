@@ -17,6 +17,7 @@ Feature: Verify my home address
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option Yes
     Then user continues from Your address page

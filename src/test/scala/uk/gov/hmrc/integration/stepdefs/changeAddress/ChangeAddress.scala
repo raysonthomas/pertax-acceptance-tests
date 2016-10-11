@@ -132,13 +132,15 @@ class ChangeAddress extends ScalaDsl with EN {
   Then( """user continues from Tax Credits page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/residency-choice")))
-
-
-
     }
   }
 
+  Then( """user waits for residency choice$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/residency-choice")))
+
+    }
+  }
   Then( """user continues from Select your address page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("submitAddressSelector")).click()

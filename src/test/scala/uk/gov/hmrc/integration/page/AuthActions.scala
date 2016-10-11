@@ -64,11 +64,12 @@ object AuthActions {
     select1.selectByValue("50")
 
     ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"nino\"][type=\"text\"]")).sendKeys(_))
-
-    webDriver.findElement(By.id("add-preset")).click()
-    ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[id =\"input-4-0-value\"][name =\"enrolment[4].taxIdentifier[0].value\"]")).sendKeys(_))
-    val select2 = new Select(webDriver.findElement(By.name("enrolment[4].state")))
-    select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
+    if(!ggUserProperties.sautr.isEmpty) {
+      webDriver.findElement(By.id("add-preset")).click()
+      ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[id =\"input-4-0-value\"][name =\"enrolment[4].taxIdentifier[0].value\"]")).sendKeys(_))
+      val select2 = new Select(webDriver.findElement(By.name("enrolment[4].state")))
+      select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
+    }
 
     webDriver.findElement(By.cssSelector("input[value=\"Submit\"][type=\"submit\"]")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))

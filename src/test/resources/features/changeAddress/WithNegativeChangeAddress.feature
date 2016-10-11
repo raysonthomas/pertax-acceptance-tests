@@ -18,6 +18,7 @@ Feature: Change/Modify my home address
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user selects the option No
     Then user continues from Your address page
     And user updates 'postcode' with 'NE7 7HN'

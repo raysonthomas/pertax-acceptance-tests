@@ -41,9 +41,9 @@ Feature: TES/TAI/PAYE
     And user does not see the link  'Pay As You Earn (PAYE)' on the home page
     And user does not see the link  'Self Assessment' on the home page
 
-  Scenario: User is NOT enrolled in PAYE regime and HAS a SA Enrolment should NOT be able to see link to PAYE and SA bucket link
-    Given A user with No PAYE but SA account is logged into the service using verify
-    And user is on the page with title 'Personal tax account' and URL is as expected
-    And user does not see text 'Tax and National Insurance' on the home page
-    And user does not see the link  'Pay As You Earn (PAYE)' on the home page
-    And user does not see the link  'Self Assessment' on the home page
+#  Scenario: User is NOT enrolled in PAYE regime and HAS a SA Enrolment should NOT be able to see link to PAYE and SA bucket link
+#    Given A user with No PAYE but SA account is logged into the service using verify
+#    And user is on the page with title 'Personal tax account' and URL is as expected
+#    And user does not see text 'Tax and National Insurance' on the home page
+#    And user does not see the link  'Pay As You Earn (PAYE)' on the home page
+#    And user does not see the link  'Self Assessment' on the home page

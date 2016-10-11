@@ -15,6 +15,13 @@ class DeepLink extends ScalaDsl with EN {
       }
   }
 
+  Then( """^user tries navigating to (.*) page with (.*) url$""") {
+    (page:String, URL:String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.get(URL)
+      }
+  }
+
   Then( """^url ends with (.*)$""") {
         (urlEnd:String) => provisioningCurrentDriver { implicit webDriver =>
           val currentUrl = webDriver.getCurrentUrl
