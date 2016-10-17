@@ -7,32 +7,30 @@ Feature: Verify my home address
 
   JIRA story history: MTA-1691 , MTA-1701 , MTA-1702
 
-  Scenario: User has an effective from date other than ( Before) 6th April 2016 and able to view correct details
+Background: User has an effective from date other than ( Before) 6th April 2016 and able to view correct details
     Given A user with Effective From date other than 06 April 2016 is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
     And user sees 'Change where we send your letters' link on the page and its href is as expected
-
-
-  Scenario Outline: User tries to change home address and enters an invalid date and gets correct error messages
-    Given A user with Effective From date other than 06 April 2016 is logged into the service using verify
-    And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
-    And user is on the page with title 'Your address' and URL is as expected
-    Then user is able to see a section 'This has been your main home since'
     And user clicks on 'Change your address' link
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
+    And user waits for find address page
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
+    Then user waits for select address page
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did you start living here?' on the page
+
+
+  Scenario Outline: User tries to change home address and enters an invalid date and gets correct error messages
     And user updates date field 'startDate.day' with '<dayContent>'
     And user updates date field 'startDate.month' with '<monthContent>'
     And user updates date field 'startDate.year' with '<yearContent>'

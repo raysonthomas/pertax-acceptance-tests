@@ -16,11 +16,13 @@ Feature: Verify my home address
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
+    Then user waits for select address page
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did you start living here?' on the page
     And user updates date field 'startDate.day' with '<dayContent>'

@@ -11,12 +11,21 @@ import uk.gov.hmrc.integration.utils._
 
 object AuthActions {
 
+  var authorityIdVerify = 0
+  var authorityIdGG = 0
+
   def logIn(user: String, authProvider: String)(implicit webDriver: WebDriver) = {
     provisioningCurrentDriver { implicit webDriver =>
       val userProperties = getUserProperties(user, authProvider)
       authProvider match {
-        case AuthProviders.Verify => userProperties.verify.fold(throw new RuntimeException("No verify details for user"))(loginUsingVerify)
-        case AuthProviders.GG     => userProperties.gg.fold(throw new RuntimeException("No gg details for user"))(loginUsingGovernmentGateway)
+        case AuthProviders.Verify => {
+          authorityIdVerify += 1
+          userProperties.verify.fold(throw new RuntimeException("No verify details for user"))(loginUsingVerify)
+        }
+        case AuthProviders.GG     => {
+          authorityIdGG += 1
+          userProperties.gg.fold(throw new RuntimeException("No gg details for user"))(loginUsingGovernmentGateway)
+        }
       }
     }
   }
@@ -35,17 +44,10 @@ object AuthActions {
 
   
   def loginUsingVerify(verifyUserProperties: VerifyUserProperties)(implicit webDriver: WebDriver) = {
-    webDriver.get(Configuration("url")+"/start-verify")
-    webDriver.findElement(By.name("authorityId")).sendKeys("Verify")
-    webDriver.findElement(By.name("redirectionUrl")).clear()
-    webDriver.findElement(By.name("redirectionUrl")).sendKeys("http://localhost:9232/personal-account/do-uplift")
-    val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[3]/select")))
-    select.selectByValue("strong")
-    val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
-    select1.selectByValue("200")
-
-    verifyUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[1].value\"][type=\"text\"]")).sendKeys(_))
-    verifyUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[0].value\"][type=\"text\"]")).sendKeys(_))
+    webDriver.get(Configuration("url")+"/verify-sign-in?continue=http://localhost:9232/personal-account")
+    webDriver.findElement(By.name("authorityId")).sendKeys(authorityIdVerify.toString)
+    verifyUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"nino\"][type=\"text\"]")).sendKeys(_))
+    verifyUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name = \"saUtr\"][type = \"text\"]")).sendKeys(_))
 
     webDriver.findElement(By.cssSelector(".button")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
@@ -53,40 +55,42 @@ object AuthActions {
 
 
   def loginUsingGovernmentGateway(ggUserProperties: GGUserProperties)(implicit webDriver: WebDriver) = {
-    webDriver.get(Configuration("url") + "/start-government-gateway")
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[1]/input")).sendKeys(ggUserProperties.name)
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[2]/input")).clear()
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[2]/input")).sendKeys("http://localhost:9232/personal-account/full")
-    val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[3]/select")))
+    webDriver.get(Configuration("url") + "/gg-sign-in?continue=http://localhost:9232/personal-account")
+    webDriver.findElement(By.name("authorityId")).sendKeys(authorityIdGG.toString)
+
+    val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
     select.selectByValue("weak")
-    val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
+    val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/select")))
     select1.selectByValue("50")
 
-    ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[0].value\"][type=\"text\"]")).sendKeys(_))
-    val select2 = new Select(webDriver.findElement(By.name("taxIdInfo[0].state")))
-    select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
+    ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"nino\"][type=\"text\"]")).sendKeys(_))
+    if(!ggUserProperties.sautr.isEmpty) {
+      webDriver.findElement(By.id("add-preset")).click()
+      ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[id =\"input-4-0-value\"][name =\"enrolment[4].taxIdentifier[0].value\"]")).sendKeys(_))
+      val select2 = new Select(webDriver.findElement(By.name("enrolment[4].state")))
+      select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
+    }
 
-    ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[8].value\"][type=\"text\"]")).sendKeys(_))
-
-    webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
+    webDriver.findElement(By.cssSelector("input[value=\"Submit\"][type=\"submit\"]")).click()
     (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
   }
 
 
-    def loginUsingGovernmentGatewayforBookmark(ggUserProperties: GGUserProperties)(implicit webDriver: WebDriver) = {
-      webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[1]/input")).sendKeys(ggUserProperties.name)
-      val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[3]/select")))
-      select.selectByValue("weak")
-      val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
-      select1.selectByValue("50")
+  def loginUsingGovernmentGatewayforBookmark(ggUserProperties: GGUserProperties)(implicit webDriver: WebDriver) = {
+    webDriver.findElement(By.name("authorityId")).sendKeys(authorityIdGG.toString)
+    val select = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[4]/select")))
+    select.selectByValue("weak")
+    val select1 = new Select(webDriver.findElement(By.xpath(".//*[@id='inputForm']/div/div[5]/select")))
+    select1.selectByValue("50")
 
-      ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[0].value\"][type=\"text\"]")).sendKeys(_))
+    ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"nino\"][type=\"text\"]")).sendKeys(_))
 
-      ggUserProperties.nino.map(webDriver.findElement(By.cssSelector("input[name=\"taxIdInfo[8].value\"][type=\"text\"]")).sendKeys(_))
+    webDriver.findElement(By.id("add-preset")).click()
+    ggUserProperties.sautr.map(webDriver.findElement(By.cssSelector("input[id =\"input-4-0-value\"][name =\"enrolment[4].taxIdentifier[0].value\"]")).sendKeys(_))
+    val select2 = new Select(webDriver.findElement(By.name("enrolment[4].state")))
+    select2.selectByVisibleText(ggUserProperties.saEnrolmentStatus)
 
-      webDriver.findElement(By.xpath(".//*[@id='inputForm']/p/input")).click()
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
+    webDriver.findElement(By.cssSelector("input[value=\"Submit\"][type=\"submit\"]")).click()
+    (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains("2-Step verification Stub"))
   }
-
-
 }

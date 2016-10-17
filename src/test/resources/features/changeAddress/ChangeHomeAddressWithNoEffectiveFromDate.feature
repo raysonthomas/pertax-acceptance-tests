@@ -6,15 +6,7 @@ Feature: Verify my home address
 
   JIRA story history: MTA-1691
 
-
-  Scenario: User has no effective from date on record
-    Given A user with No Effective From date is logged into the service using verify
-    And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
-    And user is on the page with title 'Your address' and URL is as expected
-
-
-  Scenario: User changes home address
+  Scenario: User has no effective from date on record. User changes home address
     Given A user with No Effective From date is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
@@ -23,11 +15,13 @@ Feature: Verify my home address
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option Yes
     Then user continues from Your address page
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
+    Then user waits for select address page
     And user selects new address '8 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did this become your main home?' on the page
     And user updates date field 'startDate.day' with '01'

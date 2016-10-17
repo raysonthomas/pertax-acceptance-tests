@@ -19,7 +19,7 @@ Feature: Test the bookmark feature
     Then user is on the page with title 'Your address' and URL is as expected
     Examples:
       | NavigatedTo                    | PageURL                                                                         | ExpectedEndOfURL                        |
-      | Your address                   | http://localhost:9232/personal-account/your-address/tax-credits-choice          | accountType=individual&origin=PERTAX    |
+      | Your address                   | http://localhost:9232/personal-account/your-address/tax-credits-choice          | /your-address/tax-credits-choice        |
 
 
   Scenario Outline: User should be returned to the 'your Address' page when directly navigating to the 'Check your details' page
@@ -32,7 +32,7 @@ Feature: Test the bookmark feature
     Then user is on the page with title 'Your address' and URL is as expected
     Examples:
       | NavigatedTo                          | PageURL                                                                         | ExpectedEndOfURL                        |
-      | Check your details                   | http://localhost:9232/personal-account/your-address/sole/changes                | accountType=individual&origin=PERTAX    |
+      | Check your details                   | http://localhost:9232/personal-account/your-address/sole/changes                | /your-address/sole/changes              |
 
 
   Scenario Outline: User should be returned to the 'National Insurance' page when directly navigating to the 'National Insurance' page
@@ -44,8 +44,8 @@ Feature: Test the bookmark feature
     And user Continues the journey to PTA
     Then user is on the page with title 'National Insurance summary' and URL is as expected
     Examples:
-      | NavigatedTo                          | PageURL                                                                          | ExpectedEndOfURL                        |
-      | National Insurance                   | http://localhost:9232/personal-account/national-insurance-summary                | accountType=individual&origin=PERTAX    |
+      | NavigatedTo                          | PageURL                                                                          | ExpectedEndOfURL                               |
+      | National Insurance                   | http://localhost:9232/personal-account/national-insurance-summary                | /personal-account/national-insurance-summary   |
 
 
   Scenario Outline: User should be returned to the 'address already updated' page when directly navigating to the 'done' page
@@ -57,8 +57,8 @@ Feature: Test the bookmark feature
     And user Continues the journey to PTA
     And user is on the page with title 'Your address has already been updated' and URL is correct
     Examples:
-      | NavigatedTo                                   | PageURL                                                                           | ExpectedEndOfURL                        |
-      | Your address has been saved                   | http://localhost:9232/personal-account/your-address/sole/thank-you                | accountType=individual&origin=PERTAX    |
+      | NavigatedTo                                   | PageURL                                                                           | ExpectedEndOfURL                      |
+      | Your address has been saved                   | http://localhost:9232/personal-account/your-address/sole/thank-you                | /your-address/sole/thank-you          |
 
 
 

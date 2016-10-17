@@ -10,7 +10,7 @@ Feature: Deep Links
   Scenario Outline: User navigates to 'Do you get tax credits' and 'not your address page'
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
   | NavigatedTo                                         | PageURL                                                                               | ExpectedEndOfURL     |
@@ -22,7 +22,7 @@ Feature: Deep Links
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'Update your address' link
     And user clicks on 'Change your address' link
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
   | NavigatedTo                                           | PageURL                                                                               | ExpectedEndOfURL     |
@@ -35,7 +35,7 @@ Feature: Deep Links
     And user clicks on 'Update your address' link
     And user clicks on 'Change your address' link
     Then user selects the option No for Tax Credits
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
   | NavigatedTo                                        | PageURL                                                                                | ExpectedEndOfURL     |
@@ -49,10 +49,11 @@ Feature: Deep Links
     And user clicks on 'Change your address' link
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
   | NavigatedTo                                        | PageURL                                                                                                      | ExpectedEndOfURL     |
@@ -66,8 +67,9 @@ Feature: Deep Links
     And user clicks on 'Change your address' link
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
   Examples:
   | NavigatedTo                                        | PageURL                                                                                                    | ExpectedEndOfURL     |
@@ -81,10 +83,11 @@ Feature: Deep Links
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
@@ -98,6 +101,7 @@ Feature: Deep Links
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -105,7 +109,7 @@ Feature: Deep Links
     Then user clicks on 'submitAddressFinder' button
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did you start living here?' on the page
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
@@ -115,7 +119,7 @@ Feature: Deep Links
   Scenario Outline: User navigates directly to 'Done' page
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     And user is on the page with title 'Your address has already been updated' and URL is correct
     Then user sees 'current address' link on the page and its href is as expected
@@ -129,7 +133,7 @@ Feature: Deep Links
   Scenario Outline: Correspondence Address: User navigates to 'Find an address' page and not viewed page 'Your address'
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                        | ExpectedEndOfURL     |
@@ -143,7 +147,7 @@ Feature: Deep Links
     And user is on the page with title 'Your address' and URL is as expected
     Then user clicks on 'Change where we send your letters' link
     Then user is on the page with title 'Find an address' and URL is as expected
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL     |
@@ -153,7 +157,7 @@ Feature: Deep Links
   Scenario Outline: Correspondence Address: User navigates to 'Edit the address' page and not viewed page 'Your address'
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     Examples:
       | NavigatedTo                                                     | PageURL                                                                                                                            | ExpectedEndOfURL     |
@@ -163,7 +167,7 @@ Feature: Deep Links
   Scenario Outline: Correspondence Address: User navigates directly to 'Done' page
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user navigates to <NavigatedTo> page with <PageURL> url
+    And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
     And user is on the page with title 'Your address has already been updated' and URL is as expected for the postal address change
     Then user sees 'current address' link on the page and its href is as expected
