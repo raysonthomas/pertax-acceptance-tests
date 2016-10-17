@@ -49,6 +49,7 @@ Feature: Deep Links
     And user clicks on 'Change your address' link
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -66,6 +67,7 @@ Feature: Deep Links
     And user clicks on 'Change your address' link
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     And user tries navigating to <NavigatedTo> page with <PageURL> url
     And url ends with <ExpectedEndOfURL>
@@ -81,6 +83,7 @@ Feature: Deep Links
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
@@ -98,6 +101,7 @@ Feature: Deep Links
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option No for Tax Credits
     Then user continues from Tax Credits page
+    Then user waits for residency choice
     Then user sees text 'Do you live in more than one place?' on the page
     Then user selects the option No
     Then user continues from Your address page
