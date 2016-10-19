@@ -4,6 +4,7 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.jsoup.Jsoup
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.WebDriverWait
+import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
@@ -300,6 +301,13 @@ class ChangeAddress extends ScalaDsl with EN {
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.endsWith("/personal-account/your-address/postal/thank-you"), "current URL does not end with /personal-account/your-address/sole/thank-you")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
+  }
+
+  Then( """^user clicks on Change where we send your letters link on your address page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.cssSelector("[class=\"button grey margin-top\"][href=\"/personal-account/your-address/postal/find-address\"]")).click()
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/find-address"))
     }
   }
 
