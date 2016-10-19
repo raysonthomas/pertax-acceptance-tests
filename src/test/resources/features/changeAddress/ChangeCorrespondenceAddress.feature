@@ -13,7 +13,7 @@ Feature: Verify my correspondence address
     And Postal address '11 Test Street', 'Testtown', '', '', 'FX97 4TU' should be visible
     Then user sees text 'Get letters sent to a different address' on the page
     And user sees 'Change where we send your letters' link on the page and its href is as expected
-    Then user clicks on 'Change where we send your letters' link
+    Then user clicks on Change where we send your letters link on your address page
     Then user is on the page with title 'Find an address' and URL is as expected
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
