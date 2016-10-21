@@ -34,7 +34,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees text 'You can try again in 7 days.' on the page
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
-  Scenario: IV Failure Journey for Insufficient Evidence / Precondition Failed for SA user
+  Scenario: IV Failure Journey for Precondition Failed for SA user
     Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
@@ -70,7 +70,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
 
-  Scenario: IV Failure Journey for Insufficient Evidence / Precondition Failed / Failed Matching for Non SA user
+  Scenario: IV Failure Journey for Precondition Failed / Failed Matching for Non SA user
     Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
@@ -90,6 +90,44 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees text 'If you have a query you can ' on the page
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
+Scenario: 1.  An SA user who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
+    Given A user with an SA account is logged into the service using gg
+    When user successfully completes 2FA Journey
+    And the user completes the IV journey where the result was that they had insufficient evidence
+    Then user is on the page with text 'placeholder for SA redirect page' with expected URL
+
+Scenario: 2. An SA user who has completed 2FA and who is on the IV exception list arrives in PTA
+    Given A user with an SA account and who is on the IV exception list is logged into the service using gg
+    When user successfully completes 2FA Journey
+    Then user is on the page with text 'placeholder for SA redirect page' with expected URL
+
+Scenario: 3. A user who needs to activate their SA code and who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
+    Given A user who needs to activate their SA code is logged into the service using gg
+    When user successfully completes 2FA Journey
+    And the user completes the IV journey where the result was that they had insufficient evidence
+    Then user is on the page with text 'placeholder for SA Activate redirect page' with expected URL
+
+Scenario: 4. A user who needs to activate their SA code who has completed 2FA and is on the IV exception list arrives  in PTA
+       Given A user who needs to activate their SA code and who is on the IV exception list is logged into the service using gg
+       When user successfully completes 2FA Journey
+       Then user is on the page with text 'placeholder for SA Activate redirect page' with expected URL
+
+Scenario: 5. SA User using credentials not linked to their SA account and who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
+    Given an SA User using credentials not linked to their SA account  is logged into the service using gg
+    When user successfully completes 2FA Journey
+    And the user completes the IV journey where the result was that they had insufficient evidence
+    Then user is on the page with text 'placeholder for wrong creds redirect page' with expected URL
+
+Scenario:6.  an SA User using credentials not linked to their SA account who has completed 2FA and who is on the IV exception list arrives in PTA
+    Given an SA User using credentials not linked to their SA account  and who is on the IV exception list is logged into the service using gg
+    When user successfully completes 2FA Journey
+    Then user is on the page with text 'placeholder for wrong creds redirect page'' with expected URL
+
+Scenario: 7. A non-SA user who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
+    Given A user with no SA account is logged into the service using gg
+    When user successfully completes 2FA Journey
+    And the user completes the IV journey where the result was that they had insufficient evidence
+    Then user is on the page with text 'placeholder for non-SA insufficient evidence' with expected URL
 
 
 
