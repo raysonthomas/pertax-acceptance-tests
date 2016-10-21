@@ -306,8 +306,22 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^user clicks on Change where we send your letters link on your address page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector("[class=\"button grey margin-top\"][href=\"/personal-account/your-address/postal/find-address\"]")).click()
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/find-address"))
+      val ele = webDriver.findElement(By.cssSelector("[class=\"button grey margin-top\"][href=\"/personal-account/your-address/postal/find-address\"]"))
+
+      println(ele.getTagName)
+      println(ele.getAttribute("href"))
+      println(ele.getText)
+
+      ele.click()
+
+      try {
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/find-address"))
+      }
+      catch {
+        case e: Exception =>
+          println(webDriver.getCurrentUrl)
+          throw new RuntimeException(e)
+      }
     }
   }
 
