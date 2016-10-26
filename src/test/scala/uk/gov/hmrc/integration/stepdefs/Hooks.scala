@@ -18,10 +18,14 @@ class Hooks extends ScalaDsl with EN with Matchers {
   //Executes after each scenario in a feature
   @After
   def tearDown(result: Scenario){
-//    ifCurrentDriverTakesSnapshot { takesSnapShot =>
-//      Snapshotter.takeSnapshot(takesSnapShot, result)
+//    if (result.isFailed) {
+//          ifCurrentDriverTakesSnapshot { takesSnapShot =>
+//            Snapshotter.takeSnapshot(takesSnapShot, result)
+//          }
 //    }
     CurrentDriver.clearSession()
   }
+
+
 }
 
