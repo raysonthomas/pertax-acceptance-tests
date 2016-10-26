@@ -344,12 +344,6 @@ class ChangeAddress extends ScalaDsl with EN {
       }
     }
   }
-
-//  Then( """^user takes (.*) screenshot$""") {
-//    (result: Scenario) => provisioningCurrentDriver { implicit webDriver =>
-//
-//    }
-//  }
 }
 
 object ScenarioStore {
