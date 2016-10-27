@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature:
   As a parent
   I need to tell HMRC if i am still eligible for child benefit payments
