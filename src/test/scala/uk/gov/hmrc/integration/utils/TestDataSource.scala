@@ -56,6 +56,8 @@ object TestDataSource {
     "A user who has has been sent a cheque"                           -> UserProperties.build(name = Some("MartinHempton"), nino = Some("JN333333A"), gg = true),
     "A user without a tax underpayment"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true),
     "A user who has paid too little tax"                              -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AH498813B"), gg = true),
+    "A user who is a trusted helper"                                  -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
+    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
 
     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true), //GG Chris
     "User with a PAYE account and SA account"                         -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones
@@ -149,6 +151,7 @@ object TestDataSource {
     "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
     "Company benefits"                                              -> "/check-income-tax/taxable-income",
     "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections"
+
   )
 
   val pathForTitle = Map(
