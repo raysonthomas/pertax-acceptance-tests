@@ -1,7 +1,5 @@
 package uk.gov.hmrc.integration.utils
 
-import play.api.libs.json.Json
-import scala.io.Source
 import uk.gov.hmrc.integration.utils.model._
 
 case class TestPersonProperties(nino: Option[String], sautr: Option[String], username: String, password: String)
@@ -150,8 +148,8 @@ object TestDataSource {
     "Get more details"                                              -> "/tax-you-paid/status",
     "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
     "Company benefits"                                              -> "/check-income-tax/taxable-income",
-    "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections"
-
+    "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections",
+    "Send your tax return by post (opens in a new window)"          ->"/self-assessment-forms-and-helpsheets"
   )
 
   val pathForTitle = Map(
