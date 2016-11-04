@@ -11,7 +11,7 @@ Feature: Verify my correspondence address
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
+    And user clicks on visible 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user sees text 'Letters from HM Revenue and Customs currently get sent to your home address.' on the page
     And user sees 'Change where we send your letters' link on the page and its href is as expected

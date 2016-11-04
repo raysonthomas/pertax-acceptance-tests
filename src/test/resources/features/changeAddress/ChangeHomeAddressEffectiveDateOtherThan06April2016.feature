@@ -10,7 +10,7 @@ Feature: Verify my home address
 Background: User has an effective from date other than ( Before) 6th April 2016 and able to view correct details
     Given A user with Effective From date other than 06 April 2016 is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
+    And user clicks on visible 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
     And user sees 'Change where we send your letters' link on the page and its href is as expected

@@ -9,7 +9,7 @@ Feature: Change Address Manually link visibility
   Background:
     Given A user is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
+    And user clicks on visible 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     Then user is able to see a section 'This has been your main home since'
     And user clicks on 'Change your address' link
