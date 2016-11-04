@@ -2,9 +2,7 @@ package uk.gov.hmrc.integration.stepdefs.home
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
-import uk.gov.hmrc.integration.page.AuthActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.utils.TestDataSource._
 
 class SAActivation extends ScalaDsl with EN {
 
@@ -22,12 +20,12 @@ class SAActivation extends ScalaDsl with EN {
     }
   }
 
-  And( """^user is on the Your Self Assessment cannot be shown page with Url and title as expected$""") {
+  And( """^user is on the Your Self Assessment details cannot be shown page with Url and title as expected$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       val currentUrl = webDriver.getCurrentUrl
       val pageTitle = webDriver.getTitle
       assert(currentUrl.contains("/personal-account/self-assessment"), "\nSPage url not as expected")
-      assert(pageTitle.contains("Your Self Assessment cannot be shown"), "\nPage title not as expected")
+      assert(pageTitle.contains("Your Self Assessment details cannot be shown"), "\nPage title not as expected")
 
     }
   }
