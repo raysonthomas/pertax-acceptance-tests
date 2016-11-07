@@ -72,7 +72,10 @@ object TestDataSource {
     "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
     "User who has enrolled for Self Assessment and Not Yet Activated" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111114444"), gg = true, saEnrolmentStatus = "NotYetActivated"),  //XXXXXX
     "User with gg credentials not linked to SA"                       -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003D"), sautr = None, gg = true, saEnrolmentStatus = "Activated"),  //GG not SA
-    "User who has applied for lifetime allowance"                     -> UserProperties.build(name = Some("BobJones"), nino = Some("AA322456A"), sautr = Some("222222222"), gg = true)  //LTA
+    "User who has applied for lifetime allowance"                     -> UserProperties.build(name = Some("BobJones"), nino = Some("AA322456A"), sautr = Some("222222222"), gg = true),  //LTA
+    "User who is in the IV exception list"                            -> UserProperties.build(name = Some("Donniedarko"), nino = Some("CS777177A"), sautr = Some("123459876"), gg = true, saEnrolmentStatus = "Activated"),  //IV EXception
+    "User not yet activated SA and on exception list"                 -> UserProperties.build(name = Some("Donniedarko"), nino = Some("CS777177A"), sautr = Some("123459876"), gg = true, saEnrolmentStatus = "NotYetActivated")  //IV Exception and Not Yet Activated
+
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
