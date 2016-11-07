@@ -50,13 +50,6 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'TBC' on the page
 
-  Scenario: An Ambiguous SA user who has completed 2FA and who is on the IV exception list arrives in PTA
-    Given User with gg credentials not linked to SA is logged into the service using gg
-    And user completes 2FA Journey
-    And user is on the page with title 'We're unable to confirm your identity' with expected URL
-    And user sees text 'TBC' on the page
-
-
   Scenario: A non-SA Filer who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User with a PAYE account, but no SA account is logged into the service using gg
     And user completes 2FA Journey
