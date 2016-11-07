@@ -114,6 +114,19 @@ class UserUplift extends ScalaDsl with EN {
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
+  And( """^User added in Exception List$""") { () =>
+    provisioningCurrentDriver { implicit webDriver =>
+//      val y = "mongo ated --eval db.Reliefs.drop()".!
+//      Thread.sleep(5000)
+
+      webDriver.get("localhost:8533/enrolment-exception-list")
+      webDriver.findElement(By.cssSelector("#reference")).sendKeys("123459876")
+      webDriver.findElement(By.cssSelector("#name")).sendKeys("R T")
+      webDriver.findElement(By.cssSelector("#reason")).sendKeys("Test Exception")
+      webDriver.findElement(By.cssSelector(".button")).click()
+//      webDriver.close()
+    }
+  }
 
 
   And( """^user Continues the journey to PTA$""") { () =>

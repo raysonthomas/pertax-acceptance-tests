@@ -24,7 +24,8 @@ object CurrentDriver {
         !webDriver.getCurrentUrl.endsWith("/signed-out") &&
         !webDriver.getCurrentUrl.endsWith("/personal-account/feedback-thanks") &&
         !webDriver.getCurrentUrl.endsWith("enteractivationpin") &&
-        !webDriver.getCurrentUrl.endsWith("/signed-out?origin=PERTAX")
+        !webDriver.getCurrentUrl.endsWith("/signed-out?origin=PERTAX") &&
+        !webDriver.getCurrentUrl.endsWith("/enrolment-exception-list")
 
       )
 
