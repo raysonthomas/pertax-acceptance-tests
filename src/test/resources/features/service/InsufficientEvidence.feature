@@ -11,7 +11,6 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'Access your Self Assessment information' on the page
-    And user sees text 'You can't get full access to your personal tax account because HM Revenue and Customs can't confirm your identity' on the page
     And user sees text 'You can still view and file your Self Assessment return online' on the page
     Then user clicks on 'Continue' button which redirect to the Portal SA page
 
@@ -20,7 +19,6 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     And user completes 2FA Journey
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'Access your Self Assessment information' on the page
-    And user sees text 'You can't get full access to your personal tax account because HM Revenue and Customs can't confirm your identity' on the page
     And user sees text 'You can still view and file your Self Assessment return online' on the page
     Then user clicks on 'Continue' button which redirect to the Portal SA page
 
@@ -48,15 +46,20 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-    And user sees text 'TBC' on the page
+    And user sees text 'You can't access your Self Assessment' on the page
+    And user sees text 'If you send your tax return online' on the page
+    And user sees text 'If you send your tax return by post' on the page
+    And user sees 'sign out' link on the page and its href is as expected
+    And user sees 'recover your user ID' link on the page and its href is as expected
+    And user sees 'Send your tax return by post (opens in a new window).' link on the page and its href is as expected
 
   Scenario: A non-SA Filer who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User with a PAYE account, but no SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
-    And user sees text 'You can't get full access to your personal tax account because HM Revenue and Customs can't confirm your identity' on the page
-    And user sees 'contact HMRC (opens in a new window)' link on the page and its href is as expected
+    And user sees 'Try to confirm your identity again' link on the page and its href is as expected
+    And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
 
 
