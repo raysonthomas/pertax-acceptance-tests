@@ -156,7 +156,8 @@ object TestDataSource {
     "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections",
     "recover your user ID"                                          -> "origin=unknown&forgottenOption=userId",
     "Send your tax return by post (opens in a new window)."         ->"/self-assessment-forms-and-helpsheets",
-    "sign out"                                                      ->"/signed-out?origin=PERTAX"
+    "sign out"                                                      ->"/signed-out?origin=PERTAX",
+    "Continue"                                                      ->"/signed-out?origin=PERTAX"
 
   )
 
