@@ -33,7 +33,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     And user sees 'call the Online Services Helpdesk (opens in a new window)' link on the page and its href is as expected
 
   Scenario: A Not yet activated online filer who has completed 2FA and is on the IV exception list arrives  in PTA
-    Given User not yet activated SA and on exception list is logged into the service using gg
+    Given User not yet activated SA and on exception list is logged into the service using ggpush
     And user completes 2FA Journey
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'Activate your Self Assessment registration' on the page
