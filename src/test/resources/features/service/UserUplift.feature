@@ -89,3 +89,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     And user sees text 'You can try again in 7 days.' on the page
     And user sees text 'If you have a query you can ' on the page
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
+<<<<<<< HEAD
+=======
+
+>>>>>>> 26ce34d7035e191fdc9e918b7e0ad57338e8ba60
