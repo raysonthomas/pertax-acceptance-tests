@@ -154,10 +154,13 @@ object TestDataSource {
     "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
     "Company benefits"                                              -> "/check-income-tax/taxable-income",
     "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections",
-    "recover your user ID"                                          -> "origin=unknown&forgottenOption=userId",
-    "Send your tax return by post (opens in a new window)."         ->"/self-assessment-forms-and-helpsheets",
-    "sign out"                                                      ->"/signed-out?origin=PERTAX",
-    "Continue"                                                      ->"/signed-out?origin=PERTAX"
+    "recover your user ID"                                          -> "personal-account&origin=PERTAX&forgottenOption=userId",
+    "send your tax return by post (opens in a new window)"          ->"/publications/self-assessment-tax-return-sa100",
+    "sign out"                                                      ->"localhost%3A9232%2Fpersonal-account",
+    "Continue"                                                      ->"taxreturn%2F1516%2Foption",
+    "Activate your Self Assessment registration"                    ->"self-assessment%3Faction=activate&step=enteractivationpin",
+    "call the Online Services Helpdesk (opens in a new window)"     ->"/hm-revenue-customs/contact/online-services-helpdesk",
+    "contact HMRC (opens in a new window)"                          -> "/contact-hmrc"
 
   )
 
