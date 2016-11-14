@@ -56,7 +56,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user has Precondition Failed$""") { () =>
+  And( """^user has Precondition Failed for IV Uplift$""") { () =>
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
       webDriver.findElement(By.cssSelector(".button")).click()

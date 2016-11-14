@@ -37,7 +37,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for Precondition Failed for SA user
     Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
-    And user has Insufficient Evidence for IV Uplift
+    And user has Precondition Failed for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees 'Try to confirm your identity again' link on the page and its href is as expected
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
@@ -73,7 +73,7 @@ Feature: IV Uplift feature used by user - success and failure pages
   Scenario: IV Failure Journey for Precondition Failed / Failed Matching for Non SA user
     Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
-    And user has Insufficient Evidence for IV Uplift
+    And user has Precondition Failed for IV Uplift
     And user is on the page with title 'We're unable to confirm your identity' with expected URL
     And user sees text 'We're unable to confirm your identity' on the page
     And user sees text 'If you can’t confirm your identity and you have a query you can ' on the page
