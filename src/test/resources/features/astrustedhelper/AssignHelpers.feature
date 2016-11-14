@@ -1,4 +1,4 @@
-@suite1
+@suite12
 Feature: Trusted helper relation setup
   As a tester
   I want to set helper relation between two users
