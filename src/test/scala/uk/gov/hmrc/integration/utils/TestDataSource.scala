@@ -1,5 +1,7 @@
 package uk.gov.hmrc.integration.utils
 
+import play.api.libs.json.Json
+import scala.io.Source
 import uk.gov.hmrc.integration.utils.model._
 
 case class TestPersonProperties(nino: Option[String], sautr: Option[String], username: String, password: String)
@@ -72,7 +74,10 @@ object TestDataSource {
     "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
     "User who has enrolled for Self Assessment and Not Yet Activated" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111114444"), gg = true, saEnrolmentStatus = "NotYetActivated"),  //XXXXXX
     "User with gg credentials not linked to SA"                       -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003D"), sautr = None, gg = true, saEnrolmentStatus = "Activated"),  //GG not SA
-    "User who has applied for lifetime allowance"                     -> UserProperties.build(name = Some("BobJones"), nino = Some("AA322456A"), sautr = Some("222222222"), gg = true)  //LTA
+    "User who has applied for lifetime allowance"                     -> UserProperties.build(name = Some("BobJones"), nino = Some("AA322456A"), sautr = Some("222222222"), gg = true),  //LTA
+    "User who is in the IV exception list"                            -> UserProperties.build(name = Some("Donniedarko"), nino = Some("CS777177A"), sautr = Some("123459876"), gg = true, saEnrolmentStatus = "Activated"),  //IV EXception
+    "User not yet activated SA and on exception list"                 -> UserProperties.build(name = Some("Donniedarko"), nino = Some("CS777177A"), sautr = Some("123459876"), gg = true, saEnrolmentStatus = "NotYetActivated")  //IV Exception and Not Yet Activated
+
   )
 
   def getUserProperties(token: String, authProvider: String) = userProperties( token )
@@ -149,7 +154,14 @@ object TestDataSource {
     "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
     "Company benefits"                                              -> "/check-income-tax/taxable-income",
     "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections",
-    "Send your tax return by post (opens in a new window)"          ->"/self-assessment-forms-and-helpsheets"
+    "recover your user ID"                                          -> "personal-account&origin=PERTAX&forgottenOption=userId",
+    "send your tax return by post (opens in a new window)"          ->"/publications/self-assessment-tax-return-sa100",
+    "sign out"                                                      ->"localhost%3A9232%2Fpersonal-account",
+    "Continue"                                                      ->"taxreturn%2F1516%2Foption",
+    "Activate your Self Assessment registration"                    ->"self-assessment%3Faction=activate&step=enteractivationpin",
+    "call the Online Services Helpdesk (opens in a new window)"     ->"/hm-revenue-customs/contact/online-services-helpdesk",
+    "contact HMRC (opens in a new window)"                          -> "/contact-hmrc"
+
   )
 
   val pathForTitle = Map(

@@ -56,7 +56,7 @@ class UserUplift extends ScalaDsl with EN {
     }
   }
 
-  And( """^user has Precondition Failed$""") { () =>
+  And( """^user has Precondition Failed for IV Uplift$""") { () =>
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
@@ -112,6 +112,17 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       val text:String ="Identity Verification Stub"
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
+    }
+  }
+  And( """^User added in Exception List$""") { () =>
+    provisioningCurrentDriver { implicit webDriver =>
+
+      webDriver.get("localhost:8533/enrolment-exception-list")
+      webDriver.findElement(By.cssSelector("#reference")).sendKeys("123459876")
+      webDriver.findElement(By.cssSelector("#name")).sendKeys("R T")
+      webDriver.findElement(By.cssSelector("#reason")).sendKeys("Test Exception")
+      webDriver.findElement(By.cssSelector(".button")).click()
+
     }
   }
 
