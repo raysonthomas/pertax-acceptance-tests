@@ -195,7 +195,9 @@ object TestDataSource {
     "There's a problem"                                             -> "/personal-account",
     "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
     "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter",
-    "There's a problem logging you in"                              -> "/personal-account"
+    "There's a problem logging you in"                              -> "/personal-account",
+    "Enter your address"                                            -> "/your-address/sole/edit-address"
+
 
   )
 
