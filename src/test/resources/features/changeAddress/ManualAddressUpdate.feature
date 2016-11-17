@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: Change Address Manually link visibility
   As a user
   I need to be able to change my address manually also
