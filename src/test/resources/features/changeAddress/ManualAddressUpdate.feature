@@ -4,7 +4,7 @@ Feature: Change Address Manually link visibility
   I need to be able to change my address manually also
   So that HMRC holds the correct info about me
 
-  JIRA story history: MTA-1975, MTA-2390
+  JIRA story history: MTA-1975, MTA-2390, MTA-2372
 
   Background:
     Given A user is logged into the service using verify

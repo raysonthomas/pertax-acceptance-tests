@@ -3,7 +3,7 @@ Feature: Verify my correspondence address
   As a HMRC Customer
   I need to be able view and change my correspondence address.
 
-  JIRA story history: MTA-1691, MTA-2390
+  JIRA story history: MTA-1691, MTA-2390, MTA-2372
 
   Scenario: User with correspondence address is able to view their correspondence address. User able to change their correspondence address
     Given A user with a Correspondence Address is logged into the service using verify
