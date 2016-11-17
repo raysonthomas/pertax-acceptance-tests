@@ -4,7 +4,7 @@ Feature: Change Address Manually link visibility
   I need to be able to change my address manually also
   So that HMRC holds the correct info about me
 
-  JIRA story history: MTA-1975
+  JIRA story history: MTA-1975, MTA-2390, MTA-2372
 
   Background:
     Given A user is logged into the service using verify
@@ -51,10 +51,15 @@ Feature: Change Address Manually link visibility
     And user does not see a manual entry link matching: 'Enter your address yourself'
 
   Scenario: User enters valid Postcode that Can be found with House Number not found
+    And Breadcrumb is: 'Account home>Your address'
     And user updates 'filter' with '100000001'
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     And user sees a manual entry link matching: 'Enter your address yourself'
+    And user clicks on 'Enter your address yourself' link
+    Then user waits for Enter your address page
+    And user is on the page with title 'Enter your address' and URL is as expected
+    Then user is able to see a section 'Enter your address'
 
 
   Scenario: User enters valid Postcode that Can be found with invalid House Number

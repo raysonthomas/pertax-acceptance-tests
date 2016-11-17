@@ -158,7 +158,7 @@ object TestDataSource {
     "Send your tax return by post (opens in a new window)"          ->"/self-assessment-forms-and-helpsheets",
     "send your tax return by post (opens in a new window)"          ->"/publications/self-assessment-tax-return-sa100",
     "sign out"                                                      ->"localhost%3A9232%2Fpersonal-account",
-    "Continue"                                                      ->"taxreturn%2F1516%2Foption",
+    "Continue"                                                      ->"taxreturn%2F1516%2Foptions",
     "Activate your Self Assessment registration"                    ->"self-assessment%3Faction=activate&step=enteractivationpin",
     "call the Online Services Helpdesk (opens in a new window)"     ->"/hm-revenue-customs/contact/online-services-helpdesk",
     "contact HMRC (opens in a new window)"                          -> "/contact-hmrc"
@@ -195,7 +195,9 @@ object TestDataSource {
     "There's a problem"                                             -> "/personal-account",
     "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
     "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter",
-    "There's a problem logging you in"                              -> "/personal-account"
+    "There's a problem logging you in"                              -> "/personal-account",
+    "Enter your address"                                            -> "/your-address/sole/edit-address"
+
 
   )
 

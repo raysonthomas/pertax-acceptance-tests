@@ -10,8 +10,10 @@ import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.{Snapshotter, CustomExpectedConditions}
 import uk.gov.hmrc.integration.utils.Configuration
+import uk.gov.hmrc.integration.utils.TestDataSource._
 
 import scala.collection.JavaConversions._
+import scala.sys.process.Process
 
 class ChangeAddress extends ScalaDsl with EN {
 
@@ -20,6 +22,14 @@ class ChangeAddress extends ScalaDsl with EN {
       val field = webDriver.findElement(By.id(objID))
       field.clear()
       field.sendKeys(value)
+    }
+  }
+
+  Then( """^The service '([^"]*)' is restarted$""") {
+    (service: String) => provisioningCurrentDriver { implicit webDriver =>
+      Process(s"sm --stop $service").!!
+      Process(s"sm --start $service -f").!!
+      Thread.sleep(2000)
     }
   }
 
@@ -144,6 +154,30 @@ class ChangeAddress extends ScalaDsl with EN {
 
     }
   }
+
+  Then( """user waits for Enter your address page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/sole/edit-address")))
+
+    }
+  }
+
+  Then( """user waits for the Enter your address page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/edit-address")))
+
+    }
+  }
+
+  Then( """^user is on the page with title '(.*)' and with text Enter the address$""") {
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      val currentUrl = webDriver.getCurrentUrl
+      assert(currentUrl.endsWith("/your-address/postal/edit-address"), "URL not as expected")
+      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
+  }
+
   Then( """user continues from Select your address page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("submitAddressSelector")).click()

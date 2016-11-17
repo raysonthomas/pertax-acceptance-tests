@@ -3,7 +3,7 @@ Feature: Verify my correspondence address
   As a HMRC Customer
   I need to be able view and change my correspondence address.
 
-  JIRA story history: MTA-1691
+  JIRA story history: MTA-1691, MTA-2390, MTA-2372
 
   Scenario: User with correspondence address is able to view their correspondence address. User able to change their correspondence address
     Given A user with a Correspondence Address is logged into the service using verify
@@ -15,6 +15,7 @@ Feature: Verify my correspondence address
     And user sees 'Change where we send your letters' link on the page and its href is as expected
     Then user clicks on Change where we send your letters link on your address page
     Then user is on the page with title 'Find an address' and URL is as expected
+    And Breadcrumb is: 'Account home>Your address'
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'submitAddressFinder' button
     Then user waits for select address page
@@ -24,3 +25,19 @@ Feature: Verify my correspondence address
     And user clicks on 'Return to your account home' link
     And user is on the page with title 'Personal tax account' and URL is as expected
 
+  Scenario: PAY_AS_YOU_EARN_STUB is Restarted
+    Given The service 'PAY_AS_YOU_EARN_STUB' is restarted
+
+  Scenario: Manual Correspondence Address update
+    Given A user with a Correspondence Address is logged into the service using verify
+    And user clicks on 'Update your address' link
+    And user sees 'Change where we send your letters' link on the page and its href is as expected
+    Then user clicks on Change where we send your letters link on your address page
+    And user updates 'filter' with '100000001'
+    And user updates 'postcode' with 'FX97 4TU'
+    Then user clicks on 'submitAddressFinder' button
+    And user sees a manual entry link matching: 'Enter your address yourself'
+    And user clicks on 'Enter your address yourself' link
+    Then user waits for the Enter your address page
+    And user is on the page with title 'Enter the address' and with text Enter the address
+    Then user is able to see a section 'Enter the address'

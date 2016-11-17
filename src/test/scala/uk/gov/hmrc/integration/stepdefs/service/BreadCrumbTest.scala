@@ -35,7 +35,8 @@ class BreadCrumbTest extends ScalaDsl with EN {
             def urlEndsWithOrFalse(o: Option[String], e: String): Boolean = o.exists(_.endsWith(e))
             val (text, url) = textAndUrl
             text match {
-              case "Account home" => url == Some(s"${Configuration("url")}")
+//              case "Account home" => url == Some(s"${Configuration("url")}")
+              case "Account home" => url == Some("http://localhost:9232/personal-account")
               case _ => false
             }
           }
