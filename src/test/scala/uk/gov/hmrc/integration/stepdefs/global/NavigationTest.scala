@@ -1,7 +1,7 @@
 package uk.gov.hmrc.integration.stepdefs.global
 
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.By
+import org.openqa.selenium.{By, WebElement}
 import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
@@ -18,21 +18,28 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  When( """^user clicks on visible '(.*)'.* link$""") {
+    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
+      GlobalActions.maybeClickMenu
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.xpath("(//*[text()='" + linkName + "'])[2]"))
+    }
+  }
+
   When( """^user clicks on '(.*)' button$""") {
     (id: String) => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id(id)).click()
-
+      Thread.sleep(2000)
      }
   }
 
   When( """^user waits for select address page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/select-address?postcode=FX97+4TU")))
-
     }
   }
 
   Then( """^user is on the page with title '(.*)' and URL is as expected$""") {
+        Thread.sleep(2000)
     (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl

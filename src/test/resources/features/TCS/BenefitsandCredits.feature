@@ -9,10 +9,11 @@ Feature: Link to tax Credits in benefits and Credits
   Scenario: Verify user can see TCS link in Benefits and Credits section
     Given A user with a PAYE account, but no SA account is logged into the service using verify
     And Breadcrumb is: ''
-    And user sees 'Benefits and tax credits' link on the page and its href is as expected
-    And user clicks on 'Benefits and tax credits' link
+    Then user waits for 'Personal tax account' page
+    And user sees 'Child Benefit' link on the page and its href is as expected
+    And user clicks on 'Child Benefit' link
     And Breadcrumb is: 'Account home'
-    Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected
+    Then user is on the page with title 'Report changes that affect your Child Benefit' and URL is as expected
     And user sees 'Renew your tax credit claim' link on the page and its href is as expected
 
   Scenario: GG User if Uplifted can see TCS link in Benefits and Credits section
@@ -21,6 +22,7 @@ Feature: Link to tax Credits in benefits and Credits
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user navigates to personal tax account home page
+    Then user waits for 'Personal tax account' page
     And user sees 'Benefits and tax credits' link on the page and its href is as expected
     And user clicks on 'Benefits and tax credits' link
     Then user is on the page with title 'Benefits and tax credits summary' and URL is as expected

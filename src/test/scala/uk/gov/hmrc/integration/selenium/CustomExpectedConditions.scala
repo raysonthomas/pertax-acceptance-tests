@@ -13,6 +13,14 @@ object CustomExpectedConditions {
     }
   }
 
+  def titleIs(title: String)(implicit webDriver: WebDriver): ExpectedCondition[Boolean] = {
+    new ExpectedCondition[Boolean] {
+      override def apply(wd: WebDriver): Boolean = {
+        wd.getTitle.equalsIgnoreCase(title)
+      }
+    }
+  }
+
   def pageContains(suffix: String)(implicit webDriver: WebDriver): ExpectedCondition[Boolean] = {
     new ExpectedCondition[Boolean] {
       override def apply(wd: WebDriver): Boolean = {

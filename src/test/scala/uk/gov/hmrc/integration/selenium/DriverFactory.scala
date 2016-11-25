@@ -2,10 +2,9 @@ package uk.gov.hmrc.integration.selenium
 
 import java.util.concurrent.TimeUnit
 
-import org.openqa.selenium.remote.RemoteWebDriver
-import org.openqa.selenium.{WebDriver, By, WebDriverException}
+import org.openqa.selenium.WebDriverException
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeDriverService}
-import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.firefox.{FirefoxDriver, MarionetteDriver}
 import uk.gov.hmrc.accessibility.AccessibilityDriver
 import uk.gov.hmrc.integration.selenium.RemoteWebDriverFactory._
 import uk.gov.hmrc.integration.utils.Configuration
@@ -13,10 +12,12 @@ import uk.gov.hmrc.integration.utils.Configuration
 object DriverFactory {
 
   System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/src/test/resources/chromedriver")
+//  System.setProperty("webDriver.gecko.driver", "/usr/bin/geckodriver")
+  System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/geckodriver")
 
   def buildWebDriver = {
     val webDriver = System.getProperty("browser", "firefox-local") match {
-      case "firefox-local"            => new FirefoxDriver
+      case "firefox-local"            => new MarionetteDriver
       case "chrome-local"             => new ChromeDriver
       case "accessibility"            => new AccessibilityDriver(23748,List("^http://localhost:9232/personal-account(.*)".r))
       case "winxp-ie6-remote"         => buildWinXPie6Driver

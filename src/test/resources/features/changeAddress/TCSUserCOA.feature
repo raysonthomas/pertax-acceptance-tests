@@ -12,13 +12,13 @@ Feature: Verify my home address
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
+    And user clicks on visible 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     And user clicks on 'Change your address' link
     Then user sees text 'Do you get tax credits?' on the page
     Then user selects the option Yes for Tax Credits
     Then user continues from Tax Credits page
-    And user is on the page with expected URL
+#    And user is on the page with expected URL
 
 
 

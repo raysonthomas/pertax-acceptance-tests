@@ -11,8 +11,9 @@ Feature: Change/Modify my home address
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
+    Then user waits for 'Personal tax account' page
     And user is on the page with title 'Personal tax account' and URL is as expected
-    And user clicks on 'Update your address' link
+    And user clicks on visible 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
     And user clicks on 'Change your address' link
     Then user sees text 'Do you get tax credits?' on the page

@@ -4,6 +4,8 @@ import org.openqa.selenium.{WebDriver, By}
 
 object Configuration {
 
+  val getUrlScreenshots = false
+
   val DeviceViewBreakpoint = 768
 
   val defaultWait = Option(System.getProperty("defaultWait")).getOrElse("30")

@@ -1,9 +1,6 @@
 package uk.gov.hmrc.integration.selenium
 
-import java.io.PrintWriter
-import java.util.Calendar
-
-import org.openqa.selenium.{TakesScreenshot, By, WebDriver}
+import org.openqa.selenium.{By, TakesScreenshot, WebDriver}
 import uk.gov.hmrc.integration.page.GlobalActions
 
 object CurrentDriver {

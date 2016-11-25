@@ -69,7 +69,6 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-insufficientevidence")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
     }
   }
 

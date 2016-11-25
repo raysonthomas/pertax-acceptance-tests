@@ -185,6 +185,13 @@ class ChangeAddress extends ScalaDsl with EN {
     }
   }
 
+  Then( """user waits for '(.*)' page$""") {
+    (title: String) => provisioningCurrentDriver { implicit webDriver =>
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.titleIs(title)))
+
+    }
+  }
+
   Then( """user continues from Edit the address page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("updateAddress")).click()
@@ -195,6 +202,7 @@ class ChangeAddress extends ScalaDsl with EN {
   Then( """user continues from Enter start date page$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".button")).click()
+      Thread.sleep(2000)
 
     }
   }
@@ -358,9 +366,9 @@ class ChangeAddress extends ScalaDsl with EN {
       println(ele.getText)
       println(assert(ele.isEnabled, "Not enabled"))
 
-      ifCurrentDriverTakesSnapshot { takesSnapShot =>
-        Snapshotter.takeSnapshot(takesSnapShot, scenario)
-      }
+//      ifCurrentDriverTakesSnapshot { takesSnapShot =>
+//        Snapshotter.takeSnapshot(takesSnapShot, scenario)
+//      }
 
 
       ele.click()
@@ -370,15 +378,32 @@ class ChangeAddress extends ScalaDsl with EN {
       }
       catch {
         case e: Exception =>
-          ifCurrentDriverTakesSnapshot { takesSnapShot =>
-            Snapshotter.takeSnapshot(takesSnapShot, scenario)
-          }
+//          ifCurrentDriverTakesSnapshot { takesSnapShot =>
+//            Snapshotter.takeSnapshot(takesSnapShot, scenario)
+//          }
           println(webDriver.getCurrentUrl)
           throw new RuntimeException(e)
       }
     }
   }
+  Then( """^user clicks on Change your address link on your address page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      val ele = webDriver.findElement(By.cssSelector("[href=\"/personal-account/your-address/tax-credits-choice\"]"))
+
+      ele.click()
+
+      try {
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/tax-credits-choice"))
+      }
+      catch {
+        case e: Exception =>
+          throw new RuntimeException(e)
+      }
+    }
+  }
 }
+
+
 
 object ScenarioStore {
   var scenario: Scenario = null
