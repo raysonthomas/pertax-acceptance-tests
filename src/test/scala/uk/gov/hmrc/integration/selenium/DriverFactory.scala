@@ -40,7 +40,7 @@ object DriverFactory {
     }
 
     webDriver.manage.timeouts.implicitlyWait(Configuration("defaultWait").toInt, TimeUnit.SECONDS)
-    
+
     try {
       webDriver.manage.window.maximize()
     }

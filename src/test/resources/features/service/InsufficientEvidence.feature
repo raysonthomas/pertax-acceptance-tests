@@ -51,7 +51,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
   Scenario: An Ambiguous SA User and who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User with gg credentials not linked to SA is logged into the service using gg
     And user completes 2FA Journey
-#    And user has Insufficient Evidence for IV Uplift
+    And user has Insufficient Evidence for IV Uplift
     Then user waits for 'You can't access your Self Assessment' page
     And user is on the page with title 'You can't access your Self Assessment' with correct URL
     And user sees text 'You can't access your Self Assessment' on the page
