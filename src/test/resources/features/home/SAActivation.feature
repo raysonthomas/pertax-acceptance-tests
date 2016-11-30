@@ -19,14 +19,13 @@ Feature: SA Activation
     Given  User with gg credentials not linked to SA is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
-    Then user waits for 'Personal tax account' page
     And user Continues the journey to PTA
+    Then user waits for 'Personal tax account' page
     And user clicks on 'Self Assessment' link
     Then user is on the Your Self Assessment details cannot be shown page with Url and title as expected
     Then user sees the text 'Your Self Assessment details cannot be shown' on SA page
     And user sees the text 'If you send your tax return online' on SA page
     And user sees the text 'You may have previously activated Self Assessment using different Government Gateway sign in details.' on SA page
-    Then user waits for 'You can't access your self assessment' page
     And user sees the text 'You can see your Self Assessment if you' on SA page
     And user sees the text 'If you send your tax return by post' on SA page
     And user sees the text 'You cannot currently see your Self Assessment details online.' on SA page
