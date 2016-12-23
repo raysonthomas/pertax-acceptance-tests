@@ -22,8 +22,9 @@ object CurrentDriver {
         !webDriver.getCurrentUrl.endsWith("/personal-account/feedback-thanks") &&
         !webDriver.getCurrentUrl.endsWith("enteractivationpin") &&
         !webDriver.getCurrentUrl.endsWith("/signed-out?origin=PERTAX") &&
-        !webDriver.getCurrentUrl.endsWith("/enrolment-exception-list")
-
+        !webDriver.getCurrentUrl.endsWith("/enrolment-exception-list") &&
+        !webDriver.getCurrentUrl.endsWith("self-assessment%2Find%2F111112222%2Ftaxreturn%2F1516%2Foptions") &&
+        !webDriver.getCurrentUrl.endsWith("self-assessment%2Find%2F123459876%2Ftaxreturn%2F1516%2Foptions")
       )
 
     {

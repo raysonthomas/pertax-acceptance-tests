@@ -9,11 +9,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
-    Then user waits for 'We're unable to confirm your identity' page
-    And user is on the page with title 'We're unable to confirm your identity' with correct URL
-    And user sees text 'Access your Self Assessment information' on the page
-    And user sees text 'You can still view and file your Self Assessment return online' on the page
-    And user sees 'Continue' link on the page and its href is as expected
+    And user is on the SA portal page
 
   Scenario: User is added to Exception List
     Given User added in Exception List
@@ -21,11 +17,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
   Scenario: An Activated online filer who has completed 2FA and who is on the IV exception list arrives in PTA
     Given User who is in the IV exception list is logged into the service using gg
     And user completes 2FA Journey
-    Then user waits for 'We're unable to confirm your identity' page
-    And user is on the page with title 'We're unable to confirm your identity' with correct URL
-    And user sees text 'Access your Self Assessment information' on the page
-    And user sees text 'You can still view and file your Self Assessment return online' on the page
-    And user sees 'Continue' link on the page and its href is as expected
+    And user is on the SA portal page
 
   Scenario: A Not yet activated online filer and who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User who has enrolled for Self Assessment and Not Yet Activated is logged into the service using gg

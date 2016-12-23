@@ -1,9 +1,7 @@
 package uk.gov.hmrc.integration.stepdefs.service
 
 import cucumber.api.scala.{EN, ScalaDsl}
-
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-
 
 
 class InsufficientEvidence extends ScalaDsl with EN {
@@ -18,6 +16,14 @@ class InsufficientEvidence extends ScalaDsl with EN {
     }
   }
 
+  Then( """^user is on the SA portal page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      val currentUrl = webDriver.getCurrentUrl
+      println(currentUrl)
+      assert(currentUrl.equals("http://localhost:9025/ssoout/non-digital?continue=http:%2F%2Flocalhost:8080%2Fself-assessment%2Find%2F111112222%2Ftaxreturn%2F1516%2Foptions")
+        || currentUrl.equals("http://localhost:9025/ssoout/non-digital?continue=http:%2F%2Flocalhost:8080%2Fself-assessment%2Find%2F123459876%2Ftaxreturn%2F1516%2Foptions"),
+        "URL not as expected")
 
-
+    }
+  }
 }
