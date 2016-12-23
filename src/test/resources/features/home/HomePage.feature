@@ -33,6 +33,16 @@ Feature: Home Page segmentation
     And user sees text 'If you're married or in a civil partnership and you earn less than £11,000, you may benefit from applying for Marriage Allowance.' on the home page
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
+  Scenario: Check that the home page has proper segmentation for Online SA user
+    Given User with a PAYE account and SA account is logged into the service using gg
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    And user is on the page with title 'Personal tax account' and URL is as expected
+    And user sees text 'Important deadlines' on the home page
+    And user sees text 'The deadline for completing tax returns for 2015 to 2016 is 31 January 2017' on the home page
+    And user sees 'View your Self Assessment' link on the page and its href is as expected
+
   Scenario: User sets up the LTA
     Given   Protections are added
 
