@@ -3,7 +3,7 @@ Feature: SA Activation
   As a user
   I want to see correct SA features based on SA Activation
 
-  JIRA story history: MTA-2112
+  JIRA story history: MTA-2112, MTA-2439
 
   Scenario: When a gg user has enrolled for self assessment and been issued their activation code then navigates to PTA
 
@@ -15,7 +15,7 @@ Feature: SA Activation
     And user sees 'Self Assessment' link on page and its href is as expected
     And user sees text 'Activate your Self Assessment using the 12-digit activation code you received in the post.' on the home page
 
-  Scenario: User who has an SA UTR logs in to PTA with gg credentials which do not have an SA enrolment
+  Scenario: User who has an SA UTR logs in to PTA with gg credentials which do not have an SA enrolment, has link to Webchat
     Given  User with gg credentials not linked to SA is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
@@ -30,4 +30,7 @@ Feature: SA Activation
     And user sees the text 'If you send your tax return by post' on SA page
     And user sees the text 'You cannot currently see your Self Assessment details online.' on SA page
     And user sees 'Send your tax return by post (opens in a new window)' link on the page and its href is as expected
+    And user sees 'Chat online with one of our advisers' link on the page and its href is as expected
+    And user clicks on 'Chat online with one of our advisers' link
+    And user verifies that the chat window is opened as expected
 

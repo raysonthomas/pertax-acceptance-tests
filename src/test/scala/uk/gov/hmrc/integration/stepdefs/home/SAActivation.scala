@@ -3,6 +3,7 @@ package uk.gov.hmrc.integration.stepdefs.home
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import scala.collection.JavaConversions._
 
 class SAActivation extends ScalaDsl with EN {
 
@@ -24,9 +25,20 @@ class SAActivation extends ScalaDsl with EN {
     () => provisioningCurrentDriver { implicit webDriver =>
       val currentUrl = webDriver.getCurrentUrl
       val pageTitle = webDriver.getTitle
-      assert(currentUrl.contains("/personal-account/self-assessment"), "\nSPage url not as expected")
+      assert(currentUrl.contains("/personal-account/self-assessment"), "\nPage url not as expected")
       assert(pageTitle.contains("Your Self Assessment details cannot be shown"), "\nPage title not as expected")
 
+    }
+  }
+
+  And( """^user verifies that the chat window is opened as expected$""") {
+    () => provisioningCurrentDriver {implicit webDriver =>
+      val originalWindowHandle = webDriver.getWindowHandle
+      println(originalWindowHandle)
+      webDriver.switchTo().window("newwin")
+      assert(webDriver.getCurrentUrl.contains("http://webchat-dev.tax.service.gov.uk/webchatprod/templates/chat/hmrc7"), "\nPage url not as expected")
+      assert(webDriver.getCurrentUrl.contains("entryPointId=1004"), "\nSPage url not as expected")
+      webDriver.switchTo().window(originalWindowHandle)
     }
   }
 
