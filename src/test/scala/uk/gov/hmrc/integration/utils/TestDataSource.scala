@@ -162,7 +162,8 @@ object TestDataSource {
     "Activate your Self Assessment registration"                    ->"self-assessment%3Faction=activate&step=enteractivationpin",
     "call the Online Services Helpdesk (opens in a new window)"     ->"/hm-revenue-customs/contact/online-services-helpdesk",
     "contact HMRC (opens in a new window)"                          -> "/contact-hmrc",
-    "Chat online with one of our advisers"                          ->"http://localhost:9232/personal-account/self-assessment#"
+    "Chat online with one of our advisers"                          ->"http://localhost:9232/personal-account/self-assessment#",
+    "View your Self Assessment"                                     ->"/personal-account/self-assessment-summary"
 
   )
 
