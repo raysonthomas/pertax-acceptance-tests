@@ -3,7 +3,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
   As a user
   Even if I am excluded from completing IV, I am able to file my Self Assessment
 
-  JIRA story history: MTA-2368
+  JIRA story history: MTA-2368, MTA-2443
 
   Scenario: An Active Online Filer who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User with a PAYE account and SA account is logged into the service using gg
@@ -44,14 +44,20 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     Given User with gg credentials not linked to SA is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
-    Then user waits for 'You can't access your Self Assessment' page
-    And user is on the page with title 'You can't access your Self Assessment' with correct URL
-    And user sees text 'You can't access your Self Assessment' on the page
-    And user sees text 'If you send your tax return online' on the page
-    And user sees text 'If you send your tax return by post' on the page
+    Then user is on the You can't access your Self Assessment information page with Url and title as expected
+    Then user sees the text 'You can't access your Self Assessment information from this account' on SA page
+    And user sees the text 'If you send your tax return online' on SA page
     And user sees 'sign out' link on the page and its href is as expected
-    And user sees 'recover your user ID' link on the page and its href is as expected
-    And user sees 'send your tax return by post (opens in a new window)' link on the page and its href is as expected
+    And user sees 'Recover your user ID' link on the page and its href is as expected
+    And user sees the text 'If you have never sent your tax return online' on SA page
+    And user sees 'enrol for Self Assessment online (opens in a new window)' link on the page and its href is as expected
+    And user sees 'request a new activation code (opens in a new window)' link on the page and its href is as expected
+    And user sees the text 'Use this within 28 days to activate your account' on SA page
+    And user sees the text 'If you send your tax return by post' on SA page
+    And user sees 'do your tax return online (opens in a new window)' link on the page and its href is as expected
+    And user sees 'Chat online with one of our advisers' link on the sa continue page
+    And user clicks on 'Chat online with one of our advisers' link
+    And user verifies that the chat window is opened as expected
 
   Scenario: A non-SA Filer who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User with a PAYE account, but no SA account is logged into the service using gg

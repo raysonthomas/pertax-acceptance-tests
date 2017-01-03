@@ -21,12 +21,22 @@ class SAActivation extends ScalaDsl with EN {
     }
   }
 
-  And( """^user is on the Your Self Assessment details cannot be shown page with Url and title as expected$""") {
+  And( """^user is on the You can't access your Self Assessment information from this account page with Url and title as expected$""") {
     () => provisioningCurrentDriver { implicit webDriver =>
       val currentUrl = webDriver.getCurrentUrl
       val pageTitle = webDriver.getTitle
       assert(currentUrl.contains("/personal-account/self-assessment"), "\nPage url not as expected")
-      assert(pageTitle.contains("Your Self Assessment details cannot be shown"), "\nPage title not as expected")
+      assert(pageTitle.contains("You can't access your Self Assessment information from this account"), "\nPage title not as expected")
+
+    }
+  }
+
+  And( """^user is on the You can't access your Self Assessment information page with Url and title as expected$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      val currentUrl = webDriver.getCurrentUrl
+      val pageTitle = webDriver.getTitle
+      assert(currentUrl.contains("/personal-account/sa-continue?continueUrl"), "\nPage url not as expected")
+      assert(pageTitle.contains("You can't access your Self Assessment information from this account"), "\nPage title not as expected")
 
     }
   }
