@@ -1,7 +1,9 @@
 package uk.gov.hmrc.integration.stepdefs.service
 
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import uk.gov.hmrc.integration.utils.TestDataSource._
 
 
 class InsufficientEvidence extends ScalaDsl with EN {
@@ -26,4 +28,12 @@ class InsufficientEvidence extends ScalaDsl with EN {
 
     }
   }
+
+  When( """^user sees '(.*)' link on the sa continue page$""") {
+    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
+      val href = webDriver.findElement(By.partialLinkText(linkName)).getAttribute("href")
+      assert(href.contains("/personal-account/sa-continue?continueUrl") && href.contains("personal-account#"), "href not as expected http://localhost:9232/personal-account/sa-continue?continueUrl=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account#")
+    }
+  }
+
 }
