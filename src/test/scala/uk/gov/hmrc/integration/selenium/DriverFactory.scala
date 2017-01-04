@@ -11,7 +11,8 @@ import uk.gov.hmrc.integration.utils.Configuration
 
 object DriverFactory {
 
-  System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/src/test/resources/chromedriver")
+  System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, "/usr/local/bin/chromedriver")
+//  System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/src/test/resources/chromedriver")
 //  System.setProperty("webDriver.gecko.driver", "/usr/bin/geckodriver")
   System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/geckodriver")
 
