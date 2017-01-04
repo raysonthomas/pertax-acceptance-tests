@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: Verify my home address
   As a HMRC Customer who’s got interest in TCS,
   I need to tell HMRC what my home is, and be able to change my home address.
