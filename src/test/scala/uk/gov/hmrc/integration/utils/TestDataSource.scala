@@ -167,7 +167,7 @@ object TestDataSource {
     "enrol for Self Assessment online (opens in a new window)"      ->"home%2Fservices%2Fenroll",
     "Recover your user ID"                                          ->"/log-in-register-hmrc-online-services/problems-signing-in",
     "do your tax return online (opens in a new window)"             ->"%2Fregistration",
-    "request a new activation code (opens in a new window)"         ->"/log-in-register-hmrc-online-7services/problems-signing-in"
+    "request a new activation code (opens in a new window)"         ->"/log-in-register-hmrc-online-services/problems-signing-in"
 
   )
 
