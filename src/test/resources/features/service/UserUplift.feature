@@ -34,7 +34,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     Then user waits for 'You’ve tried to confirm your identity too many times' page
     And user is on the page with title 'You’ve tried to confirm your identity too many times' with expected URL
     And user sees text 'You’ve tried to confirm your identity too many times' on the page
-    And user sees text 'You can try again in 7 days.' on the page
+    And user sees text 'You can try again in 24 hours.' on the page
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
   Scenario: IV Failure Journey for Precondition Failed for SA user
@@ -95,7 +95,7 @@ Feature: IV Uplift feature used by user - success and failure pages
     Then user waits for 'You’ve tried to confirm your identity too many times' page
     And user is on the page with title 'You’ve tried to confirm your identity too many times' with expected URL
     And user sees text 'You’ve tried to confirm your identity too many times' on the page
-    And user sees text 'You can try again in 7 days.' on the page
+    And user sees text 'You can try again in 24 hours.' on the page
     And user sees text 'If you have a query you can ' on the page
     And user sees 'contact HM Revenue and Customs (opens in a new window)' link on the page and its href is as expected
 
