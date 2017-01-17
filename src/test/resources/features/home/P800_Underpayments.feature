@@ -33,7 +33,7 @@ Feature: As a PTA user
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
     And   user sees text 'You paid too much tax' on the home page
-    And   user sees text 'HM Revenue and Customs sent you a cheque for £1,000.50 on 2 January 2015.' on the home page
+    And   user sees text 'HM Revenue and Customs sent you a cheque for £1,000.00 on 2 January 2015.' on the home page
 
   Scenario: when a user has not got an overpayment
     Given A user without a tax underpayment is logged into the service using gg
