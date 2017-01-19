@@ -21,7 +21,7 @@ Feature: As a PTA user
     Given A user who has has been sent a BACS payment is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
-    And user Continues the journey to PTA
+    And user Continues the journey to PTAHas a cheque been sent decimal
     Then  user is on the page with title 'Personal tax account' and URL is as expected
     And   user sees text 'You paid too much tax' on the home page
     And   user sees text 'HM Revenue and Customs paid you a refund of £1,000.00 on 2 January 2015.' on the home page

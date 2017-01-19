@@ -59,7 +59,7 @@ object TestDataSource {
     "A user who is a trusted helper"                                  -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
     "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
 
-    "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true), //GG Chris
+    "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("""AB216913B"""), gg = true), //GG Chris
     "User with a PAYE account and SA account"                         -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones
     "User with active company benefits"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), sautr = Some("111113333"), gg = true), //Martin Hempton
     "User without active company benefits"                            -> UserProperties.build(name = Some("AnthonyKellegher"), nino = Some("CK720413B"), sautr = Some("111114444"), gg = true), //Anthony Kellegher

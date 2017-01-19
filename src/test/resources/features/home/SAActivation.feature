@@ -1,18 +1,18 @@
-@suite
+@suite1
 Feature: SA Activation
   As a user
   I want to see correct SA features based on SA Activation
 
   JIRA story history: MTA-2112, MTA-2439, MTA-2443
 
-  Scenario: When a gg user has enrolled for self assessment and been issued their activation code then navigates to PTA
-    Given User who has enrolled for Self Assessment and Not Yet Activated is logged into the service using gg
-    And user completes 2FA Journey
-    And user completes IV Uplift Journey
-    And user Continues the journey to PTA
-    Then user is on the page with title 'Personal tax account' and URL is as expected
-    And user sees 'Self Assessment' link on page and its href is as expected
-    And user sees text 'Activate your Self Assessment using the 12-digit activation code you received in the post.' on the home page
+#  Scenario: When a gg user has enrolled for self assessment and been issued their activation code then navigates to PTA
+#    Given User who has enrolled for Self Assessment and Not Yet Activated is logged into the service using gg
+#    And user completes 2FA Journey
+#    And user completes IV Uplift Journey
+#    And user Continues the journey to PTA
+#    Then user is on the page with title 'Personal tax account' and URL is as expected
+#    And user sees 'Self Assessment' link on page and its href is as expected
+#    And user sees text 'Activate your Self Assessment using the 12-digit activation code you received in the post.' on the home page
 
   Scenario: User who has an SA UTR logs in to PTA with gg credentials which do not have an SA enrolment, has link to Webchat
     Given  User with gg credentials not linked to SA is logged into the service using gg

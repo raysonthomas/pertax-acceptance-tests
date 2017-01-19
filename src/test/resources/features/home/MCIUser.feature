@@ -3,7 +3,7 @@ Feature: MCI User
   As a user
   I want to see Technical Difficulties page as expected
 
-  JIRA story history: MTA-2125, MTA-2211
+  JIRA story history: MTA-2125, MTA-2211, MTA-2436
 
   Scenario: Check that the home page has proper segmentation
     Given A user with MCI Indicator set as true is logged into the service using verify
