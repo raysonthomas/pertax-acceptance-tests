@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: MCI User
   As a user
   I want to see Technical Difficulties page as expected
