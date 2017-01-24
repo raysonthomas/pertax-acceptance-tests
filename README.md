@@ -2,7 +2,7 @@ Acceptance tests for Personal Tax Account
 =========================================
 
 
-How to use this ??
+How to use this ?
 --------
 
 1. Clone the project to a directory of your choice
