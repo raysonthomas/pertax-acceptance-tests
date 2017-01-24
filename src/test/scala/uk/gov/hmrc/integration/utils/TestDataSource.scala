@@ -151,7 +151,8 @@ object TestDataSource {
     "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",
     "Get your refund"                                               -> "/tax-you-paid/status",
     "Get more details"                                              -> "/tax-you-paid/status",
-    "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
+//    "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/start#1",
+    "Tell us if your child is staying in education or training"     -> "/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/guide",
     "Company benefits"                                              -> "/check-income-tax/taxable-income",
     "Lifetime allowance protection"                                 ->"/protect-your-lifetime-allowance/existing-protections",
     "recover your user ID"                                          -> "personal-account&origin=PERTAX&forgottenOption=userId",
@@ -167,7 +168,13 @@ object TestDataSource {
     "enrol for Self Assessment online (opens in a new window)"      ->"home%2Fservices%2Fenroll",
     "Recover your user ID"                                          ->"/log-in-register-hmrc-online-services/problems-signing-in",
     "do your tax return online (opens in a new window)"             ->"%2Fregistration",
-    "request a new activation code (opens in a new window)"         ->"/log-in-register-hmrc-online-services/problems-signing-in"
+    "request a new activation code (opens in a new window)"         ->"/log-in-register-hmrc-online-services/problems-signing-in",
+    "later leaves education or training"                            ->"/Tell-Child-Benefit-about-your-child-leaving-non-advanced-education-or-approved-training/guide",
+    "stays in education or training"                                ->"/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/guide",
+    "has any other change in their circumstances"                   ->"/child-benefit-child-change-of-circumstances/guide",
+    "Apply for an extension"                                        ->"/Application-for-extension-of-Child-Benefit/guide",
+    "report a change"                                               ->"/Child-Benefit-Claimant-Change-of-Circumstances/guide",
+    "stop or re-start your Child Benefit payments"                  ->"/high-income-child-benefit-tax-charge/guide"
 
   )
 
