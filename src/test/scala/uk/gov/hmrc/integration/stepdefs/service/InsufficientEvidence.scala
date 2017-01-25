@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
-import uk.gov.hmrc.integration.utils.TestDataSource._
+
 
 
 class InsufficientEvidence extends ScalaDsl with EN {

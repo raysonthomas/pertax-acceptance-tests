@@ -21,8 +21,9 @@ class HomePage extends ScalaDsl with EN {
 
   And( """^user sees text '(.*)' on the home page$""") { (text: String) =>
     provisioningCurrentDriver { implicit webDriver =>
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains(text))
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
+
     }
   }
 
