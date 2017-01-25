@@ -3,10 +3,11 @@ package uk.gov.hmrc.integration.stepdefs.external
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import java.util.ArrayList
-
+import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.page.GlobalActions
-import uk.gov.hmrc.integration.utils.TestDataSource._
+import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
+import uk.gov.hmrc.integration.utils.Configuration
+
 
 class HomePage extends ScalaDsl with EN {
 
@@ -20,12 +21,14 @@ class HomePage extends ScalaDsl with EN {
 
   And( """^user sees text '(.*)' on the home page$""") { (text: String) =>
     provisioningCurrentDriver { implicit webDriver =>
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.pageContains(text))
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
 
   And( """^user sees text '(.*)' is visible on Child Benefit Page$""") { (text: String) =>
     provisioningCurrentDriver { implicit webDriver =>
+
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
