@@ -22,4 +22,12 @@ Crossbrowser Tests
 4. You can look up your *access-key* when you log in to BrowserStack with your account.
 5. Connection must be established with the same key that is used in the test project:
 https://github.tools.tax.service.gov.uk/DDCN/pertax-qa-tests/blob/master/src/test/scala/uk/gov/hmrc/integration/selenium/RemoteWebDriverFactory.scala
-5. Once the connection is established, run commands from 'run_integration_crossbrowser.sh' file from project root.
+6. Once the connection is established, run commands from 'run_integration_crossbrowser.sh' file from project root.
+
+Chromedriver installation
+-------------------------
+
+1. Download the latest Chromedriver from https://sites.google.com/a/chromium.org/chromedriver/downloads
+2. Extract the zip file and save the chromedriver in the following folder - /usr/local/bin/
+3. Make sure that latest chrome browser is installed
+
