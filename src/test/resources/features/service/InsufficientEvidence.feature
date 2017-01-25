@@ -18,6 +18,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
   Scenario: An Activated online filer who has completed 2FA and who is on the IV exception list arrives in PTA
     Given User who is in the IV exception list is logged into the service using gg
     And user completes 2FA Journey
+    Then user waits for SA Portal page
     And user is on the SA portal page
 
   Scenario: A Not yet activated online filer and who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
