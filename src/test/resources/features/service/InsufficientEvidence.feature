@@ -9,6 +9,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
     Given User with a PAYE account and SA account is logged into the service using gg
     And user completes 2FA Journey
     And user has Insufficient Evidence for IV Uplift
+    Then user waits for SA Portal page
     And user is on the SA portal page
 
   Scenario: User is added to Exception List

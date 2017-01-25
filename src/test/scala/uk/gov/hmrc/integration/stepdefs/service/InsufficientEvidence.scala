@@ -2,7 +2,10 @@ package uk.gov.hmrc.integration.stepdefs.service
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
+import uk.gov.hmrc.integration.utils.Configuration
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
 
@@ -33,6 +36,13 @@ class InsufficientEvidence extends ScalaDsl with EN {
     (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
       val href = webDriver.findElement(By.partialLinkText(linkName)).getAttribute("href")
       assert(href.contains("/personal-account/sa-continue?continueUrl") && href.contains("personal-account#"), "href not as expected http://localhost:9232/personal-account/sa-continue?continueUrl=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account#")
+    }
+  }
+
+  Then( """user waits for SA Portal page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("taxreturn%2F1516%2Foptions")))
+
     }
   }
 
