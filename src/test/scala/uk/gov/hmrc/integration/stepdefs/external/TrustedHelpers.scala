@@ -51,7 +51,7 @@ class TrustedHelpers extends ScalaDsl with EN {
   }
 
   And( """^user is able to see '(.*)' link on the page$""") {
-        Thread.sleep(2000)
+//        Thread.sleep(2000)
     (expectedLinkText: String) =>
       provisioningCurrentDriver { implicit webDriver =>
         webDriver.findElement(By.linkText(expectedLinkText))
