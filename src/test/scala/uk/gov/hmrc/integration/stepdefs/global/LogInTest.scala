@@ -15,6 +15,7 @@ class LogInTest extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       AuthActions.logIn(user, authProvider)
 //      Thread.sleep(4000)
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/personal-account")))
     }
   }
 
