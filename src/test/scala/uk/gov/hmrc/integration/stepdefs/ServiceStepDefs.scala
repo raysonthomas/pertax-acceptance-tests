@@ -59,7 +59,7 @@ class ServiceStepDefs extends ScalaDsl with EN {
       .option(HttpOptions.readTimeout(10000))
       .asString
 
-    Thread.sleep(1000)
+//    Thread.sleep(1000)
   }
 
 }
