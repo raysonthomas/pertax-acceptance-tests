@@ -26,12 +26,18 @@ Feature:
     Then user sees text 'if you or your partner are affected by the High Income Child Benefit Charge' on the CB page
     Then user sees text 'If you don't currently claim Child Benefit' on the CB page
     And user sees text 'stays in education or training' on the CB page
+    And user sees 'stays in education or training' link on the page and its href is as expected
     And user sees text 'later leaves education or training' on the CB page
+    And user sees 'later leaves education or training' link on the page and its href is as expected
     And user sees text 'has any other change in their circumstances' on the CB page
+    And user sees 'has any other change in their circumstances' link on the page and its href is as expected
     And user sees text 'Apply for an extension' on the CB page
+    And user sees 'Apply for an extension' link on the page and its href is as expected
     And user sees text 'report a change' on the CB page
+    And user sees 'report a change' link on the page and its href is as expected
     And user sees text 'authorise a tax adviser or accountant' on the CB page
     And user sees text 'stop or re-start your Child Benefit payments' on the CB page
+    And user sees 'stop or re-start your Child Benefit payments' link on the page and its href is as expected
     And user sees text 'If you don't currently claim Child Benefit' on the CB page
     And user sees text 'If you don't claim Child Benefit you normally qualify for it if you're responsible for a child under 16 (or under 20 if they stay in approved education or training) and you live in the UK.' on the CB page
     And user sees text 'Check if you can claim Child Benefit (opens in new window)' on the CB page
