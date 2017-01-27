@@ -29,7 +29,7 @@ class ChangeAddress extends ScalaDsl with EN {
     (service: String) => provisioningCurrentDriver { implicit webDriver =>
       Process(s"sm --stop $service").!!
       Process(s"sm --start $service -f").!!
-//      Thread.sleep(2000)
+      Thread.sleep(2000)
     }
   }
 
