@@ -4,7 +4,7 @@ Feature:
   I need to tell HMRC if i am still eligible for child benefit payments
   So that I continue to receive my benefit
 
-  JIRA story history: MTA-2498
+  JIRA story history : MTA-2498
 
   Scenario: when a gg user has navigates to the child benefit page they should see the correct links and content
     Given A user with a PAYE account, but no SA account is logged into the service using verify
