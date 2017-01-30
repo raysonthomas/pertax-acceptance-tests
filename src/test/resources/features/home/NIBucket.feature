@@ -21,13 +21,14 @@ Feature: NI Bucket
     And user sees 'Print proof of your National Insurance number' link on the page and its href is as expected
     And user clicks on 'Print proof of your National Insurance number' link
     Then user is on the page with title 'Print your National Insurance summary' and URL is as expected
+    And an outbound click event to '/personal-account/national-insurance-summary/print-letter' is sent to google analytics
 #    And user sees nino 'AB 21 69 13 B' on the NI Print page
     And user sees name and address 'Mrs M R HEMPTON', '6 Howsell Road', 'Llanddew', 'DN16 3FB' on the NI Print page
     And user sees name 'Mrs MARTIN ROGER HEMPTON' on the NI Print page
     And user sees today's date on the NI Print page
     And user sees text 'This number is unique to you and will not change.' on the NI page
     And user sees text 'What your National Insurance contributions are for' on the NI page
-    And user clicks the Back button to go back to account home
+    And user clicks the Back button
 
 
 

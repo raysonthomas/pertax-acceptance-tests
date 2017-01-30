@@ -1,6 +1,6 @@
 package uk.gov.hmrc.integration.selenium
 
-import org.openqa.selenium.{By, TakesScreenshot, WebDriver}
+import org.openqa.selenium.{By, JavascriptExecutor, TakesScreenshot, WebDriver}
 import uk.gov.hmrc.integration.page.GlobalActions
 
 object CurrentDriver {
@@ -59,7 +59,23 @@ object CurrentDriver {
     }
   }
 
+  def ifCurrentDriverExecutesJavascript[T](block: JavascriptExecutor => T): Option[T] = {
+    ifCurrentDriver {
+      case javascriptExecutor: JavascriptExecutor =>
+        block(javascriptExecutor)
+    }
+  }
+
   def provisioningCurrentDriver[T](block: WebDriver => T) = {
-    block(getWebDriver)
+    val wd = getWebDriver
+    ifCurrentDriverExecutesJavascript { jsExecutor =>
+       jsExecutor.executeScript(
+         """var ga = function() {
+           |
+           |  console.log($.extend({}, arguments));
+           |}
+         """.stripMargin)
+    }
+    block(wd)
   }
 }
