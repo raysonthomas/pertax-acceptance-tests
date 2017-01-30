@@ -169,12 +169,12 @@ object TestDataSource {
     "Recover your user ID"                                          ->"/log-in-register-hmrc-online-services/problems-signing-in",
     "do your tax return online (opens in a new window)"             ->"%2Fregistration",
     "request a new activation code (opens in a new window)"         ->"/log-in-register-hmrc-online-services/problems-signing-in",
-    "later leaves education or training"                            ->"/Tell-Child-Benefit-about-your-child-leaving-non-advanced-education-or-approved-training/guide",
+    "leaves education or training"                                  ->"/Tell-Child-Benefit-about-your-child-leaving-non-advanced-education-or-approved-training/guide",
     "stays in education or training"                                ->"/Tell-Child-Benefit-about-your-child-staying-in-non-advanced-education-or-approved-training/guide",
     "has any other change in their circumstances"                   ->"/child-benefit-child-change-of-circumstances/guide",
     "Apply for an extension"                                        ->"/Application-for-extension-of-Child-Benefit/guide",
     "report a change"                                               ->"/Child-Benefit-Claimant-Change-of-Circumstances/guide",
-    "stop or re-start your Child Benefit payments"                  ->"/high-income-child-benefit-tax-charge/guide"
+    "stop or restart your Child Benefit payments"                   ->"/high-income-child-benefit-tax-charge/guide"
 
   )
 
