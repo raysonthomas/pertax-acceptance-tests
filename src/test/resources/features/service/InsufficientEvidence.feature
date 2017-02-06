@@ -1,4 +1,4 @@
-@ga
+@suite
 Feature: Manage users who have insufficient evidence for IV or are on the 'exception' list
   As a user
   Even if I am excluded from completing IV, I am able to file my Self Assessment
