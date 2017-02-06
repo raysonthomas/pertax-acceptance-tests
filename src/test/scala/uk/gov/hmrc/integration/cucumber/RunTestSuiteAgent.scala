@@ -12,7 +12,7 @@ import org.junit.runner.RunWith
 //    "html:target/suite/cucumber-html-report",
 //    "json:target/suite/cucumber.json"),
   format = Array("pretty", "html:target/cucumber", "json:target/cucumber.json"),
-  tags = Array("@ga")
+  tags = Array("@suite")
 )
 class RunTestSuiteAgent {
 
