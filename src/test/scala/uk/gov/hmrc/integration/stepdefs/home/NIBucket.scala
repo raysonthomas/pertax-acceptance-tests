@@ -2,10 +2,17 @@ package uk.gov.hmrc.integration.stepdefs.home
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
+import uk.gov.hmrc.integration.page.GoogleAnalyticsAssertions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.utils.TestDataSource._
+
 
 class NIBucket extends ScalaDsl with EN {
+
+  And("""^an outbound click event to '(.*)' is sent to google analytics$""") {
+    (expectedUrl: String) => provisioningCurrentDriver { implicit webDriver =>
+      GoogleAnalyticsAssertions.assertGoogleAnalyticsEventSent("outbound", "click", expectedUrl)
+    }
+  }
 
   And( """^user is able to see a section '(.*)' on NI Page$""") {
     (expectedText: String) => provisioningCurrentDriver { implicit webDriver =>
@@ -71,7 +78,7 @@ class NIBucket extends ScalaDsl with EN {
     }
   }
 
-  And( """^user clicks the Back button to go back to account home$""") {
+  And( """^user clicks the Back button$""") {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector(".column-half.back-link>a")).click()
     }

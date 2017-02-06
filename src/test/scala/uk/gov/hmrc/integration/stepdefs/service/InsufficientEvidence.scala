@@ -3,6 +3,7 @@ package uk.gov.hmrc.integration.stepdefs.service
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.WebDriverWait
+import uk.gov.hmrc.integration.page.GoogleAnalyticsAssertions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
@@ -46,4 +47,21 @@ class InsufficientEvidence extends ScalaDsl with EN {
     }
   }
 
+  And("""^a self-assessment click event is sent with the label '(.*)' to google analytics$""") {
+    (eventLabel: String) => provisioningCurrentDriver { implicit webDriver =>
+      GoogleAnalyticsAssertions.assertGoogleAnalyticsEventSent("self-assessment", "click", eventLabel)
+    }
+  }
+
+  And("""^a self-assessment user type event is sent with the label '(.*)' to google analytics$""") {
+    (eventLabel: String) => provisioningCurrentDriver { implicit webDriver =>
+      GoogleAnalyticsAssertions.assertGoogleAnalyticsEventSent("self-assessment", "pageLoad", eventLabel)
+    }
+  }
+
+  And("""^a SA-IV-bypass click event is sent with the label '(.*)' to google analytics$""") {
+    (eventLabel: String) => provisioningCurrentDriver { implicit webDriver =>
+      GoogleAnalyticsAssertions.assertGoogleAnalyticsEventSent("sa-iv-bypass", "click", eventLabel)
+    }
+  }
 }

@@ -11,6 +11,7 @@ import uk.gov.hmrc.integration.utils.Configuration
 class LogInTest extends ScalaDsl with EN {
 
 
+
   Given( """^(.*) is logged into the service using (.*)$""") { (user: String, authProvider: String) =>
     provisioningCurrentDriver { implicit webDriver =>
       AuthActions.logIn(user, authProvider)

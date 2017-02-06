@@ -1,15 +1,22 @@
 package uk.gov.hmrc.integration.stepdefs.global
 
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.apache.commons.lang3.StringEscapeUtils
+import org.openqa.selenium.logging.LogType
 import org.openqa.selenium.{By, WebElement}
 import org.openqa.selenium.support.ui.WebDriverWait
+import play.api.libs.json.{JsValue, Json}
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
-import uk.gov.hmrc.integration.utils.Configuration
+import uk.gov.hmrc.integration.utils.{Configuration, GoogleAnalytics}
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
+import scala.collection.JavaConversions._
+
 class NavigationTest extends ScalaDsl with EN {
+
+
 
   When( """^user clicks on '(.*)'.* link$""") {
     (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
