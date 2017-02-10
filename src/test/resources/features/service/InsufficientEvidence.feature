@@ -3,7 +3,7 @@ Feature: Manage users who have insufficient evidence for IV or are on the 'excep
   As a user
   Even if I am excluded from completing IV, I am able to file my Self Assessment
 
-  JIRA story history: MTA-2368, MTA-2443
+  JIRA story history: MTA-2368, MTA-2443, MTA-2523
 
   Scenario: An Active Online Filer who has completed 2FA but has insufficient evidence to complete IV arrives in PTA
     Given User with a PAYE account and SA account is logged into the service using gg
