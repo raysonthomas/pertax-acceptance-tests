@@ -36,7 +36,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
             val (text, url) = textAndUrl
             text match {
 //              case "Account home" => url == Some(s"${Configuration("url")}")
-              case "Account home" => url == Some("http://localhost:9232/personal-account")
+              case "Account home" => url == Some("http://localhost:9232/personal-account?b=true")
               case _ => false
             }
           }
