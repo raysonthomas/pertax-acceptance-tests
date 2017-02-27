@@ -8,7 +8,8 @@ object CustomExpectedConditions {
   def urlEndsWith(suffix: String)(implicit webDriver: WebDriver): ExpectedCondition[Boolean] = {
     new ExpectedCondition[Boolean] {
       override def apply(wd: WebDriver): Boolean = {
-        wd.getCurrentUrl.endsWith(suffix)
+        val u = wd.getCurrentUrl
+        u.endsWith(suffix)
       }
     }
   }
