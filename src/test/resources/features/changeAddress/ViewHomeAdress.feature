@@ -4,7 +4,7 @@ Feature: View Home Address Details
   I need to view my personal details,
   So that I can verify that HMRC holds my correct name, address and nino
 
-  JIRA story history: MTA-7, MTA-8, MTA-260, MTA-516, MTA-1691
+  JIRA story history: MTA-7, MTA-8, MTA-260, MTA-516, MTA-1691, MTA-2579
 
   Scenario: View personal details page
     Given A user with a PAYE account, but no SA account is logged into the service using verify
