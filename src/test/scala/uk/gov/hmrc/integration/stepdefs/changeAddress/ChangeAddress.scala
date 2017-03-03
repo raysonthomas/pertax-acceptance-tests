@@ -290,10 +290,10 @@ class ChangeAddress extends ScalaDsl with EN {
       }
   }
 
-  Then( """^Home address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
-    (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, postCode: String) =>
+  Then( """^Home address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {
+    (addressLine1: String, addressLine2: String, addressLine3: String, addressLine4: String, addressLine5: String, postCode: String) =>
       provisioningCurrentDriver { implicit webDriver =>
-        val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, postCode).filter(_ != "")
+        val addressElements = Array(addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, postCode).filter(_ != "")
         val expectedAddress = addressElements.mkString("\n")
         val actualAddress = webDriver.findElement(By.cssSelector("address")).getText
         assert(expectedAddress == actualAddress, s"$expectedAddress did not match $actualAddress")

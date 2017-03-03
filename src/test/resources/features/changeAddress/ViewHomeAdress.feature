@@ -11,6 +11,6 @@ Feature: View Home Address Details
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on visible 'Update your address' link
     And user is on the page with title 'Your address' and URL is as expected
-    And Home address '6 Howsell Road', 'Llanddew', '', '', 'DN16 3FB' should be visible
+    And Home address '6 Howsell Road', 'Llanddew', 'Addr Line 3', 'Addr Line 4', 'Addr Line 5', 'DN16 3FB' should be visible
 
     
