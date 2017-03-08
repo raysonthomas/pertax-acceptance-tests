@@ -99,6 +99,12 @@ class NavigationTest extends ScalaDsl with EN {
         assert(webDriver.getPageSource.contains("Popular forms on GOV.UK"), s"\n$expectedText text was not found on the page")
       }
    }
+  Then( """^user clicks back button$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.navigate().back()
+
+    }
+  }
 
 
 }

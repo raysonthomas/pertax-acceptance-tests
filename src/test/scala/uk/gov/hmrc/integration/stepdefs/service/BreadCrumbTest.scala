@@ -35,7 +35,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
             def urlEndsWithOrFalse(o: Option[String], e: String): Boolean = o.exists(_.endsWith(e))
             val (text, url) = textAndUrl
             text match {
-              case "Account home" => url.get.endsWith("/personal-account")
+              case "Account home" => url.get.endsWith("/personal-account?b=true")
               case _ => false
             }
           }
@@ -50,6 +50,15 @@ class BreadCrumbTest extends ScalaDsl with EN {
           }
         }
       }
+  }
+
+  Then( """^user is on the page with title '(.*)' after clicking Account Home breadcrumb$""") {
+    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
+      val actualPageTitle = webDriver.getTitle
+      val currentUrl = webDriver.getCurrentUrl
+      assert(currentUrl.endsWith("/personal-account?b=true"), "\n current page URL was:\n $currentUrl \nit did not end with:\n /personal-account?b=true")
+      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+    }
   }
 
 }

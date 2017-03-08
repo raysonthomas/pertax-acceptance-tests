@@ -4,7 +4,7 @@ Feature: Home Page segmentation
   I want to see PTA home page with proper segmentation and bucketing
   Also test the breadcrumb is as expected
 
-  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964, MTA-1990 , MTA-2115 , MTA-2116, MTA-2364
+  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964, MTA-1990 , MTA-2115 , MTA-2116, MTA-2364, MTA-2559
 
   Scenario: Check that the home page has proper segmentation
     Given A user with a PAYE account, but no SA account is logged into the service using verify
@@ -18,7 +18,7 @@ Feature: Home Page segmentation
     Then user is on the page with title 'Service not available' and URL is as expected
     And Breadcrumb is: 'Account home'
     And text 'Service not available' is visible on Tax credits Page
-    And user clicks on 'Account home' breadcrumb link
+    And user clicks back button
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user sees 'Child Benefit' link on the page and its href is as expected
     And user sees text 'Tell us about changes that may affect your Child Benefit.' on the home page
