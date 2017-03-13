@@ -27,9 +27,10 @@ class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^The service '([^"]*)' is restarted$""") {
     (service: String) => provisioningCurrentDriver { implicit webDriver =>
-      Process(s"sm --stop $service").!!
-      Process(s"sm --start $service -f").!!
-      Thread.sleep(2000)
+//      Process(s"sm --stop $service").!!
+//      Process(s"sm --start $service -f").!!
+      Process(s"sm --restart $service -f").!!
+      Thread.sleep(4000)
     }
   }
 
