@@ -125,6 +125,7 @@ object TestDataSource {
     "Pension"                                                       -> "/personal-account/pensions-summary",
     "View your trusted helper contacts"                             -> "/trusted-helpers",
     "Update your address"                                           -> "/personal-account/your-address",
+    "Diweddaru'ch cyfeiriad"                                        -> "/personal-account/your-address",
     "Track your forms"                                              -> "/track",
     "Manage your paperless settings"                                -> "/personal-account/preferences",
     "Self Assessment"                                               -> "/personal-account/self-assessment-summary",
