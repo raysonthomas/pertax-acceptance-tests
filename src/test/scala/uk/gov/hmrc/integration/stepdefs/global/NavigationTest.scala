@@ -106,5 +106,10 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  When( """^user clicks on language '(.*)' link$""") {
+    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
+       webDriver.findElement(By.partialLinkText(linkName)).click()
+    }
+  }
 
 }
