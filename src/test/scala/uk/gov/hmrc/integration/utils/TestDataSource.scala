@@ -199,7 +199,7 @@ object TestDataSource {
     "Identity verification confirmation"                            -> "http://localhost:9232/personal-account/identity-check-complete",
     "There's a technical problem"                                   -> "http://localhost:9232/personal-account/identity-check-complete",
     "We've confirmed your identity"                                 -> "http://localhost:9232/personal-account/identity-check-complete",
-    "You’ve tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
+    "You've tried to confirm your identity too many times"          -> "http://localhost:9232/personal-account/identity-check-complete",
     "We're unable to confirm your identity"                         -> "http://localhost:9232/personal-account/identity-check-complete",
     "Your address has already been updated"                         -> "/personal-account/address-already-updated",
     "Find an address"                                               -> "/personal-account/your-address/postal/find-address",
