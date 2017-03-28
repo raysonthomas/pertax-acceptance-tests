@@ -36,8 +36,8 @@ object TestDataSource {
     "A user with No PAYE but SA account"                                  -> UserProperties.build(name = Some("MAndrew"), nino = None, sautr = Some("222222222"), verify = true),  //M Andrew
     "A user with a PAYE account and SA account"                           -> UserProperties.build(nino = Some("AB216913B"), sautr = Some("111111111"), verify = true),//Martin Hempton
     "A user with a Correspondence Address"                                -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
-    "A user changing Correspondence Address manually"                     -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bobby Jones
-    "A user with Effective From date 06 April 2016"                       -> UserProperties.build(nino = Some("AA000005B"), sautr = Some("111111111"), verify = true),//Bob Jones
+    "A user changing Correspondence Address manually"                     -> UserProperties.build(nino = Some("AA000005B"), sautr = Some("111111111"), verify = true),//Bobby Jones
+    "A user with Effective From date 06 April 2016"                       -> UserProperties.build(nino = Some("AA000003B"), sautr = Some("111111111"), verify = true),//Bob Jones
     "A user with Effective From date other than 06 April 2016"            -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
     "A user with No Effective From date"                                  -> UserProperties.build(nino = Some("CE123457D"), sautr = Some("111111111"), verify = true),//Christopher Grantham
     "A user"                                                              -> UserProperties.build(nino = Some("JZ013615D"), sautr = Some("111111111"), verify = true),//M Andrew
