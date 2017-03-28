@@ -26,11 +26,11 @@ Feature: Verify my correspondence address
     And user clicks on 'Return to your account home' link
     And user is on the page with title 'Personal tax account' and URL is as expected
 
-  Scenario: PAY_AS_YOU_EARN_STUB is Restarted
-    Given The service 'PAY_AS_YOU_EARN_STUB' is restarted
+#  Scenario: PAY_AS_YOU_EARN_STUB is Restarted
+#    Given The service 'PAY_AS_YOU_EARN_STUB' is restarted
 
   Scenario: Manual Correspondence Address update
-    Given A user with a Correspondence Address is logged into the service using verify
+    Given A user changing Correspondence Address manually is logged into the service using verify
     And user clicks on visible 'Update your address' link
     And user sees 'Change where we send your letters' link on the page and its href is as expected
     Then user clicks on Change where we send your letters link on your address page
