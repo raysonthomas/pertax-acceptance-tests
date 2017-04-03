@@ -4,7 +4,7 @@ Feature: Home Page segmentation
   I want to see PTA home page with proper segmentation and bucketing
   Also test the breadcrumb is as expected
 
-  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964, MTA-1990 , MTA-2115 , MTA-2116, MTA-2364, MTA-2559
+  JIRA story history: MTA-1135, MTA-1848, MTA-1783, MTA-1966, MTA-1964, MTA-1990 , MTA-2115 , MTA-2116, MTA-2364, MTA-2559, MTA-2515
 
   Scenario: Check that the home page has proper segmentation
     Given A user with a PAYE account, but no SA account is logged into the service using verify
@@ -30,7 +30,7 @@ Feature: Home Page segmentation
     And user sees 'State Pension forecast' link on the page and its href is as expected
 
     Then user is able to see a section 'Services you might need'
-    And user sees text 'If you're married or in a civil partnership and you earn less than £11,000, you may benefit from applying for Marriage Allowance.' on the home page
+    And user sees text 'If you're married or in a civil partnership and you earn less than £11,500, you may benefit from applying for Marriage Allowance.' on the home page
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
 
 #  Scenario: Check that the home page has proper segmentation for Online SA user
