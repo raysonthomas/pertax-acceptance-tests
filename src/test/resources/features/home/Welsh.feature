@@ -17,11 +17,23 @@ Feature: Welsh Content in PTA
     And user clicks on language 'English' link
 
   Scenario: User is able to view the Welsh language Warning message
-    Given A user with a Correspondence Address is logged into the service using verify
-    When user is on the page with title 'Personal tax account' and URL is as expected
+    Given User with a PAYE account and SA account is logged into the service using gg
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on 'National Insurance' link
     And user sees text 'Your National Insurance number is' on the NI page
     And user clicks on language 'Cymraeg' link
+    Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
+    And user clicks on 'Hafan y cyfrif' breadcrumb link
+    And user clicks on 'Rheoli'ch gosodiadau di-bapur' link
+    Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
+    And user clicks on 'Hafan y cyfrif' breadcrumb link
+    And user clicks on 'Hunanasesiad' link
+    Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
+    And user clicks on 'Hafan y cyfrif' breadcrumb link
+    And user clicks on 'Credydau treth' link
     Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
     And user clicks on language 'English' link
 
