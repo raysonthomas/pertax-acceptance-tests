@@ -46,7 +46,7 @@ class SAActivation extends ScalaDsl with EN {
       val originalWindowHandle = webDriver.getWindowHandle
       println(originalWindowHandle)
       webDriver.switchTo().window("newwin")
-      assert(webDriver.getCurrentUrl.contains("http://localhost:9242/dummy-web-chat-link"), "\nPage url not as expected")
+      assert(webDriver.getCurrentUrl.contains("http://localhost:9242/webchat-window/1004/hmrc7"), "\nPage url not as expected")
 //      assert(webDriver.getCurrentUrl.contains("entryPointId=1004"), "\nSPage url not as expected")
       webDriver.close()
       webDriver.switchTo().window(originalWindowHandle)
