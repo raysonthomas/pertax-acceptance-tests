@@ -30,7 +30,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Manage your paperless settings' link on the page and its href is as expected
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
-    And user can not see 'Messages' link
+#    And user can not see 'Messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Pay As You Earn (PAYE)' link
     And user can not see 'Go to your messages' link
@@ -65,7 +65,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
-    And user sees 'Go to your messages' link on the page and its href is as expected
+#    And user sees 'Go to your messages' link on the page and its href is as expected
     And user sees 'Self Assessment' link on the page and its href is as expected
     And user sees 'your business tax account' link on the page and its href is as expected
     And user sees 'Manage your paperless settings' link on the page and its href is as expected
@@ -128,8 +128,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user clicks on 'Manage your paperless settings' link
     And user is on the page with title 'Manage your paperless settings' and URL is as expected
     And user navigates to personal tax account home page
-    And user clicks on 'Go to your messages' link
-    Then user is on the page with title 'List of messages' and URL is as expected
+#    And user clicks on 'Go to your messages' link
+#    Then user is on the page with title 'List of messages' and URL is as expected
 
   Scenario: Check that a Low GG user(CL50) NOT IN SA regime is able to access the appropriate options on PTA
     Given User with a PAYE account, but no SA account is logged into the service using gg

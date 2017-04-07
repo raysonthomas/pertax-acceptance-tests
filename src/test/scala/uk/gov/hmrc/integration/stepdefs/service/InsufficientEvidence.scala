@@ -26,8 +26,8 @@ class InsufficientEvidence extends ScalaDsl with EN {
     () => provisioningCurrentDriver { implicit webDriver =>
       val currentUrl = webDriver.getCurrentUrl
       println(currentUrl)
-      assert(currentUrl.equals("http://localhost:9025/ssoout/non-digital?continue=http:%2F%2Flocalhost:8080%2Fself-assessment%2Find%2F111112222%2Ftaxreturn%2F1516%2Foptions")
-        || currentUrl.equals("http://localhost:9025/ssoout/non-digital?continue=http:%2F%2Flocalhost:8080%2Fself-assessment%2Find%2F123459876%2Ftaxreturn%2F1516%2Foptions"),
+      assert(currentUrl.equals("http://localhost:9025/ssoout/non-digital?continue=http:%2F%2Flocalhost:9242%2Fself-assessment%2Find%2F111112222%2Ftaxreturn%2F1617%2Foptions")
+        || currentUrl.equals("http://localhost:9025/ssoout/non-digital?continue=http:%2F%2Flocalhost:9242%2Fself-assessment%2Find%2F123459876%2Ftaxreturn%2F1617%2Foptions"),
         "URL not as expected")
 
     }
