@@ -24,7 +24,7 @@ Feature: As a PTA user
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
     And   user sees text 'You paid too much tax' on the home page
-    And   user sees text 'HM Revenue and Customs paid you a refund of £1,000.00 on 2 January 2015.' on the home page
+    And   user sees text 'HM Revenue and Customs paid you a refund of £1,000.00 on 2 January 2016.' on the home page
 
   Scenario:when a user has been sent a cheque for their refund they should see a banner with the below details
     Given A user who has has been sent a cheque is logged into the service using gg
@@ -33,7 +33,7 @@ Feature: As a PTA user
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
     And   user sees text 'You paid too much tax' on the home page
-    And   user sees text 'HM Revenue and Customs sent you a cheque for £1,000.00 on 2 January 2015.' on the home page
+    And   user sees text 'HM Revenue and Customs sent you a cheque for £1,000.00 on 2 January 2016.' on the home page
 
   Scenario: when a user has not got an overpayment
     Given A user without a tax underpayment is logged into the service using gg
@@ -50,7 +50,7 @@ Feature: As a PTA user
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
     And   user sees text 'You have paid too little tax' on the home page
-    And   user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2015 to 2016 tax year.' on the home page
+    And   user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2016 to 2017 tax year.' on the home page
     And   user sees 'Get more details' link on the page and its href is as expected
 
   Scenario: when a user has paid too much tax in the previous tax year and has not requested a refund yet
@@ -60,7 +60,7 @@ Feature: As a PTA user
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
     And   user sees text 'You have paid too much tax' on the home page
-    And   user sees text 'HM Revenue and Customs owe you a £1,000.00 refund for the 2015 to 2016 tax year.' on the home page
+    And   user sees text 'HM Revenue and Customs owe you a £1,000.00 refund for the 2016 to 2017 tax year.' on the home page
     And   user sees 'Get your refund' link on the page and its href is as expected
 
 
