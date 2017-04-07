@@ -13,10 +13,10 @@ Feature: Test the breadcrumb
     And user Continues the journey to PTA
     When user is on the page with title 'Personal tax account' and URL is as expected
     And Breadcrumb is: ''
-    And user clicks on 'Go to your messages' link
-    And Breadcrumb is: 'Account home'
-    And user clicks on 'Account home' breadcrumb link
-    And user is on the page with title 'Personal tax account' after clicking Account Home breadcrumb
+#    And user clicks on 'Go to your messages' link
+#    And Breadcrumb is: 'Account home'
+#    And user clicks on 'Account home' breadcrumb link
+#    And user is on the page with title 'Personal tax account' after clicking Account Home breadcrumb
     And user clicks on 'Self Assessment' link
     And Breadcrumb is: 'Account home'
     And user clicks on 'Account home' breadcrumb link

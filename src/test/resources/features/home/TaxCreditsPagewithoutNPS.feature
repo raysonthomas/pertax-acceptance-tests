@@ -11,7 +11,7 @@ Feature: Tax Credits Page without dependency on NPS
     Then user is on the page with title 'There's a problem' and URL is as expected
     Then user navigates to Tax Credits page
     And Breadcrumb is: 'Account home'
-    And text 'Service not available' is visible on Tax credits Page
+    And text 'Your tax credits' is visible on Tax credits Page
     And user navigates to personal tax account home page
     Then user is on the page with title 'There's a problem' and URL is as expected
 

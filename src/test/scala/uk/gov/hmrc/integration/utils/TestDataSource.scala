@@ -213,7 +213,8 @@ object TestDataSource {
     "Thanks for your feedback"                                      -> "/personal-account/feedback-thanks",
     "Print your National Insurance summary"                         -> "/personal-account/national-insurance-summary/print-letter",
     "There's a problem logging you in"                              -> "/personal-account",
-    "Enter your address"                                            -> "/your-address/sole/edit-address"
+    "Enter your address"                                            -> "/your-address/sole/edit-address",
+    "Your tax credits"                                              -> "/personal-account/tax-credits-summary"
 
 
   )
