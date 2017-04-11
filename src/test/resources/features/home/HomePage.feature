@@ -59,14 +59,13 @@ Feature: Home Page segmentation
     Then user is on the page with title 'Personal tax account' and URL is as expected
     And user sees 'Lifetime allowance protection' link on the page and its href is as expected
     And user sees text 'See your existing protection details' on the home page
-@suite1
+
   Scenario: Prompt for all PTA users to see link on homepage for User Research
     Given A user with a PAYE account, but no SA account is logged into the service using verify
     Then user is on the page with title 'Personal tax account' and URL is as expected
     And user sees 'Help us with our research (opens in new window)' link on the page and its href is as expected
     And user clicks on Help us with our research opens in new window link for user  research
-   And an outbound click event to 'TO BE CHANGED ONCE WE KNOW THE LINK' is sent to google analytics
-#   And user is on the user research page
+    And an outbound click event to 'https://zwgy80l7.optimalworkshop.com/treejack/navigation' is sent to google analytics
 
 
 
