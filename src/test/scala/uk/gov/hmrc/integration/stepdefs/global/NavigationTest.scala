@@ -112,4 +112,9 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  When( """^user clicks on Help us with our research opens in new window link for user  research$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.partialLinkText("Help us with our research")).click()
+    }
+  }
 }
