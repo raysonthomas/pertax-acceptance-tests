@@ -178,8 +178,8 @@ object TestDataSource {
     "has any other change in their circumstances"                   ->"/child-benefit-child-change-of-circumstances/guide",
     "Apply for an extension"                                        ->"/Application-for-extension-of-Child-Benefit/guide",
     "report a change"                                               ->"/Child-Benefit-Claimant-Change-of-Circumstances/guide",
-    "stop or restart your Child Benefit payments"                   ->"/high-income-child-benefit-tax-charge/guide"
-
+    "stop or restart your Child Benefit payments"                   ->"/high-income-child-benefit-tax-charge/guide",
+    "Help us with our research (opens in new window)"               ->"/treejack/navigation"
   )
 
   val pathForTitle = Map(

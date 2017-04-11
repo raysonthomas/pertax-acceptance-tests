@@ -112,4 +112,15 @@ class NavigationTest extends ScalaDsl with EN {
     }
   }
 
+  When( """^user clicks on Help us with our research opens in new window link for user  research$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.partialLinkText("Help us with our research")).click()
+    }
+  }
+  When( """^user is on the user research page$""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      assert(webDriver.getCurrentUrl.contains("optimalworkshop.com/treejack/navigation"),"URL not as expected")
+      webDriver.close()
+    }
+  }
 }
