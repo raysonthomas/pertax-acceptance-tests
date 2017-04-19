@@ -29,7 +29,7 @@ object CurrentDriver {
 
     {
       GlobalActions.maybeClickMenu
-      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/personal-account/signed-out?origin=PERTAX")
+      GlobalActions.clickLinkThenExplicitWaitForPath(By.linkText("Sign out"), "/feedback-survey/ableToDo")
     }
   }
 

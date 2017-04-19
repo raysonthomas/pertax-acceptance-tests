@@ -9,5 +9,5 @@ Feature: Sign out of Personal Tax Account
   Scenario: Sign out of Personal Tax Account
     Given A user with a PAYE account, but no SA account is logged into the service using verify
     When user signs out
-    Then user is on the page with title 'Signed out' and URL is as expected
+    Then user is on the page with title 'Give feedback - Were you able to do what you needed to do today?' and URL is as expected
     And user is unable to access the application
