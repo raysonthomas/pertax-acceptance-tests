@@ -17,6 +17,12 @@ class ExitTest extends ScalaDsl with EN {
     }
   }
 
+  And( """^user sees text '(.*)' on the Give feedback page$""") {
+    (expectedText: String) => provisioningCurrentDriver { implicit webDriver =>
+      assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
+    }
+  }
+
   Then( """^user selects yes radio button on 'before using your tax account' question""") {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id("beforeUsingYourPersonalTaxAccount-1")).click()
@@ -205,6 +211,14 @@ class ExitTest extends ScalaDsl with EN {
   }
 
   And( """^user enters the 10 characters: '(.*)' into the free text box""") {
+    (value: String) => provisioningCurrentDriver { implicit webDriver =>
+      val field = webDriver.findElement(By.cssSelector(".char-counter>textarea"))
+      field.clear()
+      field.sendKeys(value)
+    }
+  }
+
+  And( """^user enters characters: '(.*)' into the free text box""") {
     (value: String) => provisioningCurrentDriver { implicit webDriver =>
       val field = webDriver.findElement(By.cssSelector(".char-counter>textarea"))
       field.clear()
