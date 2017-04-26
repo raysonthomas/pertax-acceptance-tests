@@ -21,4 +21,9 @@ class trustedHelpers extends ScalaDsl with EN {
     }
   }
 
+  When( """^user clicks on View your trusted helper contacts link""") {
+    () => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.get("http://localhost:9231/trusted-helpers")
+    }
+  }
 }
