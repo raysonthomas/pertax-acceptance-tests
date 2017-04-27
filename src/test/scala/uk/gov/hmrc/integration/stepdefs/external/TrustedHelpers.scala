@@ -86,6 +86,7 @@ class TrustedHelpers extends ScalaDsl with EN {
           webDriver.findElement(By.linkText("End contact")).click()
           webDriver.findElement(By.id("radio-1")).click()
           webDriver.findElement(By.id("auto_id_confirm_submit")).click()
+          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/help-cancelled")))
           webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
           (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/trusted-helpers")))
 
