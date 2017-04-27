@@ -3,10 +3,13 @@ package uk.gov.hmrc.integration.stepdefs.external
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.junit.Assert
 import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
-import org.openqa.selenium.{WebElement, WebDriver, By}
+import org.openqa.selenium.{By, WebDriver, WebElement}
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
+import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
+import uk.gov.hmrc.integration.utils.Configuration
 import uk.gov.hmrc.integration.utils.TestDataSource._
+
 import scala.collection.JavaConversions._
 
 class TrustedHelpers extends ScalaDsl with EN {
@@ -84,6 +87,8 @@ class TrustedHelpers extends ScalaDsl with EN {
           webDriver.findElement(By.id("radio-1")).click()
           webDriver.findElement(By.id("auto_id_confirm_submit")).click()
           webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
+          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/trusted-helpers")))
+
         }
 
         if (webDriver.getPageSource.contains("Cancel request")){
