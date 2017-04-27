@@ -1,4 +1,4 @@
-@suite
+@wip
 Feature: Use PTA service as a helper
   As a user
   I want to see my Annual Taxable Income estimate information on the home page
