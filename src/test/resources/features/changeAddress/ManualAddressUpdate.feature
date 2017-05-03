@@ -68,7 +68,24 @@ Feature: Change Address Manually link visibility
     Then user clicks on 'submitAddressFinder' button
     And user does not see a manual entry link matching: 'Enter your address yourself'
 
-
+  Scenario: User enters valid Postcode that can not be found with valid House Number
+    And user updates 'filter' with '10000001'
+    And user updates 'postcode' with 'NE61 6DB'
+    Then user clicks on 'submitAddressFinder' button
+    And user clicks on 'Enter your address yourself' link
+    And user updates address 'line1' with 'Test line1'
+    And user updates address 'line2' with 'Test line2'
+    And user updates address 'line3' with 'Test line3'
+    And user updates address 'line4' with 'Test line4'
+    And user updates address 'line5' with 'Test line5'
+    And user updates 'postcode' with 'FX97 4TU'
+    Then user clicks on 'updateAddress' button
+    And user updates date field 'startDate.day' with '07'
+    And user updates date field 'startDate.month' with '04'
+    And user updates date field 'startDate.year' with '2016'
+    Then user continues from Enter start date page
+    Then user clicks on Confirm and save button on Check your answers page
+    Then user sees text 'Your address has been updated' on the page
 
 
 
