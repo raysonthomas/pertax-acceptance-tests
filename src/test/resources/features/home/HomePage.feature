@@ -65,7 +65,7 @@ Feature: Home Page segmentation
     Then user is on the page with title 'Personal tax account' and URL is as expected
     And user sees 'Help us with our research (opens in new window)' link on the page and its href is as expected
     And user clicks on Help us with our research opens in new window link for user  research
-    And an outbound click event to 'https://zwgy80l7.optimalworkshop.com/treejack/navigation2' is sent to google analytics
+    And an outbound click event to 'https://zwgy80l7.optimalworkshop.com/treejack/navigation-0' is sent to google analytics
 
 
 
