@@ -179,7 +179,7 @@ object TestDataSource {
     "Apply for an extension"                                        ->"/Application-for-extension-of-Child-Benefit/guide",
     "report a change"                                               ->"/Child-Benefit-Claimant-Change-of-Circumstances/guide",
     "stop or restart your Child Benefit payments"                   ->"/high-income-child-benefit-tax-charge/guide",
-    "Help us with our research (opens in new window)"               ->"/treejack/navigation2",
+    "Help us with our research (opens in new window)"               ->"/treejack/navigation-0",
     "Ask someone for their help"                                    ->"/trusted-helpers/appoint-a-trusted-helper"
   )
 
