@@ -27,8 +27,8 @@ Feature: Update Personal Details
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user waits for 'When did you start living here?' page
     Then user sees text 'When did you start living here?' on the page
-    And user updates date field 'startDate.day' with '01'
-    And user updates date field 'startDate.month' with '01'
+    And user updates date field 'startDate.day' with '02'
+    And user updates date field 'startDate.month' with '04'
     And user updates date field 'startDate.year' with '2016'
     Then user continues from Enter start date page
     Then user clicks on Confirm and save button on Check your answers page
@@ -57,8 +57,8 @@ Feature: Update Personal Details
     Then user clicks on 'submitAddressFinder' button
     And user selects the address '11 Test Street, Testtown, FX97 4TU' and continues
     Then user sees text 'When did you start living here?' on the page
-    And user updates date field 'startDate.day' with '02'
-    And user updates date field 'startDate.month' with '01'
+    And user updates date field 'startDate.day' with '03'
+    And user updates date field 'startDate.month' with '04'
     And user updates date field 'startDate.year' with '2016'
     Then user continues from Enter start date page
     Then user clicks on Confirm and save button on Check your answers page
@@ -89,8 +89,8 @@ Feature: Update Personal Details
     Then user continues from Edit the address page
     Then user waits for 'When did you start living here?' page
     Then user sees text 'When did you start living here?' on the page
-    And user updates date field 'startDate.day' with '03'
-    And user updates date field 'startDate.month' with '01'
+    And user updates date field 'startDate.day' with '04'
+    And user updates date field 'startDate.month' with '04'
     And user updates date field 'startDate.year' with '2016'
     Then user continues from Enter start date page
     Then user clicks on Confirm and save button on Check your answers page

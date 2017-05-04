@@ -80,7 +80,7 @@ Feature: Change Address Manually link visibility
     And user updates address 'line5' with 'Test line5'
     And user updates 'postcode' with 'FX97 4TU'
     Then user clicks on 'updateAddress' button
-    And user updates date field 'startDate.day' with '07'
+    And user updates date field 'startDate.day' with '01'
     And user updates date field 'startDate.month' with '04'
     And user updates date field 'startDate.year' with '2016'
     Then user continues from Enter start date page
