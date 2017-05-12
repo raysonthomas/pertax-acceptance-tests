@@ -39,4 +39,13 @@ object CustomExpectedConditions {
     }
   }
 
+  def linkVisible(selector: String)(implicit webDriver: WebDriver): ExpectedCondition[Boolean] = {
+    new ExpectedCondition[Boolean] {
+      override def apply(wd: WebDriver): Boolean = {
+        wd.findElement(By.partialLinkText(selector)).isDisplayed
+        wd.findElement(By.partialLinkText(selector)).isEnabled
+      }
+    }
+  }
+
 }
