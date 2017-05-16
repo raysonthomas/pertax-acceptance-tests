@@ -16,5 +16,6 @@ Feature: Use PTA service as a helper
     And text 'Nick Pace' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     And user clicks on link 'Return to your own account'
+    And user ends contact
     Then user signs out
     Then user sees text 'Give feedback' on the page
