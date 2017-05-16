@@ -17,7 +17,7 @@ Feature: Trusted helper relation setup
   Scenario: Approve request for help
     Given A user who is a trusted helper is logged into the service using verify
     And user clicks on View your trusted helper contacts link
-    And user clicks on 'Respond to Nick's request' link to help someone
+    And user clicks on 'Respond to M's request' link to help someone
     And user submits his decision to help
     And user navigates to personal tax account home page
 

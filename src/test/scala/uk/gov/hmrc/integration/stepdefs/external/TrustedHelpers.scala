@@ -100,4 +100,14 @@ class TrustedHelpers extends ScalaDsl with EN {
       }
   }
 
+  Then( """^user ends contact$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+
+          webDriver.findElement(By.linkText("End contact")).click()
+          webDriver.findElement(By.id("radio-1")).click()
+          webDriver.findElement(By.id("auto_id_confirm_submit")).click()
+      }
+  }
+
 }
