@@ -24,8 +24,10 @@ class TrustedHelpers extends ScalaDsl with EN {
         webDriver.findElement(By.id("dob.month")).sendKeys(dobMonth)
         webDriver.findElement(By.id("dob.year")).sendKeys(dobYear)
         webDriver.findElement(By.id("submit")).click()
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/trusted-helpers/check-helper")))
         webDriver.findElement(By.id("radio-1")).click()
         webDriver.findElement(By.id("auto_id_confirm_button")).click()
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/trusted-helpers/request-help-sent")))
         webDriver.findElement(By.id("radio-2")).click()
         webDriver.findElement(By.id("auto_id_confirmed_button")).click()
       }
