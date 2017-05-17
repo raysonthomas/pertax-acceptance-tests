@@ -4,7 +4,7 @@ Feature: Test the breadcrumb
   I must be able to see the correct breadcrumb
   So that I can navigate through PTA appropriately
 
-  JIRA story history: MTA-1119, 1848, MTA-2559
+  JIRA story history: MTA-1119, 1848, MTA-2559, MTA-2685
 
   Scenario: See the correct breadcrumb when navigating to messages with a SAUTR User
     Given User with a PAYE account and SA account is logged into the service using gg

@@ -35,7 +35,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
             def urlEndsWithOrFalse(o: Option[String], e: String): Boolean = o.exists(_.endsWith(e))
             val (text, url) = textAndUrl
             text match {
-              case "Account home" => url.get.endsWith("/personal-account?b=true")
+              case "Account home" => url.get.endsWith("/personal-account")
               case _ => false
             }
           }
@@ -56,7 +56,7 @@ class BreadCrumbTest extends ScalaDsl with EN {
     (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.endsWith("/personal-account?b=true"), "\n current page URL was:\n $currentUrl \nit did not end with:\n /personal-account?b=true")
+      assert(currentUrl.endsWith("/personal-account"), "\n current page URL was:\n $currentUrl \nit did not end with:\n /personal-account")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
     }
   }
