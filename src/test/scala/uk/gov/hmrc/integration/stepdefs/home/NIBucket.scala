@@ -14,6 +14,12 @@ class NIBucket extends ScalaDsl with EN {
     }
   }
 
+  And("""^an link-click language select event to '(.*)' is sent to google analytics$""") {
+    (expectedLang: String) => provisioningCurrentDriver { implicit webDriver =>
+      GoogleAnalyticsAssertions.assertGoogleAnalyticsEventSent("link - click", "lang-select", expectedLang)
+    }
+  }
+
   And( """^user is able to see a section '(.*)' on NI Page$""") {
     (expectedText: String) => provisioningCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
