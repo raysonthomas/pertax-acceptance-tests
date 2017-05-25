@@ -3,7 +3,7 @@ package uk.gov.hmrc.integration.stepdefs.external
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
+import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CustomExpectedConditions
 import uk.gov.hmrc.integration.utils.Configuration
@@ -21,8 +21,7 @@ class HomePage extends ScalaDsl with EN {
 
   And( """^user sees text '(.*)' on the home page$""") { (text: String) =>
     provisioningCurrentDriver { implicit webDriver =>
-//      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[@class='tax-calc-banner panel-indent panel-indent--info']"))))
+      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/personal-account"))
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
 
     }

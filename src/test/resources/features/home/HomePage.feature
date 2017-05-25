@@ -20,7 +20,7 @@ Feature: Home Page segmentation
     And user clicks back button
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user sees 'Child Benefit' link on the page and its href is as expected
-    And user sees text 'Tell us about changes that may affect your Child Benefit.' on the home pageed
+    And user sees text 'Tell us about changes that may affect your Child Benefit.' on the home page
     And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'Company benefits' link on the page and its href is as expected
     And user sees text 'See how company car and medical benefit could affect your taxable income.' on the home page
