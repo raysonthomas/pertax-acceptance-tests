@@ -44,14 +44,14 @@ Feature: As a PTA user
     And   user does not see text 'You have paid too much tax' on the home page
 
   Scenario: when a user has paid too little tax in the previous tax year and has not made an additional payment yet
-    Given A user who has paid too little tax is logged into the service using gg
+    Given A user who paid too little tax is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
-    And   user sees a banner
     And   user sees text 'You have paid too little tax' on the home page
-    And   user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2016 to 2017 tax year.' on the home page
+#    And   user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2016 to 2017 tax year.' on the home page
+    And   user sees text 'You owe HM Revenue and Customs £3,000.00 for the 2016 to 2017 tax year.' on the home page
     And   user sees 'Get more details' link on the page and its href is as expected
 
   Scenario: when a user has paid too much tax in the previous tax year and has not requested a refund yet
