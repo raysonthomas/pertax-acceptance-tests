@@ -49,8 +49,7 @@ Feature: As a PTA user
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
-#    And   user sees text 'You have paid too little tax' on the home page
-    And text 'You have paid too little tax' is visible on the page
+    And   user sees text 'You have paid too little tax' on the home page
     And   user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2016 to 2017 tax year.' on the home page
     And   user sees 'Get more details' link on the page and its href is as expected
 
