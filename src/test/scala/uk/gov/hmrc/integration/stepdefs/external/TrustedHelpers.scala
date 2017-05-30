@@ -114,8 +114,7 @@ class TrustedHelpers extends ScalaDsl with EN {
           if (webDriver.getPageSource.contains("Cancel request")){
             webDriver.findElement(By.linkText("Cancel request")).click()
             webDriver.findElement(By.id("cancel_request")).click()
-            webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
-
+            
         }
       }
   }
