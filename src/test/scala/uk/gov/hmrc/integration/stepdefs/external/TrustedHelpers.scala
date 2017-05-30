@@ -88,7 +88,9 @@ class TrustedHelpers extends ScalaDsl with EN {
           webDriver.findElement(By.id("radio-1")).click()
           webDriver.findElement(By.id("auto_id_confirm_submit")).click()
           (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/help-cancelled")))
-          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
+          Thread.sleep(3000)
+          webDriver.get("http://localhost:9231/trusted-helpers")
+//          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
           (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/trusted-helpers")))
 
         }
@@ -96,7 +98,9 @@ class TrustedHelpers extends ScalaDsl with EN {
         if (webDriver.getPageSource.contains("Cancel request")){
           webDriver.findElement(By.linkText("Cancel request")).click()
           webDriver.findElement(By.id("cancel_request")).click()
-          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
+          Thread.sleep(3000)
+          webDriver.get("http://localhost:9231/trusted-helpers")
+//          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
         }
       }
   }
