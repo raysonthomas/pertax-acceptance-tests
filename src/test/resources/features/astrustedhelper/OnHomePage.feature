@@ -13,7 +13,7 @@ Feature: Use PTA service as a helper
     And user clicks on 'Help Jayne' link to help someone
     When user selects PTA service to help with
     Then user is on the page with title 'Personal tax account' and URL is as expected
-    And text 'M Andrew' is visible in the banner
+    And text 'Jayne Rockle' is visible in the banner
     And user is able to see 'Return to your own account' link on the page
     And user clicks on link 'Return to your own account'
     And user ends contact
