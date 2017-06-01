@@ -100,8 +100,7 @@ class TrustedHelpers extends ScalaDsl with EN {
           webDriver.findElement(By.linkText("Cancel request")).click()
           webDriver.findElement(By.id("cancel_request")).click()
           println("------------clicked cancel link-----------")
-//          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
-          webDriver.get("http://localhost:9231/trusted-helpers/")
+          webDriver.findElement(By.linkText("Return to my Trusted Helper contacts")).click()
           println("-----------clicked return link------------")
         }
       }
