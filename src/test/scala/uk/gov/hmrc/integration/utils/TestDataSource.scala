@@ -58,7 +58,7 @@ object TestDataSource {
     "A user without a tax underpayment"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true),
     "A user who has paid too little tax"                              -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AH498813B"), gg = true),
     "A user who is a trusted helper"                                  -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton
-    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew
+    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //M Andrew
 //    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("CE123457D"), verify = true),
 
     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("""AB216913B"""), gg = true), //GG Chris

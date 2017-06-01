@@ -10,7 +10,7 @@ Feature: Use PTA service as a helper
     Given A user who is a trusted helper is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     And user clicks on View your trusted helper contacts link
-    And user clicks on 'Help M' link to help someone
+    And user clicks on 'Help Jayne' link to help someone
     When user selects PTA service to help with
     Then user is on the page with title 'Personal tax account' and URL is as expected
     And text 'M Andrew' is visible in the banner
