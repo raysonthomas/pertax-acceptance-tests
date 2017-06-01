@@ -16,14 +16,4 @@ class MCIUser extends ScalaDsl with EN {
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
     }
   }
-
-
-  And("""^an MCI link-click language select event to '(.*)' is sent to google analytics$""") {
-    (expectedLang: String) => provisioningCurrentDriver { implicit webDriver =>
-      GoogleAnalyticsAssertions.assertGoogleAnalyticsEventSent("link - click", "lang-select", expectedLang)
-    }
-  }
-
-
-
 }
