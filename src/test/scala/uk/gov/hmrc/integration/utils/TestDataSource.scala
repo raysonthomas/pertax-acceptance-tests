@@ -184,7 +184,8 @@ object TestDataSource {
     "report a change"                                               ->"/Child-Benefit-Claimant-Change-of-Circumstances/guide",
     "stop or restart your Child Benefit payments"                   ->"/high-income-child-benefit-tax-charge/guide",
     "Help us with our research (opens in new window)"               ->"/treejack/navigation-0",
-    "Ask someone for their help"                                    ->"/trusted-helpers/appoint-a-trusted-helper"
+    "Ask someone for their help"                                    ->"/trusted-helpers/appoint-a-trusted-helper",
+    "Dod i wybod am yr hyn a godir am alwadau (yn agor ffenestr newydd)" -> "https://www.gov.uk/call-charges"
   )
 
   val pathForTitle = Map(
