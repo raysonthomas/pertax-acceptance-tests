@@ -1,0 +1,46 @@
+[1mdiff --git a/src/test/resources/features/astrustedhelper/AssignHelpers.feature b/src/test/resources/features/astrustedhelper/AssignHelpers.feature[m
+[1mindex 6bac483..e6069da 100644[m
+[1m--- a/src/test/resources/features/astrustedhelper/AssignHelpers.feature[m
+[1m+++ b/src/test/resources/features/astrustedhelper/AssignHelpers.feature[m
+[36m@@ -17,7 +17,7 @@[m [mFeature: Trusted helper relation setup[m
+   Scenario: Approve request for help[m
+     Given A user who is a trusted helper is logged into the service using verify[m
+     And user clicks on View your trusted helper contacts link[m
+[31m-    And user clicks on 'Respond to M's request' link to help someone[m
+[32m+[m[32m    And user clicks on 'Respond to Jayne's request' link to help someone[m
+     And user submits his decision to help[m
+     And user navigates to personal tax account home page[m
+ [m
+[1mdiff --git a/src/test/resources/features/astrustedhelper/OnHomePage.feature b/src/test/resources/features/astrustedhelper/OnHomePage.feature[m
+[1mindex 897b239..5d3c0b1 100644[m
+[1m--- a/src/test/resources/features/astrustedhelper/OnHomePage.feature[m
+[1m+++ b/src/test/resources/features/astrustedhelper/OnHomePage.feature[m
+[36m@@ -10,10 +10,10 @@[m [mFeature: Use PTA service as a helper[m
+     Given A user who is a trusted helper is logged into the service using verify[m
+     And user is on the page with title 'Personal tax account' and URL is as expected[m
+     And user clicks on View your trusted helper contacts link[m
+[31m-    And user clicks on 'Help M' link to help someone[m
+[32m+[m[32m    And user clicks on 'Help Jayne' link to help someone[m
+     When user selects PTA service to help with[m
+     Then user is on the page with title 'Personal tax account' and URL is as expected[m
+[31m-    And text 'M Andrew' is visible in the banner[m
+[32m+[m[32m    And text 'Jayne Rockle' is visible in the banner[m
+     And user is able to see 'Return to your own account' link on the page[m
+     And user clicks on link 'Return to your own account'[m
+     And user ends contact[m
+[1mdiff --git a/src/test/scala/uk/gov/hmrc/integration/utils/TestDataSource.scala b/src/test/scala/uk/gov/hmrc/integration/utils/TestDataSource.scala[m
+[1mindex 292807c..d32227d 100644[m
+[1m--- a/src/test/scala/uk/gov/hmrc/integration/utils/TestDataSource.scala[m
+[1m+++ b/src/test/scala/uk/gov/hmrc/integration/utils/TestDataSource.scala[m
+[36m@@ -58,9 +58,9 @@[m [mobject TestDataSource {[m
+     "A user without a tax underpayment"                               -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AB216913B"), gg = true),[m
+     "A user who has paid too little tax"                              -> UserProperties.build(name = Some("MartinHempton"), nino = Some("AH498813B"), gg = true),[m
+     "A user who is a trusted helper"                                  -> UserProperties.build(nino = Some("AB216913B"), verify = true),  //Martin Hempton[m
+[31m-    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew[m
+[32m+[m[32m//    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("JZ013615D"), verify = true),  //M Andrew[m
+ //    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("CE123457D"), verify = true),[m
+[31m-//    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle[m
+[32m+[m[32m    "A user who is a trusted helpee"                                  -> UserProperties.build(nino = Some("PJ523813C"), verify = true),  //Jayne Rockle[m
+ [m
+     "User with a PAYE account, but no SA account"                     -> UserProperties.build(name = Some("MartinHempton"), nino = Some("""AB216913B"""), gg = true), //GG Chris[m
+     "User with a PAYE account and SA account"                         -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111112222"), gg = true), //GG Bob Jones[m
