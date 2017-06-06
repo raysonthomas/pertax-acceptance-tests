@@ -20,6 +20,12 @@ class NIBucket extends ScalaDsl with EN {
     }
   }
 
+  And("""^a pageview event to '(.*)' is sent to google analytics$""") {
+    (expectedAddressURL: String) => provisioningCurrentDriver { implicit webDriver =>
+      GoogleAnalyticsAssertions.assertGoogleAnalyticsPageViewSent(expectedAddressURL)
+    }
+  }
+
   And( """^user is able to see a section '(.*)' on NI Page$""") {
     (expectedText: String) => provisioningCurrentDriver { implicit webDriver =>
       assert(webDriver.getPageSource.contains(expectedText), s"\n'$expectedText' text was not found on the page")
