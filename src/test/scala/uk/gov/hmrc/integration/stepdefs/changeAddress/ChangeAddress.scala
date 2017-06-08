@@ -4,34 +4,46 @@ import cucumber.api.Scenario
 import cucumber.api.java.Before
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.jsoup.Jsoup
-import org.openqa.selenium.{WebDriverException, OutputType, TakesScreenshot, By}
+import org.openqa.selenium.{By, OutputType, TakesScreenshot, WebDriverException}
 import org.openqa.selenium.support.ui.WebDriverWait
 import uk.gov.hmrc.integration.page.GlobalActions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
-import uk.gov.hmrc.integration.selenium.{Snapshotter, CustomExpectedConditions}
+import uk.gov.hmrc.integration.selenium.{CustomExpectedConditions, Snapshotter}
 import uk.gov.hmrc.integration.utils.Configuration
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
 import scala.collection.JavaConversions._
-import scala.sys.process.Process
+import scala.language.postfixOps
+import scala.sys.process._
 
 class ChangeAddress extends ScalaDsl with EN {
 
   Then( """^user updates .*'(.*)' with '(.*)'$""") {
-    (objID: String, value: String) => provisioningCurrentDriver { implicit webDriver =>
-      val field = webDriver.findElement(By.id(objID))
-      field.clear()
-      field.sendKeys(value)
-    }
+    (objID: String, value: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val field = webDriver.findElement(By.id(objID))
+        field.clear()
+        field.sendKeys(value)
+      }
   }
 
   Then( """^The service '([^"]*)' is restarted$""") {
-    (service: String) => provisioningCurrentDriver { implicit webDriver =>
-//      Process(s"sm --stop $service").!!
-//      Process(s"sm --start $service -f").!!
-      Process(s"sm --restart $service -f").!!
-      Thread.sleep(4000)
-    }
+    (service: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        //      Process(s"sm --stop $service").!!
+        //      Process(s"sm --start $service -f").!!
+        Process(s"sm --restart $service -f").!!
+        Thread.sleep(4000)
+      }
+  }
+
+  Then( """^The service PERTAX FRONTEND is restarted with tax credits toggle$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+//        Process("sm --stop PERTAX_FRONTEND").!!
+//        Thread.sleep(4000)
+        "./tcs_toggle.sh" !
+      }
   }
 
 
@@ -92,40 +104,45 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   Then( """user selects the option No$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("residencyChoice-sole")).click()
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("residencyChoice-sole")).click()
 
-    }
+      }
   }
 
   Then( """user selects the option Yes$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("residencyChoice-primary")).click()
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("residencyChoice-primary")).click()
 
-    }
+      }
   }
 
   Then( """user selects the option Yes for Tax Credits$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("value-true")).click()
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("value-true")).click()
 
-    }
+      }
   }
 
   Then( """user selects the option No for Tax Credits$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("value-false")).click()
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("value-false")).click()
 
-    }
+      }
   }
 
 
   Then( """user continues from Your address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
-      //      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/primary/find-address")))
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
+        //      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/primary/find-address")))
 
-    }
+      }
   }
 
   Then( """^user waits for primary find address page$""") {
@@ -144,74 +161,84 @@ class ChangeAddress extends ScalaDsl with EN {
 
 
   Then( """user continues from Tax Credits page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
-    }
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.cssSelector(".form-group.inline>button")).click()
+      }
   }
 
   Then( """user waits for residency choice$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/residency-choice")))
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/residency-choice")))
 
-    }
+      }
   }
 
   Then( """user waits for Enter your address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/sole/edit-address")))
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/sole/edit-address")))
 
-    }
+      }
   }
 
   Then( """user waits for the Enter your address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/edit-address")))
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/edit-address")))
 
-    }
+      }
   }
 
   Then( """^user is on the page with title '(.*)' and with text Enter the address$""") {
-    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
-      val actualPageTitle = webDriver.getTitle
-      val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.endsWith("/your-address/postal/edit-address"), "URL not as expected")
-      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-    }
+    (expectedPageTitle: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val actualPageTitle = webDriver.getTitle
+        val currentUrl = webDriver.getCurrentUrl
+        assert(currentUrl.endsWith("/your-address/postal/edit-address"), "URL not as expected")
+        assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+      }
   }
 
   Then( """user continues from Select your address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("submitAddressSelector")).click()
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("submitAddressSelector")).click()
 
-    }
+      }
   }
 
   Then( """user waits for '(.*)' page$""") {
-    (title: String) => provisioningCurrentDriver { implicit webDriver =>
-      (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.titleIs(title)))
+    (title: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt).until(CustomExpectedConditions.titleIs(title)))
 
-    }
+      }
   }
 
   Then( """user continues from Edit the address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.id("updateAddress")).click()
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.id("updateAddress")).click()
 
-    }
+      }
   }
 
   Then( """user continues from Enter start date page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector(".button")).click()
-//      Thread.sleep(2000)
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.cssSelector(".button")).click()
+        //      Thread.sleep(2000)
 
-    }
+      }
   }
 
   Then( """user clicks on Confirm and save button on Check your answers page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      webDriver.findElement(By.cssSelector(".column-whole>form>button")).click()
-    }
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        webDriver.findElement(By.cssSelector(".column-whole>form>button")).click()
+      }
   }
 
   Then( """^user selects the address '(.*)' and continues$""") {
@@ -252,24 +279,26 @@ class ChangeAddress extends ScalaDsl with EN {
 
 
   Then( """^user is on the page with title '(.*)' whose URL is as expected$""") {
-    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
-      val actualPageTitle = webDriver.getTitle
-      val currentUrl = webDriver.getCurrentUrl
-      val urlTail: String = "/personal-account/your-address/postal/thank-you"
-      assert(currentUrl.endsWith(urlTail), s"\n current page URL was:\n $currentUrl \nit did not end with:\n $urlTail")
-      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-    }
+    (expectedPageTitle: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val actualPageTitle = webDriver.getTitle
+        val currentUrl = webDriver.getCurrentUrl
+        val urlTail: String = "/personal-account/your-address/postal/thank-you"
+        assert(currentUrl.endsWith(urlTail), s"\n current page URL was:\n $currentUrl \nit did not end with:\n $urlTail")
+        assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+      }
   }
 
 
   Then( """^user is on the page with title '(.*)' and whose URL is as expected$""") {
-    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
-      val actualPageTitle = webDriver.getTitle
-      val currentUrl = webDriver.getCurrentUrl
-      val urlTail: String = "/personal-account/your-address/sole/thank-you"
-      assert(currentUrl.endsWith(urlTail), s"\n current page URL was:\n $currentUrl \nit did not end with:\n $urlTail")
-      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-    }
+    (expectedPageTitle: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val actualPageTitle = webDriver.getTitle
+        val currentUrl = webDriver.getCurrentUrl
+        val urlTail: String = "/personal-account/your-address/sole/thank-you"
+        assert(currentUrl.endsWith(urlTail), s"\n current page URL was:\n $currentUrl \nit did not end with:\n $urlTail")
+        assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+      }
   }
 
 
@@ -312,46 +341,51 @@ class ChangeAddress extends ScalaDsl with EN {
   }
 
   Then( """^user is on the page with expected URL$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.endsWith("/tax-credits-service/personal/change-address"), "\n current page URL did not end as expected}")
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val currentUrl = webDriver.getCurrentUrl
+        assert(currentUrl.endsWith("/tax-credits-service/personal/change-address"), "\n current page URL did not end as expected}")
 
-    }
+      }
   }
 
   And( """^user does not see a manual entry link matching: '(.*)'$""") {
-    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
-      assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page when not expected")
-    }
+    (linkName: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        assert(!webDriver.getPageSource.contains(linkName), s"$linkName is present on the page when not expected")
+      }
   }
 
   And( """^user sees a manual entry link matching: '(.*)'$""") {
-    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
-      assert(webDriver.getPageSource.contains(linkName), s"$linkName is not present on the page when expected")
-    }
+    (linkName: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        assert(webDriver.getPageSource.contains(linkName), s"$linkName is not present on the page when expected")
+      }
   }
 
   Then( """^user is on the page with title '(.*)' with correct URL for postal address update$""") {
-    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
-      val actualPageTitle = webDriver.getTitle
-      val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.endsWith("/your-address/postal/edit-address"), "current URL does not end with /your-address/postal/edit-address")
-      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-    }
+    (expectedPageTitle: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val actualPageTitle = webDriver.getTitle
+        val currentUrl = webDriver.getCurrentUrl
+        assert(currentUrl.endsWith("/your-address/postal/edit-address"), "current URL does not end with /your-address/postal/edit-address")
+        assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+      }
   }
 
   Then( """^user is on the page with title '(.*)' and URL is as expected for the postal address change$""") {
-    (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
-      val actualPageTitle = webDriver.getTitle
-      val currentUrl = webDriver.getCurrentUrl
-      assert(currentUrl.endsWith("/personal-account/your-address/postal/thank-you"), "current URL does not end with /personal-account/your-address/sole/thank-you")
-      assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-    }
+    (expectedPageTitle: String) =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val actualPageTitle = webDriver.getTitle
+        val currentUrl = webDriver.getCurrentUrl
+        assert(currentUrl.endsWith("/personal-account/your-address/postal/thank-you"), "current URL does not end with /personal-account/your-address/sole/thank-you")
+        assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
+      }
   }
 
 
-
   import ScenarioStore._
+
   @Before
   def storeScenario(s: Scenario) {
     scenario = s
@@ -359,51 +393,52 @@ class ChangeAddress extends ScalaDsl with EN {
 
 
   Then( """^user clicks on Change where we send your letters link on your address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      val ele = webDriver.findElement(By.cssSelector("[class=\"button grey margin-top\"][href=\"/personal-account/your-address/postal/find-address\"]"))
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val ele = webDriver.findElement(By.cssSelector("[class=\"button grey margin-top\"][href=\"/personal-account/your-address/postal/find-address\"]"))
 
-      println(ele.getTagName)
-      println(ele.getAttribute("href"))
-      println(ele.getText)
-      println(assert(ele.isEnabled, "Not enabled"))
+        println(ele.getTagName)
+        println(ele.getAttribute("href"))
+        println(ele.getText)
+        println(assert(ele.isEnabled, "Not enabled"))
 
-//      ifCurrentDriverTakesSnapshot { takesSnapShot =>
-//        Snapshotter.takeSnapshot(takesSnapShot, scenario)
-//      }
+        //      ifCurrentDriverTakesSnapshot { takesSnapShot =>
+        //        Snapshotter.takeSnapshot(takesSnapShot, scenario)
+        //      }
 
 
-      ele.click()
+        ele.click()
 
-      try {
-        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/find-address"))
+        try {
+          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/postal/find-address"))
+        }
+        catch {
+          case e: Exception =>
+            //          ifCurrentDriverTakesSnapshot { takesSnapShot =>
+            //            Snapshotter.takeSnapshot(takesSnapShot, scenario)
+            //          }
+            println(webDriver.getCurrentUrl)
+            throw new RuntimeException(e)
+        }
       }
-      catch {
-        case e: Exception =>
-//          ifCurrentDriverTakesSnapshot { takesSnapShot =>
-//            Snapshotter.takeSnapshot(takesSnapShot, scenario)
-//          }
-          println(webDriver.getCurrentUrl)
-          throw new RuntimeException(e)
-      }
-    }
   }
   Then( """^user clicks on Change your address link on your address page$""") {
-    () => provisioningCurrentDriver { implicit webDriver =>
-      val ele = webDriver.findElement(By.cssSelector("[href=\"/personal-account/your-address/tax-credits-choice\"]"))
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val ele = webDriver.findElement(By.cssSelector("[href=\"/personal-account/your-address/tax-credits-choice\"]"))
 
-      ele.click()
+        ele.click()
 
-      try {
-        (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/tax-credits-choice"))
+        try {
+          (new WebDriverWait(webDriver, Configuration("defaultWait").toInt)).until(CustomExpectedConditions.urlEndsWith("/your-address/tax-credits-choice"))
+        }
+        catch {
+          case e: Exception =>
+            throw new RuntimeException(e)
+        }
       }
-      catch {
-        case e: Exception =>
-          throw new RuntimeException(e)
-      }
-    }
   }
 }
-
 
 
 object ScenarioStore {
