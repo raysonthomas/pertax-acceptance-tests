@@ -11,6 +11,7 @@ import uk.gov.hmrc.integration.utils.Configuration
 import uk.gov.hmrc.integration.utils.TestDataSource._
 
 import scala.collection.JavaConversions._
+import scala.sys.process._
 
 class TrustedHelpers extends ScalaDsl with EN {
 
@@ -106,8 +107,12 @@ class TrustedHelpers extends ScalaDsl with EN {
       }
   }
 
-
-
+  Then( """^mongoDB is dropped$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        ("./drop_mongodb.sh") !
+      }
+  }
 
   Then( """^user ends contact$""") {
     () =>
