@@ -6,6 +6,9 @@ Feature: Trusted helper relation setup
 
   JIRA story history: MTA-1096, MTA-1097, MTA-1864
 
+  Scenario: Drop mongo database
+    Given mongoDB is dropped
+
   Scenario: Ask someone for their help
     Given A user who is a trusted helpee is logged into the service using verify
     And user clicks on View your trusted helper contacts link
@@ -17,7 +20,7 @@ Feature: Trusted helper relation setup
   Scenario: Approve request for help
     Given A user who is a trusted helper is logged into the service using verify
     And user clicks on View your trusted helper contacts link
-    And user clicks on 'Respond to Margarita's request' link to help someone
+    And user clicks on 'Respond to M's request' link to help someone
     And user submits his decision to help
     And user navigates to personal tax account home page
 
