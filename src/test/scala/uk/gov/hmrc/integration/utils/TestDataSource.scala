@@ -75,6 +75,7 @@ object TestDataSource {
     "User"                                                            -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("444444444"), gg = true),  //xxxx
     "TCS user"                                                        -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
     "User with No Correspondence Address"                             -> UserProperties.build(name = Some("HazelYoung"), nino = Some("AM242413B"), sautr = Some("111111111"), gg = true),//Hazel Young
+    "User adding Correspondence Address"                              -> UserProperties.build(name = Some("MargaritaSullivan"), nino = Some("BT890113B"), gg = true), //GG
     "User without active company benefits but marriage allowance"     -> UserProperties.build(name = Some("MAndrew"), nino = Some("JZ013615D"), sautr = Some("222222222"), gg = true),  //M Andrew
     "User who has enrolled for Self Assessment and Not Yet Activated" -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003B"), sautr = Some("111114444"), gg = true, saEnrolmentStatus = "NotYetActivated"),  //XXXXXX
     "User with gg credentials not linked to SA"                       -> UserProperties.build(name = Some("BobJones"), nino = Some("AA000003D"), sautr = None, gg = true, saEnrolmentStatus = "Activated"),  //GG not SA
