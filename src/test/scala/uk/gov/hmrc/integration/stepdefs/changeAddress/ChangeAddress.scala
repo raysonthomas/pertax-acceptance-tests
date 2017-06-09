@@ -40,8 +40,6 @@ class ChangeAddress extends ScalaDsl with EN {
   Then( """^The service PERTAX FRONTEND is restarted with tax credits toggle$""") {
     () =>
       provisioningCurrentDriver { implicit webDriver =>
-//        Process("sm --stop PERTAX_FRONTEND").!!
-//        Thread.sleep(4000)
         "./tcs_toggle.sh" !
       }
   }
