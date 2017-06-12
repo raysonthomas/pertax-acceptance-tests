@@ -44,6 +44,13 @@ class ChangeAddress extends ScalaDsl with EN {
       }
   }
 
+  Then( """^The service PERTAX_FRONTEND  is restarted with UR link toggle$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        "./urlink_toggle.sh" !
+      }
+  }
+
 
   // this step definition does nothing if it is not qa environment (because we cant modify address in stubs)
   Then( """^Updated Address '(.*)', '(.*)', '(.*)', '(.*)', '(.*)' should be visible$""") {

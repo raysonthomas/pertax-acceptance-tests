@@ -52,4 +52,4 @@ Feature: Verify my home address
 
 
   Scenario: PERTAX_FRONTEND is Restarted with toggle feature on
-    Given The service 'PERTAX_FRONTEND' is restarted
+    Given The service PERTAX_FRONTEND  is restarted with UR link toggle
