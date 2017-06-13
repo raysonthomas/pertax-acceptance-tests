@@ -16,7 +16,7 @@ object GoogleAnalyticsAssertions {
   }
 
   def assertGoogleAnalyticsPageViewSent(label: String)(implicit webDriver: WebDriver) = {
-    val expectedArgs: List[String] = List("send", "pageview", label)
+    val expectedArgs: List[String] = List("set", "pageview", label)
     assert(
       GoogleAnalytics.getAllGaCalls(webDriver).contains(GaCall(expectedArgs)),
       s"""No call to google analytics matching ga('${expectedArgs.mkString("','")}') detected"""
