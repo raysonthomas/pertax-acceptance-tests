@@ -19,7 +19,7 @@ Feature: Verify my correspondence address
     And user sees 'Change where we send your letters' link on the page and its href is as expected
     Then user clicks on 'Change where we send your letters' link
     Then user is on the page with title 'Find an address' and URL is as expected
-
+@suite1
   Scenario: Send Google Analytics event when user updates postal address
     Given User adding Correspondence Address is logged into the service using gg
     And user completes 2FA Journey
