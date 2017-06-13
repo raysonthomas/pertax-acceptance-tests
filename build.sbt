@@ -44,8 +44,6 @@ libraryDependencies ++= Seq(
   "org.pegdown" % "pegdown" % "1.6.0" % "test",
   "org.scalatest" %% "scalatest" % "2.2.4",
   "uk.gov.hmrc" %% "accessibility-driver" % "1.6.0",
-  "ch.qos.logback" % "logback-classic" % "1.1.7",
-  "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
   "org.scalaj" %% "scalaj-http" % "1.1.0",
   "org.jsoup" % "jsoup" % "1.7.3"
 
