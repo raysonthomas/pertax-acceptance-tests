@@ -64,50 +64,22 @@ Feature: As a PTA user
     And   user sees 'Get your refund' link on the page and its href is as expected
 
   Scenario: when a user doesn't owe anymore income tax to HMRC
-    Given A user who owes no income tax to pay is logged into the service using gg
+    Given A user who has paid full Income Tax is logged into the service using gg
     And user completes 2FA Journey
     And user completes IV Uplift Journey
     And user Continues the journey to PTA
     Then  user is on the page with title 'Personal tax account' and URL is as expected
-    And user sees text 'You don't owe anymore Income Tax' on the home page
+    And user sees text 'You don't owe any more Income Tax' on the home page
     And user sees text 'You have no payments to make to HMRC for the tax year 2016 to 2017' on the home page
-    And user sees text '' on the home page
+    And user sees text 'Get more details' on the home page
 
-  Scenario: when a user doesn't have a record on income tax
-    Given A user who has no record on income tax is logged into the service using gg
-    And user completes 2FA Journey
-    And user completes IV Uplift Journey
-    And user Continues the journey to PTA
-    Then  user is on the page with title 'Personal tax account' and URL is as expected
-    And user sees text 'Income Tax not yet calculated' on the home page
-    And user sees text 'Please wait for your tax calculation letter(P800)' on the home page
-    And user sees text 'Get more information about when your P800 will arrive' on the home page
-
-   Scenario: when a user has part paid their income tax
-     Given A user who has part paid income tax is logged into the service using gg
+  Scenario: when a user has part paid their income tax
+     Given A user who has part paid Income Tax is logged into the service using gg
      And user completes 2FA Journey
      And user completes IV Uplift Journey
      And user Continues the journey to PTA
      Then  user is on the page with title 'Personal tax account' and URL is as expected
-     And user sees text 'You paid too little Income Tax' on the home page
-     And user sees text 'You owe HMRC £500 for the 2016 to 2017 tax year' on the home page
-     And user sees text 'Get more information about the tax you owe' on the home page
-
-    Scenario:  When a user has a balanced status for the tax year
-     Given A user who has part paid income tax is logged into the service using gg
-     And user completes 2FA Journey
-     And user completes IV Uplift Journey
-     And user Continues the journey to PTA
-     Then  user is on the page with title 'Personal tax account' and URL is as expected
-     And user sees text 'You paid the right of Income Tax last year' on the home page
-     And user sees text 'You don't owe HMRC anything for the tax year 2017 to 2017' on the home page
-     And user sees text 'Get more information about the tax you paid' on the home page
-
-
-
-
-
-
-
-
+     And user sees text 'You have paid too little tax' on the home page
+     And user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2016 to 2017 tax year.' on the home page
+     And user sees text 'Get more details' on the home page
 
