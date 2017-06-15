@@ -1,4 +1,4 @@
-@suite1
+@suite
 Feature: Verify my correspondence address
   As a HMRC Customer
   I need to be able to add my correspondence address
