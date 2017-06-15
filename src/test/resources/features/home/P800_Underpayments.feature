@@ -63,6 +63,23 @@ Feature: As a PTA user
     And   user sees text 'HM Revenue and Customs owe you a £1,000.00 refund for the 2016 to 2017 tax year.' on the home page
     And   user sees 'Get your refund' link on the page and its href is as expected
 
+  Scenario: when a user doesn't owe anymore income tax to HMRC
+    Given A user who has paid full Income Tax is logged into the service using gg
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    Then  user is on the page with title 'Personal tax account' and URL is as expected
+    And user sees text 'You don't owe any more Income Tax' on the home page
+    And user sees text 'You have no payments to make to HMRC for the tax year 2016 to 2017' on the home page
+    And user sees text 'Get more details' on the home page
 
-
+  Scenario: when a user has part paid their income tax
+     Given A user who has part paid Income Tax is logged into the service using gg
+     And user completes 2FA Journey
+     And user completes IV Uplift Journey
+     And user Continues the journey to PTA
+     Then  user is on the page with title 'Personal tax account' and URL is as expected
+     And user sees text 'You have paid too little tax' on the home page
+     And user sees text 'You owe HM Revenue and Customs £1,000.00 for the 2016 to 2017 tax year.' on the home page
+     And user sees text 'Get more details' on the home page
 
