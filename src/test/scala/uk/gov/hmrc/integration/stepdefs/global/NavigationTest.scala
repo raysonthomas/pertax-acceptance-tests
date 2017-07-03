@@ -117,4 +117,5 @@ class NavigationTest extends ScalaDsl with EN {
       webDriver.findElement(By.partialLinkText("Help us with our research")).click()
     }
   }
+ And("""^user does not see 'Cymraeg' Language link on the page$""")
 }

@@ -11,6 +11,48 @@ Feature: Test the exit survey
     When user signs out
     Then user sees text 'Give feedback' on the page
 
+  Scenario: Navigate to the Sign out page and complete survey in Welsh toggle
+    Given User with a PAYE account and SA account is logged into the service using gg
+    And user completes 2FA Journey
+    And user completes IV Uplift Journey
+    And user Continues the journey to PTA
+    When user signs out
+    And user clicks on language 'Cymraeg' link
+    And an link-click language select event to 'Cymraeg' is sent to google analytics
+    And user can not click language 'Cymraeg' link
+    Then user sees text 'Rhoi adborth' on the page
+    And user sees text 'Mae pob cwestiwn yn yr arolwg yn ddewisol' on the page
+    And user sees text 'A oeddech yn gallu gwneud yr hyn yr oedd angen i chi'i wneud heddiw' on the page
+    And user clicks an option with the ID 'ableToDoWhatNeeded-yes'
+    And user clicks the continue button
+    Then user sees text 'Pa ffynonellau o wybodaeth a roesoch gynnig arnynt cyn i chi ddefnyddio'r gwasanaeth hwn?' on the page
+    And user sees text 'Dewiswch bob un sy'n gymwys' on the page
+    And user sees text 'Ffonio CThEM' on the page
+    And user sees text 'Ysgrifennu at CThEM' on the page
+    And user sees text 'Llenwi ffurflen ar-lein' on the page
+    And user sees text 'Darllen arweiniad ar GOV.UK' on the page
+    And user sees text 'Siarad â'ch cyflogwr, asiant neu gyfrifydd' on the page
+    And user sees text 'Siarad â ffrind neu aelod o'r teulu' on the page
+    And user sees text 'Dim un o'r rhain' on the page
+    And user clicks the continue button
+    Then user sees text 'At ei gilydd, sut oeddech yn teimlo am y gwasanaeth a gawsoch heddiw?' on the page
+    And user sees text 'Bodlon iawn' on the page
+    And user sees text 'Bodlon' on the page
+    And user sees text 'Ddim yn fodlon nac yn anfodlon' on the page
+    And user sees text 'Anfodlon' on the page
+    And user sees text 'Anfodlon iawn' on the page
+    And user clicks the continue button
+    Then user sees text 'Pa mor debygol ydych i argymell y gwasanaeth hwn i ffrind neu gydweithiwr pe bai angen iddo wneud yr un peth?' on the page
+    And user sees text '10 Tebygol iawn' on the page
+    And user sees text '0 Annhebygol iawn' on the page
+    And user sees text 'Pam wnaethoch roi'r asesiad hwn?' on the page
+    And user sees text 'Peidiwch â chynnwys gwybodaeth bersonol neu ariannol, fel eich rhif Yswiriant Gwladol neu fanylion banc.' on the page
+    And user clicks the continue button
+    Then user sees text 'Diolch am eich adborth' on the page
+    And user clicks on language 'English' link
+    And an link-click language select event to 'Cymraeg' is sent to google analytics
+
+  
 
 #  As a user
 #  I want to be able to give my feedback to PTA
