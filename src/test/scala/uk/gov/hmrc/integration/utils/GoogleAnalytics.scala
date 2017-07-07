@@ -35,7 +35,8 @@ object GoogleAnalytics {
       case MsgRegex(url, line, col, json) =>
         val x = StringEscapeUtils.unescapeJava(json)
         val j = Json.parse(x)
-        if ( (j \ "call").as[JsString].value == "ga" ) Some(j \ "args")
+//        if ( (j \ "call").as[JsString].value == "ga" ) Some(j \ "args")
+        if ( (j \ "call").as[JsString].value == "ga" ) Some(j)
         else None
       case _ => None
     }

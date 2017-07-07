@@ -31,7 +31,7 @@ Feature: Welsh Content in PTA
     And an link-click language select event to 'Cymraeg' is sent to google analytics
     Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
     And user clicks on 'Hafan y cyfrif' breadcrumb link
-    And user clicks on 'Rheoli'ch gosodiadau di-bapur' link
+    And user clicks on 'Rheoli'ch gosodiadau e-bost' link
     Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
     And user clicks on 'Hafan y cyfrif' breadcrumb link
     And user clicks on 'Hunanasesiad' link

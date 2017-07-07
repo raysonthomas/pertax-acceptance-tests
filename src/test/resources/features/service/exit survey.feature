@@ -1,6 +1,7 @@
 @suite @smoke
 Feature: Test the exit survey
 
+  JIRA story history: MTA-2656
 
   # // New Exit Survey - All Only to test 'Give Feedback' Landing page. All other tests commented out.
     Scenario: Navigate to the Sign out page and complete survey
@@ -50,7 +51,7 @@ Feature: Test the exit survey
     And user clicks the continue button
     Then user sees text 'Diolch am eich adborth' on the page
     And user clicks on language 'English' link
-    And an link-click language select event to 'Cymraeg' is sent to google analytics
+    And an link-click language select event to 'English' is sent to google analytics
 
   
 
