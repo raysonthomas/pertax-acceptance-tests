@@ -1,12 +1,13 @@
 package uk.gov.hmrc.integration.stepdefs.home
 
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.By
+import org.openqa.selenium.{By, _}
+import org.scalatest.Matchers
 import uk.gov.hmrc.integration.page.GoogleAnalyticsAssertions
 import uk.gov.hmrc.integration.selenium.CurrentDriver._
 
 
-class NIBucket extends ScalaDsl with EN {
+class NIBucket extends ScalaDsl with EN with Matchers {
 
   And("""^an outbound click event to '(.*)' is sent to google analytics$""") {
     (expectedUrl: String) => provisioningCurrentDriver { implicit webDriver =>
@@ -96,4 +97,27 @@ class NIBucket extends ScalaDsl with EN {
     }
   }
 
+  And("""^user clicks an option with the ID '(.*)'$""") {
+    (expectedId: String) => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id(expectedId)).click()
+    }
+  }
+  And("""^user clicks a option with the text '(.*)'$""") {
+    (expectedText: String) => provisioningCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id(expectedText)).click()
+    }
+  }
+  And( """^user clicks the continue button$""") {
+    provisioningCurrentDriver { implicit webDriver =>
+      webDriver.findElement(By.id("save-and-continue")).click()
+    }
+  }
+
+  And( """^user can not click language '(.*)' link$""") {
+    (linkName: String) => provisioningCurrentDriver { implicit webDriver =>
+      intercept[NoSuchElementException] {
+      assert(!webDriver.findElement(By.partialLinkText(linkName)).isEnabled, s"language $linkName is present on the page")
+      }
+    }
+  }
 }
