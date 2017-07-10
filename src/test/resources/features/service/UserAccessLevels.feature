@@ -17,7 +17,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
-    And user sees 'Manage your paperless settings' link on the page and its href is as expected
+    And user sees 'Manage your email settings' link on the page and its href is as expected
     And user can not see 'Go to your messages' link
     And user can not see 'Self Assessment' link
     And user can not see 'Services for businesses' section
@@ -27,7 +27,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 #    And user sees 'National Insurance' link on the page and its href is as expected
     And user sees 'State Pension forecast' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
-    And user sees 'Manage your paperless settings' link on the page and its href is as expected
+    And user sees 'Manage your email settings' link on the page and its href is as expected
     And user sees 'View your trusted helper contacts' link on the page and its href is as expected
     And user sees 'Update your address' link on the page and its href is as expected
 #    And user can not see 'Messages' link
@@ -50,7 +50,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
     And user sees 'Update your address' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
-    And user sees 'Manage your paperless settings' link on the page and its href is as expected
+    And user sees 'Manage your email settings' link on the page and its href is as expected
     And user can not see 'Self Assessment' link
     And user can not see 'View your trusted helper contacts' link
     And user can not see 'Services for businesses' section
@@ -68,7 +68,7 @@ Feature: Users with various access levels view/access appropriate items on PTA
 #    And user sees 'Go to your messages' link on the page and its href is as expected
     And user sees 'Self Assessment' link on the page and its href is as expected
     And user sees 'your business tax account' link on the page and its href is as expected
-    And user sees 'Manage your paperless settings' link on the page and its href is as expected
+    And user sees 'Manage your email settings' link on the page and its href is as expected
     And user sees 'Pay As You Earn (PAYE)' link on the page and its href is as expected
     And user sees 'Track your forms' link on the page and its href is as expected
     And user sees 'Check if you can get Marriage Allowance' link on the page and its href is as expected
@@ -125,8 +125,8 @@ Feature: Users with various access levels view/access appropriate items on PTA
     Then user clicks on 'National Insurance' link
     Then user is on the page with title 'National Insurance summary' and URL is as expected
     And user navigates to personal tax account home page
-    And user clicks on 'Manage your paperless settings' link
-    And user is on the page with title 'Manage your paperless settings' and URL is as expected
+    And user clicks on 'Manage your email settings' link
+    And user is on the page with title 'Manage your email settings' and URL is as expected
     And user navigates to personal tax account home page
 #    And user clicks on 'Go to your messages' link
 #    Then user is on the page with title 'List of messages' and URL is as expected
