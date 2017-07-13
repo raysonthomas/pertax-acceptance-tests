@@ -26,7 +26,6 @@ class UserUplift extends ScalaDsl with EN {
   And( """^user clicks on Success radio button$""") { () =>
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-success")).click()
-
     }
   }
 
@@ -34,7 +33,6 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-lockedout")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
     }
   }
 
@@ -42,8 +40,6 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-useraborted")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
-
     }
   }
 
@@ -51,8 +47,6 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-incomplete")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
-
     }
   }
 
@@ -60,8 +54,6 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-preconditionfailed")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
-
     }
   }
 
@@ -76,7 +68,6 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-failedmatching")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
     }
   }
 
@@ -84,11 +75,8 @@ class UserUplift extends ScalaDsl with EN {
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#requiredResult-technicalissue")).click()
       webDriver.findElement(By.cssSelector(".button")).click()
-
-
     }
   }
-
 
   Then( """^user is on the page with title '(.*)' with expected URL$""") {
     (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
@@ -96,10 +84,8 @@ class UserUplift extends ScalaDsl with EN {
       val currentUrl = webDriver.getCurrentUrl
       assert(currentUrl.startsWith(pathForTitle(expectedPageTitle)), s"\n current page URL was:\n $currentUrl \nit did not start with:\n ${pathForTitle(expectedPageTitle)}")
       assert(actualPageTitle == expectedPageTitle, s"Page title '$actualPageTitle' is not equal to '$expectedPageTitle'")
-
     }
   }
-
 
   And( """^user sees text '(.*)' on the page$""") { (text: String) =>
     provisioningCurrentDriver { implicit webDriver =>
@@ -113,6 +99,7 @@ class UserUplift extends ScalaDsl with EN {
       assert(webDriver.getPageSource.contains(text), s"Text $text not found on page")
     }
   }
+
   And( """^User added in Exception List$""") { () =>
     provisioningCurrentDriver { implicit webDriver =>
 
@@ -121,20 +108,16 @@ class UserUplift extends ScalaDsl with EN {
       webDriver.findElement(By.cssSelector("#name")).sendKeys("R T")
       webDriver.findElement(By.cssSelector("#reason")).sendKeys("Test Exception")
       webDriver.findElement(By.cssSelector(".button")).click()
-
     }
   }
-
 
   And( """^user Continues the journey to PTA$""") { () =>
     provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.cssSelector("#continue")).click()
-
       if (new URL(webDriver.getCurrentUrl).getPath.startsWith("/paperless/choose/")) {
         webDriver.findElement(By.xpath(".//*[@id='opt-in-out']")).click()
         webDriver.findElement(By.xpath(".//*[@id='submitEmailButton']")).click()
       }
     }
-
   }
 }
