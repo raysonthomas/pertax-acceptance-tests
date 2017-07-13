@@ -35,7 +35,6 @@ class NavigationTest extends ScalaDsl with EN {
   When( """^user clicks on '(.*)' button$""") {
     (id: String) => provisioningCurrentDriver { implicit webDriver =>
       webDriver.findElement(By.id(id)).click()
-//      Thread.sleep(2000)
      }
   }
 
@@ -46,7 +45,6 @@ class NavigationTest extends ScalaDsl with EN {
   }
 
   Then( """^user is on the page with title '(.*)' and URL is as expected$""") {
-//        Thread.sleep(2000)
     (expectedPageTitle: String) => provisioningCurrentDriver { implicit webDriver =>
       val actualPageTitle = webDriver.getTitle
       val currentUrl = webDriver.getCurrentUrl
@@ -117,4 +115,4 @@ class NavigationTest extends ScalaDsl with EN {
       webDriver.findElement(By.partialLinkText("Help us with our research")).click()
     }
   }
-}
+ }
