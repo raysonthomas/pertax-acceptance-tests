@@ -37,8 +37,8 @@ Feature: Welsh Content in PTA
     And user clicks on 'Hunanasesiad' link
     Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
     And user clicks on 'Hafan y cyfrif' breadcrumb link
-    And user clicks on 'Credydau treth' link
-    Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
+#    And user clicks on 'Credydau treth' link
+#    Then user sees text 'Nid yw rhai o'r tudalennau hyn wedi'u cyfieithu i'r Gymraeg eto.' on the page
     And user clicks on language 'English' link
     And an link-click language select event to 'English' is sent to google analytics
 
