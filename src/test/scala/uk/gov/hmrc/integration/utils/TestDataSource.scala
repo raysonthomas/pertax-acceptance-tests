@@ -155,7 +155,7 @@ object TestDataSource {
     "Change your address"                                           -> "/personal-account/your-address/tax-credits-choice",
 //    "Update your address"                                           -> "/personal-account/your-address/residency-choice",
     "Change where we send your letters"                             -> "/personal-account/your-address/postal/find-address",
-    "Tax credits"                                                   -> "/personal-account/tax-credits-summary",
+    "Tax credits"                                                   -> "/tax-credits-service/renewals/service-router",
     "Child Benefit"                                                 -> "/personal-account/child-benefit-forms",
     "sign in to your account again"                                 -> "/personal-account",
     "Check if you can claim Child Benefit (opens in new window)"    -> "/child-benefit/overview",

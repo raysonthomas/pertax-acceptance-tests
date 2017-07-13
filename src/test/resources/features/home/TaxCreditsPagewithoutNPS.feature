@@ -10,8 +10,9 @@ Feature: Tax Credits Page without dependency on NPS
     Given A user with a PAYE account and not in NPS is logged into the service using verify
     And user is on the page with title 'Personal tax account' and URL is as expected
     Then user navigates to Tax Credits page
-    And Breadcrumb is: 'Account home'
-    And text 'Your tax credits' is visible on Tax credits Page
+#    And Breadcrumb is: 'Account home'
+#    And text 'Your tax credits' is visible on Tax credits Page
+    Then user is on the page with Tax Credits URL
     And user navigates to personal tax account home page
     And user is on the page with title 'Personal tax account' and URL is as expected
 

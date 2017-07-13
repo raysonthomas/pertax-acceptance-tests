@@ -19,7 +19,7 @@ Feature: Verify my correspondence address
     And user sees 'Change where we send your letters' link on the page and its href is as expected
     Then user clicks on 'Change where we send your letters' link
     Then user is on the page with title 'Find an address' and URL is as expected
-@suite
+
   Scenario: Send Google Analytics event when user updates postal address
     Given User adding Correspondence Address is logged into the service using gg
     And user completes 2FA Journey
@@ -36,4 +36,5 @@ Feature: Verify my correspondence address
     Then user continues from Edit the address page
     Then user waits for 'Your address has been updated' page
     And user is on the page with title 'Your address has been updated' with correct URL for postal address update
-    And a pageview event to '/personal-account/your-address/postal/thank-you' is sent to google analytics
+#    And a pageview event to '/personal-account/your-address/postal/thank-you' is sent to google analytics
+

@@ -354,6 +354,15 @@ class ChangeAddress extends ScalaDsl with EN {
       }
   }
 
+  Then( """^user is on the page with Tax Credits URL$""") {
+    () =>
+      provisioningCurrentDriver { implicit webDriver =>
+        val currentUrl = webDriver.getCurrentUrl
+        assert(currentUrl.endsWith("/tax-credits-service/renewals/service-router"), "\n current page URL did not end as expected}")
+
+      }
+  }
+
   And( """^user does not see a manual entry link matching: '(.*)'$""") {
     (linkName: String) =>
       provisioningCurrentDriver { implicit webDriver =>
