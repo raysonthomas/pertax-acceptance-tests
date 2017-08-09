@@ -20,7 +20,7 @@ object CurrentDriver {
         !webDriver.getCurrentUrl.contains("identity-check-complete") &&
         !webDriver.getCurrentUrl.endsWith("/signed-out") &&
         !webDriver.getCurrentUrl.endsWith("/feedback-survey/ableToDo") &&
-        !webDriver.getCurrentUrl.endsWith("/feedback-survey/thankYou") &&
+        !webDriver.getCurrentUrl.endsWith("/feedback-survey/thankYou?origin=PERTAX") &&
         !webDriver.getCurrentUrl.endsWith("/personal-account/feedback-thanks") &&
         !webDriver.getCurrentUrl.endsWith("enteractivationpin") &&
         !webDriver.getCurrentUrl.endsWith("/signed-out?origin=PERTAX") &&
