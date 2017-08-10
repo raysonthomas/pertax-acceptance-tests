@@ -29,5 +29,5 @@ Chromedriver installation
 
 1. Download the latest Chromedriver from https://sites.google.com/a/chromium.org/chromedriver/downloads
 2. Extract the zip file and save the chromedriver in the following folder - /usr/local/bin/
-3. Make sure that latest chrome browser is installed
+3. Make sure that latest chrome browser is installed.
 
